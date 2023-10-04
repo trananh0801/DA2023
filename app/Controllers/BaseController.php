@@ -57,7 +57,11 @@ abstract class BaseController extends Controller
     }
 
     //set data cho masterlayout
-    public function loadMasterLayout($data){
+    public function loadMasterLayout($data, $title, $content, $dataLayout = []){
+        $data['title'] = $title;
+        $data['leftMenu'] = view('Admin/Layout/left.menu.php');
+        $data['header'] = view('Admin/Layout/header');
+        $data['content'] = view($content, $dataLayout);
         return $data;
     }
     

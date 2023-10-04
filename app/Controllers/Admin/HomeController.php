@@ -8,8 +8,7 @@ class HomeController extends BaseController
     public function index(): string
     {
         $data = [];
-        $data = $this->loadMasterLayout($data);
-        return view('Admin/Pages/main', $data);
-        $test = '123';
+        $data = $this->loadMasterLayout($data, 'Trang chủ', 'Admin/Pages/home');
+        return view('Admin/main', $data);
     }
 }

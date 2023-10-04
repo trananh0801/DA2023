@@ -77,3 +77,47 @@ in SYSTEMPATH\Common.php on line 1176.
  3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\HomeController))
  4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-03 14:37:09 --> Invalid file: "Admin/Layout/left.menu"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Admin/Layout/left.menu')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Layout/left.menu', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('Admin/Layout/left.menu')
+ 4 APPPATH\Controllers\Admin\HomeController.php(11): App\Controllers\BaseController->loadMasterLayout([...], 'Trang chủ', 'Admin/Pages/home')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\HomeController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\HomeController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-03 16:10:10 --> Class "App\Servives\UserService" not found
+in APPPATH\Controllers\Admin\UserController.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\Admin\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-03 16:11:19 --> Class "App\Servives\UserService" not found
+in APPPATH\Controllers\Admin\UserController.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\Admin\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-03 16:18:07 --> Class "App\Servives\UserService" not found
+in APPPATH\Controllers\Admin\UserController.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\Admin\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-03 16:18:21 --> Class "App\Servives\UserService" not found
+in APPPATH\Controllers\Admin\UserController.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\Admin\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-03 16:23:53 --> Class "App\Servives\BaseService" not found
+in APPPATH\Services\UserService.php on line 6.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(306): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\UserService.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Services\\UserService')
+ 4 APPPATH\Controllers\Admin\UserController.php(15): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Services\\UserService')
+ 5 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\Admin\UserController->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

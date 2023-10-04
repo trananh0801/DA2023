@@ -1,0 +1,353 @@
+CRITICAL - 2023-10-04 01:44:26 --> Undefined variable $user
+in APPPATH\Views\Admin\Pages\user\list.php on line 48.
+ 1 APPPATH\Views\Admin\Pages\user\list.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php', 48)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/user/list', [], true)
+ 5 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/user/list')
+ 6 APPPATH\Controllers\Admin\UserController.php(22): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách tài khoản', 'Admin/Pages/user/list')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 01:44:34 --> Undefined variable $user
+in APPPATH\Views\Admin\Pages\user\list.php on line 48.
+ 1 APPPATH\Views\Admin\Pages\user\list.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php', 48)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/user/list', [], true)
+ 5 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/user/list')
+ 6 APPPATH\Controllers\Admin\UserController.php(22): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách tài khoản', 'Admin/Pages/user/list')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 01:45:08 --> Undefined variable $users
+in APPPATH\Views\Admin\Pages\user\list.php on line 48.
+ 1 APPPATH\Views\Admin\Pages\user\list.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php', 48)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/user/list', [], true)
+ 5 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/user/list')
+ 6 APPPATH\Controllers\Admin\UserController.php(22): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách tài khoản', 'Admin/Pages/user/list')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 01:54:11 --> Undefined variable $user
+in APPPATH\Views\Admin\Pages\user\list.php on line 50.
+ 1 APPPATH\Views\Admin\Pages\user\list.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php', 50)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/user/list', [], true)
+ 5 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/user/list', [...])
+ 6 APPPATH\Controllers\Admin\UserController.php(22): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách tài khoản', [...], 'Admin/Pages/user/list')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 02:52:15 --> CodeIgniter\Validation\Validation::setRule(): Argument #1 ($field) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\UserService.php on line 43
+in SYSTEMPATH\Validation\Validation.php on line 513.
+ 1 APPPATH\Services\UserService.php(43): CodeIgniter\Validation\Validation->setRule([...], [...])
+ 2 APPPATH\Services\UserService.php(22): App\Services\UserService->validateAddUser(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 APPPATH\Controllers\Admin\UserController.php(38): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 02:54:50 --> CodeIgniter\Validation\Validation::setRule(): Argument #1 ($field) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\UserService.php on line 43
+in SYSTEMPATH\Validation\Validation.php on line 513.
+ 1 APPPATH\Services\UserService.php(43): CodeIgniter\Validation\Validation->setRule([...], [...])
+ 2 APPPATH\Services\UserService.php(22): App\Services\UserService->validateAddUser(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 APPPATH\Controllers\Admin\UserController.php(38): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 02:57:12 --> CodeIgniter\Validation\Validation::setRule(): Argument #1 ($field) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\UserService.php on line 43
+in SYSTEMPATH\Validation\Validation.php on line 513.
+ 1 APPPATH\Services\UserService.php(43): CodeIgniter\Validation\Validation->setRule([...], [...])
+ 2 APPPATH\Services\UserService.php(22): App\Services\UserService->validateAddUser(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 APPPATH\Controllers\Admin\UserController.php(38): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 02:58:05 --> CodeIgniter\Validation\Validation::setRule(): Argument #1 ($field) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\UserService.php on line 43
+in SYSTEMPATH\Validation\Validation.php on line 513.
+ 1 APPPATH\Services\UserService.php(43): CodeIgniter\Validation\Validation->setRule([...], [...])
+ 2 APPPATH\Services\UserService.php(22): App\Services\UserService->validateAddUser(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 APPPATH\Controllers\Admin\UserController.php(38): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 02:59:33 --> CodeIgniter\Validation\Validation::setRule(): Argument #1 ($field) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\UserService.php on line 43
+in SYSTEMPATH\Validation\Validation.php on line 513.
+ 1 APPPATH\Services\UserService.php(43): CodeIgniter\Validation\Validation->setRule([...], [...])
+ 2 APPPATH\Services\UserService.php(22): App\Services\UserService->validateAddUser(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 APPPATH\Controllers\Admin\UserController.php(38): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 03:01:54 --> Undefined property: CodeIgniter\Validation\Validation::$getErrors
+in APPPATH\Services\UserService.php on line 23.
+ 1 APPPATH\Services\UserService.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\Validation\\Validation::$getErrors', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\UserService.php', 23)
+ 2 APPPATH\Controllers\Admin\UserController.php(38): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 03:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:49:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:50:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:50:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:50:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 03:50:42 --> CodeIgniter\HTTP\RedirectResponse::back(): Argument #1 ($code) must be of type ?int, string given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UserController.php on line 39
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 74.
+ 1 APPPATH\Controllers\Admin\UserController.php(39): CodeIgniter\HTTP\RedirectResponse->back('admin/user/add')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 03:50:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:50:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:51:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:52:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:52:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:53:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:53:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:53:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:56:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:56:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:56:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:56:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:56:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:57:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:58:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 03:58:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:00:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:00:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:05:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 04:05:13 --> The route for "Admin/Pages/user/add" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('Admin/Pages/user/add')
+ 2 SYSTEMPATH\Common.php(878): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\Admin\UserController.php(39): redirect('Admin/Pages/user/add')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 04:08:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:08:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:24:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:33:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:33:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:40:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:41:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:42:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 04:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:25:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 07:25:47 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\Admin\Pages\user\add.php on line 13.
+ 1 APPPATH\Views\Admin\Pages\user\add.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\add.php', 13)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\user\\add.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/user/add', [], true)
+ 5 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/user/add', [])
+ 6 APPPATH\Controllers\Admin\UserController.php(30): App\Controllers\BaseController->loadMasterLayout([...], 'Thêm mới tài khoản', 'Admin/Pages/user/add')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->add()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 07:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:26:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:26:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:26:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:26:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:28:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:29:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-04 07:43:59 --> mysqli_sql_exception: Unknown column 'user_name' in 'field list' in F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 F:\DOANTOTNGHIEP\htdocs\DA2023\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 F:\DOANTOTNGHIEP\htdocs\DA2023\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\UserService.php(34): CodeIgniter\BaseModel->save(Array)
+#9 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UserController.php(36): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+#10 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+#11 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+#12 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 F:\DOANTOTNGHIEP\htdocs\DA2023\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2023-10-04 07:43:59 --> Unknown column 'user_name' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_taikhoan` (`user_name`, `pass`, `role`, `active`) VALUES (:user_name:, :pass:, :role:, :active:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Services\UserService.php(34): CodeIgniter\BaseModel->save([...])
+ 7 APPPATH\Controllers\Admin\UserController.php(36): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 07:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:49:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:49:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 07:50:06 --> view(): Argument #1 ($name) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\BaseController.php on line 64
+in SYSTEMPATH\Common.php on line 1176.
+ 1 APPPATH\Controllers\BaseController.php(64): view([...], 'Admin/Pages/user/list')
+ 2 APPPATH\Controllers\Admin\UserController.php(23): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách tài khoản', [...], 'Admin/Pages/user/list')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->list()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 07:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:50:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:50:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:50:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:51:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:51:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:51:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 07:52:27 --> Undefined array key "FK_iMaTrangThai"
+in APPPATH\Services\UserService.php on line 34.
+ 1 APPPATH\Services\UserService.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "FK_iMaTrangThai"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\UserService.php', 34)
+ 2 APPPATH\Controllers\Admin\UserController.php(36): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 07:53:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:53:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 07:53:23 --> Undefined array key "FK_iMaTrangThai"
+in APPPATH\Services\UserService.php on line 34.
+ 1 APPPATH\Services\UserService.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "FK_iMaTrangThai"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\UserService.php', 34)
+ 2 APPPATH\Controllers\Admin\UserController.php(36): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 07:54:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 07:55:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 08:00:45 --> Cannot use object of type CodeIgniter\HTTP\IncomingRequest as array
+in APPPATH\Services\UserService.php on line 32.
+ 1 APPPATH\Controllers\Admin\UserController.php(36): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 08:01:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:09:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:09:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 08:09:29 --> Undefined array key "FK_iMaTrangThai"
+in APPPATH\Services\UserService.php on line 33.
+ 1 APPPATH\Services\UserService.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "FK_iMaTrangThai"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\UserService.php', 33)
+ 2 APPPATH\Controllers\Admin\UserController.php(36): App\Services\UserService->addUserInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 08:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:12:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:14:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:14:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:15:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:16:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:17:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:17:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:17:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:20:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:20:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:21:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-04 08:21:41 --> view(): Argument #1 ($name) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\BaseController.php on line 64
+in SYSTEMPATH\Common.php on line 1176.
+ 1 APPPATH\Controllers\BaseController.php(64): view([...], 'Admin/Pages/user/list')
+ 2 APPPATH\Controllers\Admin\UserController.php(23): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách tài khoản', [...], 'Admin/Pages/user/list')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->list()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-10-04 08:25:07 --> [DEPRECATED] Required parameter $content follows optional parameter $dataLayout in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(306): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\BaseController.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\BaseController')
+ 4 APPPATH\Controllers\Admin\UserController.php(7): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\BaseController')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(306): include_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\Admin\\UserController.php')
+ 6 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\Admin\\UserController.php')
+ 7 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\UserController')
+ 8 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\UserController')
+ 9 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\Admin\\UserController', true)
+10 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+11 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-10-04 08:25:12 --> [DEPRECATED] Required parameter $content follows optional parameter $dataLayout in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(306): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\BaseController.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\BaseController')
+ 4 APPPATH\Controllers\Admin\UserController.php(7): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\BaseController')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(306): include_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\Admin\\UserController.php')
+ 6 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\Admin\\UserController.php')
+ 7 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\UserController')
+ 8 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\UserController')
+ 9 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\Admin\\UserController', true)
+10 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+11 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-04 08:25:12 --> Too few arguments to function App\Controllers\BaseController::loadMasterLayout(), 3 passed in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UserController.php on line 30 and exactly 4 expected
+in APPPATH\Controllers\BaseController.php on line 0.
+ 1 APPPATH\Controllers\Admin\UserController.php(30): App\Controllers\BaseController->loadMasterLayout([], 'Thêm mới tài khoản', 'Admin/Pages/user/add')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UserController->add()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-10-04 08:28:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-04 08:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

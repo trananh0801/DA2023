@@ -1,7 +1,7 @@
 <section class="content-main">
 
 		<div class="content-header">
-			<h2 class="content-title">Danh sách người dùng</h2>
+			<h2 class="content-title">Danh sách sản phẩm</h2>
 		</div>
 
 		<div class="card mb-4">
@@ -33,25 +33,33 @@
 					<thead>
 						<tr>
 							<th>STT</th>
-							<th scope="col">Tên tài khoản</th>
-							<th scope="col">Trạng thái</th>
-							<th scope="col">Quyền</th>
+							<th scope="col">Ảnh sản phẩm</th>
+							<th scope="col">Tên sản phẩm</th>
+							<th scope="col">Giá nhập</th>
+                            <th scope="col">Hạn sử dụng</th>
+							<th scope="col">Số lượng</th>
+							<th scope="col">Nhóm</th>
+                            <th scope="col">Trạng thái</th>
 							<th scope="col" class="text-end"> Tác vụ </th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($users as $user) :?>
+                    <?php foreach($products as $product) :?>
 						<tr>
-							<td><?= $user['PK_iMaTK'] ?></td>
-							<td><b><?= $user['sTenTK'] ?></b></td>
-							<td><span class="badge rounded-pill alert-warning"><?= $user['FK_iMaTrangThai'] ?></span></td>
-							<td><?= $user['FK_iMaQuyen'] ?></td>
+                            <td>STT</td>
+							<td><?= $product['sHinhAnh'] ?></td>
+							<td><b><?= $product['sTenSP'] ?></b></td>
+                            <td><?= $product['fGiaNhap'] ?></td>
+							<td><b><?= $product['dHSD'] ?></b></td>
+                            <td><?= $product['fSoLuong'] ?></td>
+							<td><b><?= $product['sTenNhom'] ?></b></td>
+							<td><span class="badge rounded-pill alert-warning"><?= $product['sTenTrangThai'] ?></span></td>
 							<td class="text-end">
 								<button type="button" class="btn btn-info">Sửa</button>
 								<button type="button" class="btn btn-danger">Xóa</button>
 							</td>
 						</tr>
-						<?php endforeach ?>
+                        <?php endforeach ?>
 					</tbody>
 				</table>
 			</div> <!-- table-responsive //end -->

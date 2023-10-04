@@ -18,24 +18,20 @@
     </li>
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>  
-        <span class="text">Products</span> 
+        <span class="text">Sản phẩm</span> 
       </a> 
       <div class="submenu">
-        <a href="page-products-list.html">Product list view</a>
-        <a href="page-products-table.html">Product table view</a>
-        <a href="page-products-grid.html">Product grid</a>
-        <a href="page-products-grid-2.html">Product grid 2</a>
-        <a href="page-categories.html">Categories</a>
+        <a href="admin/product/list">Danh sách</a>
+        <a href="page-products-table.html">Thêm mới</a>
       </div>
     </li>
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-shopping_cart"></i> 
-        <span class="text">Orders</span> 
+        <span class="text">Tài khoản</span> 
       </a>
       <div class="submenu">
-        <a href="admin/user/list">Tài khoản</a>
+        <a href="admin/user/list">Danh sách</a>
         <a href="admin/user/add">Thêm mới</a>
-        <a href="page-orders-detail.html">Order detail</a>
       </div> 
     </li>
     <li class="menu-item has-submenu"> 

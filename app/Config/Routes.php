@@ -13,5 +13,8 @@ $routes->group('admin', function($routes){
         $routes->get('add', 'Admin\UserController::add');
         $routes->post('create', 'Admin\UserController::create');
     });
+    $routes->group('product', function($routes){
+        $routes->get('list', 'Admin\ProductController::list');
+    });
 });
 

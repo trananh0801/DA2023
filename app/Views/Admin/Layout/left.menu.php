@@ -18,6 +18,14 @@
     </li>
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>  
+        <span class="text">Nhóm sản phẩm</span> 
+      </a> 
+      <div class="submenu"> 
+        <a href="admin/productGroup/list">Danh sách</a>
+      </div>
+    </li>
+    <li class="menu-item has-submenu"> 
+      <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>  
         <span class="text">Sản phẩm</span> 
       </a> 
       <div class="submenu">
@@ -55,7 +63,32 @@
         <span class="text">Khách hàng</span> 
       </a> 
       <div class="submenu">
-        <a href="page-form-product-1.html">Danh sách</a>
+        <a href="admin/customer/list">Danh sách</a>
+      </div>
+    </li>
+    <li class="menu-item has-submenu"> 
+      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
+        <span class="text">Quản lý nhập kho</span> 
+      </a> 
+      <div class="submenu">
+        <a href="admin/importBill/list">Phiếu nhập kho</a>
+        <a href="admin/customer/list">Phiếu hoàn trả</a>
+      </div>
+    </li>
+    <li class="menu-item has-submenu"> 
+      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
+        <span class="text">Khuyến mãi</span> 
+      </a> 
+      <div class="submenu">
+        <a href="admin/customer/list">Danh sách</a>
+      </div>
+    </li>
+    <li class="menu-item has-submenu"> 
+      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
+        <span class="text">Quản lý nhân viên</span> 
+      </a> 
+      <div class="submenu">
+        <a href="admin/customer/list">Danh sách</a>
       </div>
     </li>
     <li class="menu-item has-submenu">

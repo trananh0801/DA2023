@@ -22,5 +22,17 @@ $routes->group('admin', function($routes){
         $routes->get('list', 'Admin\SupplierController::list');
         $routes->post('create', 'Admin\SupplierController::create');
     });
+    $routes->group('customer', function($routes){
+        $routes->get('list', 'Admin\CustomerController::list');
+        $routes->post('create', 'Admin\CustomerController::create');
+    });
+    $routes->group('productGroup', function($routes){
+        $routes->get('list', 'Admin\ProductGroupController::list');
+        $routes->post('create', 'Admin\ProductGroupController::create');
+    });
+    $routes->group('importBill', function($routes){
+        $routes->get('list', 'Admin\ImportBillController::list');
+        $routes->post('create', 'Admin\ImportBillController::create');
+    });
 });
 

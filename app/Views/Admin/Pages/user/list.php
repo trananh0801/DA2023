@@ -44,8 +44,8 @@
 						<tr>
 							<td><?= $user['PK_iMaTK'] ?></td>
 							<td><b><?= $user['sTenTK'] ?></b></td>
-							<td><span class="badge rounded-pill alert-warning"><?= $user['FK_iMaTrangThai'] ?></span></td>
-							<td><?= $user['FK_iMaQuyen'] ?></td>
+							<td><span class="badge rounded-pill alert-warning"><?= $user['sTenTrangThai'] ?></span></td>
+							<td><?= $user['sTenQuyen'] ?></td>
 							<td class="text-end">
 								<button type="button" class="btn btn-info">Sửa</button>
 								<button type="button" class="btn btn-danger">Xóa</button>

@@ -1,21 +1,16 @@
 <section class="content-main">
 
 	<div class="content-header">
-		<h2 class="content-title">Blank page </h2>
-		<div>
-			<a href="#" class="btn btn-primary">Create new</a>
-		</div>
+		<h2 class="content-title">Xin chào quản trị viên</h2>
 	</div>
 
 	<div class="card mb-4">
 		<div class="card-body">
-			<h5 class="card-title">Card heading</h5>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<h5 class="card-title">Nana House's - Siêu thị mẹ và bé</h5>
+			Từ khi ra mắt vào tháng 7/2017, siêu thị mẹ và bé Nana’s House được đánh giá là hệ thống siêu thị có sự đầu tư bài bản, 
+			nổi lên tại thị trường bỉm sữa Hà Nội nhờ số lượng hàng hóa dồi dào, sản phẩm chất lượng và dịch vụ đáng tin cậy.
+			Sau 4 năm hoạt động, trải qua nhiều thăng trầm, Nana’s House đang ngày càng phát triển, 
+			đáp ứng tốt hơn nhu cầu của khách hàng và trở thành điểm mua sắm quen thuộc của mỗi gia đình có con nhỏ.
 		</div>
 	</div> <!-- card end// -->
 </section> <!-- content-main end// -->

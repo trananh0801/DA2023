@@ -16,7 +16,13 @@ class UserService extends BaseService
 
     /**get all user */
     public function getAllUser(){
-        return $this->users->findAll();
+        $result = $this->users
+        ->select('*')
+        ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_taikhoan.FK_iMaTrangThai')
+        ->join('tbl_quyen', 'tbl_quyen.PK_iMaQuyen = tbl_taikhoan.FK_iMaQuyen')
+        ->findAll();
+        // dd($result);
+        return $result;
     }
 
     /**add new user */

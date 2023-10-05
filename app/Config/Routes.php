@@ -15,6 +15,12 @@ $routes->group('admin', function($routes){
     });
     $routes->group('product', function($routes){
         $routes->get('list', 'Admin\ProductController::list');
+        $routes->get('add', 'Admin\ProductController::add');
+        $routes->post('create', 'Admin\ProductController::create');
+    });
+    $routes->group('supplier', function($routes){
+        $routes->get('list', 'Admin\SupplierController::list');
+        $routes->post('create', 'Admin\SupplierController::create');
     });
 });
 

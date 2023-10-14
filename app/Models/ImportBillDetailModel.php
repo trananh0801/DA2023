@@ -7,5 +7,5 @@ use CodeIgniter\Model;
 class ImportBillDetailModel extends Model
 {
     protected $table = 'tbl_ctphieunhap';
-    protected $primaryKey = 'PK_iMaCT_PN';
+    // protected $primaryKey = 'PK_iMaCT_PN';
 }

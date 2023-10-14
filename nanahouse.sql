@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 29, 2023 lúc 06:09 PM
+-- Thời gian đã tạo: Th10 14, 2023 lúc 03:06 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -64,9 +64,10 @@ CREATE TABLE `tbl_ctphieuhoantra` (
 --
 
 CREATE TABLE `tbl_ctphieunhap` (
-  `PK_iMaSP` int(11) NOT NULL,
-  `FK_iPN` int(11) DEFAULT NULL,
-  `iSoLuong` int(11) DEFAULT NULL
+  `PK_iMaCT_PN` int(11) NOT NULL,
+  `FK_iMaSP` int(11) NOT NULL,
+  `FK_iMaPN` varchar(255) DEFAULT NULL,
+  `iSoluong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -147,6 +148,13 @@ CREATE TABLE `tbl_khachhang` (
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_khachhang`
+--
+
+INSERT INTO `tbl_khachhang` (`PK_iMaKH`, `FK_iMaTK`, `sTenKH`, `sDiaChi`, `sSDT`, `dNgaySinh`, `sGioiTinh`, `iTichDiem`, `sNhomKH`, `sGhiChu`) VALUES
+(1, NULL, 'Trần Ánh', 'Vĩnh Phúc', '0988999888', '2023-10-01', 'Nữ', 10, NULL, 'Không có ghi chú');
+
 -- --------------------------------------------------------
 
 --
@@ -177,6 +185,14 @@ CREATE TABLE `tbl_ncc` (
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_ncc`
+--
+
+INSERT INTO `tbl_ncc` (`PK_iMaNCC`, `sTenNCC`, `sDiaChi`, `sSDT`, `sGhiChu`) VALUES
+(1, 'nhà cung cấp 1', 'Vĩnh Phúc', '0978677799', 'Hihi'),
+(2, 'Nhà cung cấp 2', 'Hà Nội', '0978677799', 'HUHU');
+
 -- --------------------------------------------------------
 
 --
@@ -195,6 +211,13 @@ CREATE TABLE `tbl_nhanvien` (
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_nhanvien`
+--
+
+INSERT INTO `tbl_nhanvien` (`PK_iMaNV`, `FK_iMaTK`, `sTenNV`, `sSDT`, `sCMND`, `sTenChucVu`, `dNgaySinh`, `sGioiTinh`, `sGhiChu`) VALUES
+(1, 1, 'Nhân viên Ánh', '0988999888', '354354545454', 'Nhân viên bán hàng', '2023-10-10', 'Nữ', 'Nhân viên pát tham');
+
 -- --------------------------------------------------------
 
 --
@@ -202,9 +225,20 @@ CREATE TABLE `tbl_nhanvien` (
 --
 
 CREATE TABLE `tbl_nhomsanpham` (
-  `PK_iMaNhom` int(11) NOT NULL,
+  `PK_iMaNhom` varchar(255) NOT NULL,
   `sTenNhom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_nhomsanpham`
+--
+
+INSERT INTO `tbl_nhomsanpham` (`PK_iMaNhom`, `sTenNhom`) VALUES
+('', ''),
+('123', '123'),
+('321', '321'),
+('N001', 'Bỉm'),
+('N002', 'Sữa');
 
 -- --------------------------------------------------------
 
@@ -228,7 +262,7 @@ CREATE TABLE `tbl_phieuhoantra` (
 --
 
 CREATE TABLE `tbl_phieunhap` (
-  `PK_iPN` int(11) NOT NULL,
+  `PK_iPN` varchar(255) NOT NULL,
   `FK_iMaNV` int(11) DEFAULT NULL,
   `FK_iMaNCC` int(11) DEFAULT NULL,
   `FK_iMaTrangThai` int(11) DEFAULT NULL,
@@ -237,6 +271,13 @@ CREATE TABLE `tbl_phieunhap` (
   `dNgayNhap` date DEFAULT NULL,
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_phieunhap`
+--
+
+INSERT INTO `tbl_phieunhap` (`PK_iPN`, `FK_iMaNV`, `FK_iMaNCC`, `FK_iMaTrangThai`, `sNguoiGiao`, `fTienDaTra`, `dNgayNhap`, `sGhiChu`) VALUES
+('PN001', 1, 1, 4, 'Nguyễn Văn A', 500.00, '2023-10-03', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,6 +290,14 @@ CREATE TABLE `tbl_quyen` (
   `sTenQuyen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_quyen`
+--
+
+INSERT INTO `tbl_quyen` (`PK_iMaQuyen`, `sTenQuyen`) VALUES
+(1, 'admin'),
+(2, 'user');
+
 -- --------------------------------------------------------
 
 --
@@ -257,7 +306,7 @@ CREATE TABLE `tbl_quyen` (
 
 CREATE TABLE `tbl_sanpham` (
   `PK_iMaSP` int(11) NOT NULL,
-  `FK_iMaNhom` int(11) DEFAULT NULL,
+  `FK_iMaNhom` varchar(255) DEFAULT NULL,
   `FK_iMaTrangThai` int(11) DEFAULT NULL,
   `sTenSP` varchar(255) NOT NULL,
   `fSoLuong` int(11) DEFAULT NULL,
@@ -269,6 +318,18 @@ CREATE TABLE `tbl_sanpham` (
   `dHSD` date DEFAULT NULL,
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_sanpham`
+--
+
+INSERT INTO `tbl_sanpham` (`PK_iMaSP`, `FK_iMaNhom`, `FK_iMaTrangThai`, `sTenSP`, `fSoLuong`, `sDVT`, `fGiaNhap`, `fGiaBanLe`, `fGiaBanSi`, `sHinhAnh`, `dHSD`, `sGhiChu`) VALUES
+(1, 'N001', 1, 'Sữa bột', 12, 'e21', 112.00, 1212.00, 12121.00, '121211', '2023-10-03', 'regregtregtrt'),
+(2, 'N002', 2, '543543543543543', 2147483647, '', 0.00, 0.00, 0.00, '', '0000-00-00', ''),
+(19, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '1697215711_e9e261fd6f3c227202be.jpg', NULL, NULL),
+(20, 'N002', 2, '', 7, '', 0.00, 0.00, 0.00, '1697215921_994cadac88b1a3d3c3cc.jpg', '0000-00-00', ''),
+(21, 'N001', 2, '', 1, '', 0.00, 0.00, 0.00, '1697216053_6d3aaa71102b4d070cb4.jpg', '0000-00-00', ''),
+(22, 'N002', 2, '', 9, '', 0.00, 0.00, 0.00, '1697216343_708bb6216c22a2b8f510.jpg', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -297,6 +358,14 @@ CREATE TABLE `tbl_taikhoan` (
   `sMatKhau` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_taikhoan`
+--
+
+INSERT INTO `tbl_taikhoan` (`PK_iMaTK`, `FK_iMaQuyen`, `FK_iMaTrangThai`, `sTenTK`, `sMatKhau`) VALUES
+(1, 1, 1, 'admin', '123'),
+(2, 2, 1, 'user', '123');
+
 -- --------------------------------------------------------
 
 --
@@ -307,6 +376,16 @@ CREATE TABLE `tbl_trangthai` (
   `PK_iMaTrangThai` int(11) NOT NULL,
   `sTenTrangThai` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_trangthai`
+--
+
+INSERT INTO `tbl_trangthai` (`PK_iMaTrangThai`, `sTenTrangThai`) VALUES
+(1, 'Đã kích hoạt'),
+(2, 'Chưa kích hoạt'),
+(3, 'Đã thanh toán'),
+(4, 'Chờ thanh toán');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -337,8 +416,9 @@ ALTER TABLE `tbl_ctphieuhoantra`
 -- Chỉ mục cho bảng `tbl_ctphieunhap`
 --
 ALTER TABLE `tbl_ctphieunhap`
-  ADD PRIMARY KEY (`PK_iMaSP`),
-  ADD KEY `FK_iPN` (`FK_iPN`);
+  ADD PRIMARY KEY (`PK_iMaCT_PN`),
+  ADD KEY `maSP` (`FK_iMaSP`),
+  ADD KEY `maPN` (`FK_iMaPN`);
 
 --
 -- Chỉ mục cho bảng `tbl_danhgia`
@@ -435,8 +515,8 @@ ALTER TABLE `tbl_quyen`
 --
 ALTER TABLE `tbl_sanpham`
   ADD PRIMARY KEY (`PK_iMaSP`),
-  ADD KEY `FK_iMaNhom` (`FK_iMaNhom`),
-  ADD KEY `FK_iMaTrangThai` (`FK_iMaTrangThai`);
+  ADD KEY `FK_iMaTrangThai` (`FK_iMaTrangThai`),
+  ADD KEY `tbl_sanpham_ibfk_1` (`FK_iMaNhom`);
 
 --
 -- Chỉ mục cho bảng `tbl_sp_km`
@@ -468,7 +548,7 @@ ALTER TABLE `tbl_trangthai`
 -- AUTO_INCREMENT cho bảng `tbl_ctphieunhap`
 --
 ALTER TABLE `tbl_ctphieunhap`
-  MODIFY `PK_iMaSP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaCT_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_danhgia`
@@ -498,7 +578,7 @@ ALTER TABLE `tbl_giohang`
 -- AUTO_INCREMENT cho bảng `tbl_khachhang`
 --
 ALTER TABLE `tbl_khachhang`
-  MODIFY `PK_iMaKH` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_khuyenmai`
@@ -510,19 +590,13 @@ ALTER TABLE `tbl_khuyenmai`
 -- AUTO_INCREMENT cho bảng `tbl_ncc`
 --
 ALTER TABLE `tbl_ncc`
-  MODIFY `PK_iMaNCC` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaNCC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_nhanvien`
 --
 ALTER TABLE `tbl_nhanvien`
-  MODIFY `PK_iMaNV` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `tbl_nhomsanpham`
---
-ALTER TABLE `tbl_nhomsanpham`
-  MODIFY `PK_iMaNhom` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaNV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_phieuhoantra`
@@ -531,22 +605,16 @@ ALTER TABLE `tbl_phieuhoantra`
   MODIFY `PK_iMaPhieu` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_phieunhap`
---
-ALTER TABLE `tbl_phieunhap`
-  MODIFY `PK_iPN` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `tbl_quyen`
 --
 ALTER TABLE `tbl_quyen`
-  MODIFY `PK_iMaQuyen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  MODIFY `PK_iMaSP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sp_km`
@@ -558,13 +626,13 @@ ALTER TABLE `tbl_sp_km`
 -- AUTO_INCREMENT cho bảng `tbl_taikhoan`
 --
 ALTER TABLE `tbl_taikhoan`
-  MODIFY `PK_iMaTK` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaTK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_trangthai`
 --
 ALTER TABLE `tbl_trangthai`
-  MODIFY `PK_iMaTrangThai` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaTrangThai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -592,7 +660,8 @@ ALTER TABLE `tbl_ctphieuhoantra`
 -- Các ràng buộc cho bảng `tbl_ctphieunhap`
 --
 ALTER TABLE `tbl_ctphieunhap`
-  ADD CONSTRAINT `tbl_ctphieunhap_ibfk_1` FOREIGN KEY (`FK_iPN`) REFERENCES `tbl_phieunhap` (`PK_iPN`);
+  ADD CONSTRAINT `maPN` FOREIGN KEY (`FK_iMaPN`) REFERENCES `tbl_phieunhap` (`PK_iPN`),
+  ADD CONSTRAINT `maSP` FOREIGN KEY (`FK_iMaSP`) REFERENCES `tbl_sanpham` (`PK_iMaSP`);
 
 --
 -- Các ràng buộc cho bảng `tbl_danhgia`
@@ -655,13 +724,6 @@ ALTER TABLE `tbl_phieunhap`
   ADD CONSTRAINT `tbl_phieunhap_ibfk_1` FOREIGN KEY (`FK_iMaNV`) REFERENCES `tbl_nhanvien` (`PK_iMaNV`),
   ADD CONSTRAINT `tbl_phieunhap_ibfk_2` FOREIGN KEY (`FK_iMaNCC`) REFERENCES `tbl_ncc` (`PK_iMaNCC`),
   ADD CONSTRAINT `tbl_phieunhap_ibfk_3` FOREIGN KEY (`FK_iMaTrangThai`) REFERENCES `tbl_trangthai` (`PK_iMaTrangThai`);
-
---
--- Các ràng buộc cho bảng `tbl_sanpham`
---
-ALTER TABLE `tbl_sanpham`
-  ADD CONSTRAINT `tbl_sanpham_ibfk_1` FOREIGN KEY (`FK_iMaNhom`) REFERENCES `tbl_nhomsanpham` (`PK_iMaNhom`),
-  ADD CONSTRAINT `tbl_sanpham_ibfk_2` FOREIGN KEY (`FK_iMaTrangThai`) REFERENCES `tbl_trangthai` (`PK_iMaTrangThai`);
 
 --
 -- Các ràng buộc cho bảng `tbl_sp_km`

@@ -3,7 +3,7 @@
 	<div class="col-search">
 		<form class="searchform">
 			<div class="input-group">
-			  <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+			  <input list="search_terms" type="text" class="form-control" placeholder="Tìm kiếm">
 			  <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i> </button>
 			</div>
 			<datalist id="search_terms">
@@ -24,15 +24,11 @@
       <li class="nav-item">
         <a class="nav-link btn-icon" href="#"> <i class="material-icons md-notifications_active"></i> </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> English </a>
-      </li>
       <li class="dropdown nav-item">
         <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#"> <img class="img-xs rounded-circle" src="assets/admin/images/people/avatar1.jpg" alt="User"></a>
         <div class="dropdown-menu dropdown-menu-end">
-          <a class="dropdown-item" href="#">My profile</a>
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item text-danger" href="#">Exit</a>
+          <a class="dropdown-item" href="#">Cá nhân</a>
+          <a class="dropdown-item text-danger" href="#">Đăng xuất</a>
         </div>
       </li>
     </ul> 

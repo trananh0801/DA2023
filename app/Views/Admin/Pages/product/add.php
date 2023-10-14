@@ -20,9 +20,6 @@
 <?php endif ?>
 	<div class="content-header">
 		<h2 class="content-title">Thêm mới sản phẩm</h2>
-		<div>
-			<a href="#" class="btn btn-outline-danger"> &times; Discard</a>
-		</div>
 	</div>
 
 	<div class="card mb-4">
@@ -39,7 +36,7 @@
 				  	</div>
                     <div class="mb-4 col-6">
                         <label for="sTenSP" class="form-label">Tên sản phẩm</label>
-                        <input type="text" value="<?= old('sTenSP')?>" placeholder="Type here" class="form-control" id="sTenSP" name="sTenSP">
+                        <input type="text" value="<?= old('sTenSP')?>" placeholder="Nhập tên nhóm" class="form-control" id="sTenSP" name="sTenSP">
                     </div>
                 </div>
 
@@ -47,30 +44,30 @@
                     <div class="col-6">
                         <label class="form-label">Số lượng</label>
                         <div>
-                            <input type="number" class="form-control" placeholder="012345678" name="fSoLuong">
+                            <input type="number" class="form-control" placeholder="VD: 10" name="fSoLuong">
                         </div> <!-- col.// -->
                     </div> <!-- row.// -->
                     <div class="mb-4 col-6">
                         <label for="sDVT" class="form-label">Đơn vị tính</label>
-                        <input type="text" <?= old('sDVT')?> placeholder="Type here" class="form-control" id="sDVT" name="sDVT">
+                        <input type="text" <?= old('sDVT')?> placeholder="VD: Chiếc" class="form-control" id="sDVT" name="sDVT">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-4 col-2">
                         <label for="fGiaNhap" class="form-label">Giá nhập</label>
-                        <input type="text" <?= old('fGiaNhap')?> placeholder="Type here" class="form-control" id="fGiaNhap" name="fGiaNhap">
+                        <input type="text" <?= old('fGiaNhap')?>  class="form-control" id="fGiaNhap" name="fGiaNhap">
                     </div>
                     <div class="mb-4 col-2">
                         <label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
-                        <input type="text" <?= old('fGiaBanLe')?> placeholder="Type here" class="form-control" id="fGiaBanLe" name="fGiaBanLe">
+                        <input type="text" <?= old('fGiaBanLe')?>  class="form-control" id="fGiaBanLe" name="fGiaBanLe">
                     </div>
                     <div class="mb-4 col-2">
                         <label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
-                        <input type="text" <?= old('fGiaBanSi')?> placeholder="Type here" class="form-control" id="fGiaBanSi" name="fGiaBanSi">
+                        <input type="text" <?= old('fGiaBanSi')?>  class="form-control" id="fGiaBanSi" name="fGiaBanSi">
                     </div>
                     <div class="mb-4 col-6">
                         <label for="dHSD" class="form-label">Hạn sử dụng</label>
-                        <input type="text" <?= old('dHSD')?> placeholder="Type here" class="form-control" id="dHSD" name="dHSD">
+                        <input type="date" <?= old('dHSD')?>  class="form-control" id="dHSD" name="dHSD">
                     </div>
                 </div>
 				<div class="row">
@@ -92,7 +89,7 @@
                         <textarea class="form-control" id="sGhiChu" rows="3" name="sGhiChu"></textarea>
                     </div>
                 </div>
-				<button type="submit" class="btn btn-primary">Thêm mới</button>
+				<button type="submit" class="btn btn-primary mt-3">Thêm mới</button>
 
 			</form>
           </div>

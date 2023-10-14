@@ -89,40 +89,40 @@ class ImportBillService extends BaseService
         unset($dataSave1['FK_iMaSP']);
         unset($dataSave1['iSoluong']);
 
-        // $dataSave = $requestData->getPost();
-        // unset($dataSave['FK_iMaNV']);
-        // unset($dataSave['FK_iMaNCC']);
-        // unset($dataSave['dNgayNhap']);
-        // unset($dataSave['fTienDaTra']);
-        // unset($dataSave['sNguoiGiao']);
-        // unset($dataSave['FK_iMaTrangThai']);
-        // unset($dataSave['sGhiChu']);
-        // unset($dataSave['PK_iPN']);
+        $dataSave = $requestData->getPost();
+        unset($dataSave['FK_iMaNV']);
+        unset($dataSave['FK_iMaNCC']);
+        unset($dataSave['dNgayNhap']);
+        unset($dataSave['fTienDaTra']);
+        unset($dataSave['sNguoiGiao']);
+        unset($dataSave['FK_iMaTrangThai']);
+        unset($dataSave['sGhiChu']);
+        unset($dataSave['PK_iPN']);
         
-        // $duplicateProduct = $this->importBill->where('PK_iPN', $dataSave1['PK_iPN'])->first();
-        // if ($duplicateProduct) {
-        //     return [
-        //         'status' => ResultUtils::STATUS_CODE_ERR,
-        //         'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-        //         'message' => ['' => 'Trùng mã'],
-        //     ];
-        // }
+        $duplicateProduct = $this->importBill->where('PK_iPN', $dataSave1['PK_iPN'])->first();
+        if ($duplicateProduct) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => 'Trùng mã'],
+            ];
+        }
         // dd($dataSave1);
         try {
             $this->importBill->save($dataSave1);
 
-            // $transformedData = array();
-            // foreach ($dataSave as $k => $v) {
-            //     foreach ($v as $k1 => $v1) {
-            //         $transformedData[$k1][$k] = $v1;
-            //         if (empty($transformedData[$k1]['FK_iMaPN'])) {
-            //             $transformedData[$k1]['FK_iMaPN'] = $dataSave1['PK_iPN'];
-            //         }
-            //     }
-            // }
+            $transformedData = array();
+            foreach ($dataSave as $k => $v) {
+                foreach ($v as $k1 => $v1) {
+                    $transformedData[$k1][$k] = $v1;
+                    if (empty($transformedData[$k1]['FK_iMaPN'])) {
+                        $transformedData[$k1]['FK_iMaPN'] = $dataSave1['PK_iPN'];
+                    }
+                }
+            }
 
             // dd($transformedData);
-            // $this->importBillDetail->insertBatch($transformedData);
+            $this->importBillDetail->insertBatch($transformedData);
 
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,

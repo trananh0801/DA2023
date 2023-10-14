@@ -33,7 +33,7 @@
         <a href="admin/product/add">Thêm mới</a>
       </div>
     </li>
-    <li class="menu-item has-submenu"> 
+    <!-- <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-shopping_cart"></i> 
         <span class="text">Tài khoản</span> 
       </a>
@@ -41,7 +41,7 @@
         <a href="admin/user/list">Danh sách</a>
         <a href="admin/user/add">Thêm mới</a>
       </div> 
-    </li>
+    </li> -->
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i> 
         <span class="text">Đơn đặt hàng</span> 
@@ -88,7 +88,7 @@
         <span class="text">Quản lý nhân viên</span> 
       </a> 
       <div class="submenu">
-        <a href="admin/customer/list">Danh sách</a>
+        <a href="admin/staff/list">Danh sách</a>
       </div>
     </li>
     <li class="menu-item has-submenu">

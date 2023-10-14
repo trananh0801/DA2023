@@ -39,5 +39,9 @@ $routes->group('admin', function($routes){
         $routes->get('list', 'Admin\ImportBillController::list');
         $routes->post('create', 'Admin\ImportBillController::create');
     });
+    $routes->group('staff', function($routes){
+        $routes->get('list', 'Admin\StaffController::list');
+        $routes->post('create', 'Admin\StaffController::create');
+    });
 });
 

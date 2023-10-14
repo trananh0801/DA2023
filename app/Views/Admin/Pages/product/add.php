@@ -27,7 +27,7 @@
 
 	<div class="card mb-4">
           <div class="card-body">
-			<form action="admin/product/create" method="POST">
+			<form action="admin/product/create" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6 mb-3">
 					    <label class="form-label">Nhóm sản phẩm</label>

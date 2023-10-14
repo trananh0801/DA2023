@@ -29,7 +29,7 @@ class ProductController extends BaseController
     {
         $data = [];
         $dataLayout['productsGroup'] = $this->service->getAllProductGroup();
-        // dd($dataLayout['productsGroup']);
+        // dd($dataLayout);
         $data = $this->loadMasterLayout($data, 'Thêm mới sản phẩm', 'Admin/Pages/product/add', $dataLayout);
         return view('Admin/main', $data);
     }
@@ -37,6 +37,7 @@ class ProductController extends BaseController
     public function create()
     {
         $result = $this->service->addProductInfo($this->request);
+        // dd($result);
         return redirect()->to('admin/product/add')->withInput()->with($result['massageCode'], $result['message']);
     }
 }

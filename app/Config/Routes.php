@@ -5,6 +5,10 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+
+
+
 $routes->get('/', 'User\HomeController::index');
 $routes->group('admin', function($routes){
     $routes->get('home', 'Admin\HomeController::index');
@@ -29,6 +33,7 @@ $routes->group('admin', function($routes){
     $routes->group('productGroup', function($routes){
         $routes->get('list', 'Admin\ProductGroupController::list');
         $routes->post('create', 'Admin\ProductGroupController::create');
+        $routes->post('edit', 'Admin\ProductGroupController::edit');
     });
     $routes->group('importBill', function($routes){
         $routes->get('list', 'Admin\ImportBillController::list');

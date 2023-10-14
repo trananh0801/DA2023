@@ -36,7 +36,37 @@ class ProductGroupService extends BaseService
         $dataSave = $requestData->getPost();
         // dd($dataSave);
         try{
+            
             $this->productGroup->save($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode'=> ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=> 'Thêm dữ liệu thành công'],
+            ];
+        }
+        catch(Exception $e){
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode'=> ResultUtils::MESSAGE_CODE_ERR,
+                'message' => [''=> $e->getMessage()],
+            ];
+        }
+    }
+
+    public function updateProductGroupInfo($requestData){
+        $validate = $this->validateAddProductGroup($requestData);
+        if($validate->getErrors()){
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode'=> ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave = $requestData->getPost('PK_iMaNhom');
+        dd($dataSave);
+        try{
+            
+            // $this->productGroup->save($dataSave);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode'=> ResultUtils::MESSAGE_CODE_OK,

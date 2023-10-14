@@ -44,7 +44,7 @@
 						<tr>
 							<td><?= $user['PK_iMaTK'] ?></td>
 							<td><b><?= $user['sTenTK'] ?></b></td>
-							<td><span class="badge rounded-pill alert-warning"><?= $user['sTenTrangThai'] ?></span></td>
+							<td><span class="badge rounded-pill alert-success"><?= $user['sTenTrangThai'] ?></span></td>
 							<td><?= $user['sTenQuyen'] ?></td>
 							<td class="text-end">
 								<button type="button" class="btn btn-info">Sửa</button>
@@ -57,6 +57,4 @@
 			</div> <!-- table-responsive //end -->
 			</div> <!-- card-body end// -->
 		</div> <!-- card end// -->
-
-
 	</section> <!-- content-main end// -->

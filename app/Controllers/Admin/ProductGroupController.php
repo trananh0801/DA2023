@@ -29,4 +29,8 @@ class ProductGroupController extends BaseController
         $result = $this->service->addProductGroupInfo($this->request);
         return redirect()->to('admin/productGroup/list')->withInput()->with($result['massageCode'], $result['message']);
     }
+    public function edit()
+    {
+        $result = $this->service->updateProductGroupInfo($this->request);
+    }
 }

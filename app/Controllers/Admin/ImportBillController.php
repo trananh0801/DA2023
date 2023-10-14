@@ -19,7 +19,11 @@ class ImportBillController extends BaseController
     {
         $data = [];
         $dataLayout['importBills'] = $this->service->getAllImportBill();
-        // dd($dataLayout['productGroups']);
+        $dataLayout['staffs'] = $this->service->getAllStaff();
+        $dataLayout['statuss'] = $this->service->getAllStatus();
+        $dataLayout['products'] = $this->service->getAllProduct();
+        $dataLayout['suppliers'] = $this->service->getAllSupplier();
+        // dd($dataLayout['products']);
         $data = $this->loadMasterLayout($data, 'Danh sách phiếu nhập hàng', 'Admin/Pages/importBill', $dataLayout);
         return view('Admin/main', $data);
     }

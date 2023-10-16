@@ -78,7 +78,7 @@ class ProductService extends BaseService
         }
         try {
             $this->product->save($dataSave);
-            
+
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -102,11 +102,11 @@ class ProductService extends BaseService
         ];
         $message = [
             'sTenSP' => [
-                'max_length' => 'Tên tài khoản quá dài!'
+                'max_length' => 'Tên sản phẩm quá dài!'
             ],
             'fSoLuong' => [
-                'max_length' => 'Mật khẩu quá dài!',
-                'min_length' => 'Mật khẩu lớn hơn hoặc bằng {param} ký tự!'
+                'max_length' => 'Số lượng quá dài!',
+                'min_length' => 'Số lượng lớn hơn hoặc bằng {param} ký tự!'
             ],
         ];
         $this->validation->setRules($rule, $message);

@@ -47,7 +47,7 @@
         <span class="text">Đơn đặt hàng</span> 
       </a> 
       <div class="submenu">
-        <a href="page-sellers-cards.html">Danh sách đơn đặt hàng</a>
+        <a href="admin/order/list">Danh sách đơn đặt hàng</a>
       </div> 
     </li>
     <li class="menu-item has-submenu"> 

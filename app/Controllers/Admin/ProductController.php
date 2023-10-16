@@ -21,23 +21,13 @@ class ProductController extends BaseController
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['productsGroup'] = $this->service->getAllProductGroup();
         // dd($dataLayout['productsGroup']);
-        $data = $this->loadMasterLayout($data, 'Danh sách sản phẩm', 'Admin/Pages/product/list', $dataLayout);
-        return view('Admin/main', $data);
-    }
-
-    public function add()
-    {
-        $data = [];
-        $dataLayout['productsGroup'] = $this->service->getAllProductGroup();
-        // dd($dataLayout);
-        $data = $this->loadMasterLayout($data, 'Thêm mới sản phẩm', 'Admin/Pages/product/add', $dataLayout);
+        $data = $this->loadMasterLayout($data, 'Danh sách sản phẩm', 'Admin/Pages/product', $dataLayout);
         return view('Admin/main', $data);
     }
 
     public function create()
     {
         $result = $this->service->addProductInfo($this->request);
-        // dd($result);
-        return redirect()->to('admin/product/add')->withInput()->with($result['massageCode'], $result['message']);
+        return redirect()->to('admin/product/list')->withInput()->with($result['massageCode'], $result['message']);
     }
 }

@@ -19,7 +19,7 @@ $routes->group('admin', function($routes){
     });
     $routes->group('product', function($routes){
         $routes->get('list', 'Admin\ProductController::list');
-        $routes->get('add', 'Admin\ProductController::add');
+        // $routes->get('add', 'Admin\ProductController::add');
         $routes->post('create', 'Admin\ProductController::create');
     });
     $routes->group('supplier', function($routes){
@@ -42,6 +42,10 @@ $routes->group('admin', function($routes){
     $routes->group('staff', function($routes){
         $routes->get('list', 'Admin\StaffController::list');
         $routes->post('create', 'Admin\StaffController::create');
+    });
+    $routes->group('order', function($routes){
+        $routes->get('list', 'Admin\OrderController::list');
+        $routes->post('create', 'Admin\OrderController::create');
     });
 });
 

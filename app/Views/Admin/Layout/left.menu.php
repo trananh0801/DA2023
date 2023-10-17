@@ -18,53 +18,20 @@
     </li>
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>  
-        <span class="text">Nhóm sản phẩm</span> 
+        <span class="text">Quản lý sản phẩm</span> 
       </a> 
       <div class="submenu"> 
-        <a href="admin/productGroup/list">Danh sách</a>
+        <a href="admin/productGroup/list">Nhóm sản phẩm</a>
+        <a href="admin/product/list">Sản phẩm</a>
       </div>
     </li>
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>  
-        <span class="text">Sản phẩm</span> 
-      </a> 
-      <div class="submenu">
-        <a href="admin/product/list">Danh sách</a>
-        <a href="admin/product/add">Thêm mới</a>
-      </div>
-    </li>
-    <!-- <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-shopping_cart"></i> 
-        <span class="text">Tài khoản</span> 
-      </a>
-      <div class="submenu">
-        <a href="admin/user/list">Danh sách</a>
-        <a href="admin/user/add">Thêm mới</a>
-      </div> 
-    </li> -->
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i> 
         <span class="text">Đơn đặt hàng</span> 
       </a> 
       <div class="submenu">
-        <a href="admin/order/list">Danh sách đơn đặt hàng</a>
+        <a href="admin/order/list">Danh sách đơn hàng</a>
       </div> 
-    </li>
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
-        <span class="text">Nhà cung cấp</span> 
-      </a> 
-      <div class="submenu">
-        <a href="admin/supplier/list">Danh sách</a>
-      </div>
-    </li>
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
-        <span class="text">Khách hàng</span> 
-      </a> 
-      <div class="submenu">
-        <a href="admin/customer/list">Danh sách</a>
-      </div>
     </li>
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
@@ -72,23 +39,27 @@
       </a> 
       <div class="submenu">
         <a href="admin/importBill/list">Phiếu nhập kho</a>
-        <a href="admin/customer/list">Phiếu hoàn trả</a>
+        <a href="admin/returnBill/list">Phiếu hoàn trả</a>
       </div>
     </li>
+    <li class="menu-item has-submenu"> 
+      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
+        <span class="text">Quản lý con người</span> 
+      </a> 
+      <div class="submenu">
+        <a href="admin/supplier/list">Nhà cung cấp</a>
+        <a href="admin/customer/list">Khách hàng</a>
+        <a href="admin/staff/list">Nhân viên</a>
+      </div>
+    </li>
+    
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
         <span class="text">Khuyến mãi</span> 
       </a> 
       <div class="submenu">
-        <a href="admin/customer/list">Danh sách</a>
-      </div>
-    </li>
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
-        <span class="text">Quản lý nhân viên</span> 
-      </a> 
-      <div class="submenu">
-        <a href="admin/staff/list">Danh sách</a>
+        <a href="admin/customer/list">Danh sách khuyến mãi</a>
+        <a href="admin/customer/list">Danh mục quà tặng</a>
       </div>
     </li>
     <li class="menu-item has-submenu">
@@ -96,7 +67,7 @@
         <span class="text">Đánh giá bình luận</span> 
       </a> 
       <div class="submenu">
-        <a href="page-transactions-A.html">Danh sách</a>
+        <a href="page-transactions-A.html">Danh sách đánh giá</a>
       </div>
     </li>
   </ul>

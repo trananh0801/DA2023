@@ -28,11 +28,11 @@
                          <form action="admin/productGroup/create" method="POST" id="formGroupId">
                               <div class="mb-4">
                                    <label for="PK_iMaNhom" class="form-label">Mã nhóm</label>
-                                   <input type="text" placeholder="Type here" class="form-control" id="PK_iMaNhom" name="PK_iMaNhom" />
+                                   <input type="text" placeholder="Mã nhóm sản phẩm" class="form-control" id="PK_iMaNhom" name="PK_iMaNhom" />
                               </div>
                               <div class="mb-4">
                                    <label for="sTenNhom" class="form-label">Tên nhóm sản phẩm</label>
-                                   <input type="text" placeholder="Type here" class="form-control" id="sTenNhom" name="sTenNhom" />
+                                   <input type="text" placeholder="Tên nhóm sản phẩm" class="form-control" id="sTenNhom" name="sTenNhom" />
                               </div>
                               <div class="d-grid">
                                    <button type="submit" class="btn btn-primary" id="insert">Thêm mới</button>
@@ -61,8 +61,14 @@
                                              <td><?= $productGroup['PK_iMaNhom'] ?></td>
                                              <td><b><?= $productGroup['sTenNhom'] ?></b></td>
                                              <td class="text-end">
-                                                  <button type="button" class="btn btn-info editGroup" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
-                                                  <button type="button" class="btn btn-danger deleteGroup">xóa</button>
+                                                  <a href="#" class="btn btn-light">Chi tiết</a>
+                                                  <div class="dropdown">
+                                                       <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
+                                                       <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">Sửa</a>
+                                                            <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                       </div>
+                                                  </div> <!-- dropdown //end -->
                                              </td>
                                         </tr>
                                    <?php endforeach ?>
@@ -83,7 +89,7 @@
                $("#insert").hide();
                $("#update").show();
                $("#huy").show();
-               
+
                // Thực hiện lấy dữ liệu khi click button
                sTenNhom = $(this).attr("data-sTenNhom");
                PK_iMaNhom = $(this).val();

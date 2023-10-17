@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\ImportBillModel;
-use App\Models\ImportBillDetailModel;
+use App\Models\ReturnBillModel;
+use App\Models\ReturnBillDetailModel;
 use App\Models\StaffModel;
 use App\Models\StatusModel;
 use App\Models\ProductModel;
@@ -11,30 +11,30 @@ use App\Models\SupplierModel;
 use App\Common\ResultUtils;
 use Exception;
 
-class ImportBillService extends BaseService
+class ReturnBillService extends BaseService
 {
-    private $importBill, $staff, $supplier, $status, $product, $importBillDetail;
+    private $returnBill, $staff, $supplier, $status, $product, $returnBillDetail;
     function __construct()
     {
         parent::__construct();
-        $this->importBill = new ImportBillModel();
+        $this->returnBill = new ReturnBillModel();
         $this->staff = new StaffModel();
         $this->status = new StatusModel();
         $this->product = new ProductModel();
         $this->supplier = new SupplierModel();
-        $this->importBillDetail = new ImportBillDetailModel();
-        $this->importBill->protect(false);
-        $this->importBillDetail->protect(false);
+        $this->returnBillDetail = new ReturnBillDetailModel();
+        $this->returnBill->protect(false);
+        $this->returnBillDetail->protect(false);
     }
 
     /**get all importBill */
-    public function getAllImportBill()
+    public function getAllReturnBill()
     {
-        $result = $this->importBill
+        $result = $this->returnBill
             ->select('*')
-            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieunhap.FK_iMaNV')
-            ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieunhap.FK_iMaNCC')
-            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieunhap.FK_iMaTrangThai')
+            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieuhoantra.FK_iMaNV')
+            ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieuhoantra.FK_iMaNCC')
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieuhoantra.FK_iMaTrangThai')
             ->findAll();
         // dd($result);
         return $result;
@@ -75,14 +75,14 @@ class ImportBillService extends BaseService
     }
 
     /**add new user */
-    public function addImportBillInfo($requestData)
+    public function addReturnBillInfo($requestData)
     {
         //Tạo mã tự động
         $timestamp = time();
         $randomPart = mt_rand(1000, 9999);
         $uniqueCode = $timestamp . $randomPart;
 
-        $validate = $this->validateAddImportBill($requestData);
+        $validate = $this->validateAddReturnBill($requestData);
         if ($validate->getErrors()) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -91,20 +91,17 @@ class ImportBillService extends BaseService
             ];
         }
         $dataSave1 = $requestData->getPost();
-        $dataSave1['PK_iPN'] = 'PN_'. $uniqueCode;
+        $dataSave1['PK_iMaPhieu'] = 'HT_'. $uniqueCode;
         unset($dataSave1['FK_iMaSP']);
-        unset($dataSave1['iSoluong']);
+        unset($dataSave1['iSoLuong']);
+        // dd($dataSave1);
 
-        $dataSave = $requestData->getPost();
-        unset($dataSave['FK_iMaNV']);
-        unset($dataSave['FK_iMaNCC']);
-        unset($dataSave['dNgayNhap']);
-        unset($dataSave['fTienDaTra']);
-        unset($dataSave['sNguoiGiao']);
-        unset($dataSave['FK_iMaTrangThai']);
-        unset($dataSave['sGhiChu']);
+        $dataSave_CT = [
+            'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+            'iSoLuong' => $requestData->getPost('iSoLuong'),
+        ];
 
-        $duplicateProduct = $this->importBill->where('PK_iPN', $dataSave1['PK_iPN'])->first();
+        $duplicateProduct = $this->returnBill->where('PK_iMaPhieu', $dataSave1['PK_iMaPhieu'])->first();
         if ($duplicateProduct) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -114,18 +111,18 @@ class ImportBillService extends BaseService
         }
         // dd($dataSave1);
         try {
-            $this->importBill->save($dataSave1);
+            $this->returnBill->save($dataSave1);
 
             $transformedData = array();
-            foreach ($dataSave as $k => $v) {
+            foreach ($dataSave_CT as $k => $v) {
                 foreach ($v as $k1 => $v1) {
                     $transformedData[$k1][$k] = $v1;
-                    $transformedData[$k1]['FK_iMaPN'] = 'PN_'. $uniqueCode;
+                    $transformedData[$k1]['FK_iMaPhieu'] = 'HT_'. $uniqueCode;
                 }
             }
 
             // dd($transformedData);
-            $this->importBillDetail->insertBatch($transformedData);
+            $this->returnBillDetail->insertBatch($transformedData);
 
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
@@ -141,13 +138,13 @@ class ImportBillService extends BaseService
         }
     }
 
-    public function validateAddImportBill($requestData)
+    public function validateAddReturnBill($requestData)
     {
         $rule = [
-            'sNguoiGiao' => 'max_length[100]',
+            'sGhiChu' => 'max_length[100]',
         ];
         $message = [
-            'sNguoiGiao' => [
+            'sGhiChu' => [
                 'max_length' => 'Tên người giao quá dài!'
             ]
         ];

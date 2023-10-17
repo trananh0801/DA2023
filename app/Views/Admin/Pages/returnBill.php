@@ -18,7 +18,7 @@
         <?php endforeach ?>
     <?php endif ?>
     <div class="content-header">
-        <h2 class="content-title">Danh sách phiếu nhập kho</h2>
+        <h2 class="content-title">Danh sách phiếu hoàn trả hàng</h2>
         <div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="material-icons md-plus"></i> Thêm mới phiếu</button>
         </div>
@@ -56,25 +56,23 @@
                             <th scope="col">Mã phiếu</th>
                             <th scope="col">Nhân viên</th>
                             <th scope="col">Nhà cung cấp</th>
-                            <th scope="col">Ngày nhập</th>
-                            <th scope="col">Số tiền đã trả</th>
+                            <th scope="col">Ngày tạo</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col" class="text-end"> Thao tác </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($importBills as $importBill) : ?>
+                        <?php foreach ($returnBills as $returnBill) : ?>
                             <tr>
                                 <td>1</td>
-                                <td><b><?= $importBill['PK_iPN'] ?></b></td>
-                                <td><b><?= $importBill['sTenNV'] ?></b></td>
-                                <td><?= $importBill['sTenNCC'] ?></td>
-                                <td><?= $importBill['dNgayNhap'] ?></td>
-                                <td><?= $importBill['fTienDaTra'] ?></td>
-                                <?php if ($importBill['FK_iMaTrangThai'] == '4') : ?>
-                                    <td><span class="badge rounded-pill alert-warning"><?= $importBill['sTenTrangThai'] ?></span></td>
+                                <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
+                                <td><b><?= $returnBill['sTenNV'] ?></b></td>
+                                <td><?= $returnBill['sTenNCC'] ?></td>
+                                <td><?= $returnBill['dNgayTao'] ?></td>
+                                <?php if ($returnBill['FK_iMaTrangThai'] == '4') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenTrangThai'] ?></span></td>
                                 <?php else : ?>
-                                    <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
+                                    <td><span class="badge rounded-pill alert-success"><?= $returnBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
                                     <a href="#" class="btn btn-light">Chi tiết</a>
@@ -100,11 +98,11 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thêm mới phiếu nhập kho</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm mới phiếu hoàn trả</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="admin/importBill/create" method="POST">
+                    <form action="admin/returnBill/create" method="POST">
                         <div class="row">
                             <div class="col-6">
                                 <div class="row">
@@ -125,16 +123,8 @@
                                         </select>
                                     </div>
                                     <div class="mb-4 col-6">
-                                        <label for="dNgayNhap" class="form-label">Ngày nhập</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="dNgayNhap" name="dNgayNhap" />
-                                    </div>
-                                    <div class="mb-4 col-6">
-                                        <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="fTienDaTra" name="fTienDaTra" />
-                                    </div>
-                                    <div class="mb-4 col-6">
-                                        <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="sNguoiGiao" name="sNguoiGiao" />
+                                        <label for="dNgayTao" class="form-label">Ngày tạo</label>
+                                        <input type="date" placeholder="Type here" class="form-control" id="dNgayTao" name="dNgayTao" />
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -169,7 +159,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" /></td>
+                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
                                             <td class="text-end">
                                                 <button type="button" class="btn btn-danger deleteRowButton">X</button>
                                             </td>
@@ -210,7 +200,7 @@
         // Cài đặt nội dung cho các ô
         cell1.innerHTML = rowCount;
         cell2.innerHTML = "<td><select class='form-select' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
-        cell3.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoluong' name='iSoluong[]' /></td>";
+        cell3.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoLuong' name='iSoLuong[]' /></td>";
         cell4.innerHTML = "<td class='text-end'><button type='button' class='btn btn-danger deleteRowButton'>X</button></td>";
 
         // Tăng biến rowCount để theo dõi số dòng đã thêm

@@ -39,28 +39,35 @@
 							<th scope="col">Ảnh sản phẩm</th>
 							<th scope="col">Tên sản phẩm</th>
 							<th scope="col">Giá nhập</th>
-							<th scope="col">Hạn sử dụng</th>
+							<th scope="col">Giá bán lẻ</th>
+							<th scope="col">Giá bán sỉ</th>
 							<th scope="col">Số lượng</th>
 							<th scope="col">Nhóm</th>
-							<th scope="col">Trạng thái</th>
 							<th scope="col" class="text-end"> Tác vụ </th>
 						</tr>
 					</thead>
 					<tbody>
+						<?php $k = 1 ?>
 						<?php foreach ($products as $product) : ?>
 							<tr>
-								<td>STT</td>
+								<td><?= $k++ ?></td>
 								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']); ?>" alt="Ảnh sản phẩm">
 								</td>
 								<td><b><?= $product['sTenSP'] ?></b></td>
-								<td><?= $product['fGiaNhap'] ?></td>
-								<td><b><?= $product['dHSD'] ?></b></td>
-								<td><?= $product['fSoLuong'] ?></td>
-								<td><b><?= $product['sTenNhom'] ?></b></td>
-								<td><span class="badge rounded-pill alert-warning"><?= $product['sTenTrangThai'] ?></span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaNhap'] ?>đ</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanLe'] ?>đ</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanSi'] ?>đ</span></td>
+								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?></span></td>
+								<td><?= $product['sTenNhom'] ?></td>
 								<td class="text-end">
-									<button type="button" class="btn btn-info">Sửa</button>
-									<button type="button" class="btn btn-danger">Xóa</button>
+									<a href="#" class="btn btn-light">Chi tiết</a>
+									<div class="dropdown">
+										<a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Sửa</a>
+											<a class="dropdown-item text-danger" href="#">Xóa</a>
+										</div>
+									</div> <!-- dropdown //end -->
 								</td>
 							</tr>
 						<?php endforeach ?>
@@ -103,6 +110,7 @@
 							<div class="col-sm-6 mb-3">
 								<label class="form-label">Nhóm sản phẩm</label>
 								<select class="form-select" name="FK_iMaNhom">
+									<option value="">Chọn nhóm sản phẩm</option>
 									<?php foreach ($productsGroup as $productGroup) : ?>
 										<option value="<?= $productGroup['PK_iMaNhom'] ?>"><?= $productGroup['sTenNhom'] ?></option>
 									<?php endforeach ?>
@@ -110,7 +118,7 @@
 							</div>
 							<div class="mb-4 col-6">
 								<label for="sTenSP" class="form-label">Tên sản phẩm</label>
-								<input type="text" value="<?= old('sTenSP') ?>" placeholder="Nhập tên nhóm" class="form-control" id="sTenSP" name="sTenSP">
+								<input type="text" value="<?= old('sTenSP') ?>" placeholder="Nhập tên sản phẩm" class="form-control" id="sTenSP" name="sTenSP">
 							</div>
 						</div>
 
@@ -118,43 +126,30 @@
 							<div class="col-6">
 								<label class="form-label">Số lượng</label>
 								<div>
-									<input type="number" class="form-control" placeholder="VD: 10" name="fSoLuong">
+									<input type="number" class="form-control" placeholder="VD: 10" name="fSoLuong" value="0" readonly>
 								</div> <!-- col.// -->
 							</div> <!-- row.// -->
 							<div class="mb-4 col-6">
 								<label for="sDVT" class="form-label">Đơn vị tính</label>
-								<input type="text" <?= old('sDVT') ?> placeholder="VD: Chiếc" class="form-control" id="sDVT" name="sDVT">
+								<input type="text" <?= old('sDVT') ?> placeholder="VD: Chiếc,..." class="form-control" id="sDVT" name="sDVT">
 							</div>
 						</div>
 						<div class="row">
 							<div class="mb-4 col-2">
 								<label for="fGiaNhap" class="form-label">Giá nhập</label>
-								<input type="text" <?= old('fGiaNhap') ?> class="form-control" id="fGiaNhap" name="fGiaNhap">
+								<input type="text" <?= old('fGiaNhap') ?> class="form-control" id="fGiaNhap" name="fGiaNhap" value="0" readonly>
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
-								<input type="text" <?= old('fGiaBanLe') ?> class="form-control" id="fGiaBanLe" name="fGiaBanLe">
+								<input type="text" <?= old('fGiaBanLe') ?> class="form-control" id="fGiaBanLe" name="fGiaBanLe" placeholder="VD: 100.000đ">
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
-								<input type="text" <?= old('fGiaBanSi') ?> class="form-control" id="fGiaBanSi" name="fGiaBanSi">
+								<input type="text" <?= old('fGiaBanSi') ?> class="form-control" id="fGiaBanSi" name="fGiaBanSi" placeholder="VD: 90.000đ">
 							</div>
-							<div class="mb-4 col-6">
-								<label for="dHSD" class="form-label">Hạn sử dụng</label>
-								<input type="date" <?= old('dHSD') ?> class="form-control" id="dHSD" name="dHSD">
-							</div>
-						</div>
-						<div class="row">
 							<div class="col-6">
 								<label class="form-label">Ảnh sản phẩm</label>
 								<input class="form-control" type="file" name="sHinhAnh">
-							</div>
-							<div class="mb-4 col-6">
-								<label class="form-check mb-3">
-									Trạng thái
-								</label>
-								<input class="form-check-input" type="checkbox" value="1" name="FK_iMaTrangThai">
-								<span class="form-check-label"> Kích hoạt </span>
 							</div>
 						</div>
 						<div class="row">

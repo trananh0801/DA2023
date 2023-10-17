@@ -26,7 +26,6 @@ class ProductService extends BaseService
         $result = $this->product
             ->select('*')
             ->join('tbl_nhomsanpham', 'tbl_nhomsanpham.PK_iMaNhom  = tbl_sanpham.FK_iMaNhom')
-            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai   = tbl_sanpham.FK_iMaTrangThai ')
             ->findAll();
         // dd($result);
         return $result;
@@ -73,9 +72,9 @@ class ProductService extends BaseService
         $dataSave = $requestData->getPost();
         $dataSave['sHinhAnh'] = $newName;
         // dd($dataSave);
-        if (empty($dataSave['FK_iMaTrangThai'])) {
-            $dataSave['FK_iMaTrangThai'] = '2';
-        }
+        // if (empty($dataSave['FK_iMaTrangThai'])) {
+        //     $dataSave['FK_iMaTrangThai'] = '2';
+        // }
         try {
             $this->product->save($dataSave);
 
@@ -98,15 +97,10 @@ class ProductService extends BaseService
     {
         $rule = [
             'sTenSP' => 'max_length[100]',
-            'fSoLuong' => 'max_length[30]|min_length[1]'
         ];
         $message = [
             'sTenSP' => [
                 'max_length' => 'Tên sản phẩm quá dài!'
-            ],
-            'fSoLuong' => [
-                'max_length' => 'Số lượng quá dài!',
-                'min_length' => 'Số lượng lớn hơn hoặc bằng {param} ký tự!'
             ],
         ];
         $this->validation->setRules($rule, $message);

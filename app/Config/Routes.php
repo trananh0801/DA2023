@@ -47,5 +47,9 @@ $routes->group('admin', function($routes){
         $routes->get('list', 'Admin\OrderController::list');
         $routes->post('create', 'Admin\OrderController::create');
     });
+    $routes->group('returnBill', function($routes){
+        $routes->get('list', 'Admin\ReturnBillController::list');
+        $routes->post('create', 'Admin\ReturnBillController::create');
+    });
 });
 

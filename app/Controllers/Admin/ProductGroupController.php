@@ -17,6 +17,10 @@ class ProductGroupController extends BaseController
 
     public function list()
     {
+        $session = session();
+        if (!$session->get('user_id')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $dataLayout['productGroups'] = $this->service->getAllProductGroup();
         // dd($dataLayout['productGroups']);

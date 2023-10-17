@@ -6,10 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-
-
-
-$routes->get('/', 'User\HomeController::index');
+$routes->get('/', 'Admin\LoginController::index');
 $routes->group('admin', function($routes){
     $routes->get('home', 'Admin\HomeController::index');
     $routes->group('user', function($routes){
@@ -51,5 +48,11 @@ $routes->group('admin', function($routes){
         $routes->get('list', 'Admin\ReturnBillController::list');
         $routes->post('create', 'Admin\ReturnBillController::create');
     });
+    $routes->group('promotion', function($routes){
+        $routes->get('list', 'Admin\PromotionController::list');
+        $routes->post('create', 'Admin\PromotionController::create');
+    });
+    $routes->post('login', 'Admin\LoginController::login');
+    $routes->get('logout', 'Admin\LoginController::logout');
 });
 

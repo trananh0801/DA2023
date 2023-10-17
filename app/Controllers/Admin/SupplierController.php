@@ -17,6 +17,10 @@ class SupplierController extends BaseController
 
     public function list()
     {
+        $session = session();
+        if (!$session->get('user_id')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $dataLayout['suppliers'] = $this->service->getAllSupplier();
         // dd($dataLayout['suppliers']);

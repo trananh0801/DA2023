@@ -58,7 +58,7 @@
         <span class="text">Khuyến mãi</span> 
       </a> 
       <div class="submenu">
-        <a href="admin/customer/list">Danh sách khuyến mãi</a>
+        <a href="admin/promotion/list">Danh sách khuyến mãi</a>
         <a href="admin/customer/list">Danh mục quà tặng</a>
       </div>
     </li>

@@ -1,5 +1,22 @@
 <section class="content-main">
-
+	<?php if (session('errorsMsg')) : ?>
+		<?php foreach (session('errorsMsg') as $error) : ?>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Lỗi: </strong> <?= $error ?>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<?php break; ?>
+		<?php endforeach ?>
+	<?php endif ?>
+	<?php if (session('successMsg')) : ?>
+		<?php foreach (session('successMsg') as $success) : ?>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Thành công: </strong> <?= $success ?>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<?php break; ?>
+		<?php endforeach ?>
+	<?php endif ?>
 	<div class="content-header">
 		<h2 class="content-title">Danh sách sản phẩm</h2>
 		<div>
@@ -86,24 +103,7 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<?php if (session('errorsMsg')) : ?>
-						<?php foreach (session('errorsMsg') as $error) : ?>
-							<div class="alert alert-danger alert-dismissible fade show" role="alert">
-								<strong>Lỗi: </strong> <?= $error ?>
-								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-							</div>
-							<?php break; ?>
-						<?php endforeach ?>
-					<?php endif ?>
-					<?php if (session('successMsg')) : ?>
-						<?php foreach (session('successMsg') as $success) : ?>
-							<div class="alert alert-success alert-dismissible fade show" role="alert">
-								<strong>Thành công: </strong> <?= $success ?>
-								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-							</div>
-							<?php break; ?>
-						<?php endforeach ?>
-					<?php endif ?>
+
 
 					<form action="admin/product/create" method="POST" enctype="multipart/form-data">
 						<div class="row">
@@ -158,7 +158,10 @@
 								<textarea class="form-control" id="sGhiChu" rows="3" name="sGhiChu"></textarea>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary mt-3">Thêm mới</button>
+						<div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                        </div>
 					</form>
 				</div>
 

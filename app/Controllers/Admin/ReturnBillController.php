@@ -17,6 +17,10 @@ class ReturnBillController extends BaseController
 
     public function list()
     {
+        $session = session();
+        if (!$session->get('user_id')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $dataLayout['returnBills'] = $this->service->getAllReturnBill();
         $dataLayout['staffs'] = $this->service->getAllStaff();

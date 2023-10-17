@@ -28,7 +28,7 @@
         <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#"> <img class="img-xs rounded-circle" src="assets/admin/images/people/avatar1.jpg" alt="User"></a>
         <div class="dropdown-menu dropdown-menu-end">
           <a class="dropdown-item" href="#">Cá nhân</a>
-          <a class="dropdown-item text-danger" href="#">Đăng xuất</a>
+          <a class="dropdown-item text-danger" href="admin/logout">Đăng xuất</a>
         </div>
       </li>
     </ul> 

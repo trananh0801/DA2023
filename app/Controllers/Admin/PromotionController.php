@@ -1,21 +1,18 @@
 <?php
 
 namespace App\Controllers\Admin;
-
 use App\Controllers\BaseController;
-use App\Services\ProductService;
+use App\Services\PromotionService;
 
-class ProductController extends BaseController
+class PromotionController extends BaseController
 {
-
     /**
      * @var service;
      */
-    private $service;
+    private $service; 
     public function __construct()
     {
-        $this->service = new ProductService();
-        
+        $this->service = new PromotionService();
     }
 
     public function list()
@@ -25,16 +22,16 @@ class ProductController extends BaseController
             return redirect()->to('/');
         }
         $data = [];
+        $dataLayout['promotions'] = $this->service->getAllPromotion();
         $dataLayout['products'] = $this->service->getAllProduct();
-        $dataLayout['productsGroup'] = $this->service->getAllProductGroup();
         // dd($dataLayout['productsGroup']);
-        $data = $this->loadMasterLayout($data, 'Danh sách sản phẩm', 'Admin/Pages/product', $dataLayout);
+        $data = $this->loadMasterLayout($data, 'Danh sách khuyến mãi', 'Admin/Pages/promotion', $dataLayout);
         return view('Admin/main', $data);
     }
 
     public function create()
     {
-        $result = $this->service->addProductInfo($this->request);
-        return redirect()->to('admin/product/list')->withInput()->with($result['massageCode'], $result['message']);
+        $result = $this->service->addPromotionInfo($this->request);
+        return redirect()->to('admin/promotion/list')->withInput()->with($result['massageCode'], $result['message']);
     }
 }

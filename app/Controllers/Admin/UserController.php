@@ -17,6 +17,10 @@ class UserController extends BaseController
 
     public function list()
     {
+        $session = session();
+        if (!$session->get('user_id')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $dataLayout['users'] = $this->service->getAllUser();
         // dd($data['users']);

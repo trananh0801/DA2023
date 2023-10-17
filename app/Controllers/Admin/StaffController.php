@@ -17,6 +17,10 @@ class StaffController extends BaseController
 
     public function list()
     {
+        $session = session();
+        if (!$session->get('user_id')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $dataLayout['staffs'] = $this->service->getAllStaff();
         // dd($dataLayout['staffs']);

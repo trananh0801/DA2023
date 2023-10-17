@@ -17,6 +17,10 @@ class OrderController extends BaseController
 
     public function list()
     {
+        $session = session();
+        if (!$session->get('user_id')) {
+            return redirect()->to('/');
+        }
         $data = [];
         $dataLayout['orders'] = $this->service->getAllOrder();
         $dataLayout['staffs'] = $this->service->getAllStaff();

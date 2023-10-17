@@ -54,5 +54,10 @@ $routes->group('admin', function($routes){
     });
     $routes->post('login', 'Admin\LoginController::login');
     $routes->get('logout', 'Admin\LoginController::logout');
+
+    $routes->group('setting', function($routes){
+        $routes->get('list', 'Admin\SettingController::list');
+        $routes->post('update', 'Admin\SettingController::update');
+    });
 });
 

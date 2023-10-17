@@ -73,13 +73,10 @@
   </ul>
   <hr>
   <ul class="menu-aside">
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="#"> <i class="icon material-icons md-settings"></i> 
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/setting/list"> <i class="icon material-icons md-home"></i> 
         <span class="text">Thông tin cá nhân</span> 
-      </a>
-      <div class="submenu">
-        <a href="page-settings-1.html">Thông tin cá nhân</a>
-      </div>
+      </a> 
     </li>
   </ul>
   <br>

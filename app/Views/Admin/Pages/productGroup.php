@@ -63,7 +63,7 @@
                                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
                                                        <div class="dropdown-menu">
                                                             <button type="button" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
-                                                            <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-danger dropdown-item deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="myFunction()">Xóa</a>
+                                                            <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="myFunction()">Xóa</a>
                                                        </div>
                                                   </div> <!-- dropdown //end -->
                                              </td>

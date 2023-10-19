@@ -315,3 +315,280 @@ INFO - 2023-10-19 06:58:52 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-10-19 06:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-19 06:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-19 06:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:22:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-19 07:23:03 --> Undefined variable $productGroup
+in APPPATH\Views\Admin\Pages\product.php on line 84.
+ 1 APPPATH\Views\Admin\Pages\product.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productGroup', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\product.php', 84)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\product.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/product', [], true)
+ 5 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/product', [...])
+ 6 APPPATH\Controllers\Admin\ProductController.php(31): App\Controllers\BaseController->loadMasterLayout([...], 'Danh sách sản phẩm', 'Admin/Pages/product', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 07:30:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:39:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:48:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:48:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:54:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:54:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:58:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 07:59:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 08:00:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 08:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 08:05:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 08:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:41:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:52:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:52:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:55:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 09:56:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:13:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-19 10:13:53 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+in APPPATH\Services\ProductService.php on line 102.
+ 1 APPPATH\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 10:13:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:18:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-19 10:18:25 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+in APPPATH\Services\ProductService.php on line 102.
+ 1 APPPATH\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 10:18:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:20:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:23:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:25:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:28:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:31:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:33:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:35:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:36:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:37:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:37:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:37:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:37:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 10:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:42:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:42:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:50:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:51:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:52:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:52:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:52:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:53:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 13:56:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:11:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:12:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:13:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:16:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:17:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:17:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:19:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:22:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:22:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:23:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:23:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:31:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:31:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:31:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-19 14:31:18 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+in APPPATH\Services\ProductService.php on line 102.
+ 1 APPPATH\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-10-19 14:47:29 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+in APPPATH\Services\ProductService.php on line 102.
+ 1 APPPATH\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 14:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:53:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:53:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-19 14:53:47 --> mysqli_sql_exception: Unknown column 'PK_iMaSP' in 'where clause' in F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `tbl_nho...', 0)
+#1 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_nho...')
+#2 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_nho...')
+#3 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_nho...', Array, false)
+#4 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\ProductService.php(141): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+#7 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#8 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\DOANTOTNGHIEP\htdocs\DA2023\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIE...')
+#11 {main}
+CRITICAL - 2023-10-19 14:53:47 --> Unknown column 'PK_iMaSP' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_nhomsanpham` SET `FK_iMaNhom` = :FK_iMaNhom:, `sTenSP` = :sTenSP:, `sDVT` = :sDVT:, `fGiaBanLe` = :fGiaBanLe:, `fGiaBanSi` = :fGiaBanSi:, `sGhiChu` = :sGhiChu:, `sHinhAnh` = :sHinhAnh:
+WHERE `PK_iMaSP` = :PK_iMaSP:', [...], false)
+ 2 APPPATH\Services\ProductService.php(141): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 APPPATH\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 14:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-19 14:54:27 --> mysqli_sql_exception: Unknown column 'PK_iMaSP' in 'where clause' in F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `tbl_nho...', 0)
+#1 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_nho...')
+#2 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_nho...')
+#3 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_nho...', Array, false)
+#4 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\ProductService.php(141): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+#7 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#8 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\DOANTOTNGHIEP\htdocs\DA2023\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIE...')
+#11 {main}
+CRITICAL - 2023-10-19 14:54:27 --> Unknown column 'PK_iMaSP' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_nhomsanpham` SET `FK_iMaNhom` = :FK_iMaNhom:, `sTenSP` = :sTenSP:, `PK_iMaSP` = :PK_iMaSP.1:, `sDVT` = :sDVT:, `fGiaBanLe` = :fGiaBanLe:, `fGiaBanSi` = :fGiaBanSi:, `sGhiChu` = :sGhiChu:, `sHinhAnh` = :sHinhAnh:
+WHERE `PK_iMaSP` = :PK_iMaSP:', [...], false)
+ 2 APPPATH\Services\ProductService.php(141): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 APPPATH\Controllers\Admin\ProductController.php(54): App\Services\ProductService->updateProductInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->update()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 14:55:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-19 14:57:05 --> Call to undefined method App\Services\ProductService::getProductGroupById()
+in APPPATH\Controllers\Admin\ProductController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->delete('28')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 14:57:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-19 14:57:38 --> Call to undefined method App\Services\ProductService::getProductId()
+in APPPATH\Controllers\Admin\ProductController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->delete('28')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 14:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:58:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-19 14:58:49 --> mysqli_sql_exception: Unknown column 'PK_iMaSP' in 'where clause' in F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `tb...', 0)
+#1 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tb...')
+#2 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tb...')
+#3 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tb...', Array, false)
+#4 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\ProductService.php(163): CodeIgniter\Database\BaseBuilder->delete()
+#5 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\ProductController.php(64): App\Services\ProductService->deleteProductInfo('28')
+#6 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(919): App\Controllers\Admin\ProductController->delete('28')
+#7 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#8 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\DOANTOTNGHIEP\htdocs\DA2023\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIE...')
+#11 {main}
+CRITICAL - 2023-10-19 14:58:49 --> Unknown column 'PK_iMaSP' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tbl_nhomsanpham`
+WHERE `PK_iMaSP` = :PK_iMaSP:', [...], false)
+ 2 APPPATH\Services\ProductService.php(163): CodeIgniter\Database\BaseBuilder->delete()
+ 3 APPPATH\Controllers\Admin\ProductController.php(64): App\Services\ProductService->deleteProductInfo('28')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ProductController->delete('28')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-10-19 14:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:59:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:59:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 14:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:00:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:00:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:02:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:02:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:04:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:05:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:06:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:07:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-19 15:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

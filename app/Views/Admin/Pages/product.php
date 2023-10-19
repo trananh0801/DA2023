@@ -81,8 +81,8 @@
 									<div class="dropdown">
 										<a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
 										<div class="dropdown-menu">
-											<a class="dropdown-item" href="#">Sửa</a>
-											<a class="dropdown-item text-danger" href="#">Xóa</a>
+											<a href="admin/product/edit/<?= $product['PK_iMaSP'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNhom="<?= $product['FK_iMaNhom'] ?>" data-sTenSP="<?= $product['sTenSP'] ?>" data-fSoLuong="<?= $product['fSoLuong'] ?>" data-sDVT="<?= $product['sDVT'] ?>" data-fGiaNhap="<?= $product['fGiaNhap'] ?>" data-fGiaBanLe="<?= $product['fGiaBanLe'] ?>" data-fGiaBanSi="<?= $product['fGiaBanSi'] ?>" data-sHinhAnh="<?= $product['sHinhAnh'] ?>" data-sGhiChu="<?= $product['sGhiChu'] ?>" data-PK_iMaSP="<?= $product['PK_iMaSP'] ?>">Sửa</a>
+											<a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $product['PK_iMaSP'] ?>" name="masanpham" onclick="myFunction()">Xóa</a>
 										</div>
 									</div> <!-- dropdown //end -->
 								</td>
@@ -94,7 +94,7 @@
 		</div> <!-- card-body end// -->
 	</div> <!-- card end// -->
 
-	<!-- Modal -->
+	<!-- Modal thêm mới -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl">
 			<div class="modal-content">
@@ -159,9 +159,84 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
-                        </div>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+							<button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal cập nhật -->
+	<div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cập nhật sản phẩm</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form action="admin/product/update" method="POST" enctype="multipart/form-data">
+
+						<div class="row">
+							<div class="col-sm-6 mb-3">
+								<label class="form-label">Nhóm sản phẩm</label>
+								<select class="form-select" name="FK_iMaNhom" id="manhom">
+									<option value="">Chọn nhóm sản phẩm</option>
+									<?php foreach ($productsGroup as $productGroup) : ?>
+										<option value="<?= $productGroup['PK_iMaNhom'] ?>"><?= $productGroup['sTenNhom'] ?></option>
+									<?php endforeach ?>
+								</select>
+							</div>
+							<div class="mb-4 col-6">
+								<label for="sTenSP" class="form-label">Tên sản phẩm</label>
+								<input type="text" value="<?= old('sTenSP') ?>" placeholder="Nhập tên sản phẩm" class="form-control" id="tensp" name="sTenSP">
+								<input type="text" value="<?= old('PK_iMaSP') ?>" placeholder="Nhập tên sản phẩm" class="form-control" id="masanpham" name="PK_iMaSP" hidden>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6">
+								<label class="form-label">Số lượng</label>
+								<div>
+									<input type="number" class="form-control" placeholder="VD: 10" name="fSoLuong" value="0" readonly id="soluong">
+								</div> <!-- col.// -->
+							</div> <!-- row.// -->
+							<div class="mb-4 col-6">
+								<label for="sDVT" class="form-label">Đơn vị tính</label>
+								<input type="text" <?= old('sDVT') ?> placeholder="VD: Chiếc,..." class="form-control" id="donvi" name="sDVT">
+							</div>
+						</div>
+						<div class="row">
+							<div class="mb-4 col-2">
+								<label for="fGiaNhap" class="form-label">Giá nhập</label>
+								<input type="text" <?= old('fGiaNhap') ?> class="form-control" id="gianhap" name="fGiaNhap" value="0" readonly>
+							</div>
+							<div class="mb-4 col-2">
+								<label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
+								<input type="text" <?= old('fGiaBanLe') ?> class="form-control" id="giabanle" name="fGiaBanLe" placeholder="VD: 100.000đ">
+							</div>
+							<div class="mb-4 col-2">
+								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
+								<input type="text" <?= old('fGiaBanSi') ?> class="form-control" id="giabansi" name="fGiaBanSi" placeholder="VD: 90.000đ">
+							</div>
+							<div class="col-6">
+								<label class="form-label">Ảnh sản phẩm</label>
+								<input class="form-control" type="file" name="sHinhAnh" id="hinhanh">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-12">
+								<label for="sGhiChu">Ghi chú</label>
+								<textarea class="form-control" id="ghichu" rows="3" name="sGhiChu"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+							<button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
+						</div>
 					</form>
 				</div>
 
@@ -169,3 +244,38 @@
 		</div>
 	</div>
 </section> <!-- content-main end// -->
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".editGroup").click(function() {
+			// Thực hiện lấy dữ liệu khi click button
+			FK_iMaNhom = $(this).attr("data-FK_iMaNhom");
+			sTenSP = $(this).attr("data-sTenSP");
+			fSoLuong = $(this).attr("data-fSoLuong");
+			sDVT = $(this).attr("data-sDVT");
+			fGiaNhap = $(this).attr("data-fGiaNhap");
+			fGiaBanLe = $(this).attr("data-fGiaBanLe");
+			fGiaBanSi = $(this).attr("data-fGiaBanSi");
+			sHinhAnh = $(this).attr("data-sHinhAnh");
+			sGhiChu = $(this).attr("data-sGhiChu");
+			PK_iMaSP = $(this).attr("data-PK_iMaSP");
+			//    console.log(PK_iMaSP);
+
+			// Hiển thị lên trên form
+			$("#manhom").val(FK_iMaNhom);
+			$("#tensp").val(sTenSP);
+			$("#soluong").val(fSoLuong);
+			$("#donvi").val(sDVT);
+			$("#gianhap").val(fGiaNhap);
+			$("#giabanle").val(fGiaBanLe);
+			$("#giabansi").val(fGiaBanSi);
+			$("#ghichu").val(sGhiChu);
+			$("#masanpham").val(PK_iMaSP);
+			$("#hinhanh").val(sHinhAnh);
+		})
+	})
+
+	function myFunction() {
+		confirm("Bạn có chắc chắn muốn xóa sản phẩm này!");
+	}
+</script>

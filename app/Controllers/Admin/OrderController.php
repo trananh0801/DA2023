@@ -37,4 +37,21 @@ class OrderController extends BaseController
         $result = $this->service->addOrderInfo($this->request);
         return redirect()->to('admin/order/list')->withInput()->with($result['massageCode'], $result['message']);
     }
+
+    public function update()
+    {
+        $result = $this->service->updateOrderInfo($this->request);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
+    }
+
+
+    public function delete($id)
+    {
+        $idPG = $this->service->getOrderById($id);
+        if(!$idPG){
+            return redirect('error/404');
+        }
+        $result = $this->service->deleteOrderInfo($id);
+        return redirect('admin/order/list')->with($result['massageCode'], $result['message']);
+    }
 }

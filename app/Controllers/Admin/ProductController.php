@@ -38,17 +38,6 @@ class ProductController extends BaseController
         return redirect()->to('admin/product/list')->withInput()->with($result['massageCode'], $result['message']);
     }
 
-    // public function edit($id)
-    // {
-    //     $idsp = $this->service->getProductById($id);
-    //     dd($idsp);
-    //     if(!$idsp){
-    //         return redirect('error/404');
-    //     }
-    //     // $result = $this->service->updateProductInfo($this->request);
-    //     // return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
-    // }
-
     public function update()
     {
         $result = $this->service->updateProductInfo($this->request);

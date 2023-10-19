@@ -138,6 +138,73 @@ class OrderService extends BaseService
         }
     }
 
+    public function getOrderById($id)
+    {
+        return $this->order->where('PK_iMaDon', $id)->first();
+    }
+
+    public function getProductById($id)
+    {
+        return $this->orderDetail->where('FK_iMaDon', $id)->first();
+    }
+
+    public function updateOrderInfo($requestData)
+    {
+        
+        $validate = $this->validateAddOrder($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+
+        $id = $requestData->getPost('PK_iMaDon');
+        $dataSave = [
+            'FK_iMaTrangThai' => $requestData->getPost('FK_iMaTrangThai'),
+        ];
+        // dd($dataSave);
+        try {
+            $builder = $this->order->builder();
+            $builder->where('PK_iMaDon', $id);
+            $builder->update($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
+    
+
+    public function deleteOrderInfo($id)
+    {
+        try {
+            $builder = $this->order->builder();
+            $builder->where('PK_iMaDon', $id);
+            $builder->delete();
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Xóa dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     public function validateAddOrder($requestData)
     {
         $rule = [
@@ -146,6 +213,22 @@ class OrderService extends BaseService
         $message = [
             'sGhiChu' => [
                 'max_length' => 'Tên người giao quá dài!'
+            ]
+        ];
+        $this->validation->setRules($rule, $message);
+        $this->validation->withRequest($requestData)->run();
+
+        return $this->validation;
+    }
+
+    public function validateUpdateOrder($requestData)
+    {
+        $rule = [
+            'sTenNhom' => 'max_length[100]',
+        ];
+        $message = [
+            'ssTenNhom' => [
+                'max_length' => 'Tên nhóm sản phẩm quá dài!'
             ]
         ];
         $this->validation->setRules($rule, $message);

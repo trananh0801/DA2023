@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 06:12 PM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 05:58 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -65,10 +65,21 @@ CREATE TABLE `tbl_ctgiohang` (
 --
 
 CREATE TABLE `tbl_ctphieuhoantra` (
-  `PK_iMaSP` int(11) NOT NULL,
-  `FK_iMaPhieu` int(11) DEFAULT NULL,
+  `PK_iMaCT_HT` int(11) NOT NULL,
+  `FK_iMaSP` varchar(255) NOT NULL,
+  `FK_iMaPhieu` varchar(255) DEFAULT NULL,
   `iSoLuong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_ctphieuhoantra`
+--
+
+INSERT INTO `tbl_ctphieuhoantra` (`PK_iMaCT_HT`, `FK_iMaSP`, `FK_iMaPhieu`, `iSoLuong`) VALUES
+(1, '1', '0', 1),
+(2, '2', '0', 2),
+(3, '1', 'HT_16975312781360', 3),
+(4, '2', 'HT_16975312781360', 4);
 
 -- --------------------------------------------------------
 
@@ -82,15 +93,6 @@ CREATE TABLE `tbl_ctphieunhap` (
   `FK_iMaPN` varchar(255) DEFAULT NULL,
   `iSoluong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_ctphieunhap`
---
-
-INSERT INTO `tbl_ctphieunhap` (`PK_iMaCT_PN`, `FK_iMaSP`, `FK_iMaPN`, `iSoluong`) VALUES
-(21, 1, '123', 10),
-(22, 1, '1', 1),
-(23, 2, '1', 2);
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,9 @@ CREATE TABLE `tbl_dondathang` (
 INSERT INTO `tbl_dondathang` (`PK_iMaDon`, `FK_iMaNV`, `FK_iMaKH`, `FK_iMaTrangThai`, `dThoiGianTao`, `dNgayNhanHang`, `sGhiChu`) VALUES
 ('3', 1, 0, 3, '0000-00-00 00:00:00', '0000-00-00', ''),
 ('4', 1, 0, 3, '0000-00-00 00:00:00', '0000-00-00', ''),
-('HD_16974726395600', 1, 0, 3, '0000-00-00 00:00:00', '0000-00-00', '');
+('HD_16974726395600', 1, 0, 3, '0000-00-00 00:00:00', '0000-00-00', ''),
+('HD_16975392676251', 1, 0, 3, '0000-00-00 00:00:00', '0000-00-00', ''),
+('HD_16975396329470', 1, 0, 3, '0000-00-00 00:00:00', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -178,14 +182,24 @@ INSERT INTO `tbl_khachhang` (`PK_iMaKH`, `FK_iMaTK`, `sTenKH`, `sDiaChi`, `sSDT`
 --
 
 CREATE TABLE `tbl_khuyenmai` (
-  `PK_iMaKM` int(11) NOT NULL,
+  `PK_iMaKM` varchar(255) NOT NULL,
   `FK_iMaTrangThai` int(11) DEFAULT NULL,
   `sTenKM` varchar(255) NOT NULL,
   `dNgayHieuLuc` date DEFAULT NULL,
+  `dNgayHetHieuLuc` date NOT NULL,
   `fChietKhau` decimal(5,2) DEFAULT NULL,
+  `iSoLuongAD` int(11) NOT NULL,
   `iApDungTatCa` tinyint(1) DEFAULT 0,
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_khuyenmai`
+--
+
+INSERT INTO `tbl_khuyenmai` (`PK_iMaKM`, `FK_iMaTrangThai`, `sTenKM`, `dNgayHieuLuc`, `dNgayHetHieuLuc`, `fChietKhau`, `iSoLuongAD`, `iApDungTatCa`, `sGhiChu`) VALUES
+('KM_16975398602050', 3, '1', '2023-09-30', '2023-10-04', 1.00, 1, 0, '1'),
+('KM_16975399051888', 3, '2', '2023-10-14', '2023-10-13', 2.00, 2, 0, '2');
 
 -- --------------------------------------------------------
 
@@ -252,9 +266,6 @@ CREATE TABLE `tbl_nhomsanpham` (
 --
 
 INSERT INTO `tbl_nhomsanpham` (`PK_iMaNhom`, `sTenNhom`) VALUES
-('', ''),
-('123', '123'),
-('321', '321'),
 ('N001', 'Bỉm'),
 ('N002', 'Sữa');
 
@@ -265,13 +276,21 @@ INSERT INTO `tbl_nhomsanpham` (`PK_iMaNhom`, `sTenNhom`) VALUES
 --
 
 CREATE TABLE `tbl_phieuhoantra` (
-  `PK_iMaPhieu` int(11) NOT NULL,
+  `PK_iMaPhieu` varchar(255) NOT NULL,
   `FK_iMaNV` int(11) DEFAULT NULL,
   `FK_iMaNCC` int(11) DEFAULT NULL,
   `FK_iMaTrangThai` int(11) DEFAULT NULL,
   `dNgayTao` timestamp NOT NULL DEFAULT current_timestamp(),
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_phieuhoantra`
+--
+
+INSERT INTO `tbl_phieuhoantra` (`PK_iMaPhieu`, `FK_iMaNV`, `FK_iMaNCC`, `FK_iMaTrangThai`, `dNgayTao`, `sGhiChu`) VALUES
+('HT_16975311182987', 1, 1, 3, '0000-00-00 00:00:00', '123'),
+('HT_16975312781360', 1, 1, 3, '2023-10-03 17:00:00', '1');
 
 -- --------------------------------------------------------
 
@@ -289,16 +308,6 @@ CREATE TABLE `tbl_phieunhap` (
   `dNgayNhap` date DEFAULT NULL,
   `sGhiChu` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_phieunhap`
---
-
-INSERT INTO `tbl_phieunhap` (`PK_iPN`, `FK_iMaNV`, `FK_iMaNCC`, `FK_iMaTrangThai`, `sNguoiGiao`, `fTienDaTra`, `dNgayNhap`, `sGhiChu`) VALUES
-('1', 1, 1, 3, '', 0.00, '0000-00-00', ''),
-('123', 1, 1, 3, '', 0.00, '0000-00-00', ''),
-('PN001', 1, 1, 4, 'Nguyễn Văn A', 500.00, '2023-10-03', NULL),
-('PN002', 1, 2, 3, 'ánh', 100.00, '2023-10-13', 'hihi');
 
 -- --------------------------------------------------------
 
@@ -349,7 +358,7 @@ CREATE TABLE `tbl_sanpham` (
 INSERT INTO `tbl_sanpham` (`PK_iMaSP`, `FK_iMaNhom`, `FK_iMaTrangThai`, `sTenSP`, `fSoLuong`, `sDVT`, `fGiaNhap`, `fGiaBanLe`, `fGiaBanSi`, `sHinhAnh`, `dHSD`, `sGhiChu`) VALUES
 (1, 'N001', 1, 'Sữa bột', 12, 'e21', 112.00, 1212.00, 12121.00, '121211', '2023-10-03', 'regregtregtrt'),
 (2, 'N002', 2, 'Sữa tươi', 100, '', 0.00, 0.00, 0.00, '', '0000-00-00', ''),
-(23, '', 2, '', 12, '', 0.00, 0.00, 0.00, '1697466185_21a4c647fb5470f4bfdc.jpg', '0000-00-00', '');
+(28, 'N001', NULL, '1', 0, '1', 0.00, 1.00, 1.00, '1697524253_33a119b08057dd2a86b2.jpg', NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -359,10 +368,20 @@ INSERT INTO `tbl_sanpham` (`PK_iMaSP`, `FK_iMaNhom`, `FK_iMaTrangThai`, `sTenSP`
 
 CREATE TABLE `tbl_sp_km` (
   `PK_iMaSPKM` int(11) NOT NULL,
-  `FK_iMaSP` int(11) DEFAULT NULL,
-  `FK_iMaKM` int(11) DEFAULT NULL,
-  `iSoLuongApDung` int(11) DEFAULT NULL
+  `FK_iMaSP` varchar(255) DEFAULT NULL,
+  `FK_iMaKM` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_sp_km`
+--
+
+INSERT INTO `tbl_sp_km` (`PK_iMaSPKM`, `FK_iMaSP`, `FK_iMaKM`) VALUES
+(4, '1', 'KM_16975398602050'),
+(5, '2', 'KM_16975398602050'),
+(6, '28', 'KM_16975398602050'),
+(7, '1', 'KM_16975399051888'),
+(8, '2', 'KM_16975399051888');
 
 -- --------------------------------------------------------
 
@@ -383,7 +402,7 @@ CREATE TABLE `tbl_taikhoan` (
 --
 
 INSERT INTO `tbl_taikhoan` (`PK_iMaTK`, `FK_iMaQuyen`, `FK_iMaTrangThai`, `sTenTK`, `sMatKhau`) VALUES
-('1', 1, 1, 'admin', '123'),
+('1', 1, 1, 'admin', '$2y$10$GfRc4CMcGSYxRqUet87VsuDyK3Jqi2WkGjdGfH5jQj5Yq4jp8Tph2'),
 ('2', 2, 1, 'warehouse', '123'),
 ('3', 3, 1, 'sell', '123'),
 ('4', 4, 1, 'customer', '123'),
@@ -432,7 +451,7 @@ ALTER TABLE `tbl_ctgiohang`
 -- Chỉ mục cho bảng `tbl_ctphieuhoantra`
 --
 ALTER TABLE `tbl_ctphieuhoantra`
-  ADD PRIMARY KEY (`PK_iMaSP`),
+  ADD PRIMARY KEY (`PK_iMaCT_HT`),
   ADD KEY `FK_iMaPhieu` (`FK_iMaPhieu`);
 
 --
@@ -566,10 +585,16 @@ ALTER TABLE `tbl_ctdondathang`
   MODIFY `PK_iMaCT_HD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_ctphieuhoantra`
+--
+ALTER TABLE `tbl_ctphieuhoantra`
+  MODIFY `PK_iMaCT_HT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_ctphieunhap`
 --
 ALTER TABLE `tbl_ctphieunhap`
-  MODIFY `PK_iMaCT_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `PK_iMaCT_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_danhgia`
@@ -590,22 +615,10 @@ ALTER TABLE `tbl_khachhang`
   MODIFY `PK_iMaKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_khuyenmai`
---
-ALTER TABLE `tbl_khuyenmai`
-  MODIFY `PK_iMaKM` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `tbl_ncc`
 --
 ALTER TABLE `tbl_ncc`
   MODIFY `PK_iMaNCC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT cho bảng `tbl_phieuhoantra`
---
-ALTER TABLE `tbl_phieuhoantra`
-  MODIFY `PK_iMaPhieu` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_quyen`
@@ -617,13 +630,13 @@ ALTER TABLE `tbl_quyen`
 -- AUTO_INCREMENT cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  MODIFY `PK_iMaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `PK_iMaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sp_km`
 --
 ALTER TABLE `tbl_sp_km`
-  MODIFY `PK_iMaSPKM` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_iMaSPKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_trangthai`
@@ -642,12 +655,6 @@ ALTER TABLE `tbl_ctgiohang`
   ADD CONSTRAINT `tbl_ctgiohang_ibfk_1` FOREIGN KEY (`FK_iMaGH`) REFERENCES `tbl_giohang` (`PK_iMaGH`);
 
 --
--- Các ràng buộc cho bảng `tbl_ctphieuhoantra`
---
-ALTER TABLE `tbl_ctphieuhoantra`
-  ADD CONSTRAINT `tbl_ctphieuhoantra_ibfk_1` FOREIGN KEY (`FK_iMaPhieu`) REFERENCES `tbl_phieuhoantra` (`PK_iMaPhieu`);
-
---
 -- Các ràng buộc cho bảng `tbl_ctphieunhap`
 --
 ALTER TABLE `tbl_ctphieunhap`
@@ -660,13 +667,6 @@ ALTER TABLE `tbl_ctphieunhap`
 ALTER TABLE `tbl_danhgia`
   ADD CONSTRAINT `tbl_danhgia_ibfk_1` FOREIGN KEY (`FK_iMaKH`) REFERENCES `tbl_khachhang` (`PK_iMaKH`),
   ADD CONSTRAINT `tbl_danhgia_ibfk_2` FOREIGN KEY (`FK_iMaSP`) REFERENCES `tbl_sanpham` (`PK_iMaSP`);
-
---
--- Các ràng buộc cho bảng `tbl_sp_km`
---
-ALTER TABLE `tbl_sp_km`
-  ADD CONSTRAINT `tbl_sp_km_ibfk_1` FOREIGN KEY (`FK_iMaSP`) REFERENCES `tbl_sanpham` (`PK_iMaSP`),
-  ADD CONSTRAINT `tbl_sp_km_ibfk_2` FOREIGN KEY (`FK_iMaKM`) REFERENCES `tbl_khuyenmai` (`PK_iMaKM`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

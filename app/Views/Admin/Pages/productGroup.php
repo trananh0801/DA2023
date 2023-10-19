@@ -37,10 +37,6 @@
                               <div class="d-grid">
                                    <button type="submit" class="btn btn-primary" id="insert">Thêm mới</button>
                               </div>
-                              <div class="grid">
-                                   <button type="submit" class="btn btn-primary" id="update">Cập nhật</button>
-                                   <button type="submit" class="btn btn-danger" id="huy">Hủy bỏ</button>
-                              </div>
                          </form>
                     </div>
                     <div class="col-md-8">
@@ -55,9 +51,10 @@
                                    </tr>
                               </thead>
                               <tbody>
+                                   <span hidden><?= $k = 1?></span>
                                    <?php foreach ($productGroups as $productGroup) : ?>
                                         <tr>
-                                             <td>1</td>
+                                             <td><?= $k++ ?></td>
                                              <td><?= $productGroup['PK_iMaNhom'] ?></td>
                                              <td><b><?= $productGroup['sTenNhom'] ?></b></td>
                                              <td class="text-end">
@@ -65,7 +62,7 @@
                                                   <div class="dropdown">
                                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Sửa</a>
+                                                            <button type="button" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
                                                             <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                        </div>
                                                   </div> <!-- dropdown //end -->
@@ -80,27 +77,44 @@
           </div> <!-- card body .// -->
      </div> <!-- card .// -->
 </section> <!-- content-main end// -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật nhóm sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <form action="admin/productGroup/edit" method="POST" id="formGroupId">
+                         <div class="mb-4">
+                              <label for="maNhom" class="form-label">Mã nhóm</label>
+                              <input type="text" placeholder="Mã nhóm sản phẩm" class="form-control" id="maNhom" name="PK_iMaNhom" readonly/>
+                         </div>
+                         <div class="mb-4">
+                              <label for="tenNhom" class="form-label">Tên nhóm sản phẩm</label>
+                              <input type="text" placeholder="Tên nhóm sản phẩm" class="form-control" id="tenNhom" name="sTenNhom" />
+                         </div>
+                         <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                              <button type="submit" class="btn btn-primary">Cập nhật</button>
+                         </div>
+                    </form>
+               </div>
+
+          </div>
+     </div>
+</div>
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
      $(document).ready(function() {
-          $("#update").hide();
-          $("#huy").hide();
           $(".editGroup").click(function() {
-               $("#insert").hide();
-               $("#update").show();
-               $("#huy").show();
-
                // Thực hiện lấy dữ liệu khi click button
                sTenNhom = $(this).attr("data-sTenNhom");
                PK_iMaNhom = $(this).val();
-               $("#formGroupId").attr("action", "admin/productGroup/edit");
-               // $("#formGroupId").attr("method", "get");
-               // window.history.pushState({}, "Danh sách nhóm sản phẩm", "/admin/productGroup/edit/".concat(PK_iMaNhom));
-               // console.log(PK_iMaNhom);
 
                // Hiển thị lên trên form
-               $("#PK_iMaNhom").val(PK_iMaNhom);
-               $("#sTenNhom").val(sTenNhom);
+               $("#maNhom").val(PK_iMaNhom);
+               $("#tenNhom").val(sTenNhom);
           })
      })
 </script>

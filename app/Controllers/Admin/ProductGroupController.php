@@ -35,6 +35,7 @@ class ProductGroupController extends BaseController
     }
     public function edit()
     {
-        $result = $this->service->updateProductGroupInfo($this->request);
+        $result = $this->service->updateProductInfo($this->request);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
     }
 }

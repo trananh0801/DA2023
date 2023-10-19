@@ -54,7 +54,7 @@ class StaffService extends BaseService
 
         $dataSave_TK = [
             'sTenTK' => $requestData->getPost('sTenTK'),
-            'sMatKhau' => $requestData->getPost('sMatKhau'),
+            'sMatKhau' => password_hash($requestData->getPost('sMatKhau'), PASSWORD_DEFAULT),
             'PK_iMaTK' => 'TK_'. $uniqueCode,
             'FK_iMaQuyen' => $requestData->getPost('sTenChucVu'),
             'FK_iMaTrangThai' => '1'

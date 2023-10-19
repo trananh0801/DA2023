@@ -43,6 +43,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('importBill', function ($routes) {
         $routes->get('list', 'Admin\ImportBillController::list');
         $routes->post('create', 'Admin\ImportBillController::create');
+        $routes->post('update', 'Admin\ImportBillController::update');
+        $routes->get('delete/(:num)', 'Admin\ImportBillController::delete/$1');
     });
     $routes->group('staff', function ($routes) {
         $routes->get('list', 'Admin\StaffController::list');
@@ -51,7 +53,6 @@ $routes->group('admin', function ($routes) {
     $routes->group('order', function ($routes) {
         $routes->get('list', 'Admin\OrderController::list');
         $routes->post('create', 'Admin\OrderController::create');
-        // $routes->get('edit(:num)', 'Admin\OrderController::edit/$1');
         $routes->post('update', 'Admin\OrderController::update');
         $routes->get('delete/(:num)', 'Admin\OrderController::delete/$1');
     });

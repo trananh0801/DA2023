@@ -37,4 +37,21 @@ class ImportBillController extends BaseController
         $result = $this->service->addImportBillInfo($this->request);
         return redirect()->to('admin/importBill/list')->withInput()->with($result['massageCode'], $result['message']);
     }
+
+    public function update()
+    {
+        $result = $this->service->updateImportBillInfo($this->request);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
+    }
+
+
+    public function delete($id)
+    {
+        $idPG = $this->service->getImportBillById($id);
+        if(!$idPG){
+            return redirect('error/404');
+        }
+        $result = $this->service->deleteImportBillInfo($id);
+        return redirect('admin/importBill/list')->with($result['massageCode'], $result['message']);
+    }
 }

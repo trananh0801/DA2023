@@ -77,15 +77,15 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-light">Chi tiết</a>
-                                    <div class="dropdown">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Sửa</a>
-                                            <a class="dropdown-item text-danger" href="#">Xóa</a>
-                                        </div>
-                                    </div> <!-- dropdown //end -->
-                                </td>
+									<a href="#" class="btn btn-light">Chi tiết</a>
+									<div class="dropdown">
+										<a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
+										<div class="dropdown-menu">
+											<a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" data-fTienDaTra="<?= $importBill['fTienDaTra'] ?>" data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" data-sGhiChu="<?= $importBill['sGhiChu'] ?>" data-PK_iPN="<?= $importBill['PK_iPN'] ?>" data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
+											<a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a>
+										</div>
+									</div> <!-- dropdown //end -->
+								</td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -189,7 +189,100 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật phiếu nhập kho</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="admin/importBill/update" method="POST">
+                        <input type="text" name="PK_iPN" id="maphieu" hidden>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label">Nhân viên</label>
+                                        <select class="form-select" name="FK_iMaNV" id="manhanvien">
+                                            <?php foreach ($staffs as $staff) : ?>
+                                                <option value="<?= $staff['PK_iMaNV'] ?>"><?= $staff['sTenNV'] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label">Nhà cung cấp</label>
+                                        <select class="form-select" name="FK_iMaNCC" id="nhacungcap">
+                                            <?php foreach ($suppliers as $supplier) : ?>
+                                                <option value="<?= $supplier['PK_iMaNCC'] ?>"><?= $supplier['sTenNCC'] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4 col-6">
+                                        <label for="dNgayNhap" class="form-label">Ngày nhập</label>
+                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhap" name="dNgayNhap" />
+                                    </div>
+                                    <div class="mb-4 col-6">
+                                        <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
+                                        <input type="text" placeholder="Type here" class="form-control" id="tiendatra" name="fTienDaTra" />
+                                    </div>
+                                    <div class="mb-4 col-6">
+                                        <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
+                                        <input type="text" placeholder="Type here" class="form-control" id="nguoigiao" name="sNguoiGiao" />
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label">Trạng thái</label>
+                                        <select class="form-select" name="FK_iMaTrangThai" id="trangthai">
+                                            <option value="3">Đã thanh toán</option>
+                                            <option value="4">Chờ thanh toán</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4 col-12">
+                                        <label class="form-label">Ghi chú</label>
+                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-hover" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col" class="text-end"> Thao tác </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <select class="form-select" name="FK_iMaSP[]">
+                                                    <?php foreach ($products as $product) : ?>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>"><?= $product['sTenSP'] ?></option>
+                                                    <?php endforeach ?>
+                                                </select>
+                                            </td>
+                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Thêm phiếu</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </section> <!-- content-main end// -->
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
     var addRowButton = document.getElementById("addRowButton");
@@ -224,4 +317,33 @@
             row.parentNode.removeChild(row);
         });
     });
+
+    $(document).ready(function() {
+		$(".editGroup").click(function() {
+			// Thực hiện lấy dữ liệu khi click button
+			FK_iMaNV = $(this).attr("data-FK_iMaNV");
+			FK_iMaNCC = $(this).attr("data-FK_iMaNCC");
+			FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
+			sNguoiGiao = $(this).attr("data-sNguoiGiao");
+			fTienDaTra = $(this).attr("data-fTienDaTra");
+			dNgayNhap = $(this).attr("data-dNgayNhap");
+            sGhiChu = $(this).attr("data-sGhiChu");
+			PK_iPN = $(this).attr("data-PK_iPN");
+			   console.log(PK_iPN);
+
+			// Hiển thị lên trên form
+			$("#manhanvien").val(FK_iMaNV);
+			$("#nhacungcap").val(FK_iMaNCC);
+			$("#trangthai").val(FK_iMaTrangThai);
+			$("#nguoigiao").val(sNguoiGiao);
+			$("#tiendatra").val(fTienDaTra);
+			$("#ngaynhap").val(dNgayNhap);
+			$("#ghichu").val(sGhiChu);
+            $("#maphieu").val(PK_iPN);
+		})
+	})
+
+	function myFunction() {
+		confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
+	}
 </script>

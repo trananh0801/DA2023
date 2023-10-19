@@ -141,6 +141,73 @@ class ImportBillService extends BaseService
         }
     }
 
+    public function getImportBillById($id)
+    {
+        return $this->importBill->where('PK_iPN', $id)->first();
+    }
+
+    public function getProductById($id)
+    {
+        return $this->importBillDetail->where('FK_iMaDon', $id)->first();
+    }
+
+    public function updateImportBillInfo($requestData)
+    {
+        
+        $validate = $this->validateUpdateImportBill($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+
+        $id = $requestData->getPost('PK_iPN');
+        $dataSave = [
+            'FK_iMaTrangThai' => $requestData->getPost('FK_iMaTrangThai'),
+        ];
+        // dd($dataSave);
+        try {
+            $builder = $this->importBill->builder();
+            $builder->where('PK_iPN', $id);
+            $builder->update($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
+    
+
+    public function deleteImportBillInfo($id)
+    {
+        try {
+            $builder = $this->importBill->builder();
+            $builder->where('PK_iPN', $id);
+            $builder->delete();
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Xóa dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     public function validateAddImportBill($requestData)
     {
         $rule = [
@@ -149,6 +216,22 @@ class ImportBillService extends BaseService
         $message = [
             'sNguoiGiao' => [
                 'max_length' => 'Tên người giao quá dài!'
+            ]
+        ];
+        $this->validation->setRules($rule, $message);
+        $this->validation->withRequest($requestData)->run();
+
+        return $this->validation;
+    }
+
+    public function validateUpdateImportBill($requestData)
+    {
+        $rule = [
+            'sTenNhom' => 'max_length[100]',
+        ];
+        $message = [
+            'ssTenNhom' => [
+                'max_length' => 'Tên nhóm sản phẩm quá dài!'
             ]
         ];
         $this->validation->setRules($rule, $message);

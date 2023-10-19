@@ -91,6 +91,31 @@ class ProductGroupService extends BaseService
         }
     }
 
+    public function getProductGroupById($id)
+    {
+        return $this->productGroup->where('PK_iMaNhom', $id)->first();
+    }
+
+    public function deleteProductInfo($id)
+    {
+        try {
+            $builder = $this->productGroup->builder();
+            $builder->where('PK_iMaNhom', $id);
+            $builder->delete();
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Xóa dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     public function validateAddProductGroup($requestData)
     {
         $rule = [

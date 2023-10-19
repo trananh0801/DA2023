@@ -8,9 +8,8 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Admin\LoginController::index');
 
-$routes->post('login', 'Admin\LoginController::login');
-$routes->get('logout', 'Admin\LoginController::logout');
-$routes->get('error/404', function(){
+
+$routes->get('error/404', function () {
     return view('errors/html/error_404');
 });
 
@@ -23,7 +22,6 @@ $routes->group('admin', function ($routes) {
     });
     $routes->group('product', function ($routes) {
         $routes->get('list', 'Admin\ProductController::list');
-        // $routes->get('add', 'Admin\ProductController::add');
         $routes->post('create', 'Admin\ProductController::create');
     });
     $routes->group('supplier', function ($routes) {
@@ -38,6 +36,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\ProductGroupController::list');
         $routes->post('create', 'Admin\ProductGroupController::create');
         $routes->post('edit', 'Admin\ProductGroupController::edit');
+        $routes->get('delete/(:num)', 'Admin\ProductGroupController::delete/$1');
     });
     $routes->group('importBill', function ($routes) {
         $routes->get('list', 'Admin\ImportBillController::list');
@@ -60,7 +59,8 @@ $routes->group('admin', function ($routes) {
         $routes->post('create', 'Admin\PromotionController::create');
     });
 
-
+    $routes->post('login', 'Admin\LoginController::login');
+    $routes->get('logout', 'Admin\LoginController::logout');
 
     $routes->group('setting', function ($routes) {
         $routes->get('list', 'Admin\SettingController::list');

@@ -51,7 +51,7 @@
                                    </tr>
                               </thead>
                               <tbody>
-                                   <span hidden><?= $k = 1?></span>
+                                   <span hidden><?= $k = 1 ?></span>
                                    <?php foreach ($productGroups as $productGroup) : ?>
                                         <tr>
                                              <td><?= $k++ ?></td>
@@ -63,7 +63,7 @@
                                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
                                                        <div class="dropdown-menu">
                                                             <button type="button" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
-                                                            <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                            <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-danger dropdown-item deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="myFunction()">Xóa</a>
                                                        </div>
                                                   </div> <!-- dropdown //end -->
                                              </td>
@@ -88,7 +88,7 @@
                     <form action="admin/productGroup/edit" method="POST" id="formGroupId">
                          <div class="mb-4">
                               <label for="maNhom" class="form-label">Mã nhóm</label>
-                              <input type="text" placeholder="Mã nhóm sản phẩm" class="form-control" id="maNhom" name="PK_iMaNhom" readonly/>
+                              <input type="text" placeholder="Mã nhóm sản phẩm" class="form-control" id="maNhom" name="PK_iMaNhom" readonly />
                          </div>
                          <div class="mb-4">
                               <label for="tenNhom" class="form-label">Tên nhóm sản phẩm</label>
@@ -117,4 +117,8 @@
                $("#tenNhom").val(sTenNhom);
           })
      })
+
+     function myFunction() {
+          confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+     }
 </script>

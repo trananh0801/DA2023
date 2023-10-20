@@ -72,4 +72,8 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\SettingController::list');
         $routes->post('update', 'Admin\SettingController::update');
     });
+
+    $routes->group('evaluate', function ($routes) {
+        $routes->get('list', 'Admin\EvaluateController::list');
+    });
 });

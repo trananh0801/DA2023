@@ -67,7 +67,7 @@
         <span class="text">Đánh giá bình luận</span> 
       </a> 
       <div class="submenu">
-        <a href="page-transactions-A.html">Danh sách đánh giá</a>
+        <a href="admin/evaluate/list">Danh sách đánh giá</a>
       </div>
     </li>
   </ul>

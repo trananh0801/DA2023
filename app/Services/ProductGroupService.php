@@ -116,14 +116,29 @@ class ProductGroupService extends BaseService
         }
     }
 
+    //check trùng mã
+    // public function isUniqueCode($requestData)
+    // {
+    //     $code = $this->$requestData->getPost('PK_iMaNhom');
+    //     $result = $this->productGroup->where('PK_iMaNhom', $code)->countAllResults();
+    //     return $result === 0;
+    // }
+
     public function validateAddProductGroup($requestData)
     {
         $rule = [
-            'sTenNhom' => 'max_length[100]',
+            'PK_iMaNhom' => 'required|max_length[100]|is_Unique[tbl_nhomsanpham.PK_iMaNhom]',
+            'sTenNhom' => 'required|max_length[100]',
         ];
         $message = [
             'sTenNhom' => [
-                'max_length' => 'Tên nhóm sản phẩm quá dài!'
+                'max_length' => 'Tên nhóm sản phẩm quá dài!',
+                'required' => 'Tên nhóm không được để trống!',
+            ],
+            'PK_iMaNhom' => [
+                'max_length' => 'Mã nhóm sản phẩm quá dài!',
+                'required' => 'Mã nhóm không được để trống!',
+                'is_Unique' => 'Mã đã tồn tại trong cơ sở dữ liệu!'
             ]
         ];
         $this->validation->setRules($rule, $message);
@@ -135,11 +150,18 @@ class ProductGroupService extends BaseService
     public function validateUpdateProductGroup($requestData)
     {
         $rule = [
-            'sTenNhom' => 'max_length[100]',
+            'PK_iMaNhom' => 'required|max_length[100]|is_Unique[tbl_nhomsanpham.PK_iMaNhom]',
+            'sTenNhom' => 'required|max_length[100]',
         ];
         $message = [
-            'ssTenNhom' => [
-                'max_length' => 'Tên nhóm sản phẩm quá dài!'
+            'sTenNhom' => [
+                'max_length' => 'Tên nhóm sản phẩm quá dài!',
+                'required' => 'Tên nhóm không được để trống!',
+            ],
+            'PK_iMaNhom' => [
+                'max_length' => 'Mã nhóm sản phẩm quá dài!',
+                'required' => 'Mã nhóm không được để trống!',
+                'is_Unique' => 'Mã đã tồn tại trong cơ sở dữ liệu!'
             ]
         ];
         $this->validation->setRules($rule, $message);

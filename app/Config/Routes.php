@@ -12,7 +12,6 @@ $routes->get('/', 'Admin\LoginController::index');
 $routes->get('error/404', function () {
     return view('errors/html/error_404');
 });
-
 $routes->group('admin', function ($routes) {
     $routes->get('home', 'Admin\HomeController::index');
     $routes->group('user', function ($routes) {

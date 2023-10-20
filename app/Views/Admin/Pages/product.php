@@ -68,7 +68,7 @@
 						<?php foreach ($products as $product) : ?>
 							<tr>
 								<td><?= $k++ ?></td>
-								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']); ?>" alt="Ảnh sản phẩm">
+								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
 								</td>
 								<td><b><?= $product['sTenSP'] ?></b></td>
 								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaNhap'] ?>đ</span></td>
@@ -110,7 +110,6 @@
 							<div class="col-sm-6 mb-3">
 								<label class="form-label">Nhóm sản phẩm</label>
 								<select class="form-select" name="FK_iMaNhom">
-									<option value="">Chọn nhóm sản phẩm</option>
 									<?php foreach ($productsGroup as $productGroup) : ?>
 										<option value="<?= $productGroup['PK_iMaNhom'] ?>"><?= $productGroup['sTenNhom'] ?></option>
 									<?php endforeach ?>
@@ -141,11 +140,11 @@
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
-								<input type="text" <?= old('fGiaBanLe') ?> class="form-control" id="fGiaBanLe" name="fGiaBanLe" placeholder="VD: 100.000đ">
+								<input type="text" <?= old('fGiaBanLe') ?> class="form-control giatien" id="fGiaBanLe" name="fGiaBanLe" placeholder="VD: 100.000đ">
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
-								<input type="text" <?= old('fGiaBanSi') ?> class="form-control" id="fGiaBanSi" name="fGiaBanSi" placeholder="VD: 90.000đ">
+								<input type="text" <?= old('fGiaBanSi') ?> class="form-control giatien" id="fGiaBanSi" name="fGiaBanSi" placeholder="VD: 90.000đ">
 							</div>
 							<div class="col-6">
 								<label class="form-label">Ảnh sản phẩm</label>
@@ -216,11 +215,11 @@
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
-								<input type="text" <?= old('fGiaBanLe') ?> class="form-control" id="giabanle" name="fGiaBanLe" placeholder="VD: 100.000đ">
+								<input type="text" <?= old('fGiaBanLe') ?> class="form-control giatien" id="giabanle" name="fGiaBanLe" placeholder="VD: 100.000đ">
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
-								<input type="text" <?= old('fGiaBanSi') ?> class="form-control" id="giabansi" name="fGiaBanSi" placeholder="VD: 90.000đ">
+								<input type="text" <?= old('fGiaBanSi') ?> class="form-control giatien" id="giabansi" name="fGiaBanSi" placeholder="VD: 90.000đ">
 							</div>
 							<div class="col-6">
 								<label class="form-label">Ảnh sản phẩm</label>
@@ -278,4 +277,22 @@
 	function myFunction() {
 		confirm("Bạn có chắc chắn muốn xóa sản phẩm này!");
 	}
+
+	//format giá tiền
+	$(document).ready(function() {
+    $('.giatien').on('input', function() {
+        // Lấy giá trị từ input
+        let inputValue = $(this).val();
+
+        // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+        let cleanedValue = inputValue.replace(/,/g, '');
+		
+        // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+        let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		
+        // Cập nhật giá trị vào input
+        $(this).val(formattedValue);
+    });
+
+});
 </script>

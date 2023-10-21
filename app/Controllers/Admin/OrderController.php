@@ -26,6 +26,7 @@ class OrderController extends BaseController
         $dataLayout['staffs'] = $this->service->getAllStaff();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
+        $dataLayout['customers'] = $this->service->getAllCustomer();
         // $dataLayout['suppliers'] = $this->service->getAllSupplier();
         // dd($dataLayout['products']);
         $data = $this->loadMasterLayout($data, 'Danh sách đơn đặt hàng', 'Admin/Pages/order', $dataLayout);

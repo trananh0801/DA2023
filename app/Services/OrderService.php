@@ -208,11 +208,11 @@ class OrderService extends BaseService
     public function validateAddOrder($requestData)
     {
         $rule = [
-            'sGhiChu' => 'max_length[100]',
+            'iSoLuong' => 'required',
         ];
         $message = [
-            'sGhiChu' => [
-                'max_length' => 'Tên người giao quá dài!'
+            'iSoLuong' => [
+                'required' => 'Số lượng không được để trống!'
             ]
         ];
         $this->validation->setRules($rule, $message);
@@ -224,11 +224,11 @@ class OrderService extends BaseService
     public function validateUpdateOrder($requestData)
     {
         $rule = [
-            'sTenNhom' => 'max_length[100]',
+            'iSoLuong' => 'required',
         ];
         $message = [
-            'ssTenNhom' => [
-                'max_length' => 'Tên nhóm sản phẩm quá dài!'
+            'iSoLuong' => [
+                'required' => 'Số lượng không được để trống!'
             ]
         ];
         $this->validation->setRules($rule, $message);

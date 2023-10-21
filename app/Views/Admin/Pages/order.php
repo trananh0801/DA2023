@@ -78,15 +78,15 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-									<a href="#" class="btn btn-light">Chi tiết</a>
-									<div class="dropdown">
-										<a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-										<div class="dropdown-menu">
-											<a href="admin/order/edit/<?= $order['PK_iMaDon'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $order['FK_iMaNV'] ?>" data-FK_iMaKH="<?= $order['FK_iMaKH'] ?>" data-FK_iMaTrangThai="<?= $order['FK_iMaTrangThai'] ?>" data-dThoiGianTao="<?= $order['dThoiGianTao'] ?>" data-dNgayNhanHang="<?= $order['dNgayNhanHang'] ?>" data-sGhiChu="<?= $order['sGhiChu'] ?>" data-PK_iMaDon="<?= $order['PK_iMaDon'] ?>">Sửa</a>
-											<a href="admin/order/delete/<?= $order['PK_iMaDon'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $order['PK_iMaDon'] ?>" name="madon" onclick="myFunction()">Xóa</a>
-										</div>
-									</div> <!-- dropdown //end -->
-								</td>
+                                    <a href="#" class="btn btn-light">Chi tiết</a>
+                                    <div class="dropdown">
+                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
+                                        <div class="dropdown-menu">
+                                            <a href="admin/order/edit/<?= $order['PK_iMaDon'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $order['FK_iMaNV'] ?>" data-FK_iMaKH="<?= $order['FK_iMaKH'] ?>" data-FK_iMaTrangThai="<?= $order['FK_iMaTrangThai'] ?>" data-dThoiGianTao="<?= $order['dThoiGianTao'] ?>" data-dNgayNhanHang="<?= $order['dNgayNhanHang'] ?>" data-sGhiChu="<?= $order['sGhiChu'] ?>" data-PK_iMaDon="<?= $order['PK_iMaDon'] ?>">Sửa</a>
+                                            <a href="admin/order/delete/<?= $order['PK_iMaDon'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $order['PK_iMaDon'] ?>" name="madon" onclick="myFunction()">Xóa</a>
+                                        </div>
+                                    </div> <!-- dropdown //end -->
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -119,7 +119,11 @@
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Khách hàng</label>
-                                        <input type="text" placeholder="Tên khách hàng" class="form-control" id="FK_iMaKH" name="FK_iMaKH" />
+                                        <select class="form-select" name="FK_iMaKH" id="selectOption">
+                                            <?php foreach ($customers as $customer) : ?>
+                                                <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sTenKH'] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
@@ -304,29 +308,33 @@
     });
 
     $(document).ready(function() {
-		$(".editGroup").click(function() {
-			// Thực hiện lấy dữ liệu khi click button
-			FK_iMaNV = $(this).attr("data-FK_iMaNV");
-			FK_iMaKH = $(this).attr("data-FK_iMaKH");
-			FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
-			dThoiGianTao = $(this).attr("data-dThoiGianTao");
-			dNgayNhanHang = $(this).attr("data-dNgayNhanHang");
-			sGhiChu = $(this).attr("data-sGhiChu");
-			PK_iMaDon = $(this).attr("data-PK_iMaDon");
-			//    console.log(PK_iMaSP);
+        $(".editGroup").click(function() {
+            // Thực hiện lấy dữ liệu khi click button
+            FK_iMaNV = $(this).attr("data-FK_iMaNV");
+            FK_iMaKH = $(this).attr("data-FK_iMaKH");
+            FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
+            dThoiGianTao = $(this).attr("data-dThoiGianTao");
+            dNgayNhanHang = $(this).attr("data-dNgayNhanHang");
+            sGhiChu = $(this).attr("data-sGhiChu");
+            PK_iMaDon = $(this).attr("data-PK_iMaDon");
+            //    console.log(PK_iMaSP);
 
-			// Hiển thị lên trên form
-			$("#manhanvien").val(FK_iMaNV);
-			$("#makhachhang").val(FK_iMaKH);
-			$("#trangthai").val(FK_iMaTrangThai);
-			$("#thoigiantao").val(dThoiGianTao);
-			$("#ngaynhanhang").val(dNgayNhanHang);
-			$("#ghichu").val(sGhiChu);
-			$("#madon").val(PK_iMaDon);
-		})
-	})
+            // Hiển thị lên trên form
+            $("#manhanvien").val(FK_iMaNV);
+            $("#makhachhang").val(FK_iMaKH);
+            $("#trangthai").val(FK_iMaTrangThai);
+            $("#thoigiantao").val(dThoiGianTao);
+            $("#ngaynhanhang").val(dNgayNhanHang);
+            $("#ghichu").val(sGhiChu);
+            $("#madon").val(PK_iMaDon);
+        })
 
-	function myFunction() {
-		confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
-	}
+        var currentDate = new Date();
+        var formattedDate = currentDate.toISOString().substr(0, 10);
+        $("#dThoiGianTao").val(formattedDate);
+    })
+
+    function myFunction() {
+        confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
+    }
 </script>

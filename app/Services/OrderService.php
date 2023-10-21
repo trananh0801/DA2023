@@ -77,6 +77,7 @@ class OrderService extends BaseService
     /**add new user */
     public function addOrderInfo($requestData)
     {
+        $builder = $this->product->builder();
         //Tạo mã tự động
         $timestamp = time();
         $randomPart = mt_rand(1000, 9999);
@@ -100,7 +101,11 @@ class OrderService extends BaseService
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
             'iSoLuong' => $requestData->getPost('iSoLuong'),
         ];
-        // dd($dataSave_CT);
+
+        $dataSave_CT_update = [
+            'PK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+            'fSoLuong' => $requestData->getPost('iSoLuong'),
+        ];
         
         $duplicateProduct = $this->order->where('PK_iMaDon', $dataSave_HD['PK_iMaDon'])->first();
         if ($duplicateProduct) {
@@ -121,7 +126,20 @@ class OrderService extends BaseService
                 }
             }
 
-            // dd($transformedData);
+            $transformedData_update = array();
+            foreach ($dataSave_CT_update as $k => $v) {
+                foreach ($v as $k1 => $v1) {
+                    $transformedData_update[$k1][$k] = $v1;
+                }
+            }
+            foreach ($transformedData_update as $data) {
+                $builder->set($data);
+                $builder->where('PK_iMaSP', $data['PK_iMaSP']);
+                $builder->update();
+            }
+
+            // dd($transformedData_update);
+            
             $this->orderDetail->insertBatch($transformedData);
 
             return [

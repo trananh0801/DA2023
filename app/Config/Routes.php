@@ -6,8 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', 'Admin\LoginController::index');
-
+$routes->get('/', 'User\HomeController::list');
+$routes->get('login', 'Admin\LoginController::index');
 
 $routes->get('error/404', function () {
     return view('errors/html/error_404');
@@ -75,4 +75,10 @@ $routes->group('admin', function ($routes) {
     $routes->group('evaluate', function ($routes) {
         $routes->get('list', 'Admin\EvaluateController::list');
     });
+});
+
+
+
+$routes->group('user', function ($routes) {
+    $routes->get('home', 'User\HomeController::index');
 });

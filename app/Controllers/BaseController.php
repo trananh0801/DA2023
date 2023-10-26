@@ -65,4 +65,11 @@ abstract class BaseController extends Controller
         return $data;
     }
     
+    public function loadMasterLayoutUser($data, $title, $content, $dataLayout = []){
+        $data['title'] = $title;
+        $data['footer'] = view('User/Layout/footer.php');
+        $data['header'] = view('User/Layout/header.php');
+        $data['content'] = view($content, $dataLayout);
+        return $data;
+    }
 }

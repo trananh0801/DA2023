@@ -2,11 +2,24 @@
 
 namespace App\Controllers\User;
 use App\Controllers\BaseController;
+use App\Services\HomeService;
 
 class HomeController extends BaseController
 {
-    public function index(): string
+    /**
+     * @var service;
+     */
+    private $service; 
+    public function __construct()
     {
-        return view('index');
+        $this->service = new HomeService();
+    }
+    public function list()
+    {
+        $data = [];
+        $dataLayout['newProducts'] = $this->service->getAllProduct();
+        $data = $this->loadMasterLayoutUser($data, 'Trang chủ', 'User/Pages/home', $dataLayout);
+        return view('User/main', $data);
+    
     }
 }

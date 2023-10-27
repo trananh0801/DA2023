@@ -53,13 +53,12 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th scope="col">Mã đơn</th>
+                            <th scope="col">Mã đơn hóa đơn</th>
                             <th scope="col">Nhân viên</th>
                             <th scope="col">Khách hàng</th>
-                            <!-- <th scope="col">Địa chỉ</th> -->
-                            <th scope="col">Ngày nhận hàng</th>
-                            <th scope="col">Trạng thái</th>
                             <th scope="col">Thời gian tạo</th>
+                            <th scope="col">Ngày nhận hàng dự kiến</th>
+                            <th scope="col">Trạng thái</th>
                             <th scope="col" class="text-end"> Thao tác </th>
                         </tr>
                     </thead>
@@ -69,23 +68,17 @@
                                 <td>1</td>
                                 <td><b><?= $order['PK_iMaDon'] ?></b></td>
                                 <td><b><?= $order['sTenNV'] ?></b></td>
-                                <td><?= $order['FK_iMaKH'] ?></td>
-                                <td><?= $order['dThoiGianTao'] ?></td>
-                                <td><?= $order['dNgayNhanHang'] ?></td>
+                                <td><?= $order['sTenKH'] ?></td>
+                                <td><?= date('d/m/Y', strtotime($order['dThoiGianTao']))?></td>
+                                <td><?=date('d/m/Y', strtotime($order['dNgayNhanHang']))?></td>
                                 <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
                                     <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php else : ?>
                                     <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-light">Chi tiết</a>
-                                    <div class="dropdown">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu">
-                                            <a href="admin/order/edit/<?= $order['PK_iMaDon'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $order['FK_iMaNV'] ?>" data-FK_iMaKH="<?= $order['FK_iMaKH'] ?>" data-FK_iMaTrangThai="<?= $order['FK_iMaTrangThai'] ?>" data-dThoiGianTao="<?= $order['dThoiGianTao'] ?>" data-dNgayNhanHang="<?= $order['dNgayNhanHang'] ?>" data-sGhiChu="<?= $order['sGhiChu'] ?>" data-PK_iMaDon="<?= $order['PK_iMaDon'] ?>">Sửa</a>
-                                            <a href="admin/order/delete/<?= $order['PK_iMaDon'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $order['PK_iMaDon'] ?>" name="madon" onclick="myFunction()">Xóa</a>
-                                        </div>
-                                    </div> <!-- dropdown //end -->
+                                    <a href="admin/order/edit/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $order['FK_iMaNV'] ?>" data-FK_iMaKH="<?= $order['FK_iMaKH'] ?>" data-FK_iMaTrangThai="<?= $order['FK_iMaTrangThai'] ?>" data-dThoiGianTao="<?= $order['dThoiGianTao'] ?>" data-dNgayNhanHang="<?= $order['dNgayNhanHang'] ?>" data-sGhiChu="<?= $order['sGhiChu'] ?>" data-PK_iMaDon="<?= $order['PK_iMaDon'] ?>">Sửa</a>
+                                    <!-- <a href="admin/order/delete/<?= $order['PK_iMaDon'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $order['PK_iMaDon'] ?>" name="madon" onclick="myFunction()">Xóa</a> -->
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -167,8 +160,8 @@
                                                 </select>
                                             </td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
-                                            <td class="text-end">
-                                                <button type="button" class="btn btn-danger deleteRowButton">X</button>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -212,15 +205,15 @@
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Khách hàng</label>
-                                        <input type="text" placeholder="Tên khách hàng" class="form-control" id="makhachhang" name="FK_iMaKH" />
+                                        <input type="text" placeholder="Tên khách hàng" class="form-control" id="makhachhang" name="FK_iMaKH" readonly />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="thoigiantao" name="dThoiGianTao" />
+                                        <input type="date" placeholder="Type here" class="form-control" id="thoigiantao" name="dThoiGianTao" readonly/>
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dNgayNhanHang" class="form-label">Ngày nhận hàng</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhanhang" name="dNgayNhanHang" />
+                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhanhang" name="dNgayNhanHang" readonly/>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -231,7 +224,7 @@
                                     </div>
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
-                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
+                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu" id="ghichu" readonly></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -262,7 +255,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-primary">Thêm đơn</button>
+                            <button type="submit" class="btn btn-warning">Cập nhật</button>
                         </div>
                     </form>
                 </div>
@@ -293,7 +286,7 @@
         cell1.innerHTML = rowCount;
         cell2.innerHTML = "<td><select class='form-select' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
         cell3.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoLuong' name='iSoLuong[]' /></td>";
-        cell4.innerHTML = "<td class='text-end'><button type='button' class='btn btn-danger deleteRowButton'>X</button></td>";
+        cell4.innerHTML = "<td class='text-end'><button type='button' class='btn btn-sm btn-danger deleteRowButton'>Xóa</button></td>";
 
         // Tăng biến rowCount để theo dõi số dòng đã thêm
         rowCount++;
@@ -317,7 +310,7 @@
             dNgayNhanHang = $(this).attr("data-dNgayNhanHang");
             sGhiChu = $(this).attr("data-sGhiChu");
             PK_iMaDon = $(this).attr("data-PK_iMaDon");
-            //    console.log(PK_iMaSP);
+               console.log(dThoiGianTao);
 
             // Hiển thị lên trên form
             $("#manhanvien").val(FK_iMaNV);

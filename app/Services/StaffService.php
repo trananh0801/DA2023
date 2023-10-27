@@ -21,6 +21,7 @@ class StaffService extends BaseService
     public function getAllStaff(){
         $result = $this->staff
         ->select('*')
+        ->join('tbl_taikhoan', 'tbl_taikhoan.PK_iMaTK = tbl_nhanvien.FK_iMaTK')
         ->findAll();
         // dd($result);
         return $result;

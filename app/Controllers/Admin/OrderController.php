@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 use App\Services\OrderService;
 
@@ -9,7 +10,7 @@ class OrderController extends BaseController
     /**
      * @var service;
      */
-    private $service; 
+    private $service;
     public function __construct()
     {
         $this->service = new OrderService();
@@ -27,8 +28,8 @@ class OrderController extends BaseController
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['customers'] = $this->service->getAllCustomer();
-        // $dataLayout['suppliers'] = $this->service->getAllSupplier();
-        // dd($dataLayout['products']);
+       
+        // dd($dataLayout['orders']);
         $data = $this->loadMasterLayout($data, 'Danh sách đơn đặt hàng', 'Admin/Pages/order', $dataLayout);
         return view('Admin/main', $data);
     }
@@ -49,7 +50,7 @@ class OrderController extends BaseController
     public function delete($id)
     {
         $idPG = $this->service->getOrderById($id);
-        if(!$idPG){
+        if (!$idPG) {
             return redirect('error/404');
         }
         $result = $this->service->deleteOrderInfo($id);

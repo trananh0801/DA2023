@@ -70,20 +70,13 @@
                                 <td><?= $k++ ?></td>
                                 <td><b><?= $promotion['PK_iMaKM'] ?></b></td>
                                 <td><b><?= $promotion['sTenKM'] ?></b></td>
-                                <td><b><?= $promotion['dNgayHieuLuc'] ?></b></td>
-                                <td><b><?= $promotion['dNgayHetHieuLuc'] ?></b></td>
+                                <td><b><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc']))?></b></td>
+                                <td><b><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc']))?></b></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['fChietKhau'] ?>%</span></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['iSoLuongAD'] ?></span></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-light">Chi tiết</a>
-                                    <div class="dropdown">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Sửa</a>
-                                            <a class="dropdown-item text-danger" href="#">Xóa</a>
-                                        </div>
-                                    </div> <!-- dropdown //end -->
+                                    <button type="button" class="btn btn-sm btn-warning">Sửa</button>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -113,8 +106,9 @@
                             <div class="col-6 mb-3">
                                 <label class="form-label">Trạng thái</label>
                                 <select class="form-select" name="FK_iMaTrangThai">
-                                    <option value="3">Đã thanh toán</option>
-                                    <option value="4">Chờ thanh toán</option>
+                                    <option value="7">Đang áp dụng</option>
+                                    <option value="9">Chưa đến hạn</option>
+                                    <option value="8">Hết hiệu lực</option>
                                 </select>
                             </div>
                         </div>
@@ -177,14 +171,14 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
-     $(document).ready(function() {
-      // Gán sự kiện khi click vào checkbox "Chọn tất cả"
-      $('#selectAll').click(function() {
-        // Kiểm tra trạng thái của checkbox "Chọn tất cả"
-        var isChecked = $(this).prop('checked');
-        
-        // Đặt trạng thái của tất cả checkbox khác giống với checkbox "Chọn tất cả"
-        $('.products').prop('checked', isChecked);
-      });
+    $(document).ready(function() {
+        // Gán sự kiện khi click vào checkbox "Chọn tất cả"
+        $('#selectAll').click(function() {
+            // Kiểm tra trạng thái của checkbox "Chọn tất cả"
+            var isChecked = $(this).prop('checked');
+
+            // Đặt trạng thái của tất cả checkbox khác giống với checkbox "Chọn tất cả"
+            $('.products').prop('checked', isChecked);
+        });
     });
 </script>

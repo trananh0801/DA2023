@@ -90,12 +90,11 @@
                                              <td><?= $customer['sTenKH'] ?></td>
                                              <td><b><?= $customer['sDiaChi'] ?></b></td>
                                              <td><?= $customer['sSDT'] ?></td>
-                                             <td><?= $customer['dNgaySinh'] ?></td>
+                                             <td><?= date('d/m/Y', strtotime($customer['dNgaySinh'])) ?></td>
                                              <td><?= $customer['sGioiTinh'] ?></td>
                                              <td><?= $customer['iTichDiem'] ?></td>
                                              <td class="text-end">
-                                                  <button type="button" class="btn btn-info">Sửa</button>
-                                                  <button type="button" class="btn btn-danger">Xóa</button>
+                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenKH="<?= $customer['sTenKH'] ?>" data-sDiaChi="<?= $customer['sDiaChi'] ?>" data-sSDT="<?= $customer['sSDT'] ?>" data-dNgaySinh="<?= $customer['dNgaySinh'] ?>" data-sGioiTinh="<?= $customer['sGioiTinh'] ?>" data-iTichDiem="<?= $customer['iTichDiem'] ?>" data-sGhiChu="<?= $customer['sGhiChu'] ?>" value="<?= $customer['PK_iMaKH'] ?>">Sửa</button>
                                              </td>
                                         </tr>
                                    <?php endforeach ?>
@@ -107,3 +106,91 @@
           </div> <!-- card body .// -->
      </div> <!-- card .// -->
 </section> <!-- content-main end// -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin khách hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <form action="admin/productGroup/edit" method="POST" id="formGroupId">
+                         <div class="mb-4">
+                              <label for="sTenKH" class="form-label">Tên khách hàng</label>
+                              <input type="text" placeholder="Nhập tên khách hàng" class="form-control" id="tenkh" name="sTenKH" />
+                         </div>
+                         <div class="mb-4">
+                              <label for="sDiaChi" class="form-label">Địa chỉ</label>
+                              <input type="text" placeholder="Địa chỉ khách hàng" class="form-control" id="diachi" name="sDiaChi" />
+                         </div>
+                         <div class="row">
+                              <div class="mb-4 col-6">
+                                   <label for="sSDT" class="form-label">Số điện thoại</label>
+                                   <input type="text" placeholder="Số điện thoại" class="form-control" id="sdt" name="sSDT" />
+                              </div>
+                              <div class="mb-4 col-6">
+                                   <label for="dNgaySinh" class="form-label">Ngày sinh</label>
+                                   <input type="date" class="form-control" id="ngaysinh" name="dNgaySinh" />
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col-6 mb-3">
+                                   <label class="form-label">Giới tính</label>
+                                   <select class="form-select" name="sGioiTinh" id="gioitinh">
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                   </select>
+                              </div>
+                              <div class="col-6">
+                                   <label class="form-label">Tích điểm</label>
+                                   <div>
+                                        <input type="number" class="form-control" placeholder="VD: 10" name="iTichDiem" id="tichdiem">
+                                   </div> <!-- col.// -->
+                              </div> <!-- row.// -->
+                         </div>
+                         <div class="mb-4">
+                              <label class="form-label">Ghi chú</label>
+                              <textarea class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
+                         </div>
+                         <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                              <button type="submit" class="btn btn-warning">Cập nhật</button>
+                         </div>
+                    </form>
+               </div>
+
+          </div>
+     </div>
+</div>
+
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+     $(document).ready(function() {
+          $(".editGroup").click(function() {
+               // Thực hiện lấy dữ liệu khi click button
+               sTenKH = $(this).attr("data-sTenKH");
+               sDiaChi = $(this).attr("data-sDiaChi");
+               sSDT = $(this).attr("data-sSDT");
+               dNgaySinh = $(this).attr("data-dNgaySinh");
+               sGioiTinh = $(this).attr("data-sGioiTinh");
+               iTichDiem = $(this).attr("data-iTichDiem");
+               sGhiChu = $(this).attr("data-sGhiChu");
+               PK_iMaKH = $(this).val();
+
+               // Hiển thị lên trên form
+               $("#tenkh").val(sTenKH);
+               $("#diachi").val(sDiaChi);
+               $("#sdt").val(sSDT);
+               $("#ngaysinh").val(dNgaySinh);
+               $("#gioitinh").val(sGioiTinh);
+               $("#tichdiem").val(iTichDiem);
+               $("#ghichu").val(sGhiChu);
+          })
+     })
+
+     function myFunction() {
+          confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+     }
+</script>

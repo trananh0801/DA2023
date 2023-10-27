@@ -77,14 +77,8 @@
 								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?></span></td>
 								<td><?= $product['sTenNhom'] ?></td>
 								<td class="text-end">
-									<a href="#" class="btn btn-light">Chi tiết</a>
-									<div class="dropdown">
-										<a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-										<div class="dropdown-menu">
-											<a href="admin/product/edit/<?= $product['PK_iMaSP'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNhom="<?= $product['FK_iMaNhom'] ?>" data-sTenSP="<?= $product['sTenSP'] ?>" data-fSoLuong="<?= $product['fSoLuong'] ?>" data-sDVT="<?= $product['sDVT'] ?>" data-fGiaNhap="<?= $product['fGiaNhap'] ?>" data-fGiaBanLe="<?= $product['fGiaBanLe'] ?>" data-fGiaBanSi="<?= $product['fGiaBanSi'] ?>" data-sHinhAnh="<?= $product['sHinhAnh'] ?>" data-sGhiChu="<?= $product['sGhiChu'] ?>" data-PK_iMaSP="<?= $product['PK_iMaSP'] ?>">Sửa</a>
-											<a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $product['PK_iMaSP'] ?>" name="masanpham" onclick="myFunction()">Xóa</a>
-										</div>
-									</div> <!-- dropdown //end -->
+									<a href="admin/product/edit/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning  editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNhom="<?= $product['FK_iMaNhom'] ?>" data-sTenSP="<?= $product['sTenSP'] ?>" data-fSoLuong="<?= $product['fSoLuong'] ?>" data-sDVT="<?= $product['sDVT'] ?>" data-fGiaNhap="<?= $product['fGiaNhap'] ?>" data-fGiaBanLe="<?= $product['fGiaBanLe'] ?>" data-fGiaBanSi="<?= $product['fGiaBanSi'] ?>" data-sHinhAnh="<?= $product['sHinhAnh'] ?>" data-sGhiChu="<?= $product['sGhiChu'] ?>" data-PK_iMaSP="<?= $product['PK_iMaSP'] ?>">Sửa</a>
+									<!-- <a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-danger  deleteGroup text-danger" value="<?= $product['PK_iMaSP'] ?>" name="masanpham" onclick="myFunction()">Xóa</a> -->
 								</td>
 							</tr>
 						<?php endforeach ?>
@@ -280,19 +274,19 @@
 
 	//format giá tiền
 	$(document).ready(function() {
-    $('.giatien').on('input', function() {
-        // Lấy giá trị từ input
-        let inputValue = $(this).val();
+		$('.giatien').on('input', function() {
+			// Lấy giá trị từ input
+			let inputValue = $(this).val();
 
-        // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
-        let cleanedValue = inputValue.replace(/,/g, '');
-		
-        // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
-        let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		
-        // Cập nhật giá trị vào input
-        $(this).val(formattedValue);
-    });
+			// Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+			let cleanedValue = inputValue.replace(/,/g, '');
 
-});
+			// Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+			// Cập nhật giá trị vào input
+			$(this).val(formattedValue);
+		});
+
+	});
 </script>

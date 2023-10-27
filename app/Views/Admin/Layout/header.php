@@ -19,15 +19,12 @@
      <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="md-28 material-icons md-menu"></i> </button>
      <ul class="nav">
       <li class="nav-item">
-          <a class="nav-link btn-icon" onclick="darkmode(this)" title="Dark mode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link btn-icon" href="#"> <i class="material-icons md-notifications_active"></i> </a>
+          <a class="nav-link btn-icon" onclick="darkmode(this)" title="Dark mode" href="admin/home"> <i class="material-icons md-nights_stay"></i> </a>
       </li>
       <li class="dropdown nav-item">
         <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#"> <img class="img-xs rounded-circle" src="assets/admin/images/people/avatar1.jpg" alt="User"></a>
         <div class="dropdown-menu dropdown-menu-end">
-          <a class="dropdown-item" href="#">Cá nhân</a>
+          <a class="dropdown-item" href="admin/setting/list">Cá nhân</a>
           <a class="dropdown-item text-danger" href="admin/logout">Đăng xuất</a>
         </div>
       </li>

@@ -65,9 +65,9 @@
                                 <td><b><?= $evaluate['PK_iDanhGia'] ?></b></td>
                                 <td><b><?= $evaluate['sTenKH'] ?></b></td>
                                 <td><?= $evaluate['sTenSP'] ?></td>
-                                <td><?= $evaluate['fDiem'] ?></td>
+                                <td><span class="badge rounded-pill alert-warning"><?= $evaluate['fDiem'] ?></span></td>
                                 <td><?= $evaluate['sNoiDung'] ?></td>
-                                <td><span class="badge rounded-pill alert-warning"><?= $evaluate['dThoiGian'] ?></span></td>
+                                <td><span class="badge rounded-pill alert-success"><?= date('d/m/Y', strtotime($evaluate['dThoiGian']))?></span></td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>

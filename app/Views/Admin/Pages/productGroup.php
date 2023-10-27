@@ -58,13 +58,10 @@
                                              <td><?= $productGroup['PK_iMaNhom'] ?></td>
                                              <td><b><?= $productGroup['sTenNhom'] ?></b></td>
                                              <td class="text-end">
-                                                  <a href="#" class="btn btn-light">Chi tiết</a>
+                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
                                                   <div class="dropdown">
-                                                       <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-                                                       <div class="dropdown-menu">
-                                                            <button type="button" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
-                                                            <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="myFunction()">Xóa</a>
-                                                       </div>
+
+                                                       <!-- <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="myFunction()">Xóa</a> -->
                                                   </div> <!-- dropdown //end -->
                                              </td>
                                         </tr>

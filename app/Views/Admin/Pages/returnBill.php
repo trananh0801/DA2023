@@ -68,21 +68,13 @@
                                 <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
                                 <td><b><?= $returnBill['sTenNV'] ?></b></td>
                                 <td><?= $returnBill['sTenNCC'] ?></td>
-                                <td><?= $returnBill['dNgayTao'] ?></td>
-                                <?php if ($returnBill['FK_iMaTrangThai'] == '4') : ?>
+                                <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao']))?></td>
+                                <?php if ($returnBill['FK_iMaTrangThai'] == '5') : ?>
                                     <td><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenTrangThai'] ?></span></td>
                                 <?php else : ?>
-                                    <td><span class="badge rounded-pill alert-success"><?= $returnBill['sTenTrangThai'] ?></span></td>
+                                    <td><span class="badge rounded-pill alert-secondary"><?= $returnBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-light">Chi tiết</a>
-                                    <div class="dropdown">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Sửa</a>
-                                            <a class="dropdown-item text-danger" href="#">Xóa</a>
-                                        </div>
-                                    </div> <!-- dropdown //end -->
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -129,8 +121,8 @@
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
                                         <select class="form-select" name="FK_iMaTrangThai">
-                                            <option value="3">Đã thanh toán</option>
-                                            <option value="4">Chờ thanh toán</option>
+                                            <option value="5">Đã hoàn trả</option>
+                                            <option value="6">Chờ hoàn trả</option>
                                         </select>
                                     </div>
                                     <div class="mb-4 col-12">
@@ -160,8 +152,8 @@
                                                 </select>
                                             </td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
-                                            <td class="text-end">
-                                                <button type="button" class="btn btn-danger deleteRowButton">X</button>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -180,6 +172,7 @@
         </div>
     </div>
 </section> <!-- content-main end// -->
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
     var addRowButton = document.getElementById("addRowButton");
@@ -212,6 +205,11 @@
             // Lấy hàng (dòng) chứa nút xóa và xóa nó
             var row = this.closest("tr");
             row.parentNode.removeChild(row);
-        });
+        }); 
     });
+    $(document).ready(function() {
+        var currentDate = new Date();
+        var formattedDate = currentDate.toISOString().substr(0, 10);
+        $("#dNgayTao").val(formattedDate);
+    })
 </script>

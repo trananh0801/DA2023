@@ -180,9 +180,9 @@ class ProductService extends BaseService
         $rule = [
             'sTenSP' => 'required|max_length[100]',
             'sDVT' => 'required',
-            'fGiaBanLe' => 'required|numeric',
-            'fGiaBanSi' => 'required|numeric',
-            'sHinhAnh' => 'required',
+            'fGiaBanLe' => 'required',
+            'fGiaBanSi' => 'required',
+            // 'sHinhAnh' => 'required',
         ];
         $message = [
             'sTenSP' => [
@@ -194,15 +194,15 @@ class ProductService extends BaseService
             ],
             'fGiaBanLe' => [
                 'required' => 'Giá bán lẻ không được để trống!',
-                'numeric' => 'Giá bán lẻ phải là dạng số!',
+                // 'numeric' => 'Giá bán lẻ phải là dạng số!',
             ],
             'fGiaBanSi' => [
                 'required' => 'Giá bán sỉ không được để trống!',
-                'numeric' => 'Giá bán sỉ phải là dạng số!',
+                // 'numeric' => 'Giá bán sỉ phải là dạng số!',
             ],
-            'sHinhAnh' => [
-                'required' => 'Hình ảnh không được để trống!'
-            ],
+            // 'sHinhAnh' => [
+            //     'required' => 'Hình ảnh không được để trống!'
+            // ],
         ];
         $this->validation->setRules($rule, $message);
         $this->validation->withRequest($requestData)->run();
@@ -215,9 +215,9 @@ class ProductService extends BaseService
         $rule = [
             'sTenSP' => 'required|max_length[100]',
             'sDVT' => 'required',
-            'fGiaBanLe' => 'required|numeric',
-            'fGiaBanSi' => 'required|numeric',
-            'sHinhAnh' => 'required',
+            'fGiaBanLe' => 'required',
+            'fGiaBanSi' => 'required',
+            // 'sHinhAnh' => 'required',
         ];
         $message = [
             'sTenSP' => [
@@ -229,15 +229,15 @@ class ProductService extends BaseService
             ],
             'fGiaBanLe' => [
                 'required' => 'Giá bán lẻ không được để trống!',
-                'numeric' => 'Giá bán lẻ phải là dạng số!',
+                // 'numeric' => 'Giá bán lẻ phải là dạng số!',
             ],
             'fGiaBanSi' => [
                 'required' => 'Giá bán sỉ không được để trống!',
-                'numeric' => 'Giá bán sỉ phải là dạng số!',
+                // 'numeric' => 'Giá bán sỉ phải là dạng số!',
             ],
-            'sHinhAnh' => [
-                'required' => 'Hình ảnh không được để trống!'
-            ],
+            // 'sHinhAnh' => [
+            //     'required' => 'Hình ảnh không được để trống!'
+            // ],
         ];
         $this->validation->setRules($rule, $message);
         $this->validation->withRequest($requestData)->run();

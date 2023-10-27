@@ -101,11 +101,10 @@
                                     <td><?= $staff['sTenNV'] ?></td>
                                     <td><b><?= $staff['sSDT'] ?></b></td>
                                     <td><?= $staff['sTenChucVu'] ?></td>
-                                    <td><?= $staff['dNgaySinh'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($staff['dNgaySinh'])) ?></td>
                                     <td><?= $staff['sGioiTinh'] ?></td>
                                     <td class="text-end">
-                                        <button type="button" class="btn btn-info">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
+                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNV="<?= $staff['sTenNV'] ?>" data-sSDT="<?= $staff['sSDT'] ?>" data-sCMND="<?= $staff['sCMND'] ?>" data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" data-sGhiChu="<?= $staff['sGhiChu'] ?>" data-sTenTK="<?= $staff['sTenTK'] ?>" data-sMatKhau="<?= $staff['sMatKhau'] ?>" value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -117,3 +116,112 @@
         </div> <!-- card body .// -->
     </div> <!-- card .// -->
 </section> <!-- content-main end// -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin nhân viên</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="admin/productGroup/edit" method="POST" id="formGroupId">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-4 col-12">
+                                <label for="sTenNV" class="form-label">Tên nhân viên</label>
+                                <input type="text" placeholder="Nhập tên khách hàng" class="form-control" id="tennv" name="sTenNV" />
+                            </div>
+                            <div class="row">
+                                <div class="mb-4 col-6">
+                                    <label for="sSDT" class="form-label">Số điện thoại</label>
+                                    <input type="text" placeholder="Số điện thoại" class="form-control" id="sdt" name="sSDT" />
+                                </div>
+                                <div class="mb-4 col-6">
+                                    <label for="dNgaySinh" class="form-label">Ngày sinh</label>
+                                    <input type="date" class="form-control" id="ngaysinh" name="dNgaySinh" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label class="form-label">Giới tính</label>
+                                    <select class="form-select" name="sGioiTinh" id="gioitinh">
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Số CMND</label>
+                                    <div>
+                                        <input type="number" class="form-control" name="sCMND" id="cccd">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="sTenChucVu" class="form-label">Chức vụ</label>
+                                <select class="form-select" name="sTenChucVu" id="chucvu">
+                                    <option value="1">Quản lý cửa hàng</option>
+                                    <option value="2">Nhân viên quản lý kho</option>
+                                    <option value="3">Nhân viên bán hàng</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Ghi chú</label>
+                                <textarea class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-4 col-12">
+                                <label class="form-label">Tên đăng nhập</label>
+                                <input type="text" class="form-control" name="sTenTK" id="tendangnhap">
+                            </div>
+                            <div class="mb-4 col-12">
+                                <label class="form-label">Mật khẩu</label>
+                                <input type="password" class="form-control" name="sMatKhau" id="matkhau">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-warning">Cập nhật</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".editGroup").click(function() {
+            // Thực hiện lấy dữ liệu khi click button
+            sTenNV = $(this).attr("data-sTenNV");
+            sSDT = $(this).attr("data-sSDT");
+            sCMND = $(this).attr("data-sCMND");
+            sTenChucVu = $(this).attr("data-sTenChucVu");
+            dNgaySinh = $(this).attr("data-dNgaySinh");
+            sGioiTinh = $(this).attr("data-sGioiTinh");
+            sGhiChu = $(this).attr("data-sGhiChu");
+            sTenTK = $(this).attr("data-sTenTK");
+            sMatKhau = $(this).attr("data-sMatKhau");
+            PK_iMaNV = $(this).val();
+
+            // Hiển thị lên trên form
+            $("#tennv").val(sTenNV);
+            $("#sdt").val(sSDT);
+            $("#cccd").val(sCMND);
+            $("#chucvu").val(sTenChucVu);
+            $("#ngaysinh").val(dNgaySinh);
+            $("#gioitinh").val(sGioiTinh);
+            $("#ghichu").val(sGhiChu);
+            $("#tendangnhap").val(sTenTK);
+            $("#matkhau").val(sMatKhau);
+        })
+    })
+
+    function myFunction() {
+        confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+    }
+</script>

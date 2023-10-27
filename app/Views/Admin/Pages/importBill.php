@@ -69,7 +69,7 @@
                                 <td><b><?= $importBill['PK_iPN'] ?></b></td>
                                 <td><b><?= $importBill['sTenNV'] ?></b></td>
                                 <td><?= $importBill['sTenNCC'] ?></td>
-                                <td><?= $importBill['dNgayNhap'] ?></td>
+                                <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap']))?></td>
                                 <td><?= $importBill['fTienDaTra'] ?></td>
                                 <?php if ($importBill['FK_iMaTrangThai'] == '4') : ?>
                                     <td><span class="badge rounded-pill alert-warning"><?= $importBill['sTenTrangThai'] ?></span></td>
@@ -77,15 +77,9 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-									<a href="#" class="btn btn-light">Chi tiết</a>
-									<div class="dropdown">
-										<a href="#" data-bs-toggle="dropdown" class="btn btn-light"> <i class="material-icons md-more_horiz"></i> </a>
-										<div class="dropdown-menu">
-											<a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-primary dropdown-item editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" data-fTienDaTra="<?= $importBill['fTienDaTra'] ?>" data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" data-sGhiChu="<?= $importBill['sGhiChu'] ?>" data-PK_iPN="<?= $importBill['PK_iPN'] ?>" data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
-											<a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a>
-										</div>
-									</div> <!-- dropdown //end -->
-								</td>
+                                    <a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" data-fTienDaTra="<?= $importBill['fTienDaTra'] ?>" data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" data-sGhiChu="<?= $importBill['sGhiChu'] ?>" data-PK_iPN="<?= $importBill['PK_iPN'] ?>" data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
+                                    <!-- <a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a> -->
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -170,8 +164,8 @@
                                                 </select>
                                             </td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" /></td>
-                                            <td class="text-end">
-                                                <button type="button" class="btn btn-danger deleteRowButton">X</button>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -252,7 +246,6 @@
                                             <th>STT</th>
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">Số lượng</th>
-                                            <th scope="col" class="text-end"> Thao tác </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -273,7 +266,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-primary">Thêm phiếu</button>
+                            <button type="submit" class="btn btn-warning">Cập nhật</button>
                         </div>
                     </form>
                 </div>
@@ -304,7 +297,7 @@
         cell1.innerHTML = rowCount;
         cell2.innerHTML = "<td><select class='form-select' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
         cell3.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoluong' name='iSoluong[]' /></td>";
-        cell4.innerHTML = "<td class='text-end'><button type='button' class='btn btn-danger deleteRowButton'>X</button></td>";
+        cell4.innerHTML = "<td ><button type='button' class='btn btn-sm btn-danger deleteRowButton'>Xóa</button></td>";
 
         // Tăng biến rowCount để theo dõi số dòng đã thêm
         rowCount++;
@@ -319,31 +312,31 @@
     });
 
     $(document).ready(function() {
-		$(".editGroup").click(function() {
-			// Thực hiện lấy dữ liệu khi click button
-			FK_iMaNV = $(this).attr("data-FK_iMaNV");
-			FK_iMaNCC = $(this).attr("data-FK_iMaNCC");
-			FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
-			sNguoiGiao = $(this).attr("data-sNguoiGiao");
-			fTienDaTra = $(this).attr("data-fTienDaTra");
-			dNgayNhap = $(this).attr("data-dNgayNhap");
+        $(".editGroup").click(function() {
+            // Thực hiện lấy dữ liệu khi click button
+            FK_iMaNV = $(this).attr("data-FK_iMaNV");
+            FK_iMaNCC = $(this).attr("data-FK_iMaNCC");
+            FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
+            sNguoiGiao = $(this).attr("data-sNguoiGiao");
+            fTienDaTra = $(this).attr("data-fTienDaTra");
+            dNgayNhap = $(this).attr("data-dNgayNhap");
             sGhiChu = $(this).attr("data-sGhiChu");
-			PK_iPN = $(this).attr("data-PK_iPN");
-			   console.log(PK_iPN);
+            PK_iPN = $(this).attr("data-PK_iPN");
+            console.log(PK_iPN);
 
-			// Hiển thị lên trên form
-			$("#manhanvien").val(FK_iMaNV);
-			$("#nhacungcap").val(FK_iMaNCC);
-			$("#trangthai").val(FK_iMaTrangThai);
-			$("#nguoigiao").val(sNguoiGiao);
-			$("#tiendatra").val(fTienDaTra);
-			$("#ngaynhap").val(dNgayNhap);
-			$("#ghichu").val(sGhiChu);
+            // Hiển thị lên trên form
+            $("#manhanvien").val(FK_iMaNV);
+            $("#nhacungcap").val(FK_iMaNCC);
+            $("#trangthai").val(FK_iMaTrangThai);
+            $("#nguoigiao").val(sNguoiGiao);
+            $("#tiendatra").val(fTienDaTra);
+            $("#ngaynhap").val(dNgayNhap);
+            $("#ghichu").val(sGhiChu);
             $("#maphieu").val(PK_iPN);
-		})
-	})
+        })
+    })
 
-	function myFunction() {
-		confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
-	}
+    function myFunction() {
+        confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
+    }
 </script>

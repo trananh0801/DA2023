@@ -17,7 +17,7 @@
                     <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
                         <div class="pull-right">
                             <ul class="userMenu">
-                                <li><a href="account-1.html"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
+                                <li><a href="user/account"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
                                 <li><a href="#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Đăng nhập</span>
                                         <i class="glyphicon glyphicon-log-in hide visible-xs "></i> </a></li>
                                 <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#ModalSignup">Đăng ký</a></li>
@@ -33,7 +33,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span></button>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> ($210.00) </span></button>
-                <a class="navbar-brand " href="index.html"> NANA HOUSE </a>
+                <a class="navbar-brand " href="user/home"> NANA HOUSE </a>
 
                 <!-- this part for mobile -->
                 <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -172,7 +172,7 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"> TRANG CHỦ </a></li>
+                    <li class="active"><a href="user/home"> TRANG CHỦ </a></li>
                     <li class="dropdown megamenu-fullwidth"><a data-toggle="dropdown" class="dropdown-toggle" href="#"> SẢN PHẨM<b class="caret"> </b> </a>
                         <ul class="dropdown-menu">
                             <li class="megamenu-content ">
@@ -238,12 +238,12 @@
                                     <tbody>
                                         <tr class="miniCartProduct">
                                             <td style="width:20%" class="miniCartProductThumb">
-                                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img">
+                                                <div><a href="user/productDetail"> <img src="images/product/3.jpg" alt="img">
                                                     </a></div>
                                             </td>
                                             <td style="width:40%">
                                                 <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> TSHOP Tshirt DO9 </a></h4>
+                                                    <h4><a href="user/productDetail"> TSHOP Tshirt DO9 </a></h4>
                                                     <span class="size"> 12 x 1.5 L </span>
 
                                                     <div class="price"><span> $22 </span></div>
@@ -260,7 +260,7 @@
 
                             <div class="miniCartFooter text-right">
                                 <h3 class="text-right subtotal"> Tổng cộng: $210 </h3>
-                                <a class="btn btn-sm btn-danger" href="cart.html"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a><a class="btn btn-sm btn-primary"> Thanh toán </a>
+                                <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a><a class="btn btn-sm btn-primary"> Thanh toán </a>
                             </div>
                             <!--/.miniCartFooter-->
 

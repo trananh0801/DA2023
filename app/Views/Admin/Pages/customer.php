@@ -94,7 +94,15 @@
                                              <td><?= $customer['sGioiTinh'] ?></td>
                                              <td><?= $customer['iTichDiem'] ?></td>
                                              <td class="text-end">
-                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenKH="<?= $customer['sTenKH'] ?>" data-sDiaChi="<?= $customer['sDiaChi'] ?>" data-sSDT="<?= $customer['sSDT'] ?>" data-dNgaySinh="<?= $customer['dNgaySinh'] ?>" data-sGioiTinh="<?= $customer['sGioiTinh'] ?>" data-iTichDiem="<?= $customer['iTichDiem'] ?>" data-sGhiChu="<?= $customer['sGhiChu'] ?>" value="<?= $customer['PK_iMaKH'] ?>">Sửa</button>
+                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" 
+                                                  data-sTenKH="<?= $customer['sTenKH'] ?>" 
+                                                  data-sDiaChi="<?= $customer['sDiaChi'] ?>" 
+                                                  data-sSDT="<?= $customer['sSDT'] ?>" 
+                                                  data-dNgaySinh="<?= $customer['dNgaySinh'] ?>" 
+                                                  data-sGioiTinh="<?= $customer['sGioiTinh'] ?>" 
+                                                  data-iTichDiem="<?= $customer['iTichDiem'] ?>" 
+                                                  data-sGhiChu="<?= $customer['sGhiChu'] ?>" 
+                                                  value="<?= $customer['PK_iMaKH'] ?>">Sửa</button>
                                              </td>
                                         </tr>
                                    <?php endforeach ?>
@@ -116,10 +124,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                    <form action="admin/productGroup/edit" method="POST" id="formGroupId">
+                    <form action="admin/customer/update" method="POST" id="formGroupId">
                          <div class="mb-4">
                               <label for="sTenKH" class="form-label">Tên khách hàng</label>
                               <input type="text" placeholder="Nhập tên khách hàng" class="form-control" id="tenkh" name="sTenKH" />
+                              <input type="text" value="<?= old('PK_iMaKH') ?>" class="form-control" id="makh" name="PK_iMaKH" hidden>
                          </div>
                          <div class="mb-4">
                               <label for="sDiaChi" class="form-label">Địa chỉ</label>
@@ -187,6 +196,7 @@
                $("#gioitinh").val(sGioiTinh);
                $("#tichdiem").val(iTichDiem);
                $("#ghichu").val(sGhiChu);
+               $("#makh").val(PK_iMaKH);
           })
      })
 

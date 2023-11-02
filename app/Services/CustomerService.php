@@ -52,6 +52,40 @@ class CustomerService extends BaseService
         }
     }
 
+    public function updateCustomerInfo($requestData)
+    {
+        $validate = $this->validateAddCustomer($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave_KH = $requestData->getPost();
+
+        $id_KH = $requestData->getPost('PK_iMaKH');
+
+        // dd($id_TK);
+        try {
+            $builder = $this->customer->builder();
+            $builder->where('PK_iMaKH', $id_KH);
+            $builder->update($dataSave_KH);
+
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     public function validateAddCustomer($requestData){
         $rule = [
             'sTenKH'=>'max_length[100]',

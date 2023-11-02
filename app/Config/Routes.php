@@ -33,6 +33,7 @@ $routes->group('admin', function ($routes) {
     $routes->group('customer', function ($routes) {
         $routes->get('list', 'Admin\CustomerController::list');
         $routes->post('create', 'Admin\CustomerController::create');
+        $routes->post('update', 'Admin\CustomerController::update');
     });
     $routes->group('productGroup', function ($routes) {
         $routes->get('list', 'Admin\ProductGroupController::list');

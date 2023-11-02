@@ -91,10 +91,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                    <form action="admin/productGroup/edit" method="POST" id="formGroupId">
+                    <form action="admin/supplier/update" method="POST" id="formGroupId">
                          <div class="mb-4">
                               <label for="sTenNCC" class="form-label">Tên nhà cung cấp</label>
                               <input type="text" placeholder="Nhập tên nhà cung cấp" class="form-control" id="tenncc" name="sTenNCC" />
+                              <input type="text" value="<?= old('PK_iMaNCC') ?>" class="form-control" id="mancc" name="PK_iMaNCC" hidden>
                          </div>
                          <div class="mb-4">
                               <label for="sDiaChi" class="form-label">Địa chỉ</label>
@@ -135,6 +136,7 @@
                $("#diachi").val(sDiaChi);
                $("#sdt").val(sSDT);
                $("#ghichu").val(sGhiChu);
+               $("#mancc").val(PK_iMaNCC);
           })
      })
 

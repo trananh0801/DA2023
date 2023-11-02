@@ -33,4 +33,10 @@ class SupplierController extends BaseController
         $result = $this->service->addSupplierInfo($this->request);
         return redirect()->to('admin/supplier/list')->withInput()->with($result['massageCode'], $result['message']);
     }
+
+    public function update()
+    {
+        $result = $this->service->updateSupplierInfo($this->request);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
+    }
 }

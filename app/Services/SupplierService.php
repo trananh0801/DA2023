@@ -52,6 +52,43 @@ class SupplierService extends BaseService
         }
     }
 
+    public function updateSupplierInfo($requestData)
+    {
+        $validate = $this->validateAddSupplier($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave = [
+            'sTenNCC' => $requestData->getPost('sTenNCC'),
+            'sDiaChi' => $requestData->getPost('sDiaChi'),
+            'sSDT' => $requestData->getPost('sSDT'),
+            'sGhiChu' => $requestData->getPost('sGhiChu'),
+        ];
+        $id = $requestData->getPost('PK_iMaNCC');
+
+        // dd($id);
+        try {
+            $builder = $this->supplier->builder();
+            $builder->where('PK_iMaNCC', $id);
+            $builder->update($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     public function validateAddSupplier($requestData){
         $rule = [
             'sTenNCC'=>'max_length[100]',

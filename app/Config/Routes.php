@@ -28,6 +28,7 @@ $routes->group('admin', function ($routes) {
     $routes->group('supplier', function ($routes) {
         $routes->get('list', 'Admin\SupplierController::list');
         $routes->post('create', 'Admin\SupplierController::create');
+        $routes->post('update', 'Admin\SupplierController::update');
     });
     $routes->group('customer', function ($routes) {
         $routes->get('list', 'Admin\CustomerController::list');

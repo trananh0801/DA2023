@@ -178,8 +178,8 @@
                             <li class="megamenu-content ">
                                 <ul class="col-lg-3  col-sm-3 col-md-3 unstyled noMarginLeft newCollectionUl">
 
-                                    <li><a href="category.html"> KHUYẾN MÃI </a></li>
-                                    <li><a href="category.html"> KHUYẾN MÃI 1</a></li>
+                                    <li><a href="user/category"> NHÓM SẢN PHẨM 1 </a></li>
+                                    <li><a href="user/category"> NHÓM SẢN PHẨM 2</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -193,38 +193,29 @@
                                 <!-- megamenu-content -->
                                 <ul class="col-lg-2  col-sm-2 col-md-2  unstyled noMarginLeft">
                                     <li>
-                                        <p><strong> Women Collection </strong></p>
+                                        <p><strong> Giảm giá sản phẩm </strong></p>
                                     </li>
-                                    <li><a href="#"> Kameez </a></li>
-                                    <li><a href="#"> Tops </a></li>
+                                    <li><a href="#"> Khuyến mãi 1 </a></li>
+                                    <li><a href="#"> Khuyến mãi 2 </a></li>
                                 </ul>
                                 <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
                                     <li>
-                                        <p><strong> Men Collection </strong></p>
+                                        <p><strong> Khuyến mãi tháng 11 </strong></p>
                                     </li>
-                                    <li><a href="#"> Panjabi </a></li>
-                                    <li><a href="#"> Male Fragrances </a></li>
+                                    <li><a href="#"> Khuyến mãi 1 </a></li>
+                                    <li><a href="#"> Khuyến mãi 2 </a></li>
                                 </ul>
                                 <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
                                     <li>
-                                        <p><strong> Top Brands </strong></p>
+                                        <p><strong> Thông tin tích điểm </strong></p>
                                     </li>
-                                    <li><a href="#"> Diesel </a></li>
-                                    <li><a href="#"> Farah </a></li>
-                                </ul>
-                                <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-6">
-                                    <li class="no-margin productPopItem "><a href="product-details.html"> <img class="img-responsive" src="images/site/g4.jpg" alt="img"> </a> <a class="text-center productInfo alpha90" href="product-details.html"> Eodem modo
-                                            typi <br>
-                                            <span> $60 </span> </a></li>
-                                </ul>
-                                <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-6">
-                                    <li class="no-margin productPopItem relative"><a href="product-details.html"> <img class="img-responsive" src="images/site/g5.jpg" alt="img"> </a> <a class="text-center productInfo alpha90" href="product-details.html"> Eodem modo
-                                            typi <br>
-                                            <span> $60 </span> </a></li>
+                                    <li><a href="#"> Khuyến mãi 1 </a></li>
+                                    <li><a href="#"> Khuyến mãi 2 </a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
+                    <li class=""><a href="user/about-us"> GIỚI THIỆU </a></li>
                 </ul>
 
 
@@ -238,19 +229,19 @@
                                     <tbody>
                                         <tr class="miniCartProduct">
                                             <td style="width:20%" class="miniCartProductThumb">
-                                                <div><a href="user/productDetail"> <img src="images/product/3.jpg" alt="img">
+                                                <div><a href="user/productDetail"> <img src="assets/user/images/product/3.jpg" alt="img">
                                                     </a></div>
                                             </td>
                                             <td style="width:40%">
                                                 <div class="miniCartDescription">
-                                                    <h4><a href="user/productDetail"> TSHOP Tshirt DO9 </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
+                                                    <h4><a href="user/productDetail"> SỮA BỘT TRẺ 2 TUỔI </a></h4>
+                                                    <span class="size"> 500g </span>
 
-                                                    <div class="price"><span> $22 </span></div>
+                                                    <div class="price"><span> 600.000 VNĐ </span></div>
                                                 </div>
                                             </td>
                                             <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $33 </span></td>
+                                            <td style="width:15%" class="miniCartSubtotal"><span> 600.000 VNĐ </span></td>
                                             <td style="width:5%" class="delete"><a> x </a></td>
                                         </tr>
                                     </tbody>
@@ -259,8 +250,8 @@
                             <!--/.miniCartTable-->
 
                             <div class="miniCartFooter text-right">
-                                <h3 class="text-right subtotal"> Tổng cộng: $210 </h3>
-                                <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a><a class="btn btn-sm btn-primary"> Thanh toán </a>
+                                <h3 class="text-right subtotal"> Tổng cộng: 600.000 VNĐ </h3>
+                                <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a><a class="btn btn-sm btn-primary" href="user/checkout"> Thanh toán </a>
                             </div>
                             <!--/.miniCartFooter-->
 

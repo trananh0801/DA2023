@@ -70,14 +70,22 @@
                                 <td><b><?= $importBill['sTenNV'] ?></b></td>
                                 <td><?= $importBill['sTenNCC'] ?></td>
                                 <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap']))?></td>
-                                <td><?= $importBill['fTienDaTra'] ?></td>
+                                <td><?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?> &#8363</td>
                                 <?php if ($importBill['FK_iMaTrangThai'] == '4') : ?>
                                     <td><span class="badge rounded-pill alert-warning"><?= $importBill['sTenTrangThai'] ?></span></td>
                                 <?php else : ?>
                                     <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" data-fTienDaTra="<?= $importBill['fTienDaTra'] ?>" data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" data-sGhiChu="<?= $importBill['sGhiChu'] ?>" data-PK_iPN="<?= $importBill['PK_iPN'] ?>" data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
+                                    <a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" 
+                                    data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" 
+                                    data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" 
+                                    data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" 
+                                    data-fTienDaTra="<?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?>" 
+                                    data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" 
+                                    data-sGhiChu="<?= $importBill['sGhiChu'] ?>" 
+                                    data-PK_iPN="<?= $importBill['PK_iPN'] ?>" 
+                                    data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
                                     <!-- <a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a> -->
                                 </td>
                             </tr>
@@ -124,7 +132,7 @@
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="fTienDaTra" name="fTienDaTra" />
+                                        <input type="text" placeholder="Type here" class="form-control giatien" id="fTienDaTra" name="fTienDaTra" />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
@@ -220,7 +228,7 @@
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="tiendatra" name="fTienDaTra" />
+                                        <input type="text" placeholder="Type here" class="form-control giatien" id="tiendatra" name="fTienDaTra" />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
@@ -339,4 +347,22 @@
     function myFunction() {
         confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
     }
+
+    	//format giá tiền
+	$(document).ready(function() {
+		$('.giatien').on('input', function() {
+			// Lấy giá trị từ input
+			let inputValue = $(this).val();
+
+			// Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+			let cleanedValue = inputValue.replace(/,/g, '');
+
+			// Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+			// Cập nhật giá trị vào input
+			$(this).val(formattedValue);
+		});
+
+	});
 </script>

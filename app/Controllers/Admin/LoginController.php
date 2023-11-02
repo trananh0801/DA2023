@@ -16,13 +16,18 @@ class LoginController extends BaseController
     {
         $this->service = new LoginService();
     }
-    public function index(): string
+    public function index()
     {
+        $session = session();
+        if ($session->get('user_id')) {
+            return redirect()->to('admin/home');
+        }
         $data = [];
         return view('Admin/Pages/login', $data);
     }
     public function login()
     {
+        
         $result = $this->service->doLogin($this->request);
         if ($result['status'] == 'ERR') {
             return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);

@@ -7,7 +7,7 @@
             <span class="prevControl sliderControl"> <i class="fa fa-angle-left fa-3x "></i></span> <span class="nextControl sliderControl"> <i class="fa fa-angle-right fa-3x "></i></span>
 
             <div class="slider slider-v1" data-cycle-swipe=true data-cycle-prev=".prevControl" data-cycle-next=".nextControl" data-cycle-loader="wait">
-                <div class="slider-item slider-item-img1"><img src="assets/user/images/slider/1.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
+                <div class="slider-item slider-item-img1"><img src="assets/user/images/slider/3.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
                 <div class="slider-item slider-item-img1">
                     <div class="sliderInfo">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="assets/user/images/slider/2.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
+                    <img src="assets/user/images/slider/3.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
                 <!--/.slider-item-->
             </div>
@@ -71,7 +71,7 @@
                     </a>
                     <div class="image">
                         <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Quick View </a>
+                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/product" data-target="#productSetailsModalAjax">Quick View </a>
                         </div>
                         <a href="product-details.html"><img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive"></a>
 
@@ -224,7 +224,7 @@
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
                         <div class="imageHover">
-                            <a href="product-details.html">
+                            <a href="user/productDetail">
                                 <img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive">
                                 <div class="promotion"><span class="discount">15% OFF</span></div>
                         </div>

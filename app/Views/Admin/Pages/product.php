@@ -71,14 +71,23 @@
 								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
 								</td>
 								<td><b><?= $product['sTenSP'] ?></b></td>
-								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaNhap'] ?>đ</span></td>
-								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanLe'] ?>đ</span></td>
-								<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanSi'] ?>đ</span></td>
-								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?></span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaNhap'], 0, ',', ',') ?> &#8363</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, ',', ',') ?> &#8363</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanSi'], 0, ',', ',') ?> &#8363</span></td>
+								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
 								<td><?= $product['sTenNhom'] ?></td>
 								<td class="text-end">
-									<a href="admin/product/edit/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning  editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNhom="<?= $product['FK_iMaNhom'] ?>" data-sTenSP="<?= $product['sTenSP'] ?>" data-fSoLuong="<?= $product['fSoLuong'] ?>" data-sDVT="<?= $product['sDVT'] ?>" data-fGiaNhap="<?= $product['fGiaNhap'] ?>" data-fGiaBanLe="<?= $product['fGiaBanLe'] ?>" data-fGiaBanSi="<?= $product['fGiaBanSi'] ?>" data-sHinhAnh="<?= $product['sHinhAnh'] ?>" data-sGhiChu="<?= $product['sGhiChu'] ?>" data-PK_iMaSP="<?= $product['PK_iMaSP'] ?>">Sửa</a>
-									<!-- <a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-danger  deleteGroup text-danger" value="<?= $product['PK_iMaSP'] ?>" name="masanpham" onclick="myFunction()">Xóa</a> -->
+									<a href="admin/product/edit/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning  editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" 
+									data-FK_iMaNhom="<?= $product['FK_iMaNhom'] ?>" 
+									data-sTenSP="<?= $product['sTenSP'] ?>" 
+									data-fSoLuong="<?= $product['fSoLuong'] ?>" 
+									data-sDVT="<?= $product['sDVT'] ?>" 
+									data-fGiaNhap="<?= number_format($product['fGiaNhap'], 0, ',', ',') ?>" 
+									data-fGiaBanLe="<?= number_format($product['fGiaBanLe'], 0, ',', ',') ?>" 
+									data-fGiaBanSi="<?= number_format($product['fGiaBanSi'], 0, ',', ',') ?>" 
+									data-sHinhAnh="<?= $product['sHinhAnh'] ?>" 
+									data-sGhiChu="<?= $product['sGhiChu'] ?>" 
+									data-PK_iMaSP="<?= $product['PK_iMaSP'] ?>">Sửa</a>
 								</td>
 							</tr>
 						<?php endforeach ?>
@@ -205,7 +214,7 @@
 						<div class="row">
 							<div class="mb-4 col-2">
 								<label for="fGiaNhap" class="form-label">Giá nhập</label>
-								<input type="text" <?= old('fGiaNhap') ?> class="form-control" id="gianhap" name="fGiaNhap" value="0" readonly>
+								<input type="text" <?= old('fGiaNhap') ?> class="form-control giatien" id="gianhap" name="fGiaNhap" value="0" readonly>
 							</div>
 							<div class="mb-4 col-2">
 								<label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
@@ -282,7 +291,7 @@
 			let cleanedValue = inputValue.replace(/,/g, '');
 
 			// Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
-			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 			// Cập nhật giá trị vào input
 			$(this).val(formattedValue);

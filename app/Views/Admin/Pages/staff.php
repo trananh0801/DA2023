@@ -104,7 +104,18 @@
                                     <td><?= date('d/m/Y', strtotime($staff['dNgaySinh'])) ?></td>
                                     <td><?= $staff['sGioiTinh'] ?></td>
                                     <td class="text-end">
-                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNV="<?= $staff['sTenNV'] ?>" data-sSDT="<?= $staff['sSDT'] ?>" data-sCMND="<?= $staff['sCMND'] ?>" data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" data-sGhiChu="<?= $staff['sGhiChu'] ?>" data-sTenTK="<?= $staff['sTenTK'] ?>" data-sMatKhau="<?= $staff['sMatKhau'] ?>" value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
+                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" 
+                                        data-sTenNV="<?= $staff['sTenNV'] ?>" 
+                                        data-sSDT="<?= $staff['sSDT'] ?>" 
+                                        data-sCMND="<?= $staff['sCMND'] ?>" 
+                                        data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" 
+                                        data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" 
+                                        data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" 
+                                        data-sGhiChu="<?= $staff['sGhiChu'] ?>" 
+                                        data-sTenTK="<?= $staff['sTenTK'] ?>" 
+                                        data-sMatKhau="<?= $staff['sMatKhau'] ?>" 
+                                        data-FK_iMaTK="<?= $staff['FK_iMaTK'] ?>"
+                                        value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -125,12 +136,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="admin/productGroup/edit" method="POST" id="formGroupId">
+                <form action="admin/staff/update" method="POST" id="formGroupId">
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-4 col-12">
                                 <label for="sTenNV" class="form-label">Tên nhân viên</label>
                                 <input type="text" placeholder="Nhập tên khách hàng" class="form-control" id="tennv" name="sTenNV" />
+                                <input type="text" value="<?= old('PK_iMaNV') ?>" class="form-control" id="manv" name="PK_iMaNV" hidden>
+                                <input type="text" value="<?= old('FK_iMaTK') ?>" class="form-control" id="matk" name="FK_iMaTK" hidden>
                             </div>
                             <div class="row">
                                 <div class="mb-4 col-6">
@@ -206,6 +219,7 @@
             sGhiChu = $(this).attr("data-sGhiChu");
             sTenTK = $(this).attr("data-sTenTK");
             sMatKhau = $(this).attr("data-sMatKhau");
+            FK_iMaTK = $(this).attr("data-FK_iMaTK");
             PK_iMaNV = $(this).val();
 
             // Hiển thị lên trên form
@@ -218,6 +232,9 @@
             $("#ghichu").val(sGhiChu);
             $("#tendangnhap").val(sTenTK);
             $("#matkhau").val(sMatKhau);
+            $("#matk").val(FK_iMaTK);
+            $("#manv").val(PK_iMaNV);
+            // console.log(FK_iMaTK);
         })
     })
 

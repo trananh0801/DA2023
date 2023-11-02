@@ -80,6 +80,53 @@ class StaffService extends BaseService
         }
     }
 
+    public function updateStaffInfo($requestData)
+    {
+        $validate = $this->validateAddStaff($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave_NV = $requestData->getPost();
+        unset($dataSave_NV['PK_iMaNV']);
+        unset($dataSave_NV['sTenTK']);
+        unset($dataSave_NV['FK_iMaTK']);
+        unset($dataSave_NV['sMatKhau']);
+
+        $dataSave_TK = [
+            'sTenTK' => $requestData->getPost('sTenTK'),
+            'sMatKhau' => $requestData->getPost('sMatKhau'),
+        ];
+
+        $id_NV = $requestData->getPost('PK_iMaNV');
+        $id_TK = $requestData->getPost('FK_iMaTK');
+
+        // dd($id_TK);
+        try {
+            $builder = $this->staff->builder();
+            $builder->where('PK_iMaNV', $id_NV);
+            $builder->update($dataSave_NV);
+
+            $builder = $this->user->builder();
+            $builder->where('PK_iMaTK', $id_TK);
+            $builder->update($dataSave_TK);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     public function validateAddStaff($requestData){
         $rule = [
             'sTenNV'=>'max_length[100]',

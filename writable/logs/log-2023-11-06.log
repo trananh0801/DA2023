@@ -431,3 +431,16 @@ INFO - 2023-11-06 16:43:50 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-11-06 16:43:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-06 16:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-06 16:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-06 16:47:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-06 16:47:24 --> Trying to access array offset on value of type null
+in APPPATH\Services\ReturnBillService.php on line 111.
+ 1 APPPATH\Services\ReturnBillService.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\ReturnBillService.php', 111)
+ 2 APPPATH\Controllers\Admin\ReturnBillController.php(37): App\Services\ReturnBillService->addReturnBillInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\ReturnBillController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ReturnBillController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-06 16:49:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-06 16:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-06 16:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

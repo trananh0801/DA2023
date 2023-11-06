@@ -24,6 +24,7 @@ class ReturnBillService extends BaseService
         $this->supplier = new SupplierModel();
         $this->returnBillDetail = new ReturnBillDetailModel();
         $this->returnBill->protect(false);
+        $this->product->protect(false);
         $this->returnBillDetail->protect(false);
     }
 
@@ -100,6 +101,24 @@ class ReturnBillService extends BaseService
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
             'iSoLuong' => $requestData->getPost('iSoLuong'),
         ];
+
+        //lấy thông tin để update số lượng sản phẩm
+        $maSP = $requestData->getPost('FK_iMaSP');
+        $soluong = $requestData->getPost('iSoLuong');
+        // dd($soluong);
+        for ($i = 0; $i < count($maSP); $i++) {
+            $productID = $maSP[$i];
+            $quantityToDeduct = $soluong[$i];
+
+            // Truy vấn số lượng hiện có của sản phẩm
+            $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+
+            // Tính toán số lượng mới
+            $newQuantity = $currentQuantity + $quantityToDeduct;
+            // dd($newQuantity);
+            // Cập nhật số lượng mới vào cơ sở dữ liệu
+            $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
+        }
 
         $duplicateProduct = $this->returnBill->where('PK_iMaPhieu', $dataSave1['PK_iMaPhieu'])->first();
         if ($duplicateProduct) {

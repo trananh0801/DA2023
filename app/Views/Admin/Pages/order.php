@@ -146,6 +146,7 @@
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">Giá</th>
                                             <th scope="col">Số lượng</th>
+                                            <th scope="col">Chiết khấu</th>
                                             <th scope="col">Thành tiền</th>
                                             <th scope="col" class="text-end"></th>
                                         </tr>
@@ -154,7 +155,7 @@
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct" >
+                                                <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
                                                     <?php foreach ($products as $product) : ?>
                                                         <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
                                                     <?php endforeach ?>
@@ -162,6 +163,7 @@
                                             </td>
                                             <td class="price" id="price"></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
+                                            <td></td>
                                             <td></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
@@ -174,14 +176,6 @@
                             </div>
                             <div class="col-12">
                                 <article class="float-end">
-                                    <dl class="dlist">
-                                        <dt>Tổng:</dt>
-                                        <dd>$973.35</dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt>Khuyến mãi:</dt>
-                                        <dd>$10.00</dd>
-                                    </dl>
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5">$983.00</b> </dd>
@@ -219,11 +213,11 @@
                     <form action="admin/order/update" method="POST">
                         <input type="text" name="PK_iMaDon" id="madon" hidden>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV" id="manhanvien">
+                                        <select class="form-select" name="FK_iMaNV" id="manhanvien" disabled>
                                             <?php foreach ($staffs as $staff) : ?>
                                                 <option value="<?= $staff['PK_iMaNV'] ?>"><?= $staff['sTenNV'] ?></option>
                                             <?php endforeach ?>
@@ -254,7 +248,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-7">
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
@@ -262,6 +256,7 @@
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">giá</th>
                                             <th scope="col">Số lượng</th>
+                                            <th scope="col">Chiết khấu</th>
                                             <th scope="col">Thành tiền</th>
                                         </tr>
                                     </thead>
@@ -269,25 +264,22 @@
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <select class="form-select" name="FK_iMaSP[]">
-                                                    <option value="">123</option>
+                                                <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
+                                                    <?php foreach ($products as $product) : ?>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
+                                                    <?php endforeach ?>
                                                 </select>
                                             </td>
+                                            <td></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="" /></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="col-12">
                                 <article class="float-end">
-                                    <dl class="dlist">
-                                        <dt>Tổng:</dt>
-                                        <dd>$973.35</dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt>Khuyến mãi:</dt>
-                                        <dd>$10.00</dd>
-                                    </dl>
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5">$983.00</b> </dd>
@@ -352,7 +344,7 @@
         });
     });
 
-    
+
 
     $(document).ready(function() {
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"

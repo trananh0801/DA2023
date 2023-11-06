@@ -179,14 +179,6 @@
                             <div class="col-12">
                                 <article class="float-end">
                                     <dl class="dlist">
-                                        <dt>Tổng:</dt>
-                                        <dd>$973.35</dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt>Khuyến mãi:</dt>
-                                        <dd>$10.00</dd>
-                                    </dl>
-                                    <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5">$983.00</b> </dd>
                                     </dl>
@@ -226,7 +218,7 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV" id="manhanvien">
+                                        <select class="form-select" name="FK_iMaNV" id="manhanvien" disabled>
                                             <?php foreach ($staffs as $staff) : ?>
                                                 <option value="<?= $staff['PK_iMaNV'] ?>"><?= $staff['sTenNV'] ?></option>
                                             <?php endforeach ?>
@@ -234,7 +226,7 @@
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhà cung cấp</label>
-                                        <select class="form-select" name="FK_iMaNCC" id="nhacungcap">
+                                        <select class="form-select" name="FK_iMaNCC" id="nhacungcap" disabled>
                                             <?php foreach ($suppliers as $supplier) : ?>
                                                 <option value="<?= $supplier['PK_iMaNCC'] ?>"><?= $supplier['sTenNCC'] ?></option>
                                             <?php endforeach ?>
@@ -242,15 +234,15 @@
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dNgayNhap" class="form-label">Ngày nhập</label>
-                                        <input type="date" class="form-control" id="ngaynhap" name="dNgayNhap" />
+                                        <input type="date" class="form-control" id="ngaynhap" name="dNgayNhap" disabled/>
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                        <input type="text" placeholder="VD:1.000.000" class="form-control giatien" id="tiendatra" name="fTienDaTra" />
+                                        <input type="text" placeholder="VD:1.000.000" class="form-control giatien" id="tiendatra" name="fTienDaTra" disabled/>
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
-                                        <input type="text" placeholder="Nhập tên người giao hàng" class="form-control" id="nguoigiao" name="sNguoiGiao" />
+                                        <input type="text" placeholder="Nhập tên người giao hàng" class="form-control" id="nguoigiao" name="sNguoiGiao" disabled/>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -261,7 +253,7 @@
                                     </div>
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
-                                        <textarea class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
+                                        <textarea class="form-control" rows="4" name="sGhiChu" id="ghichu" disabled></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +263,9 @@
                                         <tr>
                                             <th>STT</th>
                                             <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Giá</th>
                                             <th scope="col">Số lượng</th>
+                                            <th scope="col">Thành tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -287,23 +281,13 @@
                                             <td></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" /></td>
                                             <td></td>
-                                            <td>
-                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
-                                            </td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="col-12">
                                 <article class="float-end">
-                                    <dl class="dlist">
-                                        <dt>Tổng:</dt>
-                                        <dd>$973.35</dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt>Khuyến mãi:</dt>
-                                        <dd>$10.00</dd>
-                                    </dl>
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5">$983.00</b> </dd>

@@ -168,14 +168,6 @@
                             <div class="col-12">
                                 <article class="float-end">
                                     <dl class="dlist">
-                                        <dt>Tổng:</dt>
-                                        <dd>$973.35</dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt>Khuyến mãi:</dt>
-                                        <dd>$10.00</dd>
-                                    </dl>
-                                    <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5">$983.00</b> </dd>
                                     </dl>
@@ -278,14 +270,6 @@
                             </div>
                             <div class="col-12">
                                 <article class="float-end">
-                                    <dl class="dlist">
-                                        <dt>Tổng:</dt>
-                                        <dd>$973.35</dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt>Khuyến mãi:</dt>
-                                        <dd>$10.00</dd>
-                                    </dl>
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5">$983.00</b> </dd>

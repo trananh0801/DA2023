@@ -87,8 +87,6 @@ class OrderService extends BaseService
     /**add new user */
     public function addOrderInfo($requestData)
     {
-        $builder = $this->product->builder();
-
         //Tạo mã tự động
         $timestamp = time();
         $randomPart = mt_rand(1000, 9999);
@@ -135,7 +133,6 @@ class OrderService extends BaseService
 
             // Tính toán số lượng mới
             $newQuantity = $currentQuantity - $quantityToDeduct;
-            // dd($newQuantity);
             // Cập nhật số lượng mới vào cơ sở dữ liệu
             $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
         }

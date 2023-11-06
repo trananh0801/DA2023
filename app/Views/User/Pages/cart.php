@@ -32,59 +32,27 @@
                                     <td style="width:40%">Chi tiết</td>
                                     <td style="width:10%" class="delete">&nbsp;</td>
                                     <td style="width:10%">Số lượng</td>
-                                    <td style="width:10%">Đơn giá</td>
+                                    <td style="width:10%">Chiết khấu</td>
                                     <td style="width:15%">Tổng cộng</td>
                                 </tr>
-
-                                <tr class="CartProduct">
-                                    <td class="CartProductThumb">
-                                        <div><a href="user/productDetail"><img src="assets/user/images/product/a1.jpg" alt="img"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="CartDescription">
-                                            <h4><a href="user/productDetail">Sản phẩm 1 </a></h4>
-                                            <div class="price"><span>500.000 VNĐ</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
-                                    <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
-                                    <td>0</td>
-                                    <td class="price">1.000.000 VNĐ</td>
-                                </tr>
-
-                                <tr class="CartProduct">
-                                    <td class="CartProductThumb">
-                                        <div><a href="user/productDetail"><img src="assets/user/images/product/a1.jpg" alt="img"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="CartDescription">
-                                            <h4><a href="user/productDetail">Sản phẩm 1 </a></h4>
-                                            <div class="price"><span>500.000 VNĐ</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
-                                    <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
-                                    <td>0</td>
-                                    <td class="price">1.000.000 VNĐ</td>
-                                </tr>
-                                <tr class="CartProduct">
-                                    <td class="CartProductThumb">
-                                        <div><a href="user/productDetail"><img src="assets/user/images/product/a1.jpg" alt="img"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="CartDescription">
-                                            <h4><a href="user/productDetail">Sản phẩm 1 </a></h4>
-                                            <div class="price"><span>500.000 VNĐ</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
-                                    <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
-                                    <td>0</td>
-                                    <td class="price">1.000.000 VNĐ</td>
-                                </tr>
+                                <?php foreach ($allProductInCarts as $allProductInCart) : ?>
+                                    <tr class="CartProduct">
+                                        <td class="CartProductThumb">
+                                            <div><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?= $allProductInCart['sHinhAnh'] ?>" alt="img"></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="CartDescription">
+                                                <h4><a href="user/productDetail"><?= $allProductInCart['sTenSP'] ?> </a></h4>
+                                                <div class="price"><span><?= $allProductInCart['fGiaBanLe'] ?> VNĐ</span></div>
+                                            </div>
+                                        </td>
+                                        <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
+                                        <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
+                                        <td>0</td>
+                                        <td class="price">1.000.000 VNĐ</td>
+                                    </tr>
+                                <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>

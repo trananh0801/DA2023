@@ -2,7 +2,7 @@
 
 namespace App\Controllers\User;
 use App\Controllers\BaseController;
-use App\Services\UserService;
+use App\Services\CartService;
 
 class CartController extends BaseController
 {
@@ -12,14 +12,16 @@ class CartController extends BaseController
     private $service; 
     public function __construct()
     {
-        $this->service = new UserService();
+        $this->service = new CartService();
     }
 
     public function list()
     {
+        // $session = session();
+        // dd($session->get('user_id'));
         $data = [];
-        $dataLayout['users'] = $this->service->getAllUser();
-        // dd($data['users']);
+        $dataLayout['allProductInCarts'] = $this->service->getAllProduct();
+        // dd($dataLayout['allProductInCarts']);
         $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', $dataLayout);
         return view('User/main', $data);
     }

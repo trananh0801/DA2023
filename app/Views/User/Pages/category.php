@@ -31,10 +31,10 @@
                     <div id="collapseCategory" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked tree">
-                                <li class="active dropdown-tree open-tree"><a class="dropdown-tree-a"> <span class="badge pull-right">42</span> NHÓM SẢN PHẨM 1 </a>
-                                </li>
-                                <li><a href="#"> <span class="badge pull-right">42</span> NHÓM SẢN PHẨM 2 </a></li>
-                                <li><a href="#"> <span class="badge pull-right">42</span> NHÓM SẢN PHẨM 3 </a></li>
+                                <?php foreach ($productGroups as $productGroup) : ?>
+                                    <li class="active dropdown-tree open-tree"><a class="dropdown-tree-a" href="user/"> <span class="badge pull-right">42</span> <?= $productGroup['sTenNhom'] ?> </a>
+                                    </li>
+                                <?php endforeach ?>
                             </ul>
                         </div>
                     </div>

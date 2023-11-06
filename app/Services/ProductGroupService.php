@@ -150,7 +150,6 @@ class ProductGroupService extends BaseService
     public function validateUpdateProductGroup($requestData)
     {
         $rule = [
-            'PK_iMaNhom' => 'required|max_length[100]|is_Unique[tbl_nhomsanpham.PK_iMaNhom]',
             'sTenNhom' => 'required|max_length[100]',
         ];
         $message = [
@@ -158,11 +157,6 @@ class ProductGroupService extends BaseService
                 'max_length' => 'Tên nhóm sản phẩm quá dài!',
                 'required' => 'Tên nhóm không được để trống!',
             ],
-            'PK_iMaNhom' => [
-                'max_length' => 'Mã nhóm sản phẩm quá dài!',
-                'required' => 'Mã nhóm không được để trống!',
-                'is_Unique' => 'Mã đã tồn tại trong cơ sở dữ liệu!'
-            ]
         ];
         $this->validation->setRules($rule, $message);
         $this->validation->withRequest($requestData)->run();

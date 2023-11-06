@@ -86,7 +86,7 @@ $routes->group('user', function ($routes) {
     $routes->get('home', 'User\HomeController::list');
     $routes->get('account', 'User\AccountController::list');
     $routes->get('cart', 'User\CartController::list');
-    $routes->get('productDetail', 'User\ProductDetailController::list');
+    $routes->get('productDetail/(:num)', 'User\ProductDetailController::list/$1');
     $routes->get('product', 'User\ProductController::list');
     $routes->get('category', 'User\CategoryController::list');
     $routes->get('about-us', 'User\AboutController::list');

@@ -64,117 +64,30 @@
         <h3 class="section-title style2 text-center"><span>SẢN PHẨM MỚI</span></h3>
 
         <div id="productslider" class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-                    <div class="image">
-                        <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/product" data-target="#productSetailsModalAjax">Quick View </a>
+            <?php foreach ($newProducts as $newProduct) : ?>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>" data-target="#productSetailsModalAjax">Quick View </a>
+                            </div>
+                            <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><img src="<?= $newProduct['sHinhAnh'] ?>" alt="img" class="img-responsive"></a>
+
+                            <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
                         </div>
-                        <a href="product-details.html"><img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive"></a>
+                        <div class="description">
+                            <h4><a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><?= $newProduct['sTenSP'] ?> </a></h4>
 
-                        <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">Sữa bột </a></h4>
-
-                        <p>ngol bổ rẻ</p>
-                    </div>
-                    <div class="price"><span>100.000 VNĐ</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-                    <div class="image">
-                        <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Quick View </a>
+                            <p>ngol bổ rẻ</p>
                         </div>
-                        <a href="product-details.html"><img src="assets/user/images/product/13.jpg" alt="img" class="img-responsive"></a>
-
-                        <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
+                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                     </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">Sữa bột </a></h4>
-
-                        <p>ngol bổ rẻ</p>
-                    </div>
-                    <div class="price"><span>100.000 VNĐ</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-                    <div class="image">
-                        <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="assets/user/images/product/14.jpg" alt="img" class="img-responsive"></a>
-
-                        <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">Sữa bột </a></h4>
-
-                        <p>ngol bổ rẻ</p>
-                    </div>
-                    <div class="price"><span>100.000 VNĐ</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-                    <div class="image">
-                        <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="assets/user/images/product/15.jpg" alt="img" class="img-responsive"></a>
-
-                        <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">Sữa bột </a></h4>
-
-                        <p>ngol bổ rẻ</p>
-                    </div>
-                    <div class="price"><span>100.000 VNĐ</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-                    <div class="image">
-                        <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="assets/user/images/product/16.jpg" alt="img" class="img-responsive"></a>
-
-                        <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">Sữa bột </a></h4>
-
-                        <p>ngol bổ rẻ</p>
-                    </div>
-                    <div class="price"><span>100.000 VNĐ</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
         <!--/.productslider-->
 
@@ -217,6 +130,7 @@
 
         <div class="container">
             <div class="row xsResponse categoryProduct">
+            <?php foreach ($productAlls as $productAll) : ?>
                 <!--/.item-->
                 <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
                     <div class="product">
@@ -225,124 +139,22 @@
                         </a>
                         <div class="imageHover">
                             <a href="user/productDetail">
-                                <img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive">
+                                <img src="<?= $productAll['sHinhAnh'] ?>" alt="img" class="img-responsive">
                                 <div class="promotion"><span class="discount">15% OFF</span></div>
                         </div>
                         <div class="description">
-                            <h4><a href="product-details.html"> Hover FadeIn </a></h4>
+                            <h4><a href="product-details.html"> <?= $productAll['sTenSP'] ?> </a></h4>
 
                             <div class="grid-description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <p><?= $productAll['sGhiChu'] ?> </p>
                             </div>
-                            <div class="list-description">
-                                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel
-                                    fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin
-                                    odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit
-                                    vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent
-                                    sit amet placerat elit. </p>
-                            </div>
-                            <span class="size">XL / XXL / S </span>
+                            
                         </div>
-                        <div class="price"><span>$25</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
+                        <div class="price"><span><?= $productAll['fGiaBanLe'] ?></span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                     </div>
                 </div>
-
-                <!--/.item-->
-                <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="product">
-                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
-                        <div class="imageHover">
-                            <a href="product-details.html">
-                                <img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive">
-                                <div class="promotion"><span class="discount">15% OFF</span></div>
-                        </div>
-                        <div class="description">
-                            <h4><a href="product-details.html"> Hover FadeIn </a></h4>
-
-                            <div class="grid-description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            </div>
-                            <div class="list-description">
-                                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel
-                                    fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin
-                                    odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit
-                                    vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent
-                                    sit amet placerat elit. </p>
-                            </div>
-                            <span class="size">XL / XXL / S </span>
-                        </div>
-                        <div class="price"><span>$25</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                    </div>
-                </div>
-                <!--/.item-->
-                <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="product">
-                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
-                        <div class="imageHover">
-                            <a href="product-details.html">
-                                <img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive">
-                                <div class="promotion"><span class="discount">15% OFF</span></div>
-                        </div>
-                        <div class="description">
-                            <h4><a href="product-details.html"> Hover FadeIn </a></h4>
-
-                            <div class="grid-description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            </div>
-                            <div class="list-description">
-                                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel
-                                    fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin
-                                    odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit
-                                    vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent
-                                    sit amet placerat elit. </p>
-                            </div>
-                            <span class="size">XL / XXL / S </span>
-                        </div>
-                        <div class="price"><span>$25</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                    </div>
-                </div>
-                <!--/.item-->
-                <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="product">
-                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
-                        <div class="imageHover">
-                            <a href="product-details.html">
-                                <img src="assets/user/images/product/12.jpg" alt="img" class="img-responsive">
-                                <div class="promotion"><span class="discount">15% OFF</span></div>
-                        </div>
-                        <div class="description">
-                            <h4><a href="product-details.html"> Hover FadeIn </a></h4>
-
-                            <div class="grid-description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            </div>
-                            <div class="list-description">
-                                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel
-                                    fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin
-                                    odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit
-                                    vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent
-                                    sit amet placerat elit. </p>
-                            </div>
-                            <span class="size">XL / XXL / S </span>
-                        </div>
-                        <div class="price"><span>$25</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                    </div>
-                </div>
-
+                <?php endforeach ?>
             </div>
         </div>
 

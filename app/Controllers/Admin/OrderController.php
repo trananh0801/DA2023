@@ -22,13 +22,15 @@ class OrderController extends BaseController
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
+        // $orderId = $this->request->getPost('order_id');
+        // dd($orderId);
         $data = [];
         $dataLayout['orders'] = $this->service->getAllOrder();
         $dataLayout['staffs'] = $this->service->getAllStaff();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['customers'] = $this->service->getAllCustomer();
-       
+
         // dd($dataLayout['orders']);
         $data = $this->loadMasterLayout($data, 'Danh sách đơn đặt hàng', 'Admin/Pages/order', $dataLayout);
         return view('Admin/main', $data);

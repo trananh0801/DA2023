@@ -26,20 +26,6 @@ class ProductController extends BaseController
         $data = [];
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['productsGroup'] = $this->service->getAllProductGroup();
-
-        // foreach ($dataLayout['products'] as $item) {
-        //     // Kiểm tra xem trường 'fGiaBanSi' có tồn tại trong mảng không
-        //     if (array_key_exists('fGiaBanSi', $item)) {
-        //         // Chuyển trường 'fGiaBanSi' thành số thập phân
-        //         $item['fGiaBanSi'] = (float) str_replace('.', '', $item['fGiaBanSi']);
-        
-        //         // Format lại giá trị với hàm number_format()
-        //         $item['fGiaBanSi'] = number_format((float)$item['fGiaBanSi'], 0, ',', ',');
-        
-        //         // Nếu bạn muốn giá trị là chuỗi, hãy chuyển đổi lại
-        //         $item['fGiaBanSi'] = strval($item['fGiaBanSi']);
-        //     }
-        // }
         // dd($dataLayout['products']);
         $data = $this->loadMasterLayout($data, 'Danh sách sản phẩm', 'Admin/Pages/product', $dataLayout);
         return view('Admin/main', $data);

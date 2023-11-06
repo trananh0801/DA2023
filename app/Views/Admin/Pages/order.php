@@ -28,11 +28,11 @@
         <header class="card-header">
             <div class="row gx-3">
                 <div class="col-lg-4 col-md-6 me-auto">
-                    <input type="text" placeholder="Search..." class="form-control">
+                    <input type="text" placeholder="Tìm kiếm..." class="form-control">
                 </div>
                 <div class="col-lg-2 col-6 col-md-3">
                     <select class="form-select">
-                        <option>Status</option>
+                        <option>Trạng thái</option>
                         <option>Active</option>
                         <option>Disabled</option>
                         <option>Show all</option>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-2 col-6 col-md-3">
                     <select class="form-select">
-                        <option>Show 20</option>
+                        <option>Hiển thị 20 bản ghi</option>
                         <option>Show 30</option>
                         <option>Show 40</option>
                     </select>
@@ -69,8 +69,8 @@
                                 <td><b><?= $order['PK_iMaDon'] ?></b></td>
                                 <td><b><?= $order['sTenNV'] ?></b></td>
                                 <td><?= $order['sTenKH'] ?></td>
-                                <td><?= date('d/m/Y', strtotime($order['dThoiGianTao']))?></td>
-                                <td><?=date('d/m/Y', strtotime($order['dNgayNhanHang']))?></td>
+                                <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
+                                <td><?= date('d/m/Y', strtotime($order['dNgayNhanHang'])) ?></td>
                                 <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
                                     <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php else : ?>
@@ -78,7 +78,6 @@
                                 <?php endif; ?>
                                 <td class="text-end">
                                     <a href="admin/order/edit/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $order['FK_iMaNV'] ?>" data-FK_iMaKH="<?= $order['FK_iMaKH'] ?>" data-FK_iMaTrangThai="<?= $order['FK_iMaTrangThai'] ?>" data-dThoiGianTao="<?= $order['dThoiGianTao'] ?>" data-dNgayNhanHang="<?= $order['dNgayNhanHang'] ?>" data-sGhiChu="<?= $order['sGhiChu'] ?>" data-PK_iMaDon="<?= $order['PK_iMaDon'] ?>">Sửa</a>
-                                    <!-- <a href="admin/order/delete/<?= $order['PK_iMaDon'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $order['PK_iMaDon'] ?>" name="madon" onclick="myFunction()">Xóa</a> -->
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -100,7 +99,7 @@
                 <div class="modal-body">
                     <form action="admin/order/create" method="POST">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
@@ -135,38 +134,65 @@
                                     </div>
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
-                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu"></textarea>
+                                        <textarea class="form-control" rows="4" name="sGhiChu"></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-7">
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
                                             <th>STT</th>
                                             <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Giá</th>
                                             <th scope="col">Số lượng</th>
-                                            <th scope="col" class="text-end"> Thao tác </th>
+                                            <th scope="col">Thành tiền</th>
+                                            <th scope="col" class="text-end"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <select class="form-select" name="FK_iMaSP[]">
+                                                <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct" >
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>"><?= $product['sTenSP'] ?></option>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
+                                            <td class="price" id="price"></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
+                                            <td></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                                 <button type="button" class="btn btn-primary" id="addRowButton">Thêm một dòng</button>
+                            </div>
+                            <div class="col-12">
+                                <article class="float-end">
+                                    <dl class="dlist">
+                                        <dt>Tổng:</dt>
+                                        <dd>$973.35</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Khuyến mãi:</dt>
+                                        <dd>$10.00</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Tổng tiền:</dt>
+                                        <dd> <b class="h5">$983.00</b> </dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt class="text-muted">Trạng thái:</dt>
+                                        <dd>
+                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
+                                        </dd>
+                                    </dl>
+                                </article>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -209,11 +235,11 @@
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="thoigiantao" name="dThoiGianTao" readonly/>
+                                        <input type="date" placeholder="Type here" class="form-control" id="thoigiantao" name="dThoiGianTao" readonly />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dNgayNhanHang" class="form-label">Ngày nhận hàng</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhanhang" name="dNgayNhanHang" readonly/>
+                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhanhang" name="dNgayNhanHang" readonly />
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -234,7 +260,9 @@
                                         <tr>
                                             <th>STT</th>
                                             <th scope="col">Sản phẩm</th>
+                                            <th scope="col">giá</th>
                                             <th scope="col">Số lượng</th>
+                                            <th scope="col">Thành tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -242,15 +270,35 @@
                                             <td>1</td>
                                             <td>
                                                 <select class="form-select" name="FK_iMaSP[]">
-                                                    <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>"><?= $product['sTenSP'] ?></option>
-                                                    <?php endforeach ?>
+                                                    <option value="">123</option>
                                                 </select>
                                             </td>
-                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
+                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="col-12">
+                                <article class="float-end">
+                                    <dl class="dlist">
+                                        <dt>Tổng:</dt>
+                                        <dd>$973.35</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Khuyến mãi:</dt>
+                                        <dd>$10.00</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Tổng tiền:</dt>
+                                        <dd> <b class="h5">$983.00</b> </dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt class="text-muted">Trạng thái:</dt>
+                                        <dd>
+                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
+                                        </dd>
+                                    </dl>
+                                </article>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -265,6 +313,7 @@
     </div>
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script src="assets/admin/js/order.js"></script>
 <script>
     // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
     var addRowButton = document.getElementById("addRowButton");
@@ -281,16 +330,19 @@
         var cell2 = newRow.insertCell(1);
         var cell3 = newRow.insertCell(2);
         var cell4 = newRow.insertCell(3);
+        var cell5 = newRow.insertCell(4);
+        var cell6 = newRow.insertCell(5);
 
         // Cài đặt nội dung cho các ô
         cell1.innerHTML = rowCount;
-        cell2.innerHTML = "<td><select class='form-select' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
-        cell3.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoLuong' name='iSoLuong[]' /></td>";
-        cell4.innerHTML = "<td class='text-end'><button type='button' class='btn btn-sm btn-danger deleteRowButton'>Xóa</button></td>";
+        cell2.innerHTML = "<td><select class='form-select selectProduct' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>' data-price='<?= $product['fGiaBanLe'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
+        cell3.innerHTML = "<td class='price' id='price'></td>";
+        cell4.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoLuong' name='iSoLuong[]' /></td>";
+        cell5.innerHTML = "<td></td>";
+        cell6.innerHTML = "<td class='text-end'><button type='button' class='btn btn-sm btn-danger deleteRowButton'>Xóa</button></td>";
 
         // Tăng biến rowCount để theo dõi số dòng đã thêm
         rowCount++;
-
         // Thêm sự kiện click cho nút xóa trong hàng mới
         var deleteButton = newRow.querySelector(".deleteRowButton");
         deleteButton.addEventListener("click", function() {
@@ -300,34 +352,36 @@
         });
     });
 
+    
+
     $(document).ready(function() {
-        $(".editGroup").click(function() {
-            // Thực hiện lấy dữ liệu khi click button
-            FK_iMaNV = $(this).attr("data-FK_iMaNV");
-            FK_iMaKH = $(this).attr("data-FK_iMaKH");
-            FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
-            dThoiGianTao = $(this).attr("data-dThoiGianTao");
-            dNgayNhanHang = $(this).attr("data-dNgayNhanHang");
-            sGhiChu = $(this).attr("data-sGhiChu");
-            PK_iMaDon = $(this).attr("data-PK_iMaDon");
-               console.log(dThoiGianTao);
+        // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
+        $('.editGroup').on('click', function() {
+            var orderId = $(this).attr("data-PK_iMaDon");
+            console.log(orderId)
+            // Gửi giá trị ID đến controller bằng AJAX
+            $.ajax({
+                url: '<?= site_url('order/list') ?>', // Thay đổi đường dẫn dẫn đến controller theo tên bạn đã đặt
+                type: 'POST',
+                data: {
+                    order_id: orderId
+                },
+                success: function(response) {
+                    // Xử lý phản hồi từ controller (nếu cần)
+                },
+                error: function() {
+                    console.log('Lỗi trong quá trình gửi yêu cầu AJAX.');
+                }
+            });
+        });
 
-            // Hiển thị lên trên form
-            $("#manhanvien").val(FK_iMaNV);
-            $("#makhachhang").val(FK_iMaKH);
-            $("#trangthai").val(FK_iMaTrangThai);
-            $("#thoigiantao").val(dThoiGianTao);
-            $("#ngaynhanhang").val(dNgayNhanHang);
-            $("#ghichu").val(sGhiChu);
-            $("#madon").val(PK_iMaDon);
-        })
 
-        var currentDate = new Date();
-        var formattedDate = currentDate.toISOString().substr(0, 10);
-        $("#dThoiGianTao").val(formattedDate);
-    })
-
-    function myFunction() {
-        confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
-    }
+        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
+        $('.selectProduct').on('change', function() {
+            var selectedPrice = $('option:selected', this).data('price');
+            console.log(selectedPrice);
+            $(this).closest('tr').find('.price').text(selectedPrice);
+            console.log('1');
+        });
+    });
 </script>

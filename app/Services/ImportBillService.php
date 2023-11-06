@@ -24,6 +24,7 @@ class ImportBillService extends BaseService
         $this->supplier = new SupplierModel();
         $this->importBillDetail = new ImportBillDetailModel();
         $this->importBill->protect(false);
+        $this->product->protect(false);
         $this->importBillDetail->protect(false);
     }
 
@@ -35,6 +36,16 @@ class ImportBillService extends BaseService
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieunhap.FK_iMaNV')
             ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieunhap.FK_iMaNCC')
             ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieunhap.FK_iMaTrangThai')
+            ->findAll();
+        // dd($result);
+        return $result;
+    }
+
+    public function getAllImportBillDetail()
+    {
+        $result = $this->importBillDetail
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
             ->findAll();
         // dd($result);
         return $result;
@@ -103,6 +114,24 @@ class ImportBillService extends BaseService
         unset($dataSave['sNguoiGiao']);
         unset($dataSave['FK_iMaTrangThai']);
         unset($dataSave['sGhiChu']);
+
+        //lấy thông tin để update số lượng sản phẩm
+        $maSP = $requestData->getPost('FK_iMaSP');
+        $soluong = $requestData->getPost('iSoluong');
+        // dd($soluong);
+        for ($i = 0; $i < count($maSP); $i++) {
+            $productID = $maSP[$i];
+            $quantityToDeduct = $soluong[$i];
+
+            // Truy vấn số lượng hiện có của sản phẩm
+            $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+
+            // Tính toán số lượng mới
+            $newQuantity = $currentQuantity + $quantityToDeduct;
+            // dd($newQuantity);
+            // Cập nhật số lượng mới vào cơ sở dữ liệu
+            $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
+        }
 
         $duplicateProduct = $this->importBill->where('PK_iPN', $dataSave1['PK_iPN'])->first();
         if ($duplicateProduct) {

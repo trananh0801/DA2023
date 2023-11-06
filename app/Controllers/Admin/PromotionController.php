@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 use App\Services\PromotionService;
 
@@ -9,7 +10,7 @@ class PromotionController extends BaseController
     /**
      * @var service;
      */
-    private $service; 
+    private $service;
     public function __construct()
     {
         $this->service = new PromotionService();
@@ -24,7 +25,9 @@ class PromotionController extends BaseController
         $data = [];
         $dataLayout['promotions'] = $this->service->getAllPromotion();
         $dataLayout['products'] = $this->service->getAllProduct();
-        // dd($dataLayout['productsGroup']);
+
+        
+        // dd($dataLayout['promotions']);
         $data = $this->loadMasterLayout($data, 'Danh sách khuyến mãi', 'Admin/Pages/promotion', $dataLayout);
         return view('Admin/main', $data);
     }

@@ -71,9 +71,9 @@
 								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
 								</td>
 								<td><b><?= $product['sTenSP'] ?></b></td>
-								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaNhap'], 0, ',', ',') ?> &#8363</span></td>
-								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, ',', ',') ?> &#8363</span></td>
-								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanSi'], 0, ',', ',') ?> &#8363</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaNhap'], 0, '.', ',') ?> &#8363</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> &#8363</span></td>
+								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanSi'], 0, '.', ',') ?> &#8363</span></td>
 								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
 								<td><?= $product['sTenNhom'] ?></td>
 								<td class="text-end">

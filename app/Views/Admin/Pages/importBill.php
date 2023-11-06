@@ -69,7 +69,7 @@
                                 <td><b><?= $importBill['PK_iPN'] ?></b></td>
                                 <td><b><?= $importBill['sTenNV'] ?></b></td>
                                 <td><?= $importBill['sTenNCC'] ?></td>
-                                <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap']))?></td>
+                                <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
                                 <td><?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?> &#8363</td>
                                 <?php if ($importBill['FK_iMaTrangThai'] == '4') : ?>
                                     <td><span class="badge rounded-pill alert-warning"><?= $importBill['sTenTrangThai'] ?></span></td>
@@ -77,15 +77,7 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" 
-                                    data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" 
-                                    data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" 
-                                    data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" 
-                                    data-fTienDaTra="<?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?>" 
-                                    data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" 
-                                    data-sGhiChu="<?= $importBill['sGhiChu'] ?>" 
-                                    data-PK_iPN="<?= $importBill['PK_iPN'] ?>" 
-                                    data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
+                                    <a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" data-fTienDaTra="<?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?>" data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" data-sGhiChu="<?= $importBill['sGhiChu'] ?>" data-PK_iPN="<?= $importBill['PK_iPN'] ?>" data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
                                     <!-- <a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a> -->
                                 </td>
                             </tr>
@@ -128,15 +120,15 @@
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dNgayNhap" class="form-label">Ngày nhập</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="dNgayNhap" name="dNgayNhap" />
+                                        <input type="date" class="form-control" id="dNgayNhap" name="dNgayNhap" />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                        <input type="text" placeholder="Type here" class="form-control giatien" id="fTienDaTra" name="fTienDaTra" />
+                                        <input type="text" placeholder="VD: 1.000.000" class="form-control giatien" id="fTienDaTra" name="fTienDaTra" />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="sNguoiGiao" name="sNguoiGiao" />
+                                        <input type="text" placeholder="Nhập tên người giao hàng" class="form-control" id="sNguoiGiao" name="sNguoiGiao" />
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -147,7 +139,7 @@
                                     </div>
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
-                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu"></textarea>
+                                        <textarea class="form-control" rows="4" name="sGhiChu"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +149,9 @@
                                         <tr>
                                             <th>STT</th>
                                             <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Giá</th>
                                             <th scope="col">Số lượng</th>
+                                            <th scope="col">Thành tiền</th>
                                             <th scope="col" class="text-end"> Thao tác </th>
                                         </tr>
                                     </thead>
@@ -171,7 +165,9 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
+                                            <td></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" /></td>
+                                            <td></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
@@ -179,6 +175,28 @@
                                     </tbody>
                                 </table>
                                 <button type="button" class="btn btn-primary" id="addRowButton">Thêm một dòng</button>
+                            </div>
+                            <div class="col-12">
+                                <article class="float-end">
+                                    <dl class="dlist">
+                                        <dt>Tổng:</dt>
+                                        <dd>$973.35</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Khuyến mãi:</dt>
+                                        <dd>$10.00</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Tổng tiền:</dt>
+                                        <dd> <b class="h5">$983.00</b> </dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt class="text-muted">Trạng thái:</dt>
+                                        <dd>
+                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
+                                        </dd>
+                                    </dl>
+                                </article>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -224,15 +242,15 @@
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dNgayNhap" class="form-label">Ngày nhập</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhap" name="dNgayNhap" />
+                                        <input type="date" class="form-control" id="ngaynhap" name="dNgayNhap" />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                        <input type="text" placeholder="Type here" class="form-control giatien" id="tiendatra" name="fTienDaTra" />
+                                        <input type="text" placeholder="VD:1.000.000" class="form-control giatien" id="tiendatra" name="fTienDaTra" />
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="nguoigiao" name="sNguoiGiao" />
+                                        <input type="text" placeholder="Nhập tên người giao hàng" class="form-control" id="nguoigiao" name="sNguoiGiao" />
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -243,7 +261,7 @@
                                     </div>
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
-                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
+                                        <textarea class="form-control" rows="4" name="sGhiChu" id="ghichu"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -266,10 +284,37 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
+                                            <td></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" /></td>
+                                            <td></td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="col-12">
+                                <article class="float-end">
+                                    <dl class="dlist">
+                                        <dt>Tổng:</dt>
+                                        <dd>$973.35</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Khuyến mãi:</dt>
+                                        <dd>$10.00</dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt>Tổng tiền:</dt>
+                                        <dd> <b class="h5">$983.00</b> </dd>
+                                    </dl>
+                                    <dl class="dlist">
+                                        <dt class="text-muted">Trạng thái:</dt>
+                                        <dd>
+                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
+                                        </dd>
+                                    </dl>
+                                </article>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -348,21 +393,21 @@
         confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");
     }
 
-    	//format giá tiền
-	$(document).ready(function() {
-		$('.giatien').on('input', function() {
-			// Lấy giá trị từ input
-			let inputValue = $(this).val();
+    //format giá tiền
+    $(document).ready(function() {
+        $('.giatien').on('input', function() {
+            // Lấy giá trị từ input
+            let inputValue = $(this).val();
 
-			// Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
-			let cleanedValue = inputValue.replace(/,/g, '');
+            // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+            let cleanedValue = inputValue.replace(/,/g, '');
 
-			// Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
-			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+            let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-			// Cập nhật giá trị vào input
-			$(this).val(formattedValue);
-		});
+            // Cập nhật giá trị vào input
+            $(this).val(formattedValue);
+        });
 
-	});
+    });
 </script>

@@ -24,6 +24,7 @@ class OrderService extends BaseService
         $this->orderDetail = new OrderDetailModel();
         $this->customer = new CustomerModel();
         $this->order->protect(false);
+        $this->product->protect(false);
         $this->orderDetail->protect(false);
     }
 
@@ -35,6 +36,15 @@ class OrderService extends BaseService
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV')
             ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
             ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+            ->findAll();
+        // dd($result);
+        return $result;
+    }
+    public function getAllOrderDetail()
+    {
+        $result = $this->orderDetail
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
             ->findAll();
         // dd($result);
         return $result;
@@ -78,11 +88,13 @@ class OrderService extends BaseService
     public function addOrderInfo($requestData)
     {
         $builder = $this->product->builder();
+
         //Tạo mã tự động
         $timestamp = time();
         $randomPart = mt_rand(1000, 9999);
         $uniqueCode = $timestamp . $randomPart;
 
+        //check validate khi thêm mới
         $validate = $this->validateAddOrder($requestData);
         if ($validate->getErrors()) {
             return [
@@ -91,12 +103,15 @@ class OrderService extends BaseService
                 'message' => $validate->getErrors(),
             ];
         }
+
+        //Lấy thông tin hóa đơn đã nhập
         $dataSave_HD = $requestData->getPost();
         $dataSave_HD['PK_iMaDon'] = 'HD_'. $uniqueCode;
         unset($dataSave_HD['FK_iMaSP']);
         unset($dataSave_HD['iSoLuong']);
         // dd($dataSave_HD);
 
+        //lấy thông tin sản phẩm của đơn hàng
         $dataSave_CT = [
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
             'iSoLuong' => $requestData->getPost('iSoLuong'),
@@ -106,7 +121,26 @@ class OrderService extends BaseService
             'PK_iMaSP' => $requestData->getPost('FK_iMaSP'),
             'fSoLuong' => $requestData->getPost('iSoLuong'),
         ];
+
+        //lấy thông tin để update số lượng sản phẩm
+        $maSP = $requestData->getPost('FK_iMaSP');
+        $soluong = $requestData->getPost('iSoLuong');
+        // dd($soluong);
+        for ($i = 0; $i < count($maSP); $i++) {
+            $productID = $maSP[$i];
+            $quantityToDeduct = $soluong[$i];
+
+            // Truy vấn số lượng hiện có của sản phẩm
+            $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+
+            // Tính toán số lượng mới
+            $newQuantity = $currentQuantity - $quantityToDeduct;
+            // dd($newQuantity);
+            // Cập nhật số lượng mới vào cơ sở dữ liệu
+            $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
+        }
         
+        //kiểm tra trùng mã
         $duplicateProduct = $this->order->where('PK_iMaDon', $dataSave_HD['PK_iMaDon'])->first();
         if ($duplicateProduct) {
             return [
@@ -116,6 +150,7 @@ class OrderService extends BaseService
             ];
         }
         try {
+            //insert hóa đơn
             $this->order->save($dataSave_HD);
 
             $transformedData = array();
@@ -132,14 +167,14 @@ class OrderService extends BaseService
                     $transformedData_update[$k1][$k] = $v1;
                 }
             }
-            foreach ($transformedData_update as $data) {
-                $builder->set($data);
-                $builder->where('PK_iMaSP', $data['PK_iMaSP']);
-                $builder->update();
-            }
-
+            // foreach ($transformedData_update as $data) {
+            //     $builder->set($data);
+            //     $builder->where('PK_iMaSP', $data['PK_iMaSP']);
+            //     $builder->update();
+            // }
             // dd($transformedData_update);
             
+            //insert sản chi tiết hóa đơn
             $this->orderDetail->insertBatch($transformedData);
 
             return [

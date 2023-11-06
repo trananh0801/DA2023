@@ -76,7 +76,15 @@
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['iSoLuongAD'] ?></span></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>
                                 <td class="text-end">
-                                    <button type="button" class="btn btn-sm btn-warning">Sửa</button>
+                                    <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo"
+                                    data-sTenKM="<?= $promotion['sTenKM'] ?>" 
+                                    data-dNgayHieuLuc="<?= $promotion['dNgayHieuLuc'] ?>" 
+                                    data-dNgayHetHieuLuc="<?= $promotion['dNgayHetHieuLuc'] ?>" 
+                                    data-fChietKhau="<?= $promotion['fChietKhau'] ?>" 
+                                    data-iSoLuongAD="<?= $promotion['iSoLuongAD'] ?>" 
+                                    data-iApDungTatCa="<?= $promotion['iApDungTatCa'] ?>" 
+                                    data-sGhiChu="<?= $promotion['sGhiChu'] ?>"
+                                    value="<?= $promotion['PK_iMaKM'] ?>">Sửa</button>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -86,7 +94,7 @@
         </div> <!-- card-body end// -->
     </div> <!-- card end// -->
 
-    <!-- Modal -->
+    <!-- Modal add-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -168,6 +176,93 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal update-->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật khuyến mãi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+                    <form action="admin/promotion/update" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Tên khuyến mãi</label>
+                                <input type="text" value="" placeholder="Nhập tên khuyến mãi" class="form-control" id="tenkm" name="sTenKM">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Trạng thái</label>
+                                <select class="form-select" name="FK_iMaTrangThai" id="trangthai">
+                                    <option value="7">Đang áp dụng</option>
+                                    <option value="9">Chưa đến hạn</option>
+                                    <option value="8">Hết hiệu lực</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label">Ngày hiệu lực</label>
+                                <div>
+                                    <input type="date" class="form-control" name="dNgayHieuLuc" value="0" id="ngayhieuluc">
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <div class="mb-4 col-6">
+                                <label for="sDVT" class="form-label">Ngày hết hiệu lực</label>
+                                <input type="date" class="form-control" id="ngayhethieuluc" name="dNgayHetHieuLuc">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-4 col-6">
+                                <label for="fChietKhau" class="form-label">Chiết khấu (%)</label>
+                                <input type="text" class="form-control" id="chietkhau" name="fChietKhau" value="0" placeholder="VD: 10">
+                            </div>
+                            <div class="mb-4 col-6">
+                                <label for="iSoLuongAD" class="form-label">Số lượng áp dụng</label>
+                                <input type="number" class="form-control" id="soluong" name="iSoLuongAD" value="0" placeholder="VD: 100">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="sGhiChu">Ghi chú</label>
+                                <textarea class="form-control" id="ghichu" rows="3" name="sGhiChu"></textarea>
+                            </div>
+
+                            <div class="mb-4 col-6">
+                                <label for="fChietKhau" class="form-label">Áp dụng</label>
+                                <div class="list-group row scrollspy-example" data-bs-spy="scroll" data-bs-offset="0" tabindex="0">
+                                    <label class="list-group-item" style="background-color: #EEEEEE;">
+                                        <input class="form-check-input me-1" type="checkbox" value="" id="selectAll" name="iApDungTatCa">
+                                        Áp dụng tất cả
+                                    </label>
+                                    <?php foreach ($products as $product) : ?>
+                                        <?php foreach ($promotions as $km) : ?>
+                                            <?php foreach ($km['ChiTietKhuyenMai'] as $pro) : ?>
+                                                <label class="list-group-item">
+                                                    <input class="form-check-input me-1 products" type="checkbox" value="<?= $product['PK_iMaSP'] ?>" name="FK_iMaSP[]" <?php if ($product['PK_iMaSP'] == $pro['FK_iMaSP']) : ?> checked <?php endif; ?>>
+                                                    <?= $product['sTenSP'] ?>
+                                                </label>
+                                            <?php endforeach ?>
+                                        <?php endforeach ?>
+                                    <?php endforeach ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Thêm khuyễn mãi</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
@@ -181,4 +276,26 @@
             $('.products').prop('checked', isChecked);
         });
     });
+
+    $(document).ready(function() {
+        $(".editGroup").click(function() {
+            // Thực hiện lấy dữ liệu khi click button
+            sTenKM = $(this).attr("data-sTenKM");
+            dNgayHieuLuc = $(this).attr("data-dNgayHieuLuc");
+            dNgayHetHieuLuc = $(this).attr("data-dNgayHetHieuLuc");
+            fChietKhau = $(this).attr("data-fChietKhau");
+            iSoLuongAD = $(this).attr("data-iSoLuongAD");
+            iApDungTatCa = $(this).attr("data-iApDungTatCa");
+            sGhiChu = $(this).attr("data-sGhiChu");
+            PK_iMaKM = $(this).val();
+
+            // Hiển thị lên trên form
+            $("#tenkm").val(sTenKM);
+            $("#ngayhieuluc").val(dNgayHieuLuc);
+            $("#ngayhethieuluc").val(dNgayHetHieuLuc);
+            $("#chietkhau").val(fChietKhau);
+            $("#soluong").val(iSoLuongAD);
+            $("#ghichu").val(sGhiChu);
+        })
+     })
 </script>

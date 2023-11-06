@@ -20,6 +20,19 @@ class ProductService extends BaseService
         $this->product->protect(false);
     }
 
+    /**Xử lý bên user */
+    public function getAllProductById($id)
+    {
+        $result = $this->product
+            ->select('*')
+            ->join('tbl_nhomsanpham', 'tbl_nhomsanpham.PK_iMaNhom  = tbl_sanpham.FK_iMaNhom')
+            ->where('PK_iMaSP', $id)->first();
+        // dd($result);
+        return $result;
+    }
+
+    /**-------------------------------------------------------------------------------------------- */
+
     /**get all product */
     public function getAllProduct()
     {

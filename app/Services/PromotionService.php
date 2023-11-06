@@ -30,6 +30,13 @@ class PromotionService extends BaseService
             ->select('*')
             ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_khuyenmai.FK_iMaTrangThai')
             ->findAll();
+        return $result;
+    }
+    public function getAllPromotionDetail()
+    {
+        $result = $this->promotionProduct
+            ->select('*')
+            ->findAll();
         // dd($result);
         return $result;
     }
@@ -83,6 +90,40 @@ class PromotionService extends BaseService
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,
                 'message' => ['success' => 'Thêm dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
+    public function updatePromotionInfo($requestData)
+    {
+        $validate = $this->validateAddPromotion($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave_KM = $requestData->getPost();
+
+        $id_KM = $requestData->getPost('PK_iMaKH');
+
+        // dd($id_TK);
+        try {
+            $builder = $this->promotion->builder();
+            $builder->where('PK_iMaKH', $id_KM);
+            $builder->update($dataSave_KM);
+
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
             ];
         } catch (Exception $e) {
             return [

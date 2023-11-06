@@ -18,6 +18,8 @@ class HomeController extends BaseController
     {
         $data = [];
         $dataLayout['newProducts'] = $this->service->getAllProduct();
+        $dataLayout['productAlls'] = $this->service->getProduct();
+        $dataLayout['productGroups'] = $this->service->getAllProductGroup();
         $data = $this->loadMasterLayoutUser($data, 'Trang chủ', 'User/Pages/home', $dataLayout);
         return view('User/main', $data);
     

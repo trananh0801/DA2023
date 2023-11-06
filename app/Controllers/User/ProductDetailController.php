@@ -2,7 +2,7 @@
 
 namespace App\Controllers\User;
 use App\Controllers\BaseController;
-use App\Services\UserService;
+use App\Services\ProductService;
 
 class ProductDetailController extends BaseController
 {
@@ -12,13 +12,15 @@ class ProductDetailController extends BaseController
     private $service; 
     public function __construct()
     {
-        $this->service = new UserService();
+        $this->service = new ProductService();
     }
 
-    public function list()
+    public function list($id)
     {
+        // dd($id);
         $data = [];
-        $dataLayout['users'] = $this->service->getAllUser();
+        $dataLayout['allProducts'] = $this->service->getAllProductById($id);
+        $dataLayout['getAllProducts'] = $this->service->getAllProduct();
         // dd($data['users']);
         $data = $this->loadMasterLayoutUser($data, 'Chi tiết sản phẩm', 'User/Pages/productDetail', $dataLayout);
         return view('User/main', $data);

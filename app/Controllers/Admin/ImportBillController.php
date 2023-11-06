@@ -22,46 +22,12 @@ class ImportBillController extends BaseController
             return redirect()->to('/');
         }
         $data = [];
+        $dataLayout['importBills'] = $this->service->getAllImportBill();
         $dataLayout['staffs'] = $this->service->getAllStaff();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();
 
-        $s1 = $this->service->getAllImportBill();
-        $s2 = $this->service->getAllImportBillDetail();
-
-        $mergedData = [];
-
-        foreach ($s1 as $pn) {
-            $mergedData[] = [
-                'PK_iPN' => $pn['PK_iPN'],
-                'FK_iMaNV' => $pn['FK_iMaNV'],
-                'FK_iMaNCC' => $pn['FK_iMaNCC'],
-                'sTenNV' => $pn['sTenNV'],
-                'sTenNCC' => $pn['sTenNCC'],
-                'FK_iMaTrangThai' => $pn['FK_iMaTrangThai'],
-                'sTenTrangThai' => $pn['sTenTrangThai'],
-                'sNguoiGiao' => $pn['sNguoiGiao'],
-                'fTienDaTra' => $pn['fTienDaTra'],
-                'dNgayNhap' => $pn['dNgayNhap'],
-                'sGhiChu' => $pn['sGhiChu'],
-            ];
-        }
-
-        foreach ($s2 as $chiTiet) {
-            foreach ($mergedData as &$km) {
-                if ($chiTiet['FK_iMaPN'] == $km['PK_iPN']) {
-                    $km['ChiTietPhieuNhap'][] = [
-                        'sTenSP' => $chiTiet['sTenSP'],
-                        'iSoluong' => $chiTiet['iSoluong'],
-                    ];
-                }
-            }
-        }
-
-        $dataLayout['importBills'] = $mergedData;
-        // dd($dataLayout['importBills']);
-        // dd($dataLayout['products']);
         $data = $this->loadMasterLayout($data, 'Danh sách phiếu nhập hàng', 'Admin/Pages/importBill', $dataLayout);
         return view('Admin/main', $data);
     }

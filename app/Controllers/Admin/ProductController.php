@@ -37,11 +37,11 @@ class ProductController extends BaseController
         return redirect()->to('admin/product/list')->withInput()->with($result['massageCode'], $result['message']);
     }
 
-    public function update()
-    {
-        $result = $this->service->updateProductInfo($this->request);
-        return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
-    }
+    // public function update()
+    // {
+    //     $result = $this->service->updateProductInfo($this->request);
+    //     return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
+    // }
 
     public function delete($id)
     {

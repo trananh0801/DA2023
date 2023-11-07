@@ -84,6 +84,22 @@ class OrderService extends BaseService
         return $result;
     }
 
+    public function getProdInfo($id)
+    {
+        $sanpham = $this->product->sTenSP;
+
+        $ProdInfo = [];
+        foreach ($ProdInfo as $Prod) {
+            $ProdInfo[] = [
+                'Đơn vị tính' => $sanpham->sTenDVT,
+                'Hệ số' => $sanpham->pivot->fHeSo,
+                'Đơn vị quy đổi' => $sanpham->pivot->sDonViQuyDoi,
+            ];
+        }
+        // Trả về thông tin dưới dạng JSON
+        return $this->product->setJSON(['unit_info' => $ProdInfo]);
+    }
+
     /**add new user */
     public function addOrderInfo($requestData)
     {

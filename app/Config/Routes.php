@@ -22,7 +22,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('product', function ($routes) {
         $routes->get('list', 'Admin\ProductController::list');
         $routes->post('create', 'Admin\ProductController::create');
-        $routes->post('update', 'Admin\ProductController::update');
+        $routes->get('update/(:num)', 'Admin\UpdateProductController::list/$1');
+        $routes->post('updateSave/(:num)', 'Admin\UpdateProductController::update/$1');
         $routes->get('delete/(:num)', 'Admin\ProductController::delete/$1');
     });
     $routes->group('supplier', function ($routes) {

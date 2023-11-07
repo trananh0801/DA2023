@@ -20,20 +20,7 @@ class ProductService extends BaseService
         $this->product->protect(false);
     }
 
-    /**Xử lý bên user */
-    public function getAllProductById($id)
-    {
-        $result = $this->product
-            ->select('*')
-            ->join('tbl_nhomsanpham', 'tbl_nhomsanpham.PK_iMaNhom  = tbl_sanpham.FK_iMaNhom')
-            ->where('PK_iMaSP', $id)->first();
-        // dd($result);
-        return $result;
-    }
-
-    /**-------------------------------------------------------------------------------------------- */
-
-    /**get all product */
+    /**---Lấy danh sách all sản phẩm----------------------------------------------------------------------------------------- */
     public function getAllProduct()
     {
         $result = $this->product
@@ -44,7 +31,7 @@ class ProductService extends BaseService
         return $result;
     }
 
-    /**get all product group */
+    /**---Lấy all nhóm sản phẩm----------------------------------------------------------------------------------------- */
     public function getAllProductGroup()
     {
         $result = $this->productGroup
@@ -54,7 +41,7 @@ class ProductService extends BaseService
         return $result;
     }
 
-    /**add new user */
+    /**---Thêm mới sản phẩm----------------------------------------------------------------------------------------- */
     public function addProductInfo($requestData)
     {
         $validate = $this->validateAddProduct($requestData);
@@ -65,6 +52,7 @@ class ProductService extends BaseService
                 'message' => $validate->getErrors(),
             ];
         }
+
         $image = $requestData->getFile('sHinhAnh'); // Lấy file ảnh từ biểu mẫu
         // Kiểm tra xem có lỗi trong quá trình tải lên hay không
         if ($image->isValid() && !$image->hasMoved()) {
@@ -84,10 +72,6 @@ class ProductService extends BaseService
         }
         $dataSave = $requestData->getPost();
         $dataSave['sHinhAnh'] = $newName;
-        // dd($dataSave);
-        // if (empty($dataSave['FK_iMaTrangThai'])) {
-        //     $dataSave['FK_iMaTrangThai'] = '2';
-        // }
         try {
             $this->product->save($dataSave);
 
@@ -105,14 +89,15 @@ class ProductService extends BaseService
         }
     }
 
+    /**---Lấy sản phẩm theo id để xóa sản phẩm----------------------------------------------------------------------------------------- */
     public function getProductById($id)
     {
         return $this->product->where('PK_iMaSP', $id)->first();
     }
 
-    public function updateProductInfo($requestData)
+    /**---Cập nhật sản phẩm----------------------------------------------------------------------------------------- */
+    public function updateProductInfo($requestData, $id)
     {
-        
         // dd($id);
         $validate = $this->validateUpdateProduct($requestData);
         if ($validate->getErrors()) {
@@ -140,14 +125,13 @@ class ProductService extends BaseService
             ];
         }
 
-        $id = $requestData->getPost('PK_iMaSP');
         $dataSave = $requestData->getPost();
         unset($dataSave['PK_iMaSP']);
         unset($dataSave['fSoLuong']);
         unset($dataSave['fGiaNhap']);
         $dataSave['sHinhAnh'] = $newName;
 
-        // dd($dataSave);
+        // dd($id);
         try {
             $builder = $this->product->builder();
             $builder->where('PK_iMaSP', $id);
@@ -167,7 +151,7 @@ class ProductService extends BaseService
     }
 
     
-
+/**---Xóa sản phẩm----------------------------------------------------------------------------------------- */
     public function deleteProductInfo($id)
     {
         try {
@@ -188,6 +172,7 @@ class ProductService extends BaseService
         }
     }
 
+    /**---Validate sản phẩm khi thêm mới----------------------------------------------------------------------------------------- */
     public function validateAddProduct($requestData)
     {
         $rule = [
@@ -223,6 +208,7 @@ class ProductService extends BaseService
         return $this->validation;
     }
 
+/**---Validate sản phẩm khi cập nhật----------------------------------------------------------------------------------------- */
     public function validateUpdateProduct($requestData)
     {
         $rule = [

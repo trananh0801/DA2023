@@ -63,9 +63,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $k = 1?>
                         <?php foreach ($orders as $order) : ?>
                             <tr>
-                                <td>1</td>
+                                <td><?= $k++ ?></td>
                                 <td><b><?= $order['PK_iMaDon'] ?></b></td>
                                 <td><b><?= $order['sTenNV'] ?></b></td>
                                 <td><?= $order['sTenKH'] ?></td>
@@ -306,6 +307,8 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script src="assets/admin/js/order.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script>
 <script>
     // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
     var addRowButton = document.getElementById("addRowButton");
@@ -376,4 +379,8 @@
             console.log('1');
         });
     });
+// Áp dụng Select2 cho phần tử select có id "mySelect"
+$(document).ready(function() {
+    $('#selectOption').select2();
+  });
 </script>

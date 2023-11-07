@@ -16,14 +16,22 @@ class OrderController extends BaseController
         $this->service = new OrderService();
     }
 
+    public function getProd()
+    {
+        
+    }
+
     public function list()
     {
         $session = session();
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
-        // $orderId = $this->request->getPost('order_id');
+
+        $orderId = $this->request->getPost('order_id');
         // dd($orderId);
+        // $prodInfo = $this->service->getProdInfo();
+        
         $data = [];
         $dataLayout['orders'] = $this->service->getAllOrder();
         $dataLayout['staffs'] = $this->service->getAllStaff();

@@ -78,7 +78,7 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="admin/order/edit/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $order['FK_iMaNV'] ?>" data-FK_iMaKH="<?= $order['FK_iMaKH'] ?>" data-FK_iMaTrangThai="<?= $order['FK_iMaTrangThai'] ?>" data-dThoiGianTao="<?= $order['dThoiGianTao'] ?>" data-dNgayNhanHang="<?= $order['dNgayNhanHang'] ?>" data-sGhiChu="<?= $order['sGhiChu'] ?>" data-PK_iMaDon="<?= $order['PK_iMaDon'] ?>">Sửa</a>
+                                    <a href="admin/order/update/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -193,110 +193,6 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary">Thêm đơn</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật đơn đặt hàng</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="admin/order/update" method="POST">
-                        <input type="text" name="PK_iMaDon" id="madon" hidden>
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="row">
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV" id="manhanvien" disabled>
-                                            <?php foreach ($staffs as $staff) : ?>
-                                                <option value="<?= $staff['PK_iMaNV'] ?>"><?= $staff['sTenNV'] ?></option>
-                                            <?php endforeach ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Khách hàng</label>
-                                        <input type="text" placeholder="Tên khách hàng" class="form-control" id="makhachhang" name="FK_iMaKH" readonly />
-                                    </div>
-                                    <div class="mb-4 col-6">
-                                        <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="thoigiantao" name="dThoiGianTao" readonly />
-                                    </div>
-                                    <div class="mb-4 col-6">
-                                        <label for="dNgayNhanHang" class="form-label">Ngày nhận hàng</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="ngaynhanhang" name="dNgayNhanHang" readonly />
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Trạng thái</label>
-                                        <select class="form-select" name="FK_iMaTrangThai" id="trangthai">
-                                            <option value="3">Đã thanh toán</option>
-                                            <option value="4">Chờ thanh toán</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-4 col-12">
-                                        <label class="form-label">Ghi chú</label>
-                                        <textarea placeholder="Type here" class="form-control" rows="4" name="sGhiChu" id="ghichu" readonly></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-7">
-                                <table class="table table-hover" id="myTable">
-                                    <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th scope="col">Sản phẩm</th>
-                                            <th scope="col">giá</th>
-                                            <th scope="col">Số lượng</th>
-                                            <th scope="col">Chiết khấu</th>
-                                            <th scope="col">Thành tiền</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
-                                                    <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
-                                                    <?php endforeach ?>
-                                                </select>
-                                            </td>
-                                            <td></td>
-                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="" /></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-                                <article class="float-end">
-                                    <dl class="dlist">
-                                        <dt>Tổng tiền:</dt>
-                                        <dd> <b class="h5">$983.00</b> </dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt class="text-muted">Trạng thái:</dt>
-                                        <dd>
-                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
-                                        </dd>
-                                    </dl>
-                                </article>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-warning">Cập nhật</button>
                         </div>
                     </form>
                 </div>

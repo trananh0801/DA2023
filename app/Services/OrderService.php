@@ -28,7 +28,7 @@ class OrderService extends BaseService
         $this->orderDetail->protect(false);
     }
 
-    /**get all importBill */
+    /**Lấy danh sách toàn bộ đơn hàng ra màn list - DANH SÁCH------------------------------------------------------------------------ */
     public function getAllOrder()
     {
         $result = $this->order
@@ -40,16 +40,33 @@ class OrderService extends BaseService
         // dd($result);
         return $result;
     }
-    public function getAllOrderDetail()
-    {
-        $result = $this->orderDetail
-            ->select('*')
-            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
-            ->findAll();
-        // dd($result);
-        return $result;
-    }
 
+        /**Lấy danh sách toàn bộ đơn hàng ra màn list - CẬP NHẬT------------------------------------------------------------------------ */
+        public function getAllOrderById($id)
+        {
+            $result = $this->order
+                ->select('*')
+                ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV')
+                ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
+                ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+                ->where('PK_iMaDon', $id)->first();
+            return $result;
+        }
+    
+        /**Lấy danh sách chi tiết đơn hàng - CẬP NHẬT------------------------------------------------------------------------ */
+        public function getAllOrderDetailById($id)
+        {
+            $result = $this->orderDetail
+                ->select('*')
+                ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
+                ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP')
+                ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM')
+                ->where('FK_iMaDon', $id)
+                ->findAll();
+            return $result;
+        }
+
+    /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
     public function getAllStaff()
     {
         $result = $this->staff
@@ -58,6 +75,8 @@ class OrderService extends BaseService
         // dd($result);
         return $result;
     }
+
+    /**Lấy danh sách khách hàng------------------------------------------------------------------------ */
     public function getAllCustomer()
     {
         $result = $this->customer
@@ -66,6 +85,8 @@ class OrderService extends BaseService
         // dd($result);
         return $result;
     }
+
+    /**Lấy danh sách trạng thái------------------------------------------------------------------------ */
     public function getAllStatus()
     {
         $result = $this->status
@@ -75,6 +96,7 @@ class OrderService extends BaseService
         return $result;
     }
 
+    /**Lấy danh sách sản phẩm------------------------------------------------------------------------ */
     public function getAllProduct()
     {
         $result = $this->product
@@ -84,23 +106,7 @@ class OrderService extends BaseService
         return $result;
     }
 
-    public function getProdInfo($id)
-    {
-        $sanpham = $this->product->sTenSP;
-
-        $ProdInfo = [];
-        foreach ($ProdInfo as $Prod) {
-            $ProdInfo[] = [
-                'Đơn vị tính' => $sanpham->sTenDVT,
-                'Hệ số' => $sanpham->pivot->fHeSo,
-                'Đơn vị quy đổi' => $sanpham->pivot->sDonViQuyDoi,
-            ];
-        }
-        // Trả về thông tin dưới dạng JSON
-        return $this->product->setJSON(['unit_info' => $ProdInfo]);
-    }
-
-    /**add new user */
+    /**Thêm mới đơn hàng------------------------------------------------------------------------ */
     public function addOrderInfo($requestData)
     {
         //Tạo mã tự động
@@ -180,12 +186,6 @@ class OrderService extends BaseService
                     $transformedData_update[$k1][$k] = $v1;
                 }
             }
-            // foreach ($transformedData_update as $data) {
-            //     $builder->set($data);
-            //     $builder->where('PK_iMaSP', $data['PK_iMaSP']);
-            //     $builder->update();
-            // }
-            // dd($transformedData_update);
             
             //insert sản chi tiết hóa đơn
             $this->orderDetail->insertBatch($transformedData);
@@ -204,19 +204,21 @@ class OrderService extends BaseService
         }
     }
 
+    /**Lấy đơn hàng theo í------------------------------------------------------------------------ */
     public function getOrderById($id)
     {
         return $this->order->where('PK_iMaDon', $id)->first();
     }
 
+    /**Lấy sản phẩm theo id------------------------------------------------------------------------ */
     public function getProductById($id)
     {
         return $this->orderDetail->where('FK_iMaDon', $id)->first();
     }
 
-    public function updateOrderInfo($requestData)
+    /**Update đơn hàng------------------------------------------------------------------------ */
+    public function updateOrderInfo($requestData, $id)
     {
-        
         $validate = $this->validateAddOrder($requestData);
         if ($validate->getErrors()) {
             return [
@@ -226,7 +228,6 @@ class OrderService extends BaseService
             ];
         }
 
-        $id = $requestData->getPost('PK_iMaDon');
         $dataSave = [
             'FK_iMaTrangThai' => $requestData->getPost('FK_iMaTrangThai'),
         ];
@@ -250,7 +251,7 @@ class OrderService extends BaseService
     }
 
     
-
+/**Xóa đơn hàng----------------------------------------------------------------------- */
     public function deleteOrderInfo($id)
     {
         try {
@@ -271,6 +272,7 @@ class OrderService extends BaseService
         }
     }
 
+    /**Validate đơn hàng khi thêm mới------------------------------------------------------------------------ */
     public function validateAddOrder($requestData)
     {
         $rule = [
@@ -287,6 +289,7 @@ class OrderService extends BaseService
         return $this->validation;
     }
 
+    /**Validata đơn hàng khi cập nhật------------------------------------------------------------------------ */
     public function validateUpdateOrder($requestData)
     {
         $rule = [

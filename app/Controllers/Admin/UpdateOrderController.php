@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Services\OrderService;
 
-class OrderController extends BaseController
+class UpdateOrderController extends BaseController
 {
     /**
      * @var service;
@@ -16,38 +16,30 @@ class OrderController extends BaseController
         $this->service = new OrderService();
     }
 
-    public function list()
+    public function list($id)
     {
         $session = session();
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
-        
+
         $data = [];
-        $dataLayout['orders'] = $this->service->getAllOrder();
+        $dataLayout['orders'] = $this->service->getAllOrderById($id);
+        $dataLayout['orderDetails'] = $this->service->getAllOrderDetailById($id);
+
         $dataLayout['staffs'] = $this->service->getAllStaff();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['customers'] = $this->service->getAllCustomer();
 
-        // dd($dataLayout['orders']);
-        $data = $this->loadMasterLayout($data, 'Danh sách đơn đặt hàng', 'Admin/Pages/order', $dataLayout);
+        // dd($dataLayout['orderDetails']);
+        $data = $this->loadMasterLayout($data, 'Cập nhật đơn đặt hàng', 'Admin/Pages/updateOrder', $dataLayout);
         return view('Admin/main', $data);
     }
 
-    public function create()
+    public function update($id)
     {
-        $result = $this->service->addOrderInfo($this->request);
+        $result = $this->service->updateOrderInfo($this->request, $id);
         return redirect()->to('admin/order/list')->withInput()->with($result['massageCode'], $result['message']);
-    }
-
-    public function delete($id)
-    {
-        $idPG = $this->service->getOrderById($id);
-        if (!$idPG) {
-            return redirect('error/404');
-        }
-        $result = $this->service->deleteOrderInfo($id);
-        return redirect('admin/order/list')->with($result['massageCode'], $result['message']);
     }
 }

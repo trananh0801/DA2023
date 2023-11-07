@@ -56,7 +56,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('order', function ($routes) {
         $routes->get('list', 'Admin\OrderController::list');
         $routes->post('create', 'Admin\OrderController::create');
-        $routes->post('update', 'Admin\OrderController::update');
+        $routes->get('update/(:segment)', 'Admin\UpdateOrderController::list/$1');
+        $routes->post('updateSave/(:segment)', 'Admin\UpdateOrderController::update/$1');
         $routes->get('delete/(:num)', 'Admin\OrderController::delete/$1');
     });
     $routes->group('returnBill', function ($routes) {

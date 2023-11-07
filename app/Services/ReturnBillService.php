@@ -28,7 +28,7 @@ class ReturnBillService extends BaseService
         $this->returnBillDetail->protect(false);
     }
 
-    /**get all importBill */
+    /**Lấy danh sách phiếu - DANH SÁCH----------------------------------------------------------------------------------*/
     public function getAllReturnBill()
     {
         $result = $this->returnBill
@@ -41,6 +41,30 @@ class ReturnBillService extends BaseService
         return $result;
     }
 
+    /**Lấy danh sách phiếu - CẬP NHẬT----------------------------------------------------------------------------------*/
+    public function getReturnBillById($id)
+    {
+        $result = $this->returnBill
+            ->select('*')
+            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieuhoantra.FK_iMaNV')
+            ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieuhoantra.FK_iMaNCC')
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieuhoantra.FK_iMaTrangThai')
+            ->where('PK_iMaPhieu', $id)->first();
+        return $result;
+    }
+
+    /**Lấy danh sách chi tiết phiếu----------------------------------------------------------------------------------*/
+    public function getReturnBillDetailById($id)
+    {
+        $result = $this->returnBillDetail
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieuhoantra.FK_iMaSP')
+            ->where('FK_iMaPhieu', $id)
+            ->findAll();
+        return $result;
+    }
+
+    /**Lấy danh sách nhân viên----------------------------------------------------------------------------------*/
     public function getAllStaff()
     {
         $result = $this->staff
@@ -49,6 +73,8 @@ class ReturnBillService extends BaseService
         // dd($result);
         return $result;
     }
+
+    /**Lấy danh sách nhà cung cấp----------------------------------------------------------------------------------*/
     public function getAllSupplier()
     {
         $result = $this->supplier
@@ -57,6 +83,8 @@ class ReturnBillService extends BaseService
         // dd($result);
         return $result;
     }
+
+    /**Lấy danh sách trạng thái----------------------------------------------------------------------------------*/
     public function getAllStatus()
     {
         $result = $this->status
@@ -66,6 +94,7 @@ class ReturnBillService extends BaseService
         return $result;
     }
 
+    /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
     public function getAllProduct()
     {
         $result = $this->product
@@ -75,7 +104,7 @@ class ReturnBillService extends BaseService
         return $result;
     }
 
-    /**add new user */
+    /**Thêm mới phiếu----------------------------------------------------------------------------------*/
     public function addReturnBillInfo($requestData)
     {
         //Tạo mã tự động
@@ -157,7 +186,8 @@ class ReturnBillService extends BaseService
         }
     }
 
-    public function updateReturnBillInfo($requestData)
+    /**Cập nhật phiếu----------------------------------------------------------------------------------*/
+    public function updateReturnBillInfo($requestData, $id)
     {
         
         $validate = $this->validateAddReturnBill($requestData);
@@ -169,12 +199,9 @@ class ReturnBillService extends BaseService
             ];
         }
 
-        $id = $requestData->getPost('PK_iMaPhieu');
-        // dd($id);
         $dataSave = [
             'FK_iMaTrangThai' => $requestData->getPost('FK_iMaTrangThai'),
         ];
-        // dd($dataSave);
         try {
             $builder = $this->returnBill->builder();
             $builder->where('PK_iMaPhieu', $id);
@@ -193,6 +220,7 @@ class ReturnBillService extends BaseService
         }
     }
 
+    /**Validate phiếu cho cả thêm mới và cập nhật----------------------------------------------------------------------------------*/
     public function validateAddReturnBill($requestData)
     {
         $rule = [

@@ -64,7 +64,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('returnBill', function ($routes) {
         $routes->get('list', 'Admin\ReturnBillController::list');
         $routes->post('create', 'Admin\ReturnBillController::create');
-        $routes->post('update', 'Admin\ReturnBillController::update');
+        $routes->get('update/(:segment)', 'Admin\UpdateReturnBillController::list/$1');
+        $routes->post('updateSave/(:segment)', 'Admin\UpdateReturnBillController::update/$1');
     });
     $routes->group('promotion', function ($routes) {
         $routes->get('list', 'Admin\PromotionController::list');

@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Services\ReturnBillService;
 
-class ReturnBillController extends BaseController
+class UpdateReturnBillController extends BaseController
 {
     /**
      * @var service;
@@ -15,26 +15,29 @@ class ReturnBillController extends BaseController
         $this->service = new ReturnBillService();
     }
 
-    public function list()
+    public function list($id)
     {
         $session = session();
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
         $data = [];
-        $dataLayout['returnBills'] = $this->service->getAllReturnBill();
+        $dataLayout['returnBills'] = $this->service->getReturnBillById($id);
+        $dataLayout['returnBillDetails'] = $this->service->getReturnBillDetailById($id);
+
         $dataLayout['staffs'] = $this->service->getAllStaff();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();
-        // dd($dataLayout['returnBills']);
-        $data = $this->loadMasterLayout($data, 'Danh sách phiếu hoàn trả', 'Admin/Pages/returnBill', $dataLayout);
+        // dd($dataLayout['returnBillDetails']);
+
+        $data = $this->loadMasterLayout($data, 'Danh sách phiếu hoàn trả', 'Admin/Pages/updateReturnBill', $dataLayout);
         return view('Admin/main', $data);
     }
 
-    public function create()
+    public function update($id)
     {
-        $result = $this->service->addReturnBillInfo($this->request);
+        $result = $this->service->updateReturnBillInfo($this->request, $id);
         return redirect()->to('admin/returnBill/list')->withInput()->with($result['massageCode'], $result['message']);
     }
 }

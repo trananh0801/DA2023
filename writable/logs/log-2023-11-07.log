@@ -746,3 +746,70 @@ INFO - 2023-11-07 16:02:52 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-11-07 16:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-07 16:03:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-07 16:03:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:07:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:11:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:11:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:11:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:11:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:12:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-07 16:12:22 --> Invalid file: "Admin/Pages/updatIimportBill.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Admin/Pages/updatIimportBill.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/updatIimportBill', [], true)
+ 3 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/updatIimportBill', [...])
+ 4 APPPATH\Controllers\Admin\UpdateImportBillController.php(31): App\Controllers\BaseController->loadMasterLayout([...], 'Cập nhật phiếu nhập hàng', 'Admin/Pages/updatIimportBill', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateImportBillController->list('PN_16977316272656')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateImportBillController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-07 16:12:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:12:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-07 16:12:35 --> Invalid file: "Admin/Pages/updateIimportBill.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Admin/Pages/updateIimportBill.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/updateIimportBill', [], true)
+ 3 APPPATH\Controllers\BaseController.php(64): view('Admin/Pages/updateIimportBill', [...])
+ 4 APPPATH\Controllers\Admin\UpdateImportBillController.php(31): App\Controllers\BaseController->loadMasterLayout([...], 'Cập nhật phiếu nhập hàng', 'Admin/Pages/updateIimportBill', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateImportBillController->list('PN_16977316272656')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateImportBillController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-07 16:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:12:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:13:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:13:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:13:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:13:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:20:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-07 16:20:45 --> Too few arguments to function App\Services\ImportBillService::getImportBillById(), 0 passed in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UpdateImportBillController.php on line 25 and exactly 1 expected
+in APPPATH\Services\ImportBillService.php on line 45.
+ 1 APPPATH\Controllers\Admin\UpdateImportBillController.php(25): App\Services\ImportBillService->getImportBillById()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateImportBillController->list('PN_16977316272656')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateImportBillController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-07 16:20:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:23:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:30:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:34:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-07 16:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

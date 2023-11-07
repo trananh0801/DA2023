@@ -77,7 +77,7 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
                                 <td class="text-end">
-                                    <a href="admin/importBill/edit/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" data-FK_iMaNV="<?= $importBill['FK_iMaNV'] ?>" data-FK_iMaNCC="<?= $importBill['FK_iMaNCC'] ?>" data-sNguoiGiao="<?= $importBill['sNguoiGiao'] ?>" data-fTienDaTra="<?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?>" data-dNgayNhap="<?= $importBill['dNgayNhap'] ?>" data-sGhiChu="<?= $importBill['sGhiChu'] ?>" data-PK_iPN="<?= $importBill['PK_iPN'] ?>" data-FK_iMaTrangThai="<?= $importBill['FK_iMaTrangThai'] ?>">Sửa</a>
+                                    <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
                                     <!-- <a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a> -->
                                 </td>
                             </tr>
@@ -347,31 +347,6 @@
             row.parentNode.removeChild(row);
         });
     });
-
-    $(document).ready(function() {
-        $(".editGroup").click(function() {
-            // Thực hiện lấy dữ liệu khi click button
-            FK_iMaNV = $(this).attr("data-FK_iMaNV");
-            FK_iMaNCC = $(this).attr("data-FK_iMaNCC");
-            FK_iMaTrangThai = $(this).attr("data-FK_iMaTrangThai");
-            sNguoiGiao = $(this).attr("data-sNguoiGiao");
-            fTienDaTra = $(this).attr("data-fTienDaTra");
-            dNgayNhap = $(this).attr("data-dNgayNhap");
-            sGhiChu = $(this).attr("data-sGhiChu");
-            PK_iPN = $(this).attr("data-PK_iPN");
-            console.log(PK_iPN);
-
-            // Hiển thị lên trên form
-            $("#manhanvien").val(FK_iMaNV);
-            $("#nhacungcap").val(FK_iMaNCC);
-            $("#trangthai").val(FK_iMaTrangThai);
-            $("#nguoigiao").val(sNguoiGiao);
-            $("#tiendatra").val(fTienDaTra);
-            $("#ngaynhap").val(dNgayNhap);
-            $("#ghichu").val(sGhiChu);
-            $("#maphieu").val(PK_iPN);
-        })
-    })
 
     function myFunction() {
         confirm("Bạn có chắc chắn muốn đơn đăng hàng này?");

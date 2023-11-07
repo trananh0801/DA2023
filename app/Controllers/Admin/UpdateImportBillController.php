@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Services\ImportBillService;
 
-class ImportBillController extends BaseController
+class UpdateImportBillController extends BaseController
 {
     /**
      * @var service;
@@ -15,36 +15,29 @@ class ImportBillController extends BaseController
         $this->service = new ImportBillService();
     }
 
-    public function list()
+    public function list($id)
     {
         $session = session();
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
         $data = [];
-        $dataLayout['importBills'] = $this->service->getAllImportBill();
+        $dataLayout['importBills'] = $this->service->getImportBillById($id);
+        $dataLayout['importBillDetails'] = $this->service->getAllImportBillDetail($id);
+
         $dataLayout['staffs'] = $this->service->getAllStaff();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();
 
-        $data = $this->loadMasterLayout($data, 'Danh sách phiếu nhập hàng', 'Admin/Pages/importBill', $dataLayout);
+        // dd($dataLayout['importBillDetails']);
+        $data = $this->loadMasterLayout($data, 'Cập nhật phiếu nhập hàng', 'Admin/Pages/updateImportBill', $dataLayout);
         return view('Admin/main', $data);
     }
 
-    public function create()
+    public function update($id)
     {
-        $result = $this->service->addImportBillInfo($this->request);
+        $result = $this->service->updateImportBillInfo($this->request, $id);
         return redirect()->to('admin/importBill/list')->withInput()->with($result['massageCode'], $result['message']);
-    }
-
-    public function delete($id)
-    {
-        $idPG = $this->service->getImportBillById($id);
-        if(!$idPG){
-            return redirect('error/404');
-        }
-        $result = $this->service->deleteImportBillInfo($id);
-        return redirect('admin/importBill/list')->with($result['massageCode'], $result['message']);
     }
 }

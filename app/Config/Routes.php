@@ -45,7 +45,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('importBill', function ($routes) {
         $routes->get('list', 'Admin\ImportBillController::list');
         $routes->post('create', 'Admin\ImportBillController::create');
-        $routes->post('update', 'Admin\ImportBillController::update');
+        $routes->get('update/(:segment)', 'Admin\UpdateImportBillController::list/$1');
+        $routes->post('updateSave/(:segment)', 'Admin\UpdateImportBillController::update/$1');
         $routes->get('delete/(:num)', 'Admin\ImportBillController::delete/$1');
     });
     $routes->group('staff', function ($routes) {

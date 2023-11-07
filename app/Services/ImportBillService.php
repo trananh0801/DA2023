@@ -28,7 +28,7 @@ class ImportBillService extends BaseService
         $this->importBillDetail->protect(false);
     }
 
-    /**get all importBill */
+    /**Lấy danh sách phiếu ra màn list - DANH SÁCH---------------------------------------------------------------*/
     public function getAllImportBill()
     {
         $result = $this->importBill
@@ -41,16 +41,30 @@ class ImportBillService extends BaseService
         return $result;
     }
 
-    public function getAllImportBillDetail()
+    /**Lấy danh sách phiếu ra màn list - CẬP NHẬT---------------------------------------------------------------*/
+    public function getImportBillById($id)
+    {
+        $result = $this->importBill
+            ->select('*')
+            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieunhap.FK_iMaNV')
+            ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieunhap.FK_iMaNCC')
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieunhap.FK_iMaTrangThai')
+            ->where('PK_iPN', $id)->first();
+        return $result;
+    }
+
+    /**Lấy danh sách phiếu ra màn list - CẬP NHẬT---------------------------------------------------------------*/
+    public function getAllImportBillDetail($id)
     {
         $result = $this->importBillDetail
             ->select('*')
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
+            ->where('FK_iMaPN', $id)
             ->findAll();
-        // dd($result);
         return $result;
     }
 
+    /**Lấy danh sách nhân viên---------------------------------------------------------------*/
     public function getAllStaff()
     {
         $result = $this->staff
@@ -59,6 +73,8 @@ class ImportBillService extends BaseService
         // dd($result);
         return $result;
     }
+
+    /**lấy danh sách nhà cung cấp---------------------------------------------------------------*/
     public function getAllSupplier()
     {
         $result = $this->supplier
@@ -67,6 +83,8 @@ class ImportBillService extends BaseService
         // dd($result);
         return $result;
     }
+
+    /**Lấy danh sách trạng thái---------------------------------------------------------------*/
     public function getAllStatus()
     {
         $result = $this->status
@@ -76,6 +94,7 @@ class ImportBillService extends BaseService
         return $result;
     }
 
+    /**Lấy danh sách sản phẩm---------------------------------------------------------------*/
     public function getAllProduct()
     {
         $result = $this->product
@@ -85,7 +104,7 @@ class ImportBillService extends BaseService
         return $result;
     }
 
-    /**add new user */
+    /**Thêm mới phiếu---------------------------------------------------------------*/
     public function addImportBillInfo($requestData)
     {
         //Tạo mã tự động
@@ -170,19 +189,9 @@ class ImportBillService extends BaseService
         }
     }
 
-    public function getImportBillById($id)
+    /**Cập nhật phiếu---------------------------------------------------------------*/
+    public function updateImportBillInfo($requestData, $id)
     {
-        return $this->importBill->where('PK_iPN', $id)->first();
-    }
-
-    public function getProductById($id)
-    {
-        return $this->importBillDetail->where('FK_iMaDon', $id)->first();
-    }
-
-    public function updateImportBillInfo($requestData)
-    {
-        
         $validate = $this->validateUpdateImportBill($requestData);
         if ($validate->getErrors()) {
             return [
@@ -192,7 +201,6 @@ class ImportBillService extends BaseService
             ];
         }
 
-        $id = $requestData->getPost('PK_iPN');
         $dataSave = [
             'FK_iMaTrangThai' => $requestData->getPost('FK_iMaTrangThai'),
         ];
@@ -216,7 +224,7 @@ class ImportBillService extends BaseService
     }
 
     
-
+/**Xóa phiếu---------------------------------------------------------------*/
     public function deleteImportBillInfo($id)
     {
         try {
@@ -237,6 +245,7 @@ class ImportBillService extends BaseService
         }
     }
 
+    /**validate phiếu khi thêm mới---------------------------------------------------------------*/
     public function validateAddImportBill($requestData)
     {
         $rule = [
@@ -253,6 +262,7 @@ class ImportBillService extends BaseService
         return $this->validation;
     }
 
+    /**validate phiếu khi cập nhật---------------------------------------------------------------*/
     public function validateUpdateImportBill($requestData)
     {
         $rule = [

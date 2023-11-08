@@ -23,7 +23,7 @@ class PromotionService extends BaseService
         $this->promotionProduct->protect(false);
     }
 
-    /**get all product */
+    /**Lấy danh sách khuyến mãi - DANH SÁCH ---------------------------------------------------------------------------*/
     public function getAllPromotion()
     {
         $result = $this->promotion
@@ -32,27 +32,39 @@ class PromotionService extends BaseService
             ->findAll();
         return $result;
     }
-    public function getAllPromotionDetail()
+
+    /**Lấy danh sách khuyến mãi - CẬP NHẬT ---------------------------------------------------------------------------*/
+    public function getPromotionById($id)
     {
-        $result = $this->promotionProduct
+        $result = $this->promotion
             ->select('*')
-            ->findAll();
-        // dd($result);
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_khuyenmai.FK_iMaTrangThai')
+            ->where('PK_iMaKM', $id)->first();
         return $result;
     }
 
-    /**get all product */
+    /**Lấy danh sách chi tiết khuyến mãi - CẬP NHẬT ---------------------------------------------------------------------------*/
+    public function getAllPromotionDetail($id)
+    {
+        $result = $this->promotionProduct
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_sp_km.FK_iMaSP')
+            ->where('FK_iMaKM', $id)
+            ->findAll();
+        return $result;
+    }
+
+    /**Lấy danh sách sản phẩm---------------------------------------------------------------------------*/
     public function getAllProduct()
     {
         $result = $this->product
             ->select('*')
             ->findAll();
-        // dd($result);
         return $result;
     }
 
 
-    /**add new user */
+    /**Thêm mới khuyến mãi---------------------------------------------------------------------------*/
     public function addPromotionInfo($requestData)
     {
         //Tạo mã tự động
@@ -100,8 +112,15 @@ class PromotionService extends BaseService
         }
     }
 
-    public function updatePromotionInfo($requestData)
+
+    /**Update khuyến mãi ---------------------------------------------------------------------------*/
+    public function updatePromotionInfo($requestData, $id)
     {
+        //Tạo mã tự động
+        $timestamp = time();
+        $randomPart = mt_rand(1000, 9999);
+        $uniqueCode = $timestamp . $randomPart;
+
         $validate = $this->validateAddPromotion($requestData);
         if ($validate->getErrors()) {
             return [
@@ -110,15 +129,35 @@ class PromotionService extends BaseService
                 'message' => $validate->getErrors(),
             ];
         }
-        $dataSave_KM = $requestData->getPost();
+        $dataSave_KM = [
+            'sTenKM' => $requestData->getPost('sTenKM'),
+            'FK_iMaTrangThai' => $requestData->getPost('FK_iMaTrangThai'),
+            'dNgayHieuLuc' => $requestData->getPost('dNgayHieuLuc'),
+            'dNgayHetHieuLuc' => $requestData->getPost('dNgayHetHieuLuc'),
+            'fChietKhau' => $requestData->getPost('fChietKhau'),
+            'iSoLuongAD ' => $requestData->getPost('iSoLuongAD'),
+            'sGhiChu ' => $requestData->getPost('sGhiChu'),
+        ];
 
-        $id_KM = $requestData->getPost('PK_iMaKH');
-
-        // dd($id_TK);
+        $dataSave_KMSP = $requestData->getPost('FK_iMaSP');
+        
+        // dd($currentid);
         try {
             $builder = $this->promotion->builder();
-            $builder->where('PK_iMaKH', $id_KM);
+            $builder->where('PK_iMaKM', $id);
             $builder->update($dataSave_KM);
+
+            $builder1 = $this->promotionProduct->builder();
+            $builder1->where('FK_iMaKM', $id);
+            $builder1->delete();
+
+            $transformedData = array();
+            foreach ($dataSave_KMSP as $k => $v) {
+                    $transformedData[$k]['FK_iMaSP'] = $v;
+                    $transformedData[$k]['FK_iMaKM'] = $id;
+            }
+            // dd($transformedData);
+            $this->promotionProduct->insertBatch($transformedData);
 
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
@@ -134,7 +173,7 @@ class PromotionService extends BaseService
         }
     }
 
-
+    /**Validate khuyến mãi ---------------------------------------------------------------------------*/
     public function validateAddPromotion($requestData)
     {
         $rule = [

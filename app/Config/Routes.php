@@ -70,6 +70,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('promotion', function ($routes) {
         $routes->get('list', 'Admin\PromotionController::list');
         $routes->post('create', 'Admin\PromotionController::create');
+        $routes->get('update/(:segment)', 'Admin\UpdatePromotionController::list/$1');
+        $routes->post('updateSave/(:segment)', 'Admin\UpdatePromotionController::update/$1');
     });
 
     $routes->post('login', 'Admin\LoginController::login');

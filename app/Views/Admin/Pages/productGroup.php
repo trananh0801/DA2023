@@ -60,8 +60,7 @@
                                              <td class="text-end">
                                                   <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
                                                   <div class="dropdown">
-
-                                                       <!-- <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-danger dropdown-item deleteGroup text-danger" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="myFunction()">Xóa</a> -->
+                                                       <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
                                                   </div> <!-- dropdown //end -->
                                              </td>
                                         </tr>
@@ -116,6 +115,6 @@
      })
 
      function myFunction() {
-          confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+          return confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
      }
 </script>

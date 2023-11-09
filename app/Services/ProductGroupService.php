@@ -3,16 +3,18 @@
 namespace App\Services;
 
 use App\Models\ProductGroupModel;
+use App\Models\ProductModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class ProductGroupService extends BaseService
 {
-    private $productGroup;
+    private $productGroup, $product;
     function __construct()
     {
         parent::__construct();
         $this->productGroup = new ProductGroupModel();
+        $this->product = new ProductModel();
         $this->productGroup->protect(false);
     }
 
@@ -99,14 +101,23 @@ class ProductGroupService extends BaseService
     public function deleteProductInfo($id)
     {
         try {
-            $builder = $this->productGroup->builder();
-            $builder->where('PK_iMaNhom', $id);
-            $builder->delete();
-            return [
-                'status' => ResultUtils::STATUS_CODE_OK,
-                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
-                'message' => ['success' => 'Xóa dữ liệu thành công'],
-            ];
+            $currentid = $this->product->select('PK_iMaSP')->where('FK_iMaNhom', $id)->findAll();
+            if (!empty($currentid)) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['' => 'Nhóm đã được sử dụng, không thể xóa!'],
+                ];
+            } else {
+                $builder = $this->productGroup->builder();
+                $builder->where('PK_iMaNhom', $id);
+                $builder->delete();
+                return [
+                    'status' => ResultUtils::STATUS_CODE_OK,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                    'message' => ['success' => 'Xóa dữ liệu thành công'],
+                ];
+            }
         } catch (Exception $e) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -115,14 +126,6 @@ class ProductGroupService extends BaseService
             ];
         }
     }
-
-    //check trùng mã
-    // public function isUniqueCode($requestData)
-    // {
-    //     $code = $this->$requestData->getPost('PK_iMaNhom');
-    //     $result = $this->productGroup->where('PK_iMaNhom', $code)->countAllResults();
-    //     return $result === 0;
-    // }
 
     public function validateAddProductGroup($requestData)
     {

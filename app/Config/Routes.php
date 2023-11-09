@@ -40,7 +40,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\ProductGroupController::list');
         $routes->post('create', 'Admin\ProductGroupController::create');
         $routes->post('edit', 'Admin\ProductGroupController::edit');
-        $routes->get('delete/(:num)', 'Admin\ProductGroupController::delete/$1');
+        $routes->get('delete/(:segment)', 'Admin\ProductGroupController::delete/$1');
     });
     $routes->group('importBill', function ($routes) {
         $routes->get('list', 'Admin\ImportBillController::list');

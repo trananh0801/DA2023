@@ -100,7 +100,7 @@
                         <article class="float-end">
                             <dl class="dlist">
                                 <dt>Tổng tiền:</dt>
-                                <dd> <b class="h5">$983.00</b> </dd>
+                                <dd> <b class="h5 tongtien"></b> </dd>
                             </dl>
                             <dl class="dlist">
                                 <dt class="text-muted">Trạng thái:</dt>
@@ -118,3 +118,8 @@
         </div>
     </div> <!-- card end// -->
 </section> <!-- content-main end// -->
+<script>
+    $(document).ready(function() {
+    
+  });
+</script>

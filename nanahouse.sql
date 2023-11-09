@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 07, 2023 lúc 06:11 PM
+-- Thời gian đã tạo: Th10 09, 2023 lúc 07:40 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -92,7 +92,7 @@ INSERT INTO `tbl_ctphieuhoantra` (`PK_iMaCT_HT`, `FK_iMaSP`, `FK_iMaPhieu`, `iSo
 (10, '1', 'HT_16992845585333', 20),
 (11, '2', 'HT_16992845585333', 30),
 (12, '1', 'HT_16992882908698', 20),
-(13, '41', 'HT_16992893582283', 80);
+(13, '2', 'HT_16992893582283', 80);
 
 -- --------------------------------------------------------
 
@@ -236,7 +236,7 @@ CREATE TABLE `tbl_khuyenmai` (
 --
 
 INSERT INTO `tbl_khuyenmai` (`PK_iMaKM`, `FK_iMaTrangThai`, `sTenKM`, `dNgayHieuLuc`, `dNgayHetHieuLuc`, `fChietKhau`, `iSoLuongAD`, `iApDungTatCa`, `sGhiChu`) VALUES
-('KM_16984198645965', 7, 'test 1', '2023-10-20', '2023-10-06', 10.00, 10, 0, 'không có');
+('KM_16984198645965', 7, 'test 1', '2023-10-20', '2023-10-06', 10.00, 10, 0, 'Không có');
 
 -- --------------------------------------------------------
 
@@ -302,8 +302,8 @@ CREATE TABLE `tbl_nhomsanpham` (
 --
 
 INSERT INTO `tbl_nhomsanpham` (`PK_iMaNhom`, `sTenNhom`) VALUES
-('N001', 'Bỉm 11'),
-('N002', 'Sữa 1');
+('N001', 'Sữa tươi'),
+('N002', 'Sữa bột');
 
 -- --------------------------------------------------------
 
@@ -405,8 +405,7 @@ CREATE TABLE `tbl_sanpham` (
 
 INSERT INTO `tbl_sanpham` (`PK_iMaSP`, `FK_iMaNhom`, `FK_iMaTrangThai`, `sTenSP`, `fSoLuong`, `sDVT`, `fGiaNhap`, `fGiaBanLe`, `fGiaBanSi`, `sHinhAnh`, `dHSD`, `dNgayTao`, `sGhiChu`) VALUES
 (1, 'N001', 1, 'Sữa bột 11', 80, 'Hộp', 112.000, 1212.000, 12121.000, '1699369775_a0e9780a56f6a9ef36ce.jpg', '2023-10-03', NULL, 'Không có ghi chú nào'),
-(2, 'N002', 2, 'Sữa tươi', 80, '', 0.000, 0.000, 0.000, '', '0000-00-00', NULL, ''),
-(41, 'N002', NULL, 'sản phẩm 1', 80, 'Bịch', 0.000, 100.000, 200.000, '1699265070_26a66f74535f5930279c.jpg', NULL, NULL, 'Ghi chú');
+(2, 'N002', 2, 'Sữa tươi', 80, '', 0.000, 0.000, 0.000, '', '0000-00-00', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -425,8 +424,8 @@ CREATE TABLE `tbl_sp_km` (
 --
 
 INSERT INTO `tbl_sp_km` (`PK_iMaSPKM`, `FK_iMaSP`, `FK_iMaKM`) VALUES
-(9, '1', 'KM_16984198645965'),
-(10, '2', 'KM_16984198645965');
+(26, '2', 'KM_16984198645965'),
+(27, '41', 'KM_16984198645965');
 
 -- --------------------------------------------------------
 
@@ -452,7 +451,8 @@ INSERT INTO `tbl_taikhoan` (`PK_iMaTK`, `FK_iMaQuyen`, `FK_iMaTrangThai`, `sTenT
 ('3', 3, 1, 'sell', '123'),
 ('4', 4, 1, 'customer', '123'),
 ('TK_16972964998014', 1, 1, '432432hiih', '43243'),
-('TK_16976794566924', 2, 1, '5', '$2y$10$6lSUMUVXVrGMGNuMhvMRauV.Vh5ckOKzK3oABv61J/Mf49RKx6nYa');
+('TK_16976794566924', 2, 1, '5', '$2y$10$6lSUMUVXVrGMGNuMhvMRauV.Vh5ckOKzK3oABv61J/Mf49RKx6nYa'),
+('TK_16995551181708', 1, 1, '', '$2y$10$nlzPkYArvGVZFUt0XoTeDOOyG8QqSrZpKuc/HREaH.AYMKqkvtFfO');
 
 -- --------------------------------------------------------
 
@@ -663,13 +663,13 @@ ALTER TABLE `tbl_giohang`
 -- AUTO_INCREMENT cho bảng `tbl_khachhang`
 --
 ALTER TABLE `tbl_khachhang`
-  MODIFY `PK_iMaKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `PK_iMaKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_ncc`
 --
 ALTER TABLE `tbl_ncc`
-  MODIFY `PK_iMaNCC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `PK_iMaNCC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_quyen`
@@ -687,7 +687,7 @@ ALTER TABLE `tbl_sanpham`
 -- AUTO_INCREMENT cho bảng `tbl_sp_km`
 --
 ALTER TABLE `tbl_sp_km`
-  MODIFY `PK_iMaSPKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `PK_iMaSPKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_trangthai`
@@ -698,13 +698,6 @@ ALTER TABLE `tbl_trangthai`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
-
---
--- Các ràng buộc cho bảng `tbl_ctphieunhap`
---
-ALTER TABLE `tbl_ctphieunhap`
-  ADD CONSTRAINT `maPN` FOREIGN KEY (`FK_iMaPN`) REFERENCES `tbl_phieunhap` (`PK_iPN`),
-  ADD CONSTRAINT `maSP` FOREIGN KEY (`FK_iMaSP`) REFERENCES `tbl_sanpham` (`PK_iMaSP`);
 
 --
 -- Các ràng buộc cho bảng `tbl_danhgia`

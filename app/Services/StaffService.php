@@ -2,17 +2,23 @@
 namespace App\Services;
 use App\Models\StaffModel;
 use App\Models\UserModel;
+use App\Models\OrderModel;
+use App\Models\ImportBillModel;
+use App\Models\ReturnBillModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class StaffService extends BaseService
 {
-    private $staff, $user;
+    private $staff, $user, $order, $importBill, $returnBill;
     function __construct()
     {
         parent::__construct();
         $this->staff = new StaffModel();
         $this->user = new UserModel();
+        $this->order = new OrderModel();
+        $this->importBill = new ImportBillModel();
+        $this->returnBill = new ReturnBillModel();
         $this->staff->protect(false);
         $this->user->protect(false);
     }
@@ -118,6 +124,38 @@ class StaffService extends BaseService
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,
                 'message' => ['success' => 'Cập nhật dữ liệu thành công'],
             ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
+    /**---Xóa khách hàng----------------------------------------------------------------------------------------- */
+    public function deleteStaffInfo($id)
+    {
+        try {
+            $current_HD = $this->order->select('FK_iMaNV')->where('FK_iMaNV', $id)->findAll();
+            $current_PN = $this->importBill->select('FK_iMaNV')->where('FK_iMaNV', $id)->findAll();
+            $current_PH = $this->returnBill->select('FK_iMaNV')->where('FK_iMaNV', $id)->findAll();
+            if (!empty($current_HD) || !empty($current_PN) || !empty($current_PH)) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['' => 'Nhân viên đã được sử dụng, không thể xóa!'],
+                ];
+            } else {
+                $builder = $this->staff->builder();
+                $builder->where('PK_iMaNV', $id);
+                $builder->delete();
+                return [
+                    'status' => ResultUtils::STATUS_CODE_OK,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                    'message' => ['success' => 'Xóa dữ liệu thành công'],
+                ];
+            }
         } catch (Exception $e) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,

@@ -104,18 +104,8 @@
                                     <td><?= date('d/m/Y', strtotime($staff['dNgaySinh'])) ?></td>
                                     <td><?= $staff['sGioiTinh'] ?></td>
                                     <td class="text-end">
-                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" 
-                                        data-sTenNV="<?= $staff['sTenNV'] ?>" 
-                                        data-sSDT="<?= $staff['sSDT'] ?>" 
-                                        data-sCMND="<?= $staff['sCMND'] ?>" 
-                                        data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" 
-                                        data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" 
-                                        data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" 
-                                        data-sGhiChu="<?= $staff['sGhiChu'] ?>" 
-                                        data-sTenTK="<?= $staff['sTenTK'] ?>" 
-                                        data-sMatKhau="<?= $staff['sMatKhau'] ?>" 
-                                        data-FK_iMaTK="<?= $staff['FK_iMaTK'] ?>"
-                                        value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
+                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNV="<?= $staff['sTenNV'] ?>" data-sSDT="<?= $staff['sSDT'] ?>" data-sCMND="<?= $staff['sCMND'] ?>" data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" data-sGhiChu="<?= $staff['sGhiChu'] ?>" data-sTenTK="<?= $staff['sTenTK'] ?>" data-sMatKhau="<?= $staff['sMatKhau'] ?>" data-FK_iMaTK="<?= $staff['FK_iMaTK'] ?>" value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
+                                        <a href="admin/staff/delete/<?= $staff['PK_iMaNV'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $staff['PK_iMaNV'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -239,6 +229,6 @@
     })
 
     function myFunction() {
-        confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+        return confirm("Bạn có chắc chắn muốn xóa nhân viên này!");
     }
 </script>

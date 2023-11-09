@@ -39,4 +39,10 @@ class StaffController extends BaseController
         $result = $this->service->updateStaffInfo($this->request);
         return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
     }
+
+    public function delete($id)
+    {
+        $result = $this->service->deleteStaffInfo($id);
+        return redirect('admin/staff/list')->with($result['massageCode'], $result['message']);
+    }
 }

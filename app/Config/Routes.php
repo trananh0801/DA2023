@@ -55,6 +55,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\StaffController::list');
         $routes->post('create', 'Admin\StaffController::create');
         $routes->post('update', 'Admin\StaffController::update');
+        $routes->get('delete/(:segment)', 'Admin\StaffController::delete/$1');
     });
     $routes->group('order', function ($routes) {
         $routes->get('list', 'Admin\OrderController::list');

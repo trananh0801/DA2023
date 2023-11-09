@@ -77,17 +77,8 @@
 								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
 								<td><?= $product['sTenNhom'] ?></td>
 								<td class="text-end">
-									<a href="admin/product/update/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning editGroup"  
-									data-FK_iMaNhom="<?= $product['FK_iMaNhom'] ?>" 
-									data-sTenSP="<?= $product['sTenSP'] ?>" 
-									data-fSoLuong="<?= $product['fSoLuong'] ?>" 
-									data-sDVT="<?= $product['sDVT'] ?>" 
-									data-fGiaNhap="<?= number_format($product['fGiaNhap'], 0, ',', ',') ?>" 
-									data-fGiaBanLe="<?= number_format($product['fGiaBanLe'], 0, ',', ',') ?>" 
-									data-fGiaBanSi="<?= number_format($product['fGiaBanSi'], 0, ',', ',') ?>" 
-									data-sHinhAnh="<?= $product['sHinhAnh'] ?>" 
-									data-sGhiChu="<?= $product['sGhiChu'] ?>" 
-									data-PK_iMaSP="<?= $product['PK_iMaSP'] ?>">Sửa</a>
+									<a href="admin/product/update/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+									<a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $product['PK_iMaSP'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
 								</td>
 							</tr>
 						<?php endforeach ?>
@@ -171,37 +162,8 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
-	$(document).ready(function() {
-		$(".editGroup").click(function() {
-			// Thực hiện lấy dữ liệu khi click button
-			FK_iMaNhom = $(this).attr("data-FK_iMaNhom");
-			sTenSP = $(this).attr("data-sTenSP");
-			fSoLuong = $(this).attr("data-fSoLuong");
-			sDVT = $(this).attr("data-sDVT");
-			fGiaNhap = $(this).attr("data-fGiaNhap");
-			fGiaBanLe = $(this).attr("data-fGiaBanLe");
-			fGiaBanSi = $(this).attr("data-fGiaBanSi");
-			sHinhAnh = $(this).attr("data-sHinhAnh");
-			sGhiChu = $(this).attr("data-sGhiChu");
-			PK_iMaSP = $(this).attr("data-PK_iMaSP");
-			//    console.log(PK_iMaSP);
-
-			// Hiển thị lên trên form
-			$("#manhom").val(FK_iMaNhom);
-			$("#tensp").val(sTenSP);
-			$("#soluong").val(fSoLuong);
-			$("#donvi").val(sDVT);
-			$("#gianhap").val(fGiaNhap);
-			$("#giabanle").val(fGiaBanLe);
-			$("#giabansi").val(fGiaBanSi);
-			$("#ghichu").val(sGhiChu);
-			$("#masanpham").val(PK_iMaSP);
-			$("#hinhanh").val(sHinhAnh);
-		})
-	})
-
 	function myFunction() {
-		confirm("Bạn có chắc chắn muốn xóa sản phẩm này!");
+		return confirm("Bạn có chắc chắn muốn xóa sản phẩm này!");
 	}
 
 	//format giá tiền

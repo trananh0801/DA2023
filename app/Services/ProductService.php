@@ -4,19 +4,25 @@ namespace App\Services;
 
 use App\Models\ProductModel;
 use App\Models\ProductGroupModel;
+use App\Models\OrderDetailModel;
+use App\Models\ImportBillDetailModel;
+use App\Models\ReturnBillDetailModel;
 use App\Models\StatusModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class ProductService extends BaseService
 {
-    private $product, $productGroup, $status;
+    private $product, $productGroup, $status, $orderDetail, $importBillDetail, $returnBillDetail;
     function __construct()
     {
         parent::__construct();
         $this->product = new ProductModel();
         $this->productGroup = new ProductGroupModel();
         $this->status = new StatusModel();
+        $this->orderDetail = new OrderDetailModel();
+        $this->returnBillDetail = new ReturnBillDetailModel();
+        $this->importBillDetail = new ImportBillDetailModel();
         $this->product->protect(false);
     }
 
@@ -150,19 +156,30 @@ class ProductService extends BaseService
         }
     }
 
-    
-/**---Xóa sản phẩm----------------------------------------------------------------------------------------- */
+
+    /**---Xóa sản phẩm----------------------------------------------------------------------------------------- */
     public function deleteProductInfo($id)
     {
         try {
-            $builder = $this->product->builder();
-            $builder->where('PK_iMaSP', $id);
-            $builder->delete();
-            return [
-                'status' => ResultUtils::STATUS_CODE_OK,
-                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
-                'message' => ['success' => 'Xóa dữ liệu thành công'],
-            ];
+            $current_HD = $this->orderDetail->select('FK_iMaSP')->where('FK_iMaSP', $id)->findAll();
+            $current_PN = $this->importBillDetail->select('FK_iMaSP')->where('FK_iMaSP', $id)->findAll();
+            $current_HT = $this->returnBillDetail->select('FK_iMaSP')->where('FK_iMaSP', $id)->findAll();
+            if (!empty($current_HD) || !empty($current_PN) || !empty($current_HT)) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['' => 'Sản phẩm đã được sử dụng, không thể xóa!'],
+                ];
+            } else {
+                $builder = $this->product->builder();
+                $builder->where('PK_iMaSP', $id);
+                $builder->delete();
+                return [
+                    'status' => ResultUtils::STATUS_CODE_OK,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                    'message' => ['success' => 'Xóa dữ liệu thành công'],
+                ];
+            }
         } catch (Exception $e) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -208,7 +225,7 @@ class ProductService extends BaseService
         return $this->validation;
     }
 
-/**---Validate sản phẩm khi cập nhật----------------------------------------------------------------------------------------- */
+    /**---Validate sản phẩm khi cập nhật----------------------------------------------------------------------------------------- */
     public function validateUpdateProduct($requestData)
     {
         $rule = [

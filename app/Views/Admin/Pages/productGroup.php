@@ -59,9 +59,7 @@
                                              <td><b><?= $productGroup['sTenNhom'] ?></b></td>
                                              <td class="text-end">
                                                   <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
-                                                  <div class="dropdown">
-                                                       <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
-                                                  </div> <!-- dropdown //end -->
+                                                  <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
                                              </td>
                                         </tr>
                                    <?php endforeach ?>

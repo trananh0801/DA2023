@@ -39,4 +39,10 @@ class CustomerController extends BaseController
         $result = $this->service->updateCustomerInfo($this->request);
         return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
     }
+
+    public function delete($id)
+    {
+        $result = $this->service->deleteCustomerInfo($id);
+        return redirect('admin/customer/list')->with($result['massageCode'], $result['message']);
+    }
 }

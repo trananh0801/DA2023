@@ -94,15 +94,8 @@
                                              <td><?= $customer['sGioiTinh'] ?></td>
                                              <td><?= $customer['iTichDiem'] ?></td>
                                              <td class="text-end">
-                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" 
-                                                  data-sTenKH="<?= $customer['sTenKH'] ?>" 
-                                                  data-sDiaChi="<?= $customer['sDiaChi'] ?>" 
-                                                  data-sSDT="<?= $customer['sSDT'] ?>" 
-                                                  data-dNgaySinh="<?= $customer['dNgaySinh'] ?>" 
-                                                  data-sGioiTinh="<?= $customer['sGioiTinh'] ?>" 
-                                                  data-iTichDiem="<?= $customer['iTichDiem'] ?>" 
-                                                  data-sGhiChu="<?= $customer['sGhiChu'] ?>" 
-                                                  value="<?= $customer['PK_iMaKH'] ?>">Sửa</button>
+                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenKH="<?= $customer['sTenKH'] ?>" data-sDiaChi="<?= $customer['sDiaChi'] ?>" data-sSDT="<?= $customer['sSDT'] ?>" data-dNgaySinh="<?= $customer['dNgaySinh'] ?>" data-sGioiTinh="<?= $customer['sGioiTinh'] ?>" data-iTichDiem="<?= $customer['iTichDiem'] ?>" data-sGhiChu="<?= $customer['sGhiChu'] ?>" value="<?= $customer['PK_iMaKH'] ?>">Sửa</button>
+                                                  <a href="admin/customer/delete/<?= $customer['PK_iMaKH'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $customer['PK_iMaKH'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
                                              </td>
                                         </tr>
                                    <?php endforeach ?>
@@ -201,6 +194,6 @@
      })
 
      function myFunction() {
-          confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+          return confirm("Bạn có chắc chắn muốn xóa khách hàng này!");
      }
 </script>

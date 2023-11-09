@@ -70,7 +70,7 @@
                                              <td><?= $supplier['sGhiChu'] ?></td>
                                              <td class="text-end">
                                                   <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNCC="<?= $supplier['sTenNCC'] ?>" data-sDiaChi="<?= $supplier['sDiaChi'] ?>" data-sSDT="<?= $supplier['sSDT'] ?>" data-sGhiChu="<?= $supplier['sGhiChu'] ?>" value="<?= $supplier['PK_iMaNCC'] ?>">Sửa</button>
-                                                  <!-- <button type="button" class="btn btn-danger">Xóa</button> -->
+                                                  <a href="admin/supplier/delete/<?= $supplier['PK_iMaNCC'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $supplier['PK_iMaNCC'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
                                              </td>
                                         </tr>
                                    <?php endforeach ?>
@@ -141,6 +141,6 @@
      })
 
      function myFunction() {
-          confirm("Bạn có chắc chắn muốn xóa nhóm sản phẩm này!");
+          confirm("Bạn có chắc chắn muốn xóa nhà cung cấp này!");
      }
 </script>

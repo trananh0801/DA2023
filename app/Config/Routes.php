@@ -30,6 +30,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\SupplierController::list');
         $routes->post('create', 'Admin\SupplierController::create');
         $routes->post('update', 'Admin\SupplierController::update');
+        $routes->get('delete/(:num)', 'Admin\SupplierController::delete/$1');
     });
     $routes->group('customer', function ($routes) {
         $routes->get('list', 'Admin\CustomerController::list');

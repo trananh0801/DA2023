@@ -1,16 +1,20 @@
 <?php
 namespace App\Services;
 use App\Models\SupplierModel;
+use App\Models\ImportBillModel;
+use App\Models\ReturnBillModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class SupplierService extends BaseService
 {
-    private $supplier;
+    private $supplier, $importBill, $returnBill;
     function __construct()
     {
         parent::__construct();
         $this->supplier = new SupplierModel();
+        $this->returnBill = new ReturnBillModel();
+        $this->importBill = new ImportBillModel();
         $this->supplier->protect(false);
     }
 
@@ -80,6 +84,37 @@ class SupplierService extends BaseService
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,
                 'message' => ['success' => 'Cập nhật dữ liệu thành công'],
             ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
+    /**---Xóa sản phẩm----------------------------------------------------------------------------------------- */
+    public function deleteSupplierInfo($id)
+    {
+        try {
+            $current_PN = $this->importBill->select('FK_iMaNCC')->where('FK_iMaNCC', $id)->findAll();
+            $current_HT = $this->returnBill->select('FK_iMaNCC')->where('FK_iMaNCC', $id)->findAll();
+            if (!empty($current_PN) || !empty($current_HT)) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['' => 'Nhà cung cấp đã được sử dụng, không thể xóa!'],
+                ];
+            } else {
+                $builder = $this->supplier->builder();
+                $builder->where('PK_iMaNCC', $id);
+                $builder->delete();
+                return [
+                    'status' => ResultUtils::STATUS_CODE_OK,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                    'message' => ['success' => 'Xóa dữ liệu thành công'],
+                ];
+            }
         } catch (Exception $e) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,

@@ -37,4 +37,10 @@ class PromotionController extends BaseController
         $result = $this->service->addPromotionInfo($this->request);
         return redirect()->to('admin/promotion/list')->withInput()->with($result['massageCode'], $result['message']);
     }
+
+    public function delete($id)
+    {
+        $result = $this->service->deletePromotionInfo($id);
+        return redirect('admin/promotion/list')->with($result['massageCode'], $result['message']);
+    }
 }

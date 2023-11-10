@@ -173,6 +173,36 @@ class PromotionService extends BaseService
         }
     }
 
+    /**---Xóa sản phẩm----------------------------------------------------------------------------------------- */
+    public function deletePromotionInfo($id)
+    {
+        try {
+            $current = $this->promotionProduct->select('FK_iMaKM')->where('FK_iMaKM', $id)->findAll();
+            if (!empty($current)) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['' => 'Khuyến mãi đang được sử dụng, không thể xóa!'],
+                ];
+            } else {
+                $builder = $this->promotion->builder();
+                $builder->where('PK_iMaKM', $id);
+                $builder->delete();
+                return [
+                    'status' => ResultUtils::STATUS_CODE_OK,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                    'message' => ['success' => 'Xóa dữ liệu thành công'],
+                ];
+            }
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     /**Validate khuyến mãi ---------------------------------------------------------------------------*/
     public function validateAddPromotion($requestData)
     {

@@ -77,6 +77,7 @@
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>
                                 <td class="text-end">
                                     <a href="admin/promotion/update/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                    <a href="admin/promotion/delete/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $promotion['PK_iMaKM'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -169,6 +170,9 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
+    function myFunction() {
+		return confirm("Bạn có chắc chắn muốn xóa khuyến mãi này!");
+	}
     $(document).ready(function() {
         // Gán sự kiện khi click vào checkbox "Chọn tất cả"
         $('#selectAll').click(function() {

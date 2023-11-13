@@ -17,14 +17,19 @@ class ProductDetailController extends BaseController
 
     public function list($id)
     {
-        // dd($id);
         $data = [];
         $dataLayout['allProducts'] = $this->service->getProductById($id);
         $dataLayout['getAllProducts'] = $this->service->getAllProduct();
-        // dd($data['users']);
+
         $data = $this->loadMasterLayoutUser($data, 'Chi tiết sản phẩm', 'User/Pages/productDetail', $dataLayout);
         return view('User/main', $data);
     }
 
+    public function addCart()
+    {
+        $result = $this->service->addCartInfo($this->request);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
+    
+    }
    
 }

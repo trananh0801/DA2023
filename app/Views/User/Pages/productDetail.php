@@ -2,8 +2,7 @@
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
             <ul class="breadcrumb">
-                <li><a href="user.home">Trang chủ</a></li>
-                <li><a href="category.html">Sữa bột</a></li>
+                <li><a href="user/home">Trang chủ</a></li>
                 <li class="active">Sản phẩm 1</li>
             </ul>
         </div>
@@ -32,53 +31,18 @@
                 <p><?= $allProducts['sGhiChu'] ?> </p>
             </div>
 
-            <!-- <div class="productFilter productFilterLook2">
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6 col-xs-6">
-                        <div class="form-group required">
-                            <label for="InputLastName">Số lượng <sup>*</sup> </label>
-                            <input required type="number" class="form-control" id="InputLastName" placeholder="0">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- productFilter -->
-
             <div class="cart-actions">
                 <div class="addto row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <button onclick="productAddToCartForm.submit(this);" class="button btn-block btn-cart cart first" title="Add to Cart" type="button">Thêm vào giỏ hàng
+                        <button  class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>">Thêm vào giỏ hàng
                         </button>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block ">Mua ngay</a></div>
                 </div>
                 <div style="clear:both"></div>
             </div>
-            <!--/.cart-actions-->
-
-            <!-- <div class="clear"></div>
-            <div class="product-tab w100 clearfix">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#details" data-toggle="tab">Mô tả</a></li>
-                    <li><a href="#shipping" data-toggle="tab">Shipping</a></li>
-                </ul> -->
-
-                <!-- Tab panes -->
-                <!-- <div class="tab-content">
-                    <div class="tab-pane active" id="details">Đây là mô tả sản phẩm
-                    </div>
-                    <div class="tab-pane" id="size"> free
-                    </div>
-                </div> -->
-                <!-- /.tab content -->
-
-            <!-- </div> -->
-            <!--/.product-tab-->
         </div>
-        <!--/ right column end -->
-
     </div>
-    <!--/.row-->
 
     <div class="row recommended">
         <h1> CÓ THỂ BẠN CŨNG THÍCH </h1>
@@ -89,19 +53,57 @@
                 <div class="product"><a class="product-image"> <img src="<?= $getAllProduct['PK_iMaSP'] ?>" alt="img"> </a>
 
                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html"><?= $getAllProduct['sTenSP'] ?></a></h4>
+                        <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
 
                         <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span></div>
                     </div>
                 </div>
             </div>
-            <!--/.item-->
-
             <?php endforeach ?>
         </div>
-        <!--/.recommended-->
-
     </div>
     <div style="clear:both"></div>
 </div>
-<!-- /main-container -->
+
+<!-- Modal thêm vào giỏ hàng  -->
+<div class="modal signUpContent fade" id="AddCart" tabindex="-1" role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                <h3 class="modal-title-site text-center"> Thêm vào giỏ hàng </h3>
+            </div>
+            <div class="modal-body">
+                <form action="user/addCart" method="POST">
+                    <div class="form-group login-username">
+                        <div>
+                            <img src="" alt="img">
+                            <div class="description">
+                                <h4>Sản phẩm 1</h4>
+                                <div class="price"><span>100.000 VNĐ</span></div>
+                            </div>
+                            <input name="FK_iMaSP" id="masanpham" type="text" hidden>
+                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input class="btn  btn-block btn-lg btn-primary" value="Thêm vào giỏ hàng" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".edit").click(function() {
+            masanpham = $(this).attr("data-masanpham");
+
+            $("#masanpham").val(masanpham);
+        })
+    })
+</script>

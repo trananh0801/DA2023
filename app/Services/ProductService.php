@@ -8,12 +8,16 @@ use App\Models\OrderDetailModel;
 use App\Models\ImportBillDetailModel;
 use App\Models\ReturnBillDetailModel;
 use App\Models\StatusModel;
+
+use App\Models\CartModel;
+use App\Models\CartDetailModel;
+
 use App\Common\ResultUtils;
 use Exception;
 
 class ProductService extends BaseService
 {
-    private $product, $productGroup, $status, $orderDetail, $importBillDetail, $returnBillDetail;
+    private $product, $productGroup, $status, $orderDetail, $importBillDetail, $returnBillDetail, $cart, $cartDetail;
     function __construct()
     {
         parent::__construct();
@@ -23,7 +27,11 @@ class ProductService extends BaseService
         $this->orderDetail = new OrderDetailModel();
         $this->returnBillDetail = new ReturnBillDetailModel();
         $this->importBillDetail = new ImportBillDetailModel();
+        $this->cart = new CartModel();
+        $this->cartDetail = new CartDetailModel();
         $this->product->protect(false);
+        $this->cart->protect(false);
+        $this->cartDetail->protect(false);
     }
 
     /**---Lấy danh sách all sản phẩm----------------------------------------------------------------------------------------- */
@@ -189,6 +197,49 @@ class ProductService extends BaseService
         }
     }
 
+    /**Thêm mới giỏ hàng---------------------------------------------------------------------------*/
+    public function addCartInfo($requestData)
+    {
+        //Tạo mã tự động
+        $timestamp = time();
+        $randomPart = mt_rand(1000, 9999);
+        $uniqueCode = $timestamp . $randomPart;
+
+        $validate = $this->validateAddCart($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave_GH = [
+            'PK_iMaGH' => 'GH_'. $uniqueCode,
+            'FK_iMaTK' => '4'
+        ];
+        $dataSave_CTGH = [
+            'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+            'FK_iMaGH' => 'GH_'. $uniqueCode,
+            'iSoLuong' => $requestData->getPost('iSoLuong'),
+        ];
+        // dd($dataSave_CTGH);
+        try {
+            $this->cart->save($dataSave_GH);
+            $this->cartDetail->save($dataSave_CTGH);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Thêm dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
+
     /**---Validate sản phẩm khi thêm mới----------------------------------------------------------------------------------------- */
     public function validateAddProduct($requestData)
     {
@@ -254,6 +305,23 @@ class ProductService extends BaseService
             // 'sHinhAnh' => [
             //     'required' => 'Hình ảnh không được để trống!'
             // ],
+        ];
+        $this->validation->setRules($rule, $message);
+        $this->validation->withRequest($requestData)->run();
+
+        return $this->validation;
+    }
+
+    /**Validate giỏ hàng ---------------------------------------------------------------------------*/
+    public function validateAddCart($requestData)
+    {
+        $rule = [
+            'iSoLuong' => 'required',
+        ];
+        $message = [
+            'iSoLuong' => [
+                'required' => 'Vui lòng thêm số lượng!'
+            ],
         ];
         $this->validation->setRules($rule, $message);
         $this->validation->withRequest($requestData)->run();

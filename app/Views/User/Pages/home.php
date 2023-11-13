@@ -122,12 +122,12 @@
                                 <i class="glyphicon glyphicon-heart"></i>
                             </a>
                             <div class="imageHover">
-                                <a href="user/productDetail">
+                                <a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>">
                                     <img src="<?= $sellingProduct['sHinhAnh'] ?>" alt="img" class="img-responsive">
                                     <div class="promotion"><span class="discount">15% OFF</span></div>
                             </div>
                             <div class="description">
-                                <h4><a href="product-details.html"> <?= $sellingProduct['sTenSP'] ?> </a></h4>
+                                <h4><a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>"> <?= $sellingProduct['sTenSP'] ?> </a></h4>
 
                                 <div class="grid-description">
                                     <p><?= $sellingProduct['sGhiChu'] ?> </p>

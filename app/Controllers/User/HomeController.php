@@ -24,4 +24,11 @@ class HomeController extends BaseController
         return view('User/main', $data);
     
     }
+
+    public function addCart()
+    {
+        $result = $this->service->addCartInfo($this->request);
+        return redirect()->to('user/home')->withInput()->with($result['massageCode'], $result['message']);
+    
+    }
 }

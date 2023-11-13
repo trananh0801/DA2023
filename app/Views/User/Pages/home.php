@@ -57,12 +57,8 @@
 <!--/.banner style1-->
 
 <div class="container main-container">
-
-    <!-- Main component call to action -->
-
     <div class="row featuredPostContainer globalPadding style2">
         <h3 class="section-title style2 text-center"><span>SẢN PHẨM MỚI</span></h3>
-
         <div id="productslider" class="owl-carousel owl-theme">
             <?php foreach ($newProducts as $newProduct) : ?>
                 <div class="item">
@@ -76,23 +72,20 @@
                             </div>
                             <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><img src="<?= $newProduct['sHinhAnh'] ?>" alt="img" class="img-responsive"></a>
 
-                            <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
+                            <div class="promotion"><span class="new-product"> GIẢM</span> <span class="discount">15% </span></div>
                         </div>
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><?= $newProduct['sTenSP'] ?> </a></h4>
 
-                            <p>ngol bổ rẻ</p>
+                            <p><?= $newProduct['sGhiChu'] ?></p>
                         </div>
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
+                        <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                     </div>
                 </div>
             <?php endforeach ?>
         </div>
-        <!--/.productslider-->
-
     </div>
-    <!--/.featuredPostContainer-->
 </div>
 <!-- /main container -->
 
@@ -112,55 +105,43 @@
                 </div>
             </div>
         </div>
-        <!--/.row-->
     </div>
-    <!--/.container-->
 </div>
 <!--/.parallax-image-1-->
 
 <div class="container main-container">
-
-
-    <!-- Demo Features Content start -->
-
     <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
-        <!-- this div is for demo || Please remove it when use this page -->
-
         <h3 class="section-title style2 text-center"><span>SẢN PHẨM BÁN CHẠY NHẤT</span></h3>
-
         <div class="container">
             <div class="row xsResponse categoryProduct">
-            <?php foreach ($productAlls as $productAll) : ?>
-                <!--/.item-->
-                <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="product">
-                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
-                        <div class="imageHover">
-                            <a href="user/productDetail">
-                                <img src="<?= $productAll['sHinhAnh'] ?>" alt="img" class="img-responsive">
-                                <div class="promotion"><span class="discount">15% OFF</span></div>
-                        </div>
-                        <div class="description">
-                            <h4><a href="product-details.html"> <?= $productAll['sTenSP'] ?> </a></h4>
-
-                            <div class="grid-description">
-                                <p><?= $productAll['sGhiChu'] ?> </p>
+                <?php foreach ($productAlls as $productAll) : ?>
+                    <!--/.item-->
+                    <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="product">
+                            <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
+                                <i class="glyphicon glyphicon-heart"></i>
+                            </a>
+                            <div class="imageHover">
+                                <a href="user/productDetail">
+                                    <img src="<?= $productAll['sHinhAnh'] ?>" alt="img" class="img-responsive">
+                                    <div class="promotion"><span class="discount">15% OFF</span></div>
                             </div>
-                            
+                            <div class="description">
+                                <h4><a href="product-details.html"> <?= $productAll['sTenSP'] ?> </a></h4>
+
+                                <div class="grid-description">
+                                    <p><?= $productAll['sGhiChu'] ?> </p>
+                                </div>
+
+                            </div>
+                            <div class="price"><span><?= $productAll['fGiaBanLe'] ?></span></div>
+                            <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                         </div>
-                        <div class="price"><span><?= $productAll['fGiaBanLe'] ?></span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                     </div>
-                </div>
                 <?php endforeach ?>
             </div>
         </div>
-
     </div>
-
-
 </div>
 <!--main-container-->
 
@@ -181,14 +162,51 @@
 <!--/.parallax-section-->
 
 <!-- Product Details Modal  -->
-<!-- Modal -->
 <div class="modal fade" id="productSetailsModalAjax" tabindex="-1" role="dialog" aria-labelledby="productSetailsModalAjaxLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
-<!-- End Modal -->
+
+<!-- Modal thêm vào giỏ hàng  -->
+<div class="modal signUpContent fade" id="AddCart" tabindex="-1" role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                <h3 class="modal-title-site text-center"> Thêm vào giỏ hàng </h3>
+            </div>
+            <div class="modal-body">
+                <form action="user/addCart" method="POST">
+                    <div class="form-group login-username">
+                        <div>
+                            <img src="" alt="img">
+                            <div class="description">
+                                <h4>Sản phẩm 1</h4>
+                                <div class="price"><span>100.000 VNĐ</span></div>
+                            </div>
+                            <input name="FK_iMaSP" id="masanpham" type="text" hidden>
+                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input class="btn  btn-block btn-lg btn-primary" value="Thêm vào giỏ hàng" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".edit").click(function() {
+            masanpham = $(this).attr("data-masanpham");
+
+            $("#masanpham").val(masanpham);
+        })
+    })
+</script>

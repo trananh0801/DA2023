@@ -1,9 +1,7 @@
 <section class="content-main">
-
 	<div class="content-header">
 		<h2 class="content-title">Xin chào quản trị viên</h2>
 	</div>
-
 	<div class="card mb-4">
 		<div class="card-body">
 			<h5 class="card-title">Nana House's - Siêu thị mẹ và bé</h5>

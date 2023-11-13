@@ -63,7 +63,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $k = 1?>
+                        <?php $k = 1 ?>
                         <?php foreach ($orders as $order) : ?>
                             <tr>
                                 <td><?= $k++ ?></td>
@@ -111,12 +111,21 @@
                                         </select>
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label class="form-label">Khách hàng</label>
-                                        <select class="form-select" name="FK_iMaKH" id="selectOption">
-                                            <?php foreach ($customers as $customer) : ?>
-                                                <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sTenKH'] ?></option>
-                                            <?php endforeach ?>
-                                        </select>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label">Khách hàng</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <select class="form-select" name="FK_iMaKH" id="selectOption">
+                                                    <?php foreach ($customers as $customer) : ?>
+                                                        <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sTenKH'] ?></option>
+                                                    <?php endforeach ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-2">
+                                                <button type="button" class="btn btn-sm btn-primary">+</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mb-4 col-6">
                                         <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
@@ -274,8 +283,8 @@
             console.log('1');
         });
     });
-// Áp dụng Select2 cho phần tử select có id "mySelect"
-$(document).ready(function() {
-    $('#selectOption').select2();
-  });
+    // Áp dụng Select2 cho phần tử select có id "mySelect"
+    $(document).ready(function() {
+        $('#selectOption').select2();
+    });
 </script>

@@ -1,0 +1,185 @@
+CRITICAL - 2023-11-13 07:30:03 --> Undefined variable $hihi
+in APPPATH\Views\User\Layout\header.php on line 198.
+ 1 APPPATH\Views\User\Layout\header.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hihi', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php', 198)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Layout/header.php', [], true)
+ 5 APPPATH\Controllers\BaseController.php(72): view('User/Layout/header.php')
+ 6 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 07:39:02 --> Call to undefined method App\Services\ProductService::getAllProductById()
+in APPPATH\Controllers\User\ProductDetailController.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\ProductDetailController->list('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\ProductDetailController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 07:39:15 --> Call to undefined method App\Services\ProductService::getAllProductById()
+in APPPATH\Controllers\User\ProductDetailController.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\ProductDetailController->list('1')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\ProductDetailController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-13 13:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-13 13:31:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-13 13:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-13 13:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-13 13:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-13 13:39:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-13 13:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-13 13:46:24 --> Undefined variable $hihi
+in APPPATH\Views\User\Layout\header.php on line 198.
+ 1 APPPATH\Views\User\Layout\header.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hihi', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php', 198)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Layout/header.php', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('User/Layout/header.php')
+ 6 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 13:49:17 --> Undefined variable $hihi
+in APPPATH\Views\User\Layout\header.php on line 198.
+ 1 APPPATH\Views\User\Layout\header.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hihi', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php', 198)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Layout/header.php', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('User/Layout/header.php')
+ 6 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 13:54:53 --> Undefined variable $hihi
+in APPPATH\Views\User\Layout\header.php on line 198.
+ 1 APPPATH\Views\User\Layout\header.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hihi', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php', 198)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Layout/header.php', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('User/Layout/header.php')
+ 6 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:01:35 --> Invalid file: "user/header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('user/header.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('user/header', [], true)
+ 3 APPPATH\Controllers\BaseController.php(71): view('user/header')
+ 4 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:08:34 --> Call to a member function getAllProductGroup() on null
+in APPPATH\Controllers\BaseController.php on line 83.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:08:54 --> Call to a member function getAllProductGroup() on null
+in APPPATH\Controllers\BaseController.php on line 83.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:08:55 --> Call to a member function getAllProductGroup() on null
+in APPPATH\Controllers\BaseController.php on line 83.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:12:46 --> Call to a member function getAllProductGroup() on null
+in APPPATH\Controllers\BaseController.php on line 83.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:16:45 --> Call to a member function select() on null
+in APPPATH\Controllers\BaseController.php on line 80.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:16:46 --> Call to a member function select() on null
+in APPPATH\Controllers\BaseController.php on line 80.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:16:47 --> Call to a member function select() on null
+in APPPATH\Controllers\BaseController.php on line 80.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:16:47 --> Call to a member function select() on null
+in APPPATH\Controllers\BaseController.php on line 80.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:23:30 --> Call to a member function query() on null
+in APPPATH\Controllers\BaseController.php on line 78.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:23:34 --> Call to a member function query() on null
+in APPPATH\Controllers\BaseController.php on line 78.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:23:35 --> Call to a member function query() on null
+in APPPATH\Controllers\BaseController.php on line 78.
+ 1 APPPATH\Controllers\User\HomeController.php(23): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Trang chủ', 'User/Pages/home', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->list()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-13 14:55:39 --> CodeIgniter\BaseModel::transformDataToArray(): Return value must be of type array, string returned
+in SYSTEMPATH\BaseModel.php on line 1750.
+ 1 SYSTEMPATH\BaseModel.php(748): CodeIgniter\BaseModel->transformDataToArray('10', 'insert')
+ 2 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert('10', false)
+ 3 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert('10', false)
+ 4 APPPATH\Services\HomeService.php(72): CodeIgniter\BaseModel->save('10')
+ 5 APPPATH\Controllers\User\HomeController.php(30): App\Services\HomeService->addCartInfo(Object(CodeIgniter\HTTP\IncomingRequest))
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\HomeController->addCart()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-13 15:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

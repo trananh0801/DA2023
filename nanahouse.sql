@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 09, 2023 lúc 07:40 PM
+-- Thời gian đã tạo: Th10 13, 2023 lúc 04:14 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -58,7 +58,7 @@ INSERT INTO `tbl_ctdondathang` (`PK_iMaCT_HD`, `FK_iMaDon`, `iSoLuong`, `FK_iMaS
 CREATE TABLE `tbl_ctgiohang` (
   `PK_iMaCT_GH` int(11) NOT NULL,
   `FK_iMaSP` varchar(255) NOT NULL,
-  `FK_iMaGH` int(11) DEFAULT NULL,
+  `FK_iMaGH` varchar(255) DEFAULT NULL,
   `iSoLuong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,8 +67,9 @@ CREATE TABLE `tbl_ctgiohang` (
 --
 
 INSERT INTO `tbl_ctgiohang` (`PK_iMaCT_GH`, `FK_iMaSP`, `FK_iMaGH`, `iSoLuong`) VALUES
-(1, '1', 1, 10),
-(2, '2', 1, 20);
+(0, '1', 'GH_16998882747090', 11),
+(1, '1', '1', 10),
+(2, '2', '1', 20);
 
 -- --------------------------------------------------------
 
@@ -175,17 +176,18 @@ INSERT INTO `tbl_dondathang` (`PK_iMaDon`, `FK_iMaNV`, `FK_iMaKH`, `FK_iMaTrangT
 --
 
 CREATE TABLE `tbl_giohang` (
-  `PK_iMaGH` int(11) NOT NULL,
-  `FK_iMaTK` int(11) DEFAULT NULL,
-  `sGhiChu` text DEFAULT NULL
+  `PK_iMaGH` varchar(255) NOT NULL,
+  `FK_iMaTK` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_giohang`
 --
 
-INSERT INTO `tbl_giohang` (`PK_iMaGH`, `FK_iMaTK`, `sGhiChu`) VALUES
-(1, 1, 'Giỏ hàng 1');
+INSERT INTO `tbl_giohang` (`PK_iMaGH`, `FK_iMaTK`) VALUES
+('1', 1),
+('2', 4),
+('GH_16998882747090', 4);
 
 -- --------------------------------------------------------
 
@@ -652,12 +654,6 @@ ALTER TABLE `tbl_ctphieunhap`
 --
 ALTER TABLE `tbl_danhgia`
   MODIFY `PK_iDanhGia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT cho bảng `tbl_giohang`
---
-ALTER TABLE `tbl_giohang`
-  MODIFY `PK_iMaGH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_khachhang`

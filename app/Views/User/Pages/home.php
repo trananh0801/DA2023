@@ -114,7 +114,7 @@
         <h3 class="section-title style2 text-center"><span>SẢN PHẨM BÁN CHẠY NHẤT</span></h3>
         <div class="container">
             <div class="row xsResponse categoryProduct">
-                <?php foreach ($productAlls as $productAll) : ?>
+                <?php foreach ($sellingProducts as $sellingProduct) : ?>
                     <!--/.item-->
                     <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="product">
@@ -123,19 +123,19 @@
                             </a>
                             <div class="imageHover">
                                 <a href="user/productDetail">
-                                    <img src="<?= $productAll['sHinhAnh'] ?>" alt="img" class="img-responsive">
+                                    <img src="<?= $sellingProduct['sHinhAnh'] ?>" alt="img" class="img-responsive">
                                     <div class="promotion"><span class="discount">15% OFF</span></div>
                             </div>
                             <div class="description">
-                                <h4><a href="product-details.html"> <?= $productAll['sTenSP'] ?> </a></h4>
+                                <h4><a href="product-details.html"> <?= $sellingProduct['sTenSP'] ?> </a></h4>
 
                                 <div class="grid-description">
-                                    <p><?= $productAll['sGhiChu'] ?> </p>
+                                    <p><?= $sellingProduct['sGhiChu'] ?> </p>
                                 </div>
 
                             </div>
-                            <div class="price"><span><?= $productAll['fGiaBanLe'] ?></span></div>
-                            <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
+                            <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span></div>
+                            <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                         </div>
                     </div>
                 <?php endforeach ?>

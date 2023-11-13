@@ -192,10 +192,11 @@
                             <li class="megamenu-content">
                                 <!-- megamenu-content -->
                                 <ul class="col-lg-2  col-sm-2 col-md-2  unstyled noMarginLeft">
+                                    
                                     <li>
                                         <p><strong> Giảm giá sản phẩm </strong></p>
                                     </li>
-                                    <li><a href="#"> Khuyến mãi 1 </a></li>
+                                    <li><a href="#"><?= json_encode($group)?> </a></li>
                                     <li><a href="#"> Khuyến mãi 2 </a></li>
                                 </ul>
                                 <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">

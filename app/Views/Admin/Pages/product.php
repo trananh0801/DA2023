@@ -68,8 +68,7 @@
 						<?php foreach ($products as $product) : ?>
 							<tr>
 								<td><?= $k++ ?></td>
-								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
-								</td>
+								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm"></td>								</td>
 								<td><b><?= $product['sTenSP'] ?></b></td>
 								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaNhap'], 0, '.', ',') ?> &#8363</span></td>
 								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> &#8363</span></td>

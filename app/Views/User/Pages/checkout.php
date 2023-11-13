@@ -1,9 +1,20 @@
+<style>
+    .quantity-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-input {
+        width: 50px;
+        text-align: center;
+        margin: 0 10px;
+    }
+</style>
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
             <ul class="breadcrumb">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="cart.html">Giỏ hàng</a></li>
+                <li><a href="user/home">Trang chủ</a></li>
                 <li class="active"> Đặt hàng</li>
             </ul>
         </div>
@@ -13,10 +24,8 @@
         <div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 col-xxs-12 text-center-xs">
             <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Đặt hàng</span></h1>
         </div>
-
         <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar col-xs-6 col-xxs-12 text-center-xs">
-
-            <h4 class="caps"><a href="category.html"><i class="fa fa-chevron-left"></i> Quay lại trang chủ </a></h4>
+            <h4 class="caps"><a href="user/home"><i class="fa fa-chevron-left"></i> Quay lại trang chủ </a></h4>
         </div>
     </div>
 
@@ -65,43 +74,11 @@
                                                 <td class="delete">
                                                     <div class="price ">300.000 VNĐ</div>
                                                 </td>
-                                                <td class="hidden-xs">2</td>
-                                                <td class="hidden-xs">0</td>
-                                                <td class="price">600.000 VNĐ</td>
-                                            </tr>
-                                            <tr class="CartProduct">
-                                                <td class="CartProductThumb">
-                                                    <div><a href="product-details.html"><img src="assets/user/images/product/3.jpg"></a>
-                                                    </div>
+                                                <td class="quantity-container">
+                                                    <button class="btn btn-sm btn-info" onclick="decreaseQuantity()">-</button>
+                                                    <input type="text" id="quantity" class="quantity-input" value="1" readonly>
+                                                    <button class="btn btn-sm btn-info" onclick="increaseQuantity()">+</button>
                                                 </td>
-                                                <td>
-                                                    <div class="CartDescription">
-                                                        <h4><a href="product-details.html">Sữa tươi </a></h4>
-                                                        <span class="size">Hộp</span>
-                                                    </div>
-                                                </td>
-                                                <td class="delete">
-                                                    <div class="price ">300.000 VNĐ</div>
-                                                </td>
-                                                <td class="hidden-xs">2</td>
-                                                <td class="hidden-xs">0</td>
-                                                <td class="price">600.000 VNĐ</td>
-                                            </tr>
-                                            <tr class="CartProduct">
-                                                <td class="CartProductThumb">
-                                                    <div><a href="product-details.html"><img src="assets/user/images/product/3.jpg"></a>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="CartDescription">
-                                                        <h4><a href="product-details.html">Sữa tươi </a></h4>
-                                                        <span class="size">Hộp</span>
-                                                    </div>
-                                                </td>
-                                                <td class="delete">
-                                                    <div class="price ">300.000 VNĐ</div>
-                                                </td>
-                                                <td class="hidden-xs">2</td>
                                                 <td class="hidden-xs">0</td>
                                                 <td class="price">600.000 VNĐ</td>
                                             </tr>
@@ -140,8 +117,6 @@
                             <div class="pull-left"><a class="btn btn-default" href="checkout-4.html">
                                     <i class="fa fa-arrow-left"></i> &nbsp; Thay đổi địa chỉ </a>
                             </div>
-
-
                             <div class="pull-right">
                                 <a href="user/thankyou" class="btn btn-primary btn-small ">
                                     Xác nhận đặt hàng &nbsp; <i class="fa fa-check"></i>
@@ -156,7 +131,6 @@
         <!--/row end-->
 
         <div class="col-lg-3 col-md-3 col-sm-12 rightSidebar">
-
             <div class="w100 cartMiniTable">
                 <table id="cart-summary" class="std table">
                     <tbody>
@@ -172,8 +146,6 @@
                             <td> Tổng tiền</td>
                             <td class=" site-color" id="total-price">1.000.000 VNĐ</td>
                         </tr>
-
-
                     </tbody>
                     <tbody>
                     </tbody>
@@ -188,3 +160,20 @@
 
     <div style="clear:both"></div>
 </div>
+
+<script>
+    function increaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var currentQuantity = parseInt(quantityInput.value, 10);
+        quantityInput.value = currentQuantity + 1;
+    }
+
+    function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var currentQuantity = parseInt(quantityInput.value, 10);
+
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    }
+</script>

@@ -162,10 +162,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="order-1">
                                             <td>1</td>
                                             <td>
-                                                <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
+                                                <select data-index="1" class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
+                                                    <option value="0">Chọn sản phẩm</option>
+
                                                     <?php foreach ($products as $product) : ?>
                                                         <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
                                                     <?php endforeach ?>
@@ -173,7 +175,7 @@
                                             </td>
                                             <td class="price" id="price"></td>
                                             <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
-                                            <td></td>
+                                            <td class="chietkhau" id="chietkhau"></td>
                                             <td></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
@@ -205,7 +207,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -218,42 +219,22 @@
     var addRowButton = document.getElementById("addRowButton");
     var table = document.getElementById("myTable");
     var rowCount = 1; // Biến để theo dõi số dòng đã thêm
-
-    // Thêm sự kiện click cho nút "Thêm Dòng"
-    addRowButton.addEventListener("click", function() {
-        // Tạo một hàng mới (dòng)
-        var newRow = table.insertRow();
-
-        // Tạo các ô (cột) trong hàng mới
-        var cell1 = newRow.insertCell(0);
-        var cell2 = newRow.insertCell(1);
-        var cell3 = newRow.insertCell(2);
-        var cell4 = newRow.insertCell(3);
-        var cell5 = newRow.insertCell(4);
-        var cell6 = newRow.insertCell(5);
-
-        // Cài đặt nội dung cho các ô
-        cell1.innerHTML = rowCount;
-        cell2.innerHTML = "<td><select class='form-select selectProduct' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>' data-price='<?= $product['fGiaBanLe'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
-        cell3.innerHTML = "<td class='price' id='price'></td>";
-        cell4.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoLuong' name='iSoLuong[]' /></td>";
-        cell5.innerHTML = "<td></td>";
-        cell6.innerHTML = "<td class='text-end'><button type='button' class='btn btn-sm btn-danger deleteRowButton'>Xóa</button></td>";
-
-        // Tăng biến rowCount để theo dõi số dòng đã thêm
-        rowCount++;
-        // Thêm sự kiện click cho nút xóa trong hàng mới
-        var deleteButton = newRow.querySelector(".deleteRowButton");
-        deleteButton.addEventListener("click", function() {
-            // Lấy hàng (dòng) chứa nút xóa và xóa nó
-            var row = this.closest("tr");
-            row.parentNode.removeChild(row);
-        });
-    });
-
-
-
     $(document).ready(function() {
+
+        $('#addRowButton').click(function() {
+            var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
+            html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
+            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
+            html += '<td class="price" id="price"></td>';
+            html += '<td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>';
+            html += '<td class="chietkhau" id="chietkhau"></td>';
+            html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
+            html += '</tr>';
+            $('#myTable tbody').append(html);
+        })
+
+
+
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
         $('.editGroup').on('click', function() {
             var orderId = $(this).attr("data-PK_iMaDon");
@@ -276,11 +257,25 @@
 
 
         // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
-        $('.selectProduct').on('change', function() {
-            var selectedPrice = $('option:selected', this).data('price');
-            console.log(selectedPrice);
-            $(this).closest('tr').find('.price').text(selectedPrice);
-            console.log('1');
+        $(document).on('change', '.selectProduct', function() {
+            var id = $(this).val();
+            var index = $(this).attr('data-index');
+            $.ajax({
+                type: "post",
+                url: 'admin/order/check_product_detail',
+                data: {
+                    product_id: id,
+                },
+                success: function(data) {
+                    response = JSON.parse(data);
+                    $('tr.order-' + index).children('td.price').html(response.product.fGiaBanLe);
+                    if (response.product.fChietKhau == null) {
+                        $('tr.order-' + index).children('td.chietkhau').html('0');
+                    } else {
+                        $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
+                    }
+                }
+            });
         });
     });
     // Áp dụng Select2 cho phần tử select có id "mySelect"

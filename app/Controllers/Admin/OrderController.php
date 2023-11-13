@@ -22,7 +22,7 @@ class OrderController extends BaseController
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
-        
+
         $data = [];
         $dataLayout['orders'] = $this->service->getAllOrder();
         $dataLayout['staffs'] = $this->service->getAllStaff();
@@ -49,5 +49,13 @@ class OrderController extends BaseController
         }
         $result = $this->service->deleteOrderInfo($id);
         return redirect('admin/order/list')->with($result['massageCode'], $result['message']);
+    }
+    public function check_product_detail()
+    {
+        $data = $this->request->getPost();
+        $result = $this->service->checkProductDetail($data['product_id']);
+        echo json_encode([
+            'product' =>  $result,
+        ]);
     }
 }

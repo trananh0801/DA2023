@@ -105,6 +105,18 @@ class OrderService extends BaseService
         // dd($result);
         return $result;
     }
+      /**Lấy 1 sản phẩm------------------------------------------------------------------------ */
+      public function checkProductDetail($product_id='')
+      {
+          $result = $this->product
+              ->select('*')
+              ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
+              ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
+              ->where('PK_iMaSP',$product_id)
+              ->first();
+          return $result;
+      }
+
 
     /**Thêm mới đơn hàng------------------------------------------------------------------------ */
     public function addOrderInfo($requestData)

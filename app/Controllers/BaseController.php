@@ -68,9 +68,15 @@ abstract class BaseController extends Controller
 
     public function loadMasterLayoutUser($data, $title, $content, $dataLayout = [])
     {
+        $db      = \Config\Database::connect(); // Khởi tạo kết nối đến cơ sở dữ liệu
+
+        $table2 = $db->table('tbl_nhomsanpham');
+        $query = $table2->get();
+        $dataa['group']= $query->getResultArray();
+
         $data['title'] = $title;
         $data['footer'] = view('User/Layout/footer.php');
-        $data['header'] = view('User/Layout/header.php');
+        $data['header'] = view('User/Layout/header.php',$dataa);
         $data['content'] = view($content, $dataLayout);
         return $data;
     }

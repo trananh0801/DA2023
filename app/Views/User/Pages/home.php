@@ -1,3 +1,23 @@
+<style>
+	.td_img {
+		width: 100%;
+		height: 240px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+        margin-left: -3px;
+	}
+
+	.td_img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
+		object-position: center center;
+		display: block;
+	}
+</style>
 <div class="banner">
     <div class="full-container">
         <div class="slider-content">
@@ -70,7 +90,7 @@
                             <!-- <div class="quickview">
                                 <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/productDetail/" data-target="#productSetailsModalAjax">Quick View </a>
                             </div> -->
-                            <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $newProduct['sHinhAnh']) ?>" alt="img" class="img-responsive"></a>
+                            <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>" class="td_img"><img src="<?php echo base_url('assets/admin/images/products/' . $newProduct['sHinhAnh']) ?>" alt="img" class="img-responsive"></a>
 
                             <div class="promotion"><span class="new-product"> GIẢM</span> <span class="discount">15% </span></div>
                         </div>
@@ -122,7 +142,7 @@
                                 <i class="glyphicon glyphicon-heart"></i>
                             </a>
                             <div class="imageHover">
-                                <a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>">
+                                <a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>" class="td_img">
                                     <img src="<?php echo base_url('assets/admin/images/products/' . $sellingProduct['sHinhAnh']) ?>" alt="img" class="img-responsive">
                                     <div class="promotion"><span class="discount">15% OFF</span></div>
                             </div>

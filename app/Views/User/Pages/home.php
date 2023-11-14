@@ -67,10 +67,10 @@
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
                         <div class="image">
-                            <div class="quickview">
-                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>" data-target="#productSetailsModalAjax">Quick View </a>
-                            </div>
-                            <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><img src="<?= $newProduct['sHinhAnh'] ?>" alt="img" class="img-responsive"></a>
+                            <!-- <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/productDetail/" data-target="#productSetailsModalAjax">Quick View </a>
+                            </div> -->
+                            <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $newProduct['sHinhAnh']) ?>" alt="img" class="img-responsive"></a>
 
                             <div class="promotion"><span class="new-product"> GIẢM</span> <span class="discount">15% </span></div>
                         </div>
@@ -123,7 +123,7 @@
                             </a>
                             <div class="imageHover">
                                 <a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>">
-                                    <img src="<?= $sellingProduct['sHinhAnh'] ?>" alt="img" class="img-responsive">
+                                    <img src="<?php echo base_url('assets/admin/images/products/' . $sellingProduct['sHinhAnh']) ?>" alt="img" class="img-responsive">
                                     <div class="promotion"><span class="discount">15% OFF</span></div>
                             </div>
                             <div class="description">

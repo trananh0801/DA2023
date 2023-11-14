@@ -1,3 +1,23 @@
+<style>
+	.td_img {
+		width: 70px;
+		height: 60px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+        padding-left: 5px;
+	}
+
+	.td_img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
+		object-position: center center;
+		display: block;
+	}
+</style>
 <!-- Fixed navbar start -->
 <div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
     <div class="navbar-top">
@@ -46,7 +66,7 @@
         </div>
 
         <!-- this part is duplicate from cartMenu  keep it for mobile -->
-        <div class="navbar-cart  collapse">
+        <!-- <div class="navbar-cart  collapse">
             <div class="cartMenu  col-lg-4 col-xs-12 col-md-4 ">
                 <div class="w100 miniCartTable scroll-pane">
                     <table>
@@ -156,18 +176,15 @@
                         </tbody>
                     </table>
                 </div>
-                <!--/.miniCartTable-->
 
                 <div class="miniCartFooter  miniCartFooterInMobile text-right">
                     <h3 class="text-right subtotal"> Subtotal: $210 </h3>
                     <a class="btn btn-sm btn-danger" href="cart.html"> <i class="fa fa-shopping-cart"> </i> VIEW CART
                     </a> <a href="checkout-0.html" class="btn btn-sm btn-primary"> CHECKOUT </a>
                 </div>
-                <!--/.miniCartFooter-->
 
             </div>
-            <!--/.cartMenu-->
-        </div>
+        </div> -->
         <!--/.navbar-cart-->
 
         <div class="navbar-collapse collapse">
@@ -226,23 +243,26 @@
                         <div class="w100 miniCartTable scroll-pane">
                             <table>
                                 <tbody>
-                                    <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb">
-                                            <div><a href="user/productDetail"> <img src="assets/user/images/product/3.jpg" alt="img">
-                                                </a></div>
-                                        </td>
-                                        <td style="width:40%">
-                                            <div class="miniCartDescription">
-                                                <h4><a href="user/productDetail"> SỮA BỘT TRẺ 2 TUỔI </a></h4>
-                                                <span class="size"> 500g </span>
+                                    <?php $k = 1 ?>
+                                    <?php $k1 = 1 ?>
+                                    <?php foreach ($productCarts as $productCart) : ?>
+                                        <tr class="miniCartProduct cart-<?= $k++ ?>" data-index="<?= $k1++ ?>">
+                                            <td style="width:20%" class="miniCartProductThumb">
+                                                <div><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>" class="td_img"> <img src="<?php echo base_url('assets/admin/images/products/' . $productCart['sHinhAnh']) ?>" alt="img">
+                                                    </a></div>
+                                            </td>
+                                            <td style="width:40%">
+                                                <div class="miniCartDescription">
+                                                    <h4><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>"> <?= $productCart['sTenSP'] ?> </a></h4>
+                                                    <span class="size"> <?= $productCart['sDVT'] ?> </span>
 
-                                                <div class="price"><span> 600.000 VNĐ </span></div>
-                                            </div>
-                                        </td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> 600.000 VNĐ </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
-                                    </tr>
+                                                    <div class="thanhtien"><strong>1.000.000 đ</strong></div>
+                                                </div>
+                                            </td>
+                                            <td style="width:10%">X <span class="miniCartQuantity"><?= $productCart['iSoLuong'] ?></span> </td>
+                                            <td style="width:15%"> <span class="miniCartSubtotal"><?= $productCart['fGiaBanLe'] ?></span>  đ</td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
@@ -253,7 +273,6 @@
                             <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a><a class="btn btn-sm btn-primary" href="user/checkout"> Thanh toán </a>
                         </div>
                         <!--/.miniCartFooter-->
-
                     </div>
                     <!--/.dropdown-menu-->
                 </div>
@@ -285,4 +304,12 @@
     <!--/.search-full-->
 
 </div>
-<!-- /.Fixed navbar  -->
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        soluong = $('.miniCartQuantity').text();
+        dongia = $('.miniCartSubtotal').text();
+        console.log(soluong);
+        // $('.thanhtien').html(soluong*dongia);
+    });
+</script>

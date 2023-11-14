@@ -38,7 +38,7 @@
                                 <?php foreach ($allProductInCarts as $allProductInCart) : ?>
                                     <tr class="CartProduct">
                                         <td class="CartProductThumb">
-                                            <div><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?= $allProductInCart['sHinhAnh'] ?>" alt="img"></a>
+                                            <div><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
                                             </div>
                                         </td>
                                         <td>

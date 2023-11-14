@@ -13,7 +13,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6">
             <!-- product Image and Zoom -->
             <div class="main-image col-lg-12 no-padding style3">
-                <a class="product-largeimg-link" href="product-details.html"><img src="<?= $allProducts['fGiaBanLe'] ?>" class="img-responsive product-largeimg" alt="img" />
+                <a class="product-largeimg-link" href="product-details.html"><img src="<?php echo base_url('assets/admin/images/products/' . $allProducts['sHinhAnh']) ?>" class="img-responsive product-largeimg" alt="img" />
                 </a>
             </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="cart-actions">
                 <div class="addto row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <button  class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>">Thêm vào giỏ hàng
+                        <button  class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>">Thêm vào giỏ hàng
                         </button>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block ">Mua ngay</a></div>
@@ -50,7 +50,7 @@
         <div id="SimilarProductSlider">
         <?php foreach ($getAllProducts as $getAllProduct) : ?>
             <div class="item">
-                <div class="product"><a class="product-image"> <img src="<?= $getAllProduct['PK_iMaSP'] ?>" alt="img"> </a>
+                <div class="product"><a class="product-image"> <img src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img"> </a>
 
                     <div class="description">
                         <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
@@ -77,7 +77,7 @@
                 <form action="user/addCart" method="POST">
                     <div class="form-group login-username">
                         <div>
-                            <img src="" alt="img">
+                            <img class="anhsp" src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img">
                             <div class="description">
                                 <h4>Sản phẩm 1</h4>
                                 <div class="price"><span>100.000 VNĐ</span></div>
@@ -102,8 +102,10 @@
     $(document).ready(function() {
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
+            hinhanh = $(this).attr("data-hinhanh");
 
             $("#masanpham").val(masanpham);
+            $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })
 </script>

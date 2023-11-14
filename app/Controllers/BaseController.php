@@ -89,6 +89,21 @@ abstract class BaseController extends Controller
             ->get();
         $dataHeader['promotionMonths'] = $query->getResultArray();
 
+
+        //Lấy danh sách sản phẩm trong giỏ hàng theo id tài khoản
+        $tbl_sanpham = $db->table('tbl_sanpham');
+        $tbl_chitietgiohang = $db->table('tbl_ctgiohang');
+        $tbl_giohang = $db->table('tbl_giohang');
+        $idTaiKhoan = 4; // Thay thế bằng id tài khoản thực tế
+        $query = $tbl_sanpham->select('tbl_sanpham.*, tbl_ctgiohang.*, tbl_giohang.*')
+            ->join('tbl_ctgiohang', 'tbl_ctgiohang.FK_iMaSP = tbl_sanpham.PK_iMaSP')
+            ->join('tbl_giohang', 'tbl_giohang.PK_iMaGH = tbl_ctgiohang.FK_iMaGH')
+            ->where('tbl_giohang.FK_iMaTK', $idTaiKhoan)
+            ->limit(5)
+            ->get();
+        $dataHeader['productCarts'] = $query->getResultArray();
+
+        //Load layout
         $data['title'] = $title;
         $data['footer'] = view('User/Layout/footer.php');
         $data['header'] = view('User/Layout/header.php', $dataHeader);

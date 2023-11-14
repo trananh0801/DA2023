@@ -174,9 +174,9 @@
                                                 </select>
                                             </td>
                                             <td class="price" id="price"></td>
-                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
+                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>
                                             <td class="chietkhau" id="chietkhau"></td>
-                                            <td></td>
+                                            <td class="thanhtien" id="thanhtien"></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
@@ -190,7 +190,7 @@
                                 <article class="float-end">
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
-                                        <dd> <b class="h5">$983.00</b> </dd>
+                                        <dd> <b class="h5" id="tongtien"></b> </dd>
                                     </dl>
                                     <dl class="dlist">
                                         <dt class="text-muted">Trạng thái:</dt>
@@ -215,25 +215,27 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script>
 <script>
-    // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
-    var addRowButton = document.getElementById("addRowButton");
-    var table = document.getElementById("myTable");
-    var rowCount = 1; // Biến để theo dõi số dòng đã thêm
     $(document).ready(function() {
-
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
             html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
             html += '<td class="price" id="price"></td>';
-            html += '<td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>';
+            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
             html += '<td class="chietkhau" id="chietkhau"></td>';
+            html += '<td class="thanhtien" id="thanhtien"></td>';
             html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
             html += '</tr>';
             $('#myTable tbody').append(html);
         })
 
+        $("#myTable").on("click", ".deleteRowButton", function() {
+            $(this).closest("tr").remove();
 
+            var tong = 0;
+            tong += parseFloat($('.thanhtien').text()) || 0;
+            $('#tongtien').html(tong);
+        });
 
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
         $('.editGroup').on('click', function() {
@@ -268,18 +270,54 @@
                 },
                 success: function(data) {
                     response = JSON.parse(data);
+                    var tong = 0;
                     $('tr.order-' + index).children('td.price').html(response.product.fGiaBanLe);
                     if (response.product.fChietKhau == null) {
                         $('tr.order-' + index).children('td.chietkhau').html('0');
                     } else {
                         $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
                     }
+                    $('.iSoLuong').val('1');
+                    soluong = $('.iSoLuong').val();
+                    $('tr.order-' + index).children('td.thanhtien').html((response.product.fGiaBanLe * soluong) - (response.product.fGiaBanLe * response.product.fChietKhau / 100));
+
+                    $(".thanhtien").each(function() {
+                        // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
+                        tong += parseFloat($(this).text()) || 0;
+                    });
+                    $('#tongtien').html(tong);
+                }
+            });
+        });
+
+
+        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
+        $(document).on('change', '.inputSoLuong', function() {
+            var id = $(this).val();
+            var index = $(this).attr('data-index');
+            $.ajax({
+                type: "post",
+                url: 'admin/order/check_product_detail',
+                data: {
+                    product_id: id,
+                },
+                success: function(data) {
+                    response = JSON.parse(data);
+                    var tong = 0;
+                    soluong = $('tr.order-' + index).children('input.iSoLuong').text();
+                    
+                    console.log(soluong)
+                    // $('tr.order-' + index).children('td.chietkhau').html(1- (Math.pow(1 - 0.1, soluong)));
+
+                    $('tr.order-' + index).children('td.thanhtien').html(($('tr.order-' + index).children('td.price').text() * soluong) - ($('tr.order-' + index).children('td.price').text() * $('tr.order-' + index).children('td.chietkhau').text() / 100));
+
+                    $(".thanhtien").each(function() {
+                        tong += parseFloat($(this).text()) || 0;
+                    });
+                    $('#tongtien').html(tong);
                 }
             });
         });
     });
-    // Áp dụng Select2 cho phần tử select có id "mySelect"
-    $(document).ready(function() {
-        $('#selectOption').select2();
-    });
+
 </script>

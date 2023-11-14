@@ -70,13 +70,28 @@ abstract class BaseController extends Controller
     {
         $db      = \Config\Database::connect(); // Khởi tạo kết nối đến cơ sở dữ liệu
 
-        $table2 = $db->table('tbl_nhomsanpham');
-        $query = $table2->get();
-        $dataa['group']= $query->getResultArray();
+        //Lấy danh sách nhóm sản phẩm
+        $tbl_nhomsanpham = $db->table('tbl_nhomsanpham');
+        $query = $tbl_nhomsanpham->get();
+        $dataHeader['groups'] = $query->getResultArray();
+
+        //Lấy danh sách khuyến mãi
+        $tbl_khuyenmai = $db->table('tbl_khuyenmai');
+        $query = $tbl_khuyenmai->get();
+        $dataHeader['promotions'] = $query->getResultArray();
+
+        //Lấy danh sách khuyến mãi trong tháng hiện tại
+        $tbl_khuyenmai = $db->table('tbl_khuyenmai');
+        $month = date('m'); // Lấy tháng hiện tại
+        $year = date('Y');  // Lấy năm hiện tại
+        $query = $tbl_khuyenmai->where('MONTH(dNgayHieuLuc)', $month)
+            ->where('YEAR(dNgayHieuLuc)', $year)
+            ->get();
+        $dataHeader['promotionMonths'] = $query->getResultArray();
 
         $data['title'] = $title;
         $data['footer'] = view('User/Layout/footer.php');
-        $data['header'] = view('User/Layout/header.php',$dataa);
+        $data['header'] = view('User/Layout/header.php', $dataHeader);
         $data['content'] = view($content, $dataLayout);
         return $data;
     }

@@ -71,12 +71,13 @@ class ProductService extends BaseService
         // Kiểm tra xem có lỗi trong quá trình tải lên hay không
         if ($image->isValid() && !$image->hasMoved()) {
             // Định đường dẫn đến thư mục lưu trữ ảnh sản phẩm
-            $uploadPath = WRITEPATH . 'uploads/products/';
+            $uploadPath = FCPATH  . 'assets/admin/images/products/';
             // Đặt tên file mới cho ảnh (có thể dựa trên tên sản phẩm hoặc một thuộc tính khác)
             $newName = $image->getRandomName();
             // Di chuyển ảnh từ thư mục tạm thời đến thư mục lưu trữ
             $image->move($uploadPath, $newName);
             // Lưu đường dẫn của ảnh vào cơ sở dữ liệu hoặc làm gì bạn cần
+
         } else {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -86,6 +87,7 @@ class ProductService extends BaseService
         }
         $dataSave = $requestData->getPost();
         $dataSave['sHinhAnh'] = $newName;
+        // dd($uploadPath);
         try {
             $this->product->save($dataSave);
 
@@ -122,28 +124,38 @@ class ProductService extends BaseService
             ];
         }
         $image = $requestData->getFile('sHinhAnh'); // Lấy file ảnh từ biểu mẫu
-        // Kiểm tra xem có lỗi trong quá trình tải lên hay không
-        if ($image->isValid() && !$image->hasMoved()) {
-            // Định đường dẫn đến thư mục lưu trữ ảnh sản phẩm
-            $uploadPath = WRITEPATH . 'uploads/products/';
-            // Đặt tên file mới cho ảnh (có thể dựa trên tên sản phẩm hoặc một thuộc tính khác)
-            $newName = $image->getRandomName();
-            // Di chuyển ảnh từ thư mục tạm thời đến thư mục lưu trữ
-            $image->move($uploadPath, $newName);
-            // Lưu đường dẫn của ảnh vào cơ sở dữ liệu hoặc làm gì bạn cần
+        if ($image->getName() != "") {
+            $dataSave = $requestData->getPost();
+            unset($dataSave['PK_iMaSP']);
+            unset($dataSave['fSoLuong']);
+            unset($dataSave['fGiaNhap']);
+
+            // Kiểm tra xem có lỗi trong quá trình tải lên hay không
+            if ($image->isValid() && !$image->hasMoved()) {
+                // Định đường dẫn đến thư mục lưu trữ ảnh sản phẩm
+                $uploadPath = FCPATH  . 'assets/admin/images/products/';
+                // Đặt tên file mới cho ảnh (có thể dựa trên tên sản phẩm hoặc một thuộc tính khác)
+                $newName = $image->getRandomName();
+                // Di chuyển ảnh từ thư mục tạm thời đến thư mục lưu trữ
+                $image->move($uploadPath, $newName);
+                // Lưu đường dẫn của ảnh vào cơ sở dữ liệu hoặc làm gì bạn cần
+            } else {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['Lỗi' => 'Lỗi tải ảnh'],
+                ];
+            }
+
+            $dataSave['sHinhAnh'] = $newName;
         } else {
-            return [
-                'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['Lỗi' => 'Lỗi tải ảnh'],
-            ];
+            $dataSave = $requestData->getPost();
+            unset($dataSave['PK_iMaSP']);
+            unset($dataSave['fSoLuong']);
+            unset($dataSave['fGiaNhap']);
+            unset($dataSave['sHinhAnh']);
         }
 
-        $dataSave = $requestData->getPost();
-        unset($dataSave['PK_iMaSP']);
-        unset($dataSave['fSoLuong']);
-        unset($dataSave['fGiaNhap']);
-        $dataSave['sHinhAnh'] = $newName;
 
         // dd($id);
         try {
@@ -214,12 +226,12 @@ class ProductService extends BaseService
             ];
         }
         $dataSave_GH = [
-            'PK_iMaGH' => 'GH_'. $uniqueCode,
+            'PK_iMaGH' => 'GH_' . $uniqueCode,
             'FK_iMaTK' => '4'
         ];
         $dataSave_CTGH = [
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
-            'FK_iMaGH' => 'GH_'. $uniqueCode,
+            'FK_iMaGH' => 'GH_' . $uniqueCode,
             'iSoLuong' => $requestData->getPost('iSoLuong'),
         ];
         // dd($dataSave_CTGH);

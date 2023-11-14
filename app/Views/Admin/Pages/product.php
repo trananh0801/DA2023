@@ -1,3 +1,22 @@
+<style>
+	.td_img {
+		width: 100px;
+		height: 100px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.td_img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
+		object-position: center center;
+		display: block;
+	}
+</style>
 <section class="content-main">
 	<?php if (session('errorsMsg')) : ?>
 		<?php foreach (session('errorsMsg') as $error) : ?>
@@ -68,7 +87,12 @@
 						<?php foreach ($products as $product) : ?>
 							<tr>
 								<td><?= $k++ ?></td>
-								<td><img src="<?php echo base_url('writable/uploads/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm"></td>								</td>
+								<td>
+									<div class="td_img">
+										<img src="<?php echo base_url('assets/admin/images/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
+									</div>
+								</td>
+								</td>
 								<td><b><?= $product['sTenSP'] ?></b></td>
 								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaNhap'], 0, '.', ',') ?> &#8363</span></td>
 								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> &#8363</span></td>

@@ -139,7 +139,7 @@
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
                             <?php else : ?>
-                                <a class="btn btn-primary edit" href="" id="alert" type="button">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#ModalLogin" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
                             <?php endif; ?>
@@ -196,7 +196,20 @@
                             <p><?= $newProduct['sGhiChu'] ?></p>
                         </div>
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
-                        <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
+                        <?php if ($sessions['tendn']) : ?>
+                            <div class="action-control">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>">
+                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
+                                </a>
+                            </div>
+                        <?php else : ?>
+                            <div class="action-control">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#ModalLogin" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>">
+                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             <?php endforeach ?>
@@ -221,10 +234,21 @@
                                 <div class="grid-description">
                                     <p><?= $sellingProduct['sGhiChu'] ?> </p>
                                 </div>
-
                             </div>
                             <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span></div>
-                            <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
+                            <?php if ($sessions['tendn']) : ?>
+                                <div class="action-control">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>">
+                                        <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
+                                    </a>
+                                </div>
+                            <?php else : ?>
+                                <div class="action-control">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#ModalLogin" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>">
+                                        <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -291,10 +315,6 @@
         </div>
     </div>
 </div>
-<div class="alert alert-warning alert-dismissible fade show" role="alert" id="myAlert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -305,10 +325,5 @@
             $("#masanpham").val(masanpham);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
-
-
-        $('#alert').click(function () {
-            $('#myAlert').removeClass('fade').addClass('show');
-        });
     })
 </script>

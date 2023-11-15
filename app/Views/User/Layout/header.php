@@ -41,6 +41,7 @@
                             <li><a href="#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Đăng nhập</span>
                                     <i class="glyphicon glyphicon-log-in hide visible-xs "></i> </a></li>
                             <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#ModalSignup">Đăng ký</a></li>
+                            <li class="hidden-xs"><a href="user/logout">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>

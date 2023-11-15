@@ -78,31 +78,32 @@
                 <h3 class="modal-title-site text-center"> ĐĂNG NHẬP </h3>
             </div>
             <div class="modal-body">
-                <div class="form-group login-username">
-                    <div>
-                        <input name="log" id="login-user" class="form-control input" size="20" placeholder="Tên đăng nhập" type="text">
-                    </div>
-                </div>
-                <div class="form-group login-password">
-                    <div>
-                        <input name="Password" id="login-password" class="form-control input" size="20" placeholder="Mật khẩu" type="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <div class="checkbox login-remember">
-                            <label>
-                                <input name="rememberme" value="forever" checked="checked" type="checkbox">
-                                Nhớ mật khẩu </label>
+                <form action="user/login" method="POST">
+                    <div class="form-group login-username">
+                        <div>
+                            <input name="sTenTK" id="login-user" class="form-control input" size="20" placeholder="Tên đăng nhập" type="text">
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <input name="submit" class="btn  btn-block btn-lg btn-primary" value="Đăng nhập" type="submit">
+                    <div class="form-group login-password">
+                        <div>
+                            <input name="sMatKhau" id="login-password" class="form-control input" size="20" placeholder="Mật khẩu" type="password">
+                        </div>
                     </div>
-                </div>
-
+                    <div class="form-group">
+                        <div>
+                            <div class="checkbox login-remember">
+                                <label>
+                                    <input name="rememberme" value="forever" checked="checked" type="checkbox">
+                                    Nhớ mật khẩu </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input name="submit" class="btn  btn-block btn-lg btn-primary" value="Đăng nhập" type="submit">
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <p class="text-center"> Bạn chưa từng đăng nhập? <a data-toggle="modal" data-dismiss="modal" href="#ModalSignup"> Đăng ký. </a> <br>

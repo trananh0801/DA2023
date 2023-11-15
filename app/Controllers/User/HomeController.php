@@ -16,12 +16,18 @@ class HomeController extends BaseController
     }
     public function list()
     {
+        $session = session();
+        $sessions = [
+            'tendn' => $session->get('user_id'),
+            'quyen' => $session->get('quyen')
+        ];
         $data = [];
+        $dataLayout['sessions'] = $sessions;
         $dataLayout['newProducts'] = $this->service->getAllProduct();
         $dataLayout['sellingProducts'] = $this->service->getAllSellingProducts();
         $dataLayout['productAlls'] = $this->service->getProduct();
         $dataLayout['productGroups'] = $this->service->getAllProductGroup();
-        // dd($dataLayout['sellingProducts']);
+        // dd($sessions);
 
         $data = $this->loadMasterLayoutUser($data, 'Trang chủ', 'User/Pages/home', $dataLayout);
         return view('User/main', $data);

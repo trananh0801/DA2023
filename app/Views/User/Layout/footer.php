@@ -24,13 +24,10 @@
                                 Khuyến mãi</a>
                         </li>
                     </ul>
-
                 </div>
-
                 <div style="clear:both" class="hide visible-xs"></div>
-
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Thông tin  </h3>
+                    <h3> Thông tin </h3>
                     <ul class="list-unstyled footer-nav">
                     </ul>
                 </div>
@@ -40,9 +37,7 @@
                         <li><a href="account.html"> Tài khoản </a></li>
                     </ul>
                 </div>
-
                 <div style="clear:both" class="hide visible-xs"></div>
-
                 <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                     <h3> Đăng ký </h3>
                     <ul>
@@ -61,18 +56,13 @@
                     </ul>
                 </div>
             </div>
-            <!--/.row-->
         </div>
-        <!--/.container-->
     </div>
-    <!--/.footer-->
-
     <div class="footer-bottom">
         <div class="container">
             <p class="pull-left"> &copy; 19A10010068 - Trần Ánh - Đồ án tốt nghiệp 2023 </p>
         </div>
     </div>
-    <!--/.footer-bottom-->
 </footer>
 
 
@@ -112,7 +102,6 @@
                         <input name="submit" class="btn  btn-block btn-lg btn-primary" value="Đăng nhập" type="submit">
                     </div>
                 </div>
-                <!--userForm-->
 
             </div>
             <div class="modal-footer">
@@ -121,15 +110,11 @@
                 </p>
             </div>
         </div>
-        <!-- /.modal-content -->
-
     </div>
-    <!-- /.modal-dialog -->
-
 </div>
-<!-- /.Modal Login -->
 
-<!-- Modal Signup start -->
+
+<!-- Modal đăng ký -->
 <div class="modal signUpContent fade" id="ModalSignup" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -138,47 +123,65 @@
                 <h3 class="modal-title-site text-center"> ĐĂNG KÝ </h3>
             </div>
             <div class="modal-body">
-                <div class="form-group reg-username">
-                    <div>
-                        <input name="login" class="form-control input" size="20" placeholder="Tên đăng nhập" type="text">
-                    </div>
-                </div>
-                <div class="form-group reg-email">
-                    <div>
-                        <input name="reg" class="form-control input" size="20" placeholder="Số điện thoại" type="text">
-                    </div>
-                </div>
-                <div class="form-group reg-password">
-                    <div>
-                        <input name="password" class="form-control input" size="20" placeholder="Mật khẩu" type="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <div class="checkbox login-remember">
-                            <label>
-                                <input name="rememberme" id="rememberme" value="forever" checked="checked" type="checkbox">
-                                Nhớ mật khẩu </label>
+                <form action="user/register" method="POST">
+                    <div class="form-group reg-username">
+                        <div>
+                            <input name="sTenKH" class="form-control input" size="20" placeholder="Họ và tên" type="text">
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <input name="submit" class="btn  btn-block btn-lg btn-primary" value="ĐĂNG NHẬP" type="submit">
+                    <div class="form-group reg-username">
+                        <div>
+                            <input name="sDiaChi" class="form-control input" size="20" placeholder="Địa chỉ" type="text">
+                        </div>
                     </div>
-                </div>
-                <!--userForm-->
-
+                    <div class="form-group reg-username">
+                        <div>
+                            <input name="dNgaySinh" class="form-control input" size="20" type="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <select id="selectbasic" name="sGioiTinh" class="form-control">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group reg-username">
+                        <div>
+                            <input name="sTenTK" class="form-control input" size="20" placeholder="Tên đăng nhập" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group reg-email">
+                        <div>
+                            <input name="sSDT" class="form-control input" size="20" placeholder="Số điện thoại" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group reg-password">
+                        <div>
+                            <input name="sMatKhau" class="form-control input" size="20" placeholder="Mật khẩu" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <div class="checkbox login-remember">
+                                <label>
+                                    <input name="rememberme" id="rememberme" value="forever" checked="checked" type="checkbox">
+                                    Nhớ mật khẩu </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input name="submit" class="btn  btn-block btn-lg btn-primary" value="ĐĂNG NHẬP" type="submit">
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <p class="text-center"> Bạn đã có tài khoản? <a data-toggle="modal" data-dismiss="modal" href="#ModalLogin">
                         Đăng nhập </a></p>
             </div>
         </div>
-        <!-- /.modal-content -->
-
     </div>
-    <!-- /.modal-dialog -->
-
 </div>
-<!-- /.ModalSignup End -->

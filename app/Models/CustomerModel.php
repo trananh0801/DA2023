@@ -7,5 +7,4 @@ use CodeIgniter\Model;
 class CustomerModel extends Model
 {
     protected $table = 'tbl_khachhang';
-    protected $primaryKey = 'PK_iMaKH';
 }

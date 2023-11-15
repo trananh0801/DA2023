@@ -110,4 +110,13 @@ abstract class BaseController extends Controller
         $data['content'] = view($content, $dataLayout);
         return $data;
     }
+    protected function getPostDataRow($key)
+    {
+        return $this->request->getPost($key);
+    }
+    protected function getPostDataArr()
+    {
+        return $this->request->getPost();
+    }
+    
 }

@@ -1,5 +1,5 @@
 <style>
-	.td_img {
+	.imgCart {
 		width: 70px;
 		height: 60px;
 		overflow: hidden;
@@ -9,13 +9,13 @@
         padding-left: 5px;
 	}
 
-	.td_img img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
+	.imgCart img {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: cover !important;
 		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
-		object-position: center center;
-		display: block;
+		object-position: center center !important;
+		display: block !important;
 	}
 </style>
 <!-- Fixed navbar start -->
@@ -248,7 +248,7 @@
                                     <?php foreach ($productCarts as $productCart) : ?>
                                         <tr class="miniCartProduct cart-<?= $k++ ?>" data-index="<?= $k1++ ?>">
                                             <td style="width:20%" class="miniCartProductThumb">
-                                                <div><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>" class="td_img"> <img src="<?php echo base_url('assets/admin/images/products/' . $productCart['sHinhAnh']) ?>" alt="img">
+                                                <div><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>" class="imgCart"> <img src="<?php echo base_url('assets/admin/images/products/' . $productCart['sHinhAnh']) ?>" alt="img">
                                                     </a></div>
                                             </td>
                                             <td style="width:40%">

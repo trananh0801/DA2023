@@ -1,22 +1,55 @@
 <style>
-	.td_img {
-		width: 100%;
-		height: 240px;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-        margin-left: -3px;
-	}
+    .td_img {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-	.td_img img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
-		object-position: center center;
-		display: block;
-	}
+    .td_img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+
+    .imgspbanchay {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imgspbanchay img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+
+    .modalImg {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modalImg img {
+        width: 100%;
+        margin: 5px;
+        height: 100%;
+        object-fit: cover;
+        align-items: center;
+        justify-content: center;
+        object-position: center center;
+        display: block;
+    }
 </style>
 <div class="banner">
     <div class="full-container">
@@ -100,7 +133,7 @@
                             <p><?= $newProduct['sGhiChu'] ?></p>
                         </div>
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
-                        <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
+                        <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                     </div>
                 </div>
             <?php endforeach ?>
@@ -132,17 +165,43 @@
 <div class="container main-container">
     <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
         <h3 class="section-title style2 text-center"><span>SẢN PHẨM BÁN CHẠY NHẤT</span></h3>
+        <div id="productslider" class="owl-carousel owl-theme">
+            <?php foreach ($newProducts as $newProduct) : ?>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+                        <div class="image">
+                            <!-- <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/productDetail/" data-target="#productSetailsModalAjax">Quick View </a>
+                            </div> -->
+                            <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>" class="td_img"><img src="<?php echo base_url('assets/admin/images/products/' . $newProduct['sHinhAnh']) ?>" alt="img" class="img-responsive"></a>
+
+                            <div class="promotion"><span class="new-product"> GIẢM</span> <span class="discount">15% </span></div>
+                        </div>
+                        <div class="description">
+                            <h4><a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><?= $newProduct['sTenSP'] ?> </a></h4>
+
+                            <p><?= $newProduct['sGhiChu'] ?></p>
+                        </div>
+                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
+                        <div class="action-control"><a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
         <div class="container">
             <div class="row xsResponse categoryProduct">
                 <?php foreach ($sellingProducts as $sellingProduct) : ?>
                     <!--/.item-->
                     <div class="item itemauto  col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <div class="product">
+                        <div class="product" style="height:450px">
                             <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
                                 <i class="glyphicon glyphicon-heart"></i>
                             </a>
                             <div class="imageHover">
-                                <a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>" class="td_img">
+                                <a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>" class="imgspbanchay">
                                     <img src="<?php echo base_url('assets/admin/images/products/' . $sellingProduct['sHinhAnh']) ?>" alt="img" class="img-responsive">
                                     <div class="promotion"><span class="discount">15% OFF</span></div>
                             </div>
@@ -200,8 +259,10 @@
             <div class="modal-body">
                 <form action="user/addCart" method="POST">
                     <div class="form-group login-username">
-                        <div>
-                            <img src="" alt="img">
+                        <div class="row">
+                            <div class="modalImg">
+                                <img src="" alt="img" class="anhsp">
+                            </div>
                             <div class="description">
                                 <h4>Sản phẩm 1</h4>
                                 <div class="price"><span>100.000 VNĐ</span></div>
@@ -225,8 +286,10 @@
     $(document).ready(function() {
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
+            hinhanh = $(this).attr("data-hinhanh");
 
             $("#masanpham").val(masanpham);
+            $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })
 </script>

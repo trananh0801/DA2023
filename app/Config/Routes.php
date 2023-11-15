@@ -99,6 +99,7 @@ $routes->group('admin', function ($routes) {
 $routes->group('user', function ($routes) {
     $routes->get('home', 'User\HomeController::list');
     $routes->post('addCart', 'User\HomeController::addCart');
+    $routes->post('register', 'User\HeaderController::register');
 
     $routes->get('account', 'User\AccountController::list');
     $routes->get('cart', 'User\CartController::list');

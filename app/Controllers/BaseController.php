@@ -68,6 +68,12 @@ abstract class BaseController extends Controller
 
     public function loadMasterLayoutUser($data, $title, $content, $dataLayout = [])
     {
+        //session
+        $session = session();
+        $sessions = [
+            'tendn' => $session->get('user_id'),
+            'matk' => $session->get('matk'),
+        ];
         $db      = \Config\Database::connect(); // Khởi tạo kết nối đến cơ sở dữ liệu
 
         //Lấy danh sách nhóm sản phẩm
@@ -94,13 +100,16 @@ abstract class BaseController extends Controller
         $tbl_sanpham = $db->table('tbl_sanpham');
         $tbl_chitietgiohang = $db->table('tbl_ctgiohang');
         $tbl_giohang = $db->table('tbl_giohang');
-        $idTaiKhoan = 4; // Thay thế bằng id tài khoản thực tế
+        $idTaiKhoan = $sessions['matk']; // Thay thế bằng id tài khoản thực tế
         $query = $tbl_sanpham->select('tbl_sanpham.*, tbl_ctgiohang.*, tbl_giohang.*')
             ->join('tbl_ctgiohang', 'tbl_ctgiohang.FK_iMaSP = tbl_sanpham.PK_iMaSP')
             ->join('tbl_giohang', 'tbl_giohang.PK_iMaGH = tbl_ctgiohang.FK_iMaGH')
             ->where('tbl_giohang.FK_iMaTK', $idTaiKhoan)
             ->limit(5)
             ->get();
+
+        
+        $dataHeader['sessions'] = $sessions;
         $dataHeader['productCarts'] = $query->getResultArray();
 
         //Load layout
@@ -118,5 +127,4 @@ abstract class BaseController extends Controller
     {
         return $this->request->getPost();
     }
-    
 }

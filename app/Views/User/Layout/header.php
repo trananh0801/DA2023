@@ -1,22 +1,22 @@
 <style>
-	.imgCart {
-		width: 70px;
-		height: 60px;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+    .imgCart {
+        width: 70px;
+        height: 60px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding-left: 5px;
-	}
+    }
 
-	.imgCart img {
-		width: 100% !important;
-		height: 100% !important;
-		object-fit: cover !important;
-		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
-		object-position: center center !important;
-		display: block !important;
-	}
+    .imgCart img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        /* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
+        object-position: center center !important;
+        display: block !important;
+    }
 </style>
 <!-- Fixed navbar start -->
 <div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
@@ -38,10 +38,18 @@
                     <div class="pull-right">
                         <ul class="userMenu">
                             <li><a href="user/account"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Đăng nhập</span>
-                                    <i class="glyphicon glyphicon-log-in hide visible-xs "></i> </a></li>
+                            <?php if (!$sessions['tendn']) : ?>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#ModalLogin">
+                                        <span class="hidden-xs">Đăng nhập</span>
+                                        <i class="glyphicon glyphicon-log-in hide visible-xs "></i>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                             <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#ModalSignup">Đăng ký</a></li>
-                            <li class="hidden-xs"><a href="user/logout">Đăng xuất</a></li>
+                            <?php if ($sessions['tendn']) : ?>
+                                <li class="hidden-xs"><a href="user/logout">Đăng xuất</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
@@ -205,33 +213,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
-                <li class="dropdown megamenu-80width "><a data-toggle="dropdown" class="dropdown-toggle" href="#"> KHUYẾN MÃI
-                        <b class="caret"> </b> </a>
-                    <ul class="dropdown-menu">
-                        <li class="megamenu-content">
-                            <!-- megamenu-content -->
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled noMarginLeft">
-
-                                <li>
-                                    <p><strong> Khuyến mãi sản phẩm </strong></p>
-                                </li>
-                                <?php foreach ($promotions as $promotion) : ?>
-                                    <li><a href="#"><?= $promotion['sTenKM'] ?></a></li>
-                                <?php endforeach ?>
-                            </ul>
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p><strong> Khuyến mãi tháng </strong></p>
-                                </li>
-                                <?php foreach ($promotionMonths as $promotionMonth) : ?>
-                                    <li><a href="#"><?= $promotionMonth['sTenKM'] ?></a></li>
-                                <?php endforeach ?>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
                 <li class=""><a href="user/about-us"> GIỚI THIỆU </a></li>
             </ul>
 
@@ -241,39 +222,44 @@
                 <div class="dropdown  cartMenu "><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng ($210.00) </span> <b class="caret"> </b> </a>
 
                     <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4 ">
-                        <div class="w100 miniCartTable scroll-pane">
-                            <table>
-                                <tbody>
-                                    <?php $k = 1 ?>
-                                    <?php $k1 = 1 ?>
-                                    <?php foreach ($productCarts as $productCart) : ?>
-                                        <tr class="miniCartProduct cart-<?= $k++ ?>" data-index="<?= $k1++ ?>">
-                                            <td style="width:20%" class="miniCartProductThumb">
-                                                <div><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>" class="imgCart"> <img src="<?php echo base_url('assets/admin/images/products/' . $productCart['sHinhAnh']) ?>" alt="img">
-                                                    </a></div>
-                                            </td>
-                                            <td style="width:40%">
-                                                <div class="miniCartDescription">
-                                                    <h4><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>"> <?= $productCart['sTenSP'] ?> </a></h4>
-                                                    <span class="size"> <?= $productCart['sDVT'] ?> </span>
+                        <?php if ($sessions['tendn']) : ?>
+                            <div class="w100 miniCartTable scroll-pane">
+                                <table>
+                                    <tbody>
+                                        <?php $k = 1 ?>
+                                        <?php $k1 = 1 ?>
+                                        <?php foreach ($productCarts as $productCart) : ?>
+                                            <tr class="miniCartProduct cart-<?= $k++ ?>" data-index="<?= $k1++ ?>">
+                                                <td style="width:20%" class="miniCartProductThumb">
+                                                    <div><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>" class="imgCart"> <img src="<?php echo base_url('assets/admin/images/products/' . $productCart['sHinhAnh']) ?>" alt="img">
+                                                        </a></div>
+                                                </td>
+                                                <td style="width:40%">
+                                                    <div class="miniCartDescription">
+                                                        <h4><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>"> <?= $productCart['sTenSP'] ?> </a></h4>
+                                                        <span class="size"> <?= $productCart['sDVT'] ?> </span>
 
-                                                    <div class="thanhtien"><strong>1.000.000 đ</strong></div>
-                                                </div>
-                                            </td>
-                                            <td style="width:10%">X <span class="miniCartQuantity"><?= $productCart['iSoLuong'] ?></span> </td>
-                                            <td style="width:15%"> <span class="miniCartSubtotal"><?= $productCart['fGiaBanLe'] ?></span>  đ</td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--/.miniCartTable-->
+                                                        <div class="thanhtien"><strong>1.000.000 đ</strong></div>
+                                                    </div>
+                                                </td>
+                                                <td style="width:10%">X <span class="miniCartQuantity"><?= $productCart['iSoLuong'] ?></span> </td>
+                                                <td style="width:15%"> <span class="miniCartSubtotal"><?= $productCart['fGiaBanLe'] ?></span> đ</td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--/.miniCartTable-->
 
-                        <div class="miniCartFooter text-right">
-                            <h3 class="text-right subtotal"> Tổng cộng: 600.000 VNĐ </h3>
-                            <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a>
-                            <!-- <a class="btn btn-sm btn-primary" href="user/checkout"> Thanh toán </a> -->
-                        </div>
+                            <div class="miniCartFooter text-right">
+                                <h3 class="text-right subtotal"> Tổng cộng: 600.000 VNĐ </h3>
+                                <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a>
+                                <!-- <a class="btn btn-sm btn-primary" href="user/checkout"> Thanh toán </a> -->
+                            </div>
+                        <?php else : ?>
+                            <h3 style="margin: 20px; text-align:center">Không có sản phẩm nào!</h3>
+                        <?php endif; ?>
+
                         <!--/.miniCartFooter-->
                     </div>
                     <!--/.dropdown-menu-->

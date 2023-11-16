@@ -5,74 +5,18 @@
             <div class="row userInfo">
                 <div class="col-xs-12 col-sm-12">
                     <h1 class="title-big text-center section-title-style2">
-            <span>
-              About us
-            </span>
+                        <span>
+                            Về chúng tôi
+                        </span>
                     </h1>
-
                     <p class="lead text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit
-                        dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit
-                        metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos.
+                        Từ khi ra mắt vào tháng 7/2017, siêu thị mẹ và bé Nana’s House được đánh giá là hệ thống siêu thị có sự đầu tư bài bản,
+                        nổi lên tại thị trường bỉm sữa Hà Nội nhờ số lượng hàng hóa dồi dào, sản phẩm chất lượng và dịch vụ đáng tin cậy.
+                        Sau 4 năm hoạt động, trải qua nhiều thăng trầm, Nana’s House đang ngày càng phát triển,
+                        đáp ứng tốt hơn nhu cầu của khách hàng và trở thành điểm mua sắm quen thuộc của mỗi gia đình có con nhỏ.
                     </p>
-
-
                     <hr class="hr hr30">
-                    <div class="row animated">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-sm-6">
-                            <img class="img-responsive" src="assets/user/images/site/girl1.jpg" alt="img">
-
-                            <h3 class="block-title-3">
-                                Consectetur adipiscing
-                            </h3>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat
-                                hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper
-                                metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora
-                                torquent per conubia nostra, per inceptos himenaeos.
-                            </p>
-
-
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-sm-6">
-                            <img class="img-responsive" src="assets/user/images/site/girl2.jpg" alt="img">
-
-                            <h3 class="block-title-3">
-                                Lorem ipsum dolor
-                            </h3>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat
-                                hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper
-                                metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora
-                                torquent per conubia nostra, per inceptos himenaeos.
-                            </p>
-
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-sm-6">
-                            <img class="img-responsive" src="assets/user/images/site/girl3.jpg" alt="img">
-
-                            <h3 class="block-title-3">
-                                Consectetur adipiscing
-                            </h3>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat
-                                hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper
-                                metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora
-                                torquent per conubia nostra, per inceptos himenaeos.
-                            </p>
-
-                        </div>
-
-
-                    </div>
                     <!--/.row-->
-
                     <hr>
                 </div>
             </div>

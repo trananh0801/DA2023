@@ -7,8 +7,6 @@
             </ul>
         </div>
     </div>
-    <!--/.row-->
-
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 col-xxs-12 text-center-xs">
             <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Danh sách sản phẩm đã thêm vào giỏ hàng </span></h1>
@@ -17,63 +15,64 @@
             <h4 class="caps"><a href="user/home"><i class="fa fa-chevron-left"></i> Quay lại trang chủ </a></h4>
         </div>
     </div>
-    <!--/.row-->
-
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-7">
             <div class="row userInfo">
                 <div class="col-xs-12 col-sm-12">
-                    <div class="cartContent w100">
-                        <table class="cartTable table-responsive" style="width:100%">
-                            <tbody>
-
-                                <tr class="CartProduct cartTableHeader">
-                                    <td style="width:15%"> Sản phẩm</td>
-                                    <td style="width:40%">Chi tiết</td>
-                                    <td style="width:10%" class="delete">&nbsp;</td>
-                                    <td style="width:10%">Số lượng</td>
-                                    <td style="width:10%">Chiết khấu</td>
-                                    <td style="width:15%">Tổng cộng</td>
-                                </tr>
-                                <?php foreach ($allProductInCarts as $allProductInCart) : ?>
-                                    <tr class="CartProduct">
-                                        <td class="CartProductThumb">
-                                            <div><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="CartDescription">
-                                                <h4><a href="user/productDetail"><?= $allProductInCart['sTenSP'] ?> </a></h4>
-                                                <div class="price"><span><?= $allProductInCart['fGiaBanLe'] ?> VNĐ</span></div>
-                                            </div>
-                                        </td>
-                                        <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
-                                        <td><input class="quanitySniper" type="text" value="1" min="1" name="quanitySniper"></td>
-                                        <td>0</td>
-                                        <td class="price">1.000.000 VNĐ</td>
+                    <form action="user/updateCart" method="POST">
+                        <div class="cartContent w100">
+                            <table class="cartTable table-responsive" style="width:100%">
+                                <tbody>
+                                    <tr class="CartProduct cartTableHeader">
+                                        <td style="width:15%"> Sản phẩm</td>
+                                        <td style="width:40%">Chi tiết</td>
+                                        <td style="width:10%" class="delete">&nbsp;</td>
+                                        <td style="width:10%">Số lượng</td>
+                                        <!-- <td style="width:10%">Chiết khấu</td> -->
+                                        <td style="width:15%">Tổng cộng</td>
                                     </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--cartContent-->
-
-                    <div class="cartFooter w100">
-                        <div class="box-footer">
-                            <div class="pull-left"><a href="user/home" class="btn btn-default"> <i class="fa fa-arrow-left"></i> &nbsp; Tiếp tục mua sắm </a></div>
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
-                                </button>
+                                    <?php foreach ($allProductInCarts as $allProductInCart) : ?>
+                                        <tr class="CartProduct">
+                                            <td class="CartProductThumb">
+                                                <div><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="CartDescription">
+                                                    <h4><a href="user/productDetail"><?= $allProductInCart['sTenSP'] ?> </a></h4>
+                                                    <div class="price"><span><?= $allProductInCart['fGiaBanLe'] ?> VNĐ</span></div>
+                                                </div>
+                                            </td>
+                                            <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
+                                            <td>
+                                                <input type="text" value="<?= $allProductInCart['PK_iMaGH'] ?>" name="PK_iMaGH" hidden>
+                                                <input type="text" value="<?= $allProductInCart['FK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
+                                                <input class="quanitySniper" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]">
+                                            </td>
+                                            <!-- <td>0</td> -->
+                                            <td class="price">1.000.000 VNĐ</td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="cartFooter w100">
+                            <div class="box-footer">
+                                <div class="pull-left"><a href="user/home" class="btn btn-default"> <i class="fa fa-arrow-left"></i> &nbsp; Tiếp tục mua sắm </a></div>
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--/ cartFooter -->
-
+                    </form>
                 </div>
             </div>
-            <!--/row end-->
-
         </div>
+
+
+
+
         <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar">
             <div class="contentBox">
                 <div class="w100 costDetails">
@@ -102,14 +101,7 @@
                     </div>
                 </div>
             </div>
-            <!-- End popular -->
-
         </div>
-        <!--/rightSidebar-->
-
     </div>
-    <!--/row-->
-
     <div style="clear:both"></div>
 </div>
-<!-- /.main-container -->

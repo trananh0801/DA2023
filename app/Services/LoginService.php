@@ -30,6 +30,9 @@ class LoginService extends BaseService
 
             $session = session();
             $session->set('user_id', $user['sTenTK']);
+            $session->set('matk', $user['PK_iMaTK']);
+            $session->set('quyen', $user['FK_iMaQuyen']);
+
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,

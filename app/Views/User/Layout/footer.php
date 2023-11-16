@@ -174,7 +174,7 @@
                     </div>
                     <div>
                         <div>
-                            <input name="submit" class="btn  btn-block btn-lg btn-primary" value="ĐĂNG NHẬP" type="submit">
+                            <input name="submit" class="btn  btn-block btn-lg btn-primary" value="ĐĂNG KÝ" type="submit">
                         </div>
                     </div>
                 </form>

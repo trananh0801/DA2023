@@ -105,6 +105,8 @@ $routes->group('user', function ($routes) {
 
     $routes->get('account', 'User\AccountController::list');
     $routes->get('cart', 'User\CartController::list');
+    $routes->post('updateCart', 'User\CartController::UpdateCart');
+
     $routes->get('productDetail/(:num)', 'User\ProductDetailController::list/$1');
     $routes->get('product', 'User\ProductController::list');
     $routes->get('category', 'User\CategoryController::list');

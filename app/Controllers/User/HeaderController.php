@@ -61,18 +61,16 @@ class HeaderController extends BaseController
 
     public function login()
     {
-        // Xử lý đăng nhập ở đây
         $username = $this->getPostDataRow('sTenTK');
         $password = $this->getPostDataRow('sMatKhau');
 
         // Kiểm tra thông tin đăng nhập với cơ sở dữ liệu
         $user = $this->user->where('sTenTK', $username)->first();
-        // dd($user);
         if ($user && password_verify((string) $password, $user['sMatKhau'])) {
-            // Đăng nhập thành công, lưu thông tin người dùng vào session
             $session = session();
             $session->set('user_id', $user['sTenTK']);
-            $session->set('quyen', '4');
+            $session->set('quyen', $user['FK_iMaQuyen']);
+            $session->set('matk', $user['PK_iMaTK']);
         }
         return redirect()->to('user/home');
     }

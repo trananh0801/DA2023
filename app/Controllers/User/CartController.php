@@ -17,14 +17,20 @@ class CartController extends BaseController
 
     public function list()
     {
-        // $session = session();
-        // dd($session->get('user_id'));
+        $session = session();
+        $userID = $session->get('matk');
+        // dd($userID);
         $data = [];
-        $dataLayout['allProductInCarts'] = $this->service->getAllProduct();
+        $dataLayout['allProductInCarts'] = $this->service->getAllProduct($userID);
         // dd($dataLayout['allProductInCarts']);
         $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', $dataLayout);
         return view('User/main', $data);
     }
 
-   
+    public function UpdateCart()
+    {
+        $result = $this->service->updateCartInfo($this->request);
+        return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
+    
+    }
 }

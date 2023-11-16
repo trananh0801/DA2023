@@ -167,7 +167,6 @@
                                             <td>
                                                 <select data-index="1" class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
                                                     <option value="0">Chọn sản phẩm</option>
-
                                                     <?php foreach ($products as $product) : ?>
                                                         <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
                                                     <?php endforeach ?>
@@ -212,8 +211,8 @@
     </div>
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script>
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" /> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script> -->
 <script>
     $(document).ready(function() {
         $('#addRowButton').click(function() {

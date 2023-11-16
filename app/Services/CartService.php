@@ -59,4 +59,28 @@ class CartService extends BaseService
             ];
         }
     }
+
+    /**Xóa đơn hàng----------------------------------------------------------------------- */
+    public function deleteProductInCart($requestData)
+    {
+        $magiohang = $requestData->getPost('FK_iMaGH');
+        $masp = $requestData->getPost('FK_iMaSP');
+        try {
+            $builder = $this->cartDetail->builder();
+            $builder->where('FK_iMaGH', $magiohang);
+            $builder->where('FK_iMaSP', $masp);
+            $builder->delete();
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Xóa dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
 }

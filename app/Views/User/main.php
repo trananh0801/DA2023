@@ -70,7 +70,7 @@
     <script src="assets/user/assets/js/owl.carousel.min.js"></script>
 
     <!-- jQuery select2 // custom select   -->
-    <script src="../../../../cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <!-- <script src="../../../../cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script> -->
 
     <!-- include touchspin.js // touch friendly input spinner component   -->
     <script src="assets/user/assets/js/bootstrap.touchspin.js"></script>

@@ -33,4 +33,10 @@ class CartController extends BaseController
         return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
     
     }
+    public function deleteProductInCart()
+    {
+        $result = $this->service->deleteProductInCart($this->request);
+        return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
+    
+    }
 }

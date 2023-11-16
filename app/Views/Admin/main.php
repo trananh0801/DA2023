@@ -13,12 +13,12 @@
 
   <link href="assets/admin/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-  <link href="assets/admin/css/bootstrapf9e3.css?v=1.1" rel="stylesheet" type="text/css" />
+  <link href="assets/admin/css/bootstrapf9e3.css" rel="stylesheet" type="text/css" />
 
 
   <!-- custom style -->
-  <link href="assets/admin/css/uif9e3.css?v=1.1" rel="stylesheet" type="text/css" />
-  <link href="assets/admin/css/responsivef9e3.css?v=1.1" rel="stylesheet" />
+  <link href="assets/admin/css/uif9e3.css" rel="stylesheet" type="text/css" />
+  <link href="assets/admin/css/responsivef9e3.css" rel="stylesheet" />
 
   <!-- iconfont -->
   <link rel="stylesheet" href="assets/admin/fonts/material-icon/css/round.css" />
@@ -46,10 +46,10 @@
   <script src="assets/admin/js/bootstrap.bundle.min.js"></script>
   <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
   <!-- ChartJS files-->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Custom JS -->
-  <script src="assets/admin/js/scriptc619.js?v=1.0"></script>
+  <script src="assets/admin/js/scriptc619.js"></script>
 
 </body>
 

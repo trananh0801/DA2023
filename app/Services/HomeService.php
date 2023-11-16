@@ -80,18 +80,49 @@ class HomeService extends BaseService
             ];
         }
         $dataSave_GH = [
-            'PK_iMaGH' => 'GH_'. $uniqueCode,
+            'PK_iMaGH' => 'GH_' . $uniqueCode,
             'FK_iMaTK' => '4'
         ];
-        $dataSave_CTGH = [
+        $dataSave_CTGH_new = [
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
-            'FK_iMaGH' => 'GH_'. $uniqueCode,
+            'FK_iMaGH' => 'GH_' . $uniqueCode,
             'iSoLuong' => $requestData->getPost('iSoLuong'),
         ];
-        // dd($dataSave_CTGH);
+        // dd($dataSave_CTGH_new);
+
         try {
-            $this->cart->save($dataSave_GH);
-            $this->cartDetail->save($dataSave_CTGH);
+            if (!$dataSave_GH['FK_iMaTK']) {
+                $this->cart->save($dataSave_GH);
+                $this->cartDetail->save($dataSave_CTGH_new);
+            } else {
+                //Kiểm tra tồn tại sản phẩm này trong giỏ hàng hay chưa
+                $magiohang = $this->cart->select('PK_iMaGH')->where('FK_iMaTK', '4')->first();
+                $duplicateCart = $this->cartDetail
+                    ->join('tbl_giohang', 'tbl_giohang.PK_iMaGH = tbl_ctgiohang.FK_iMaGH')
+                    ->where('tbl_ctgiohang.FK_iMaSP', $dataSave_CTGH_new['FK_iMaSP'])
+                    ->where('tbl_giohang.FK_iMaTK', '4')
+                    ->first();
+                if ($duplicateCart) {
+                    $soluong = [
+                        'iSoLuong' => $requestData->getPost('iSoLuong'),
+                    ];
+                    $currentQuantity = $this->cartDetail->where('FK_iMaSP', $dataSave_CTGH_new['FK_iMaSP'])->where('FK_iMaGH', $magiohang['PK_iMaGH'])->get()->getRow()->iSoLuong;
+                    $newQuantity = $currentQuantity + $soluong['iSoLuong'];
+                    // dd($newQuantity);
+                    $builder = $this->cartDetail->builder();
+                    $builder->where('FK_iMaSP', $dataSave_CTGH_new['FK_iMaSP']);
+                    $builder->where('FK_iMaGH', $magiohang['PK_iMaGH']);
+                    $builder->set('iSoLuong', $newQuantity);
+                    $builder->update();
+                } else {
+                    $dataSave_CTGH_old = [
+                        'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+                        'FK_iMaGH' => $magiohang['PK_iMaGH'],
+                        'iSoLuong' => $requestData->getPost('iSoLuong'),
+                    ];
+                    $this->cartDetail->save($dataSave_CTGH_old);
+                }
+            }
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,

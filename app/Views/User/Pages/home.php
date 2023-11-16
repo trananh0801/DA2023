@@ -42,7 +42,6 @@
 
     .modalImg img {
         width: 100%;
-        margin: 5px;
         height: 100%;
         object-fit: cover;
         align-items: center;
@@ -198,7 +197,7 @@
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
                         <?php if ($sessions['tendn']) : ?>
                             <div class="action-control">
-                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh']?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
                             </div>
@@ -238,7 +237,7 @@
                             <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span></div>
                             <?php if ($sessions['tendn']) : ?>
                                 <div class="action-control">
-                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>">
                                         <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                     </a>
                                 </div>
@@ -300,9 +299,15 @@
                             <div class="description">
                                 <h4>Sản phẩm 1</h4>
                                 <div class="price"><span>100.000 VNĐ</span></div>
+                                <div class="form-group">
+                                    <div class="">
+                                        <div class="input-group"><span class="input-group-addon">Số lượng</span>
+                                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <input name="FK_iMaSP" id="masanpham" type="text" hidden>
-                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
                         </div>
                     </div>
                     <div>
@@ -321,6 +326,7 @@
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
             hinhanh = $(this).attr("data-hinhanh");
+            console.log(hinhanh)
 
             $("#masanpham").val(masanpham);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);

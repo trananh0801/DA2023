@@ -48,7 +48,7 @@
                                             </div>
                                         </td>
                                         <td class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a></td>
-                                        <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
+                                        <td><input class="quanitySniper" type="text" value="1" min="1" name="quanitySniper"></td>
                                         <td>0</td>
                                         <td class="price">1.000.000 VNĐ</td>
                                     </tr>
@@ -77,7 +77,7 @@
         <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar">
             <div class="contentBox">
                 <div class="w100 costDetails">
-                    <div class="table-block" id="order-detail-content"><a class="btn btn-primary btn-lg btn-block " title="checkout" href="checkout-0.html" style="margin-bottom:20px"> Thanh toán &nbsp; <i class="fa fa-arrow-right"></i> </a>
+                    <div class="table-block" id="order-detail-content"><a class="btn btn-primary btn-lg btn-block " title="checkout" href="user/checkout" style="margin-bottom:20px"> Thanh toán &nbsp; <i class="fa fa-arrow-right"></i> </a>
 
                         <div class="w100 cartMiniTable">
                             <table id="cart-summary" class="std table">

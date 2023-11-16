@@ -114,7 +114,7 @@
                     <!--/row end-->
                     <div class="cartFooter w100">
                         <div class="box-footer">
-                            <div class="pull-left"><a class="btn btn-default" href="checkout-4.html">
+                            <div class="pull-left"><a class="btn btn-default" href="user/account">
                                     <i class="fa fa-arrow-left"></i> &nbsp; Thay đổi địa chỉ </a>
                             </div>
                             <div class="pull-right">

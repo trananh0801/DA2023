@@ -62,7 +62,7 @@
                 <div class="slider-item slider-item-img1"><img src="assets/user/images/slider/3.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
                 <div class="slider-item slider-item-img1">
-                    <div class="sliderInfo">
+                    <!-- <div class="sliderInfo">
                         <div class="container">
                             <div class="col-lg-12 col-md-12 col-sm-12 sliderTextFull ">
                                 <div class="inner text-center">
@@ -76,13 +76,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <img src="assets/user/images/slider/3.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
+                    </div> -->
+                    <img src="assets/user/images/slider/4.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
                 <!--/.slider-item-->
 
                 <div class="slider-item slider-item-img2 ">
-                    <div class="sliderInfo">
+                    <!-- <div class="sliderInfo">
                         <div class="container">
                             <div class="col-lg-12 col-md-12 col-sm-12 sliderTextFull  ">
                                 <div class="inner dark maxwidth500 text-center animated topAnima">
@@ -95,8 +95,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <img src="assets/user/images/slider/3.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
+                    </div> -->
+                    <img src="assets/user/images/slider/5.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
                 <!--/.slider-item-->
             </div>
@@ -156,14 +156,14 @@
         <div class="row ">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="parallax-content clearfix">
-                    <h1 class="parallaxPrce"> 200.000VNĐ </h1>
+                    <!-- <h1 class="parallaxPrce"> 200.000VNĐ </h1> -->
 
                     <h2 class="uppercase">KHO KHUYẾN MÃI DÀNH CHO CÁC BA MẸ KHI MUA SẮM TẠI NANA'S HOUSE</h2>
 
                     <h3> Nhiều ưu đãn hấp dẫn đang chờ các ba mẹ, nhanh tay rinh quà về cho con yêu nhé! </h3>
 
                     <div style="clear:both"></div>
-                    <a class="btn btn-discover "> <i class="fa fa-shopping-cart"></i> KHÁM PHÁ </a>
+                    <!-- <a class="btn btn-discover "> <i class="fa fa-shopping-cart"></i> KHÁM PHÁ </a> -->
                 </div>
             </div>
         </div>

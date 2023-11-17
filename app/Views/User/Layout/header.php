@@ -207,7 +207,7 @@
                                     <p><strong> Nhóm sản phẩm </strong></p>
                                 </li>
                                 <?php foreach ($groups as $group) : ?>
-                                    <li><a href="#"><?= $group['sTenNhom'] ?></a></li>
+                                    <li><a href="user/category"><?= $group['sTenNhom'] ?></a></li>
                                 <?php endforeach ?>
                             </ul>
                         </li>

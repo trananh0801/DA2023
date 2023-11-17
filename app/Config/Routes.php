@@ -112,7 +112,7 @@ $routes->group('user', function ($routes) {
     $routes->get('product', 'User\ProductController::list');
     $routes->get('category', 'User\CategoryController::list');
     $routes->get('about-us', 'User\AboutController::list');
-    $routes->get('order-list', 'User\OrderListController::list');
+    // $routes->get('order-list', 'User\OrderListController::list');
     $routes->get('checkout', 'User\CheckoutController::list');
     $routes->get('order-status', 'User\OrderStatusController::list');
     $routes->get('thankyou', 'User\ThankyouController::list');

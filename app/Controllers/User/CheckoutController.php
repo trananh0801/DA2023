@@ -2,7 +2,7 @@
 
 namespace App\Controllers\User;
 use App\Controllers\BaseController;
-use App\Services\UserService;
+use App\Services\CheckoutService;
 
 class CheckoutController extends BaseController
 {
@@ -12,17 +12,26 @@ class CheckoutController extends BaseController
     private $service; 
     public function __construct()
     {
-        $this->service = new UserService();
+        $this->service = new CheckoutService();
     }
 
     public function list()
     {
+        $session = session();
+        $userID = $session->get('matk');
+
         $data = [];
-        $dataLayout['users'] = $this->service->getAllUser();
-        // dd($data['users']);
-        $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/checkout', $dataLayout);
+        $dataLayout['products'] = $this->service->getAllProduct($userID);
+        // dd($dataLayout['products']);
+        $data = $this->loadMasterLayoutUser($data, 'Đặt hàng', 'User/Pages/checkout', $dataLayout);
         return view('User/main', $data);
     }
 
+    public function addOrderInfo()
+    {
+        $result = $this->service->addOrderInfo($this->request);
+        return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);
+    
+    }
    
 }

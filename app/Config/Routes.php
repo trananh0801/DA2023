@@ -114,6 +114,8 @@ $routes->group('user', function ($routes) {
     $routes->get('about-us', 'User\AboutController::list');
     // $routes->get('order-list', 'User\OrderListController::list');
     $routes->get('checkout', 'User\CheckoutController::list');
+    $routes->post('addCheckout', 'User\CheckoutController::addOrderInfo');
+
     $routes->get('order-status', 'User\OrderStatusController::list');
     $routes->get('thankyou', 'User\ThankyouController::list');
 });

@@ -16,8 +16,8 @@
 
                 <div class="thanxContent text-center">
 
-                    <h1> Cảm ơn bạn đã đặt hàng <a href="order-status.html">#6469</a></h1>
-                    <h4>Click vào số hóa đơn để xem chi tiết đơn hàng đã đặt</h4>
+                    <h1> Cảm ơn bạn đã đặt hàng <a href="#">#6469</a></h1>
+                    <h4>Truy cập CÁ NHÂN/LỊCH SỬ ĐẶT HÀNG để xem những đơn hàng đã đặt</h4>
 
                 </div>
             </div>

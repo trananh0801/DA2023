@@ -116,6 +116,9 @@ $routes->group('user', function ($routes) {
     $routes->get('checkout', 'User\CheckoutController::list');
     $routes->post('addCheckout', 'User\CheckoutController::addOrderInfo');
 
+    $routes->get('checkoutProd/(:segment)', 'User\Checkout1ProdController::list/$1');
+    $routes->post('addcheckoutProd', 'User\Checkout1ProdController::addOrderInfo');
+
     $routes->get('order-status', 'User\OrderStatusController::list');
     $routes->get('thankyou', 'User\ThankyouController::list');
 });

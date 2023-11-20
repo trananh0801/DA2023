@@ -37,7 +37,7 @@
                         <button  class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>">Thêm vào giỏ hàng
                         </button>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block ">Mua ngay</a></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block" href="user/checkoutProd/<?= $allProducts['PK_iMaSP'] ?>">Mua ngay</a></div>
                 </div>
                 <div style="clear:both"></div>
             </div>

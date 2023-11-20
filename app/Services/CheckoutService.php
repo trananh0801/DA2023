@@ -38,6 +38,18 @@ class CheckoutService extends BaseService
         return $result;
     }
 
+    /**Lấy sản phẩm được đặt từ chi tiết sản phẩm */
+    public function get1Product($id)
+    {
+        $result = $this->product
+            ->select('*, tbl_sanpham.fGiaBanLe * (1 - IFNULL(tbl_khuyenmai.fChietKhau/100, 0)) as total_price')
+            ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
+            ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
+            ->where('tbl_sanpham.PK_iMaSP', $id)
+            ->first();
+        return $result;
+    }
+
     /**Lấy mã khách hàng theo session------------------------------------------------------------------------ */
     public function getCustomerById($id)
     {
@@ -66,46 +78,34 @@ class CheckoutService extends BaseService
         $dataSave_CTDDH = [
             'iSoLuong' => $requestData->getPost('iSoLuong'),
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+            'FK_iMaDon' => 'HD_' . $uniqueCode
         ];
-        $transformedData = array();
-        foreach ($dataSave_CTDDH as $k => $v) {
-            foreach ($v as $k1 => $v1) {
-                $transformedData[$k1][$k] = $v1;
-                $transformedData[$k1]['FK_iMaDon'] = 'HD_' . $uniqueCode;
-            }
-        }
-        // dd($transformedData);
-        
-        for ($i = 0; $i < count($transformedData); $i++) {
-            $soluongSP = $this->product->where('PK_iMaSP', $transformedData[$i]['FK_iMaSP'])->get()->getRow()->fSoLuong;
-            $quantityToDeduct = $transformedData[$i]['iSoLuong'];
-            if($quantityToDeduct > $soluongSP){
-                return [
-                    'status' => ResultUtils::STATUS_CODE_ERR,
-                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                    'message' => ['Lỗi: ' => 'Không đủ số lượng sản phẩm trong kho!'],
-                ];
-            }
-        }
-        
-        //trừ số lượng trong kho
-        for ($i = 0; $i < count($transformedData); $i++) {
-            $productID = $transformedData[$i]['FK_iMaSP'];
-            $quantityToDeduct = $transformedData[$i]['iSoLuong'];
-            // Truy vấn số lượng hiện có của sản phẩm
-            $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
-            // Tính toán số lượng mới
-            $newQuantity = $currentQuantity - $quantityToDeduct;
-            // Cập nhật số lượng mới vào cơ sở dữ liệu
-            $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
+
+        $soluongSP = $this->product->where('PK_iMaSP', $dataSave_CTDDH['FK_iMaSP'])->get()->getRow()->fSoLuong;
+        $quantityToDeduct = $dataSave_CTDDH['iSoLuong'];
+        if ($quantityToDeduct > $soluongSP) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['Lỗi: ' => 'Không đủ số lượng sản phẩm trong kho!'],
+            ];
         }
 
-        // dd($transformedData);
+        //trừ số lượng trong kho
+        $productID = $dataSave_CTDDH['FK_iMaSP'];
+        $quantityToDeduct = $dataSave_CTDDH['iSoLuong'];
+        // Truy vấn số lượng hiện có của sản phẩm
+        $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+        // Tính toán số lượng mới
+        $newQuantity = $currentQuantity - $quantityToDeduct;
+        // Cập nhật số lượng mới vào cơ sở dữ liệu
+        $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
+
         try {
             //insert hóa đơn
             $this->order->save($dataSave_DDH);
             //insert sản chi tiết hóa đơn
-            $this->orderDetail->insertBatch($transformedData);
+            $this->orderDetail->save($dataSave_CTDDH);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,

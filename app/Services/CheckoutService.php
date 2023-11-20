@@ -21,6 +21,7 @@ class CheckoutService extends BaseService
         $this->customer = new CustomerModel();
         $this->order->protect(false);
         $this->orderDetail->protect(false);
+        $this->product->protect(false);
     }
 
     /**Lấy danh sách sản phẩm trong giỏ hàng theo người dùng */
@@ -72,6 +73,31 @@ class CheckoutService extends BaseService
                 $transformedData[$k1][$k] = $v1;
                 $transformedData[$k1]['FK_iMaDon'] = 'HD_' . $uniqueCode;
             }
+        }
+        // dd($transformedData);
+        
+        for ($i = 0; $i < count($transformedData); $i++) {
+            $soluongSP = $this->product->where('PK_iMaSP', $transformedData[$i]['FK_iMaSP'])->get()->getRow()->fSoLuong;
+            $quantityToDeduct = $transformedData[$i]['iSoLuong'];
+            if($quantityToDeduct > $soluongSP){
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['Lỗi: ' => 'Không đủ số lượng sản phẩm trong kho!'],
+                ];
+            }
+        }
+        
+        //trừ số lượng trong kho
+        for ($i = 0; $i < count($transformedData); $i++) {
+            $productID = $transformedData[$i]['FK_iMaSP'];
+            $quantityToDeduct = $transformedData[$i]['iSoLuong'];
+            // Truy vấn số lượng hiện có của sản phẩm
+            $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+            // Tính toán số lượng mới
+            $newQuantity = $currentQuantity - $quantityToDeduct;
+            // Cập nhật số lượng mới vào cơ sở dữ liệu
+            $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
         }
 
         // dd($transformedData);

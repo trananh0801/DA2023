@@ -16,7 +16,24 @@
             <h4 class="caps"><a href="user/home"><i class="fa fa-chevron-left"></i> Quay lại trang chủ </a></h4>
         </div>
     </div>
-
+    <?php if (session('errorsMsg')) : ?>
+        <?php foreach (session('errorsMsg') as $error) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Lỗi: </strong> <?= $error ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php break; ?>
+        <?php endforeach ?>
+    <?php endif ?>
+    <?php if (session('successMsg')) : ?>
+        <?php foreach (session('successMsg') as $success) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Thành công: </strong> <?= $success ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php break; ?>
+        <?php endforeach ?>
+    <?php endif ?>
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="row userInfo">
@@ -36,6 +53,7 @@
                                 <div class="col-lg-12">
                                     <h2 class="block-title-2"> Chi tiết đơn hàng </h2>
                                 </div>
+
                                 <div class="col-xs-12 col-sm-12">
                                     <div class="cartContent w100 checkoutReview ">
                                         <table class="cartTable table-responsive" style="width:100%">
@@ -65,7 +83,7 @@
                                                         </td>
                                                         <td>
                                                             <input type="text" value="<?= $product['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
-                                                            <input class="quanitySniper" type="text" value="1" min="1" name="iSoLuong[]" style="width:35px">
+                                                            <input class="quanitySniper" type="text" value="<?= $product['iSoLuong'] ?>" min="1" name="iSoLuong[]" style="width:35px">
                                                         </td>
                                                         <td class="hidden-xs"><?php if ($product['fChietKhau'] == null) : ?>0<?php else : ?><?= $product['fChietKhau'] ?><?php endif; ?></td>
                                                         <td class="price"><?= $product['total_price'] ?> đ</td>

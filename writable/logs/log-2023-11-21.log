@@ -165,3 +165,144 @@ INFO - 2023-11-21 16:31:41 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-11-21 16:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-21 16:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-21 16:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:32:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:32:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:41:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:45:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:45:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:46:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:46:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:46:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:47:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:56:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:59:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:06:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:10:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:10:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:23:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:24:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:24:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:24:17 --> Call to a member function getPost() on string
+in APPPATH\Services\AccountService.php on line 61.
+ 1 APPPATH\Controllers\User\AccountController.php(37): App\Services\AccountService->UpdateMyprofile('TK_17001444603401')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:24:59 --> Call to a member function getPost() on string
+in APPPATH\Services\AccountService.php on line 61.
+ 1 APPPATH\Controllers\User\AccountController.php(37): App\Services\AccountService->UpdateMyprofile('TK_17001444603401')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:27:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:27:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:32:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:33:01 --> Undefined array key "sTenKH"
+in APPPATH\Views\User\Pages\account.php on line 32.
+ 1 APPPATH\Views\User\Pages\account.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sTenKH"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php', 32)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/account', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/account', [...])
+ 6 APPPATH\Controllers\User\AccountController.php(39): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Thông tin cá nhân', 'User/Pages/account', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:35:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:35:06 --> Undefined array key "sTenKH"
+in APPPATH\Views\User\Pages\account.php on line 32.
+ 1 APPPATH\Views\User\Pages\account.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sTenKH"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php', 32)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/account', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/account', [...])
+ 6 APPPATH\Controllers\User\AccountController.php(39): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Thông tin cá nhân', 'User/Pages/account', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:39:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:39:17 --> Undefined array key "sTenKH"
+in APPPATH\Views\User\Pages\account.php on line 32.
+ 1 APPPATH\Views\User\Pages\account.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sTenKH"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php', 32)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/account', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/account', [...])
+ 6 APPPATH\Controllers\User\AccountController.php(39): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Thông tin cá nhân', 'User/Pages/account', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:44:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:44:27 --> Undefined array key "sTenKH"
+in APPPATH\Views\User\Pages\account.php on line 32.
+ 1 APPPATH\Views\User\Pages\account.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sTenKH"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php', 32)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/account', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/account', [...])
+ 6 APPPATH\Controllers\User\AccountController.php(39): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Thông tin cá nhân', 'User/Pages/account', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:45:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:46:07 --> Undefined array key "sTenKH"
+in APPPATH\Views\User\Pages\account.php on line 32.
+ 1 APPPATH\Views\User\Pages\account.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sTenKH"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php', 32)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/account', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/account', [...])
+ 6 APPPATH\Controllers\User\AccountController.php(39): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Thông tin cá nhân', 'User/Pages/account', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 17:47:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:47:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 17:47:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 17:47:34 --> Undefined array key "sTenKH"
+in APPPATH\Views\User\Pages\account.php on line 32.
+ 1 APPPATH\Views\User\Pages\account.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sTenKH"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php', 32)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\account.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/account', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/account', [...])
+ 6 APPPATH\Controllers\User\AccountController.php(39): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Thông tin cá nhân', 'User/Pages/account', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\AccountController->profile()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\AccountController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')

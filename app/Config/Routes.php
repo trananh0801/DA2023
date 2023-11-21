@@ -105,7 +105,7 @@ $routes->group('user', function ($routes) {
 
     $routes->get('account', 'User\AccountController::list');
     $routes->post('account/my-profile', 'User\AccountController::profile');
-    $routes->post('account/history', 'User\AccountController::history');
+    // $routes->get('account/history', 'User\AccountController::history');
 
     $routes->get('cart', 'User\CartController::list');
     $routes->post('updateCart', 'User\CartController::UpdateCart');

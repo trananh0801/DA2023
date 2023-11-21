@@ -25,64 +25,74 @@
                             <div class="col-lg-12">
                                 <p class="required"><sup>*</sup> Bắt buộc nhập</p>
                             </div>
-                            <form>
+                            <form method="POST" action="user/account/my-profile">
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="form-group required">
                                         <label for="InputName">Họ và tên <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputName" placeholder="Họ và tên">
+                                        <input required type="text" class="form-control" name="sTenKH" id="InputName" placeholder="Họ và tên" value="<?= $profiles['sTenKH'] ?>" >
                                     </div>
                                     <div class="form-group required">
                                         <label for="InputLastName">Địa chỉ <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputLastName" placeholder="Địa chỉ">
+                                        <input required type="text" class="form-control" id="InputLastName" placeholder="Địa chỉ" value="<?= $profiles['sDiaChi'] ?>" name="sDiaChi">
                                     </div>
                                     <div class="form-group">
                                         <label for="InputEmail"> Số điện thoại </label>
-                                        <input type="text" class="form-control" id="InputEmail" placeholder="Số điện thoại">
+                                        <input type="text" class="form-control" id="InputEmail" placeholder="Số điện thoại" value="<?= $profiles['sSDT'] ?>" name="sSDT">
                                     </div>
                                     <div class="form-group">
                                         <label>Ngày sinh</label>
                                         <div class="row">
                                             <div class="col-xs-4">
-                                                <select class="form-control" id="days" name="days">
+                                                <?php
+                                                // Chuyển đổi thành đối tượng DateTime
+                                                $date = new \DateTime($profiles['dNgaySinh']);
+                                                // Lấy ngày
+                                                $day = $date->format('d');
+                                                // Lấy tháng
+                                                $month = $date->format('m');
+                                                // Lấy năm
+                                                $year = $date->format('Y');
+                                                ?>
+                                                <select class="form-control" id="days" name="ngay">
                                                     <option>-</option>
                                                     <?php for ($i = 1; $i <= 31; $i++) : ?>
-                                                        <option value="<?php echo $i; ?>"><?php echo $i; ?> &nbsp;&nbsp;</option>
+                                                        <option value="<?php echo $i; ?>" <?php if ($i == $day) : ?> selected <?php endif; ?>><?php echo $i; ?> &nbsp;&nbsp;</option>
                                                     <?php endfor; ?>
                                                 </select>
                                             </div>
                                             <div class="col-xs-4">
-                                                <select class="form-control" name="months" id="months">
+                                                <select class="form-control" name="thang" id="months">
                                                     <option>-</option>
                                                     <?php for ($i = 1; $i <= 12; $i++) : ?>
-                                                        <option value="<?php echo $i; ?>">Tháng <?php echo $i; ?> &nbsp;</option>
+                                                        <option value="<?php echo $i; ?>" <?php if ($i == $month) : ?> selected <?php endif; ?>>Tháng <?php echo $i; ?> &nbsp;</option>
                                                     <?php endfor; ?>
                                                 </select>
                                             </div>
                                             <div class="col-xs-4">
-                                                <select class="form-control" name="years" id="years">
+                                                <select class="form-control" name="nam" id="years">
                                                     <option>-</option>
                                                     <?php for ($i = 1950; $i <= 2023; $i++) : ?>
-                                                        <option value="<?php echo $i; ?>"><?php echo $i; ?> &nbsp;</option>
+                                                        <option value="<?php echo $i; ?>" <?php if ($i == $year) : ?> selected <?php endif; ?>><?php echo $i; ?> &nbsp;</option>
                                                     <?php endfor; ?>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <select id="selectbasic" name="selectbasic" class="form-control">
-                                            <option value="Nam">Nam</option>
-                                            <option value="Nữ">Nữ</option>
+                                        <select id="selectbasic" name="sGioiTinh" class="form-control">
+                                            <option value="Nam" <?php if ($profiles['sGioiTinh'] == "Nam") : ?> selected <?php endif; ?>>Nam</option>
+                                            <option value="Nữ" <?php if ($profiles['sGioiTinh'] == "Nữ") : ?> selected <?php endif; ?>>Nữ</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="form-group required">
                                         <label for="InputPasswordCurrent"> Mật khẩu <sup> * </sup> </label>
-                                        <input type="password" value="123456" name="InputPasswordCurrent" class="form-control" id="InputPasswordCurrent">
+                                        <input type="password" value="<?= $profiles['sMatKhau'] ?>" name="InputPasswordCurrent" class="form-control" id="InputPasswordCurrent">
                                     </div>
                                     <div class="form-group required">
                                         <label for="InputPasswordnew"> Mật khẩu mới </label>
-                                        <input type="password" name="InputPasswordnew" class="form-control" id="InputPasswordnew">
+                                        <input type="password" name="sMatKhau" class="form-control" id="InputPasswordnew">
                                     </div>
                                     <div class="form-group required">
                                         <label for="InputPasswordnewConfirm"> Xác nhận mật khẩu </label>
@@ -140,7 +150,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $k = 1?>
+                                                <?php $k = 1 ?>
                                                 <?php foreach ($historys as $history) : ?>
                                                     <tr>
                                                         <td><?= $k++ ?></td>

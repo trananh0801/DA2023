@@ -22,10 +22,21 @@ class AccountController extends BaseController
         $maKH = $this->service->getCustomerById($userID);
         $data = [];
         $dataLayout['historys'] = $this->service->gethistory($maKH);
-        // dd($dataLayout['historys']);
+        $dataLayout['profiles'] = $this->service->getMyprofile($userID);
+        // dd($dataLayout['profiles']);
         $data = $this->loadMasterLayoutUser($data, 'Thông tin cá nhân', 'User/Pages/account', $dataLayout);
         return view('User/main', $data);
     }
 
-   
+    public function profile()
+    {
+        $session = session();
+        $userID = $session->get('matk');
+
+        $data = [];
+        $dataLayout['profiles'] = $this->service->UpdateMyprofile($this->request, $userID);
+        // dd($dataLayout['profiles']);
+        $data = $this->loadMasterLayoutUser($data, 'Thông tin cá nhân', 'User/Pages/account', $dataLayout);
+        return view('User/main', $data);
+    }
 }

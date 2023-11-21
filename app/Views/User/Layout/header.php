@@ -37,7 +37,11 @@
                 <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
                     <div class="pull-right">
                         <ul class="userMenu">
-                            <li><a href="user/account"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
+                            <?php if ($sessions['tendn']) : ?>
+                                <li><a href="user/account"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
+                            <?php else : ?>
+                                <li><a href="#" data-toggle="modal" data-target="#ModalLogin"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
+                            <?php endif; ?>
                             <?php if (!$sessions['tendn']) : ?>
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#ModalLogin">

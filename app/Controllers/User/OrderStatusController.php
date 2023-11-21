@@ -2,7 +2,7 @@
 
 namespace App\Controllers\User;
 use App\Controllers\BaseController;
-use App\Services\UserService;
+use App\Services\OrderStatusService;
 
 class OrderStatusController extends BaseController
 {
@@ -12,15 +12,16 @@ class OrderStatusController extends BaseController
     private $service; 
     public function __construct()
     {
-        $this->service = new UserService();
+        $this->service = new OrderStatusService();
     }
 
-    public function list()
+    public function list($id)
     {
         $data = [];
-        $dataLayout['users'] = $this->service->getAllUser();
-        // dd($data['users']);
-        $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/orderStatus', $dataLayout);
+        $dataLayout['orders'] = $this->service->getOrder($id);
+        $dataLayout['orderDetails'] = $this->service->getAllOrderDetail($id);
+        // dd($dataLayout['orderDetails']);
+        $data = $this->loadMasterLayoutUser($data, 'Chi tiết đơn đặt hàng', 'User/Pages/orderStatus', $dataLayout);
         return view('User/main', $data);
     }
 

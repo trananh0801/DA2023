@@ -86,3 +86,58 @@ INFO - 2023-11-21 15:27:25 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-11-21 15:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-21 15:27:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-11-21 15:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 15:37:35 --> Too few arguments to function App\Services\OrderstatusService::getOrderDetail(), 0 passed in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\User\OrderStatusController.php on line 21 and exactly 1 expected
+in APPPATH\Services\OrderStatusService.php on line 19.
+ 1 APPPATH\Controllers\User\OrderStatusController.php(21): App\Services\OrderstatusService->getOrderDetail()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\OrderStatusController->list('HD_17002397545306')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\OrderStatusController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-21 15:37:52 --> Undefined array key "orderDetails"
+in APPPATH\Controllers\User\OrderStatusController.php on line 22.
+ 1 APPPATH\Controllers\User\OrderStatusController.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "orderDetails"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\User\\OrderStatusController.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\OrderStatusController->list('HD_17002397545306')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\OrderStatusController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-11-21 15:38:13 --> Undefined array key "orderDetails"
+in APPPATH\Controllers\User\OrderStatusController.php on line 22.
+ 1 APPPATH\Controllers\User\OrderStatusController.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "orderDetails"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\User\\OrderStatusController.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\OrderStatusController->list('HD_17002397545306')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\OrderStatusController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 15:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 15:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 15:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 15:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:02:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:06:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:11:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:15:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-21 16:15:11 --> Undefined variable $ordeDretail
+in APPPATH\Views\User\Pages\orderStatus.php on line 87.
+ 1 APPPATH\Views\User\Pages\orderStatus.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ordeDretail', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\orderStatus.php', 87)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\orderStatus.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/orderStatus', [], true)
+ 5 APPPATH\Controllers\BaseController.php(119): view('User/Pages/orderStatus', [...])
+ 6 APPPATH\Controllers\User\OrderStatusController.php(24): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Chi tiết đơn đặt hàng', 'User/Pages/orderStatus', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\OrderStatusController->list('HD_17002397545306')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\OrderStatusController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-11-21 16:16:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:21:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:21:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:22:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-21 16:23:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

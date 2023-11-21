@@ -104,6 +104,9 @@ $routes->group('user', function ($routes) {
     $routes->get('logout', 'User\HeaderController::logout');
 
     $routes->get('account', 'User\AccountController::list');
+    $routes->post('account/my-profile', 'User\AccountController::profile');
+    $routes->post('account/history', 'User\AccountController::history');
+
     $routes->get('cart', 'User\CartController::list');
     $routes->post('updateCart', 'User\CartController::UpdateCart');
     $routes->post('deleteProductInCart', 'User\CartController::deleteProductInCart');
@@ -119,6 +122,6 @@ $routes->group('user', function ($routes) {
     $routes->get('checkoutProd/(:segment)', 'User\Checkout1ProdController::list/$1');
     $routes->post('addcheckoutProd', 'User\Checkout1ProdController::addOrderInfo');
 
-    $routes->get('order-status', 'User\OrderStatusController::list');
+    $routes->get('order-status/(:segment)', 'User\OrderStatusController::list/$1');
     $routes->get('thankyou', 'User\ThankyouController::list');
 });

@@ -111,6 +111,8 @@
                         </div>
                         <!--/row end-->
                     </div>
+
+
                     <div class="tab-pane" id="donhang">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -127,100 +129,32 @@
                                         <table class="footable">
                                             <thead>
                                                 <tr>
-                                                    <th data-class="expand" data-sort-initial="true"><span title="table sorted by this column on load">Mã sản phẩm</span></th>
+                                                    <th>STT</th>
+                                                    <th data-class="expand" data-sort-initial="true"><span title="table sorted by this column on load">Mã đơn</span></th>
                                                     <th data-hide="phone,tablet" data-sort-ignore="true">Số lượng sản phẩm</th>
-                                                    <th data-hide="phone,tablet"><strong>Phương thức thanh toán</strong></th>
+                                                    <!-- <th data-hide="phone,tablet"><strong>Phương thức thanh toán</strong></th> -->
                                                     <th data-hide="phone,tablet"><strong></strong></th>
-                                                    <th data-hide="default"> Thành tiền</th>
+                                                    <!-- <th data-hide="default"> Thành tiền</th> -->
                                                     <th data-hide="default" data-type="numeric"> Ngày đặt hàng</th>
                                                     <th data-hide="phone" data-type="numeric"> Trạng thái</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="user/order-status" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="order-status.html" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="order-status.html" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="order-status.html" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="order-status.html" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="order-status.html" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#028DE</td>
-                                                    <td>5
-                                                        <small>Sản phẩm(s)</small>
-                                                    </td>
-                                                    <td>Tiền mặt</td>
-                                                    <td><a href="order-status.html" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                    <td>30.000.000 VNĐ</td>
-                                                    <td data-value="78025368997">31/10/2023</td>
-                                                    <td data-value="3"><span class="label label-success">Hoàn thành</span>
-                                                    </td>
-                                                </tr>
+                                                <?php $k = 1?>
+                                                <?php foreach ($historys as $history) : ?>
+                                                    <tr>
+                                                        <td><?= $k++ ?></td>
+                                                        <td><?= $history['PK_iMaDon'] ?></td>
+                                                        <td>
+                                                            <small><?= $history['soluongsp'] ?> sản phẩm</small>
+                                                        </td>
+                                                        <!-- <td>Tiền mặt</td> -->
+                                                        <td><a href="user/order-status/<?= $history['PK_iMaDon'] ?>" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
+                                                        <td data-value="78025368997"><?= $history['dThoiGianTao'] ?></td>
+                                                        <td data-value="3"><span class="label label-success"><?= $history['sTenTrangThai'] ?></span>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
                                             </tbody>
                                         </table>
                                     </div>

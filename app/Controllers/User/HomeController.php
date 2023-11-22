@@ -19,7 +19,8 @@ class HomeController extends BaseController
         $session = session();
         $sessions = [
             'tendn' => $session->get('user_id'),
-            'quyen' => $session->get('quyen')
+            'quyen' => $session->get('quyen'),
+            'matk' => $session->get('matk')
         ];
         $data = [];
         $dataLayout['sessions'] = $sessions;
@@ -36,7 +37,11 @@ class HomeController extends BaseController
 
     public function addCart()
     {
-        $result = $this->service->addCartInfo($this->request);
+        $session = session();
+        $sessions = [
+            'matk' => $session->get('matk')
+        ];
+        $result = $this->service->addCartInfo($this->request, $sessions['matk']);
         return redirect()->to('user/home')->withInput()->with($result['massageCode'], $result['message']);
     
     }

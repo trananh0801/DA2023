@@ -64,7 +64,7 @@ class HomeService extends BaseService
     }
 
     /**Thêm mới giỏ hàng---------------------------------------------------------------------------*/
-    public function addCartInfo($requestData)
+    public function addCartInfo($requestData, $id)
     {
         //Tạo mã tự động
         $timestamp = time();
@@ -81,26 +81,27 @@ class HomeService extends BaseService
         }
         $dataSave_GH = [
             'PK_iMaGH' => 'GH_' . $uniqueCode,
-            'FK_iMaTK' => '4'
+            'FK_iMaTK' => $id
         ];
         $dataSave_CTGH_new = [
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
             'FK_iMaGH' => 'GH_' . $uniqueCode,
             'iSoLuong' => $requestData->getPost('iSoLuong'),
         ];
-        // dd($dataSave_CTGH_new);
+        // dd($dataSave_GH);
 
         try {
-            if (!$dataSave_GH['FK_iMaTK']) {
+            $giohang = $this->cart->select('FK_iMaTK')->where('FK_iMaTK', $id)->first();
+            if (empty($giohang)) {
                 $this->cart->save($dataSave_GH);
                 $this->cartDetail->save($dataSave_CTGH_new);
             } else {
                 //Kiểm tra tồn tại sản phẩm này trong giỏ hàng hay chưa
-                $magiohang = $this->cart->select('PK_iMaGH')->where('FK_iMaTK', '4')->first();
+                $magiohang = $this->cart->select('PK_iMaGH')->where('FK_iMaTK', $id)->first();
                 $duplicateCart = $this->cartDetail
                     ->join('tbl_giohang', 'tbl_giohang.PK_iMaGH = tbl_ctgiohang.FK_iMaGH')
                     ->where('tbl_ctgiohang.FK_iMaSP', $dataSave_CTGH_new['FK_iMaSP'])
-                    ->where('tbl_giohang.FK_iMaTK', '4')
+                    ->where('tbl_giohang.FK_iMaTK', $id)
                     ->first();
                 if ($duplicateCart) {
                     $soluong = [

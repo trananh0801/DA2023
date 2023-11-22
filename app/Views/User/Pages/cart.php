@@ -50,7 +50,7 @@
                                             </td>
                                             <td>
                                                 <input type="text" value="<?= $allProductInCart['PK_iMaGH'] ?>" name="PK_iMaGH" hidden>
-                                                <input type="text" value="<?= $allProductInCart['FK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
+                                                <input type="text" value="<?= $allProductInCart['MaSP'] ?>" name="FK_iMaSP[]" hidden>
                                                 <input class="quanitySniper" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]">
                                             </td>
                                             <td><?php if ($allProductInCart['fChietKhau'] == null) : ?>0<?php else : ?><?= $allProductInCart['fChietKhau'] ?><?php endif; ?></td>

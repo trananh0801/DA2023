@@ -24,8 +24,8 @@ class CartService extends BaseService
     /**Lấy danh sách sản phẩm trong giỏ hàng theo người dùng */
     public function getAllProduct($id){
         $result = $this->product
-        ->select('*, (tbl_sanpham.fGiaBanLe * tbl_ctgiohang.iSoLuong) * (1 - IFNULL(tbl_khuyenmai.fChietKhau/100, 0)) as total_price')
-        ->join('tbl_ctgiohang', 'tbl_ctgiohang.FK_iMaSP = tbl_sanpham.PK_iMaSP')
+        ->select('*, (tbl_sanpham.fGiaBanLe * tbl_ctgiohang.iSoLuong) * (1 - IFNULL(tbl_khuyenmai.fChietKhau/100, 0)) as total_price, tbl_ctgiohang.FK_iMaSP as MaSP')
+        ->join('tbl_ctgiohang', 'tbl_ctgiohang.FK_iMaSP = tbl_sanpham.PK_iMaSP')  
         ->join('tbl_giohang', 'tbl_giohang.PK_iMaGH = tbl_ctgiohang.FK_iMaGH')
         ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
         ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
@@ -40,6 +40,7 @@ class CartService extends BaseService
         $magiohang = $requestData->getPost('PK_iMaGH');
         $masp = $requestData->getPost('FK_iMaSP');
         $soluong = $requestData->getPost('iSoLuong');
+        // dd($masp);
         try {
             for ($i = 0; $i < count($masp); $i++) {
                 $productID = $masp[$i];

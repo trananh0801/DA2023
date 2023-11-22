@@ -29,7 +29,7 @@ class CheckoutController extends BaseController
 
     public function addOrderInfo()
     {
-        $result = $this->service->addOrderInfo($this->request);
+        $result = $this->service->addOrderInfoMuti($this->request);
         return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);
     
     }

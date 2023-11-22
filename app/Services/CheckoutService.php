@@ -119,4 +119,82 @@ class CheckoutService extends BaseService
             ];
         }
     }
+
+
+    /**Thêm mới đơn hàng------------------------------------------------------------------------ */
+    public function addOrderInfoMuti($requestData)
+    {
+        //Tạo mã tự động
+        $timestamp = time();
+        $randomPart = mt_rand(1000, 9999);
+        $uniqueCode = $timestamp . $randomPart;
+
+        //session
+        $session = session();
+        $userID = $session->get('matk');
+
+        //Lấy thông tin đơn hàng từ view
+        $dataSave_DDH = [
+            'PK_iMaDon' => 'HD_' . $uniqueCode,
+            'FK_iMaNV' => '',
+            'FK_iMaKH' => $this->getCustomerById($userID),
+            'FK_iMaTrangThai' => '3',
+        ];
+        $dataSave_CTDDH = [
+            'iSoLuong' => $requestData->getPost('iSoLuong'),
+            'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+        ];
+        $transformedData = array();
+            foreach ($dataSave_CTDDH as $k => $v) {
+                foreach ($v as $k1 => $v1) {
+                    $transformedData[$k1][$k] = $v1;
+                    $transformedData[$k1]['FK_iMaDon'] = 'HD_' . $uniqueCode;
+                }
+            }
+        // dd($transformedData);
+        for ($i = 0; $i < count($dataSave_CTDDH['FK_iMaSP']); $i++) {
+            $productID = $dataSave_CTDDH['FK_iMaSP'][$i];
+            $quantityToDeduct = $dataSave_CTDDH['iSoLuong'][$i];
+            // Truy vấn số lượng hiện có của sản phẩm
+            $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+            if ($quantityToDeduct > $currentQuantity) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['Lỗi: ' => 'Không đủ số lượng sản phẩm trong kho!'],
+                ];
+            }
+            // Tính toán số lượng mới
+            $newQuantity = $currentQuantity - $quantityToDeduct;
+            // Cập nhật số lượng mới vào cơ sở dữ liệu
+            $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
+        }
+        try {
+            //insert hóa đơn
+            $this->order->save($dataSave_DDH);
+            
+            //insert sản chi tiết hóa đơn
+            
+            // $transformedData_update = array();
+            // foreach ($dataSave_CT_update as $k => $v) {
+            //     foreach ($v as $k1 => $v1) {
+            //         $transformedData_update[$k1][$k] = $v1;
+            //     }
+            // }
+
+            //insert sản chi tiết hóa đơn
+            $this->orderDetail->insertBatch($transformedData);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Thêm dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
 }

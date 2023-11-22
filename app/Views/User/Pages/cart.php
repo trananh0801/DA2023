@@ -44,7 +44,7 @@
                                                 </div>
                                             </td>
                                             <td class="delete">
-                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <button class="btn btn-sm btn-primary" >
                                                     <i class="glyphicon glyphicon-trash fa-2x"></i>
                                                 </button>
                                             </td>
@@ -108,24 +108,5 @@
         </div>
     </div>
     <div style="clear:both"></div>
-</div>
-
-<!-- Modal xác nhận xóa sản phẩm trong giỏ hàng -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Xóa sản phẩm khỏi giỏ hàng của bạn?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Xóa</button>
-            </div>
-        </div>
-    </div>
 </div>
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>

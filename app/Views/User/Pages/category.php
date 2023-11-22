@@ -1,3 +1,46 @@
+<style>
+    .product-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+    .modalImg {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .modalImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-items: center;
+        justify-content: center;
+        object-position: center center;
+        display: block;
+    }
+    .description {
+        max-width: 390px; 
+        margin-top: 10px; 
+    }
+    .modal-soluong{
+        margin-top: 20px;
+    }
+</style>
 <div class="container main-container headerOffset">
 
     <!-- Main component call to action -->
@@ -134,15 +177,12 @@
                             </a>
 
                             <div class="image">
-                                <div class="quickview">
-                                    <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Xem nhanh </a>
-                                </div>
-                                <a href="product-details.html"><img class="img-responsive" alt="img" src="<?php echo base_url('assets/admin/images/products/' . $productInGroup['sHinhAnh']) ?>"></a>
+                                <a href="user/productDetail/<?= $productInGroup['PK_iMaSP'] ?>" class="product-image"><img class="img-responsive" alt="img" src="<?php echo base_url('assets/admin/images/products/' . $productInGroup['sHinhAnh']) ?>"></a>
 
                                 <div class="promotion"><span class="new-product"> MỚI</span> <span class="discount"> giảm 15%</span></div>
                             </div>
                             <div class="description">
-                                <h4><a href="product-details.html"><?= $productInGroup['sTenSP'] ?></a></h4>
+                                <h4><a href="user/productDetail/<?= $productInGroup['PK_iMaSP'] ?>"><?= $productInGroup['sTenSP'] ?></a></h4>
 
                                 <div class="grid-description">
                                     <p><?= $productInGroup['sGhiChu'] ?> </p>
@@ -208,7 +248,7 @@
                             <div class="description">
                                 <h4>Sản phẩm 1</h4>
                                 <div class="price"><span>100.000 VNĐ</span></div>
-                                <div class="form-group">
+                                <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
                                             <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">

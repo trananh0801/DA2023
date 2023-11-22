@@ -1,3 +1,61 @@
+<style>
+    .product-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+    .modalImg {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .modalImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-items: center;
+        justify-content: center;
+        object-position: center center;
+        display: block;
+    }
+    .description {
+        max-width: 390px; 
+        margin-top: 10px; 
+    }
+    .modal-soluong{
+        margin-top: 20px;
+    }
+    .product-largeimg-link{
+        width: 100%;
+        height: 450px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .product-largeimg-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+</style>
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
@@ -13,22 +71,19 @@
         <div class="col-lg-6 col-md-6 col-sm-6">
             <!-- product Image and Zoom -->
             <div class="main-image col-lg-12 no-padding style3">
-                <a class="product-largeimg-link" href="product-details.html"><img src="<?php echo base_url('assets/admin/images/products/' . $allProducts['sHinhAnh']) ?>" class="img-responsive product-largeimg" alt="img" />
+                <a class="product-largeimg-link" href="#"><img src="<?php echo base_url('assets/admin/images/products/' . $allProducts['sHinhAnh']) ?>" class="img-responsive product-largeimg" alt="img" />
                 </a>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-5">
             <h1 class="product-title"> <?= $allProducts['sTenSP'] ?></h1>
 
-            <h3 class="product-code"> Code : <?= $allProducts['PK_iMaSP'] ?></h3>
+            <h3 class="product-code"> Mã sản phẩm : <?= $allProducts['PK_iMaSP'] ?></h3>
 
-            <div class="rating">
-                <p><span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i class="fa fa-star-o "></i></span> <span class="ratingInfo"> <span> / </span> <a data-target="#modal-review" data-toggle="modal"> Đánh giá</a> </span></p>
-            </div>
-            <div class="product-price"><span class="price-sales"> <?= $allProducts['fGiaBanLe'] ?></span> <span class="price-standard">600.000 VNĐ</span>
+            <div class="product-price"><span class="price-sales"> <?= $allProducts['fGiaBanLe'] ?></span> đ
             </div>
             <div class="details-description">
-                <p><?= $allProducts['sGhiChu'] ?> </p>
+                <p><strong>Mô tả: </strong><?= $allProducts['sGhiChu'] ?> </p>
             </div>
 
             <div class="cart-actions">
@@ -55,7 +110,7 @@
                     <div class="description">
                         <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
 
-                        <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span></div>
+                        <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span> đ</div>
                     </div>
                 </div>
             </div>
@@ -76,14 +131,22 @@
             <div class="modal-body">
                 <form action="user/addCart" method="POST">
                     <div class="form-group login-username">
-                        <div>
-                            <img class="anhsp" src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img">
+                        <div class="row">
+                            <div class="modalImg">
+                                <img src="" alt="img" class="anhsp">
+                            </div>
                             <div class="description">
                                 <h4>Sản phẩm 1</h4>
                                 <div class="price"><span>100.000 VNĐ</span></div>
+                                <div class="form-group modal-soluong">
+                                    <div class="">
+                                        <div class="input-group"><span class="input-group-addon">Số lượng</span>
+                                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <input name="FK_iMaSP" id="masanpham" type="text" hidden>
-                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
                         </div>
                     </div>
                     <div>

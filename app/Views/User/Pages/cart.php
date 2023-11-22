@@ -1,3 +1,23 @@
+<style>
+    .cart-img {
+        width: 100px;
+        height: 90px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        /* margin-left: 5px; */
+        margin-right: 5px;
+    }
+</style>
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
@@ -33,18 +53,18 @@
                                     </tr>
                                     <?php foreach ($allProductInCarts as $allProductInCart) : ?>
                                         <tr class="CartProduct">
-                                            <td class="CartProductThumb">
-                                                <div><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
+                                            <td>
+                                                <div><a class="cart-img" href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="CartDescription">
-                                                    <h4><a href="user/productDetail"><?= $allProductInCart['sTenSP'] ?> </a></h4>
+                                                    <h4><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><?= $allProductInCart['sTenSP'] ?> </a></h4>
                                                     <div class="price"><span><?= $allProductInCart['fGiaBanLe'] ?> VNĐ</span></div>
                                                 </div>
                                             </td>
                                             <td class="delete">
-                                                <button class="btn btn-sm btn-primary" >
+                                                <button class="btn btn-sm btn-primary">
                                                     <i class="glyphicon glyphicon-trash fa-2x"></i>
                                                 </button>
                                             </td>
@@ -54,7 +74,7 @@
                                                 <input class="quanitySniper" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]">
                                             </td>
                                             <td><?php if ($allProductInCart['fChietKhau'] == null) : ?>0<?php else : ?><?= $allProductInCart['fChietKhau'] ?><?php endif; ?></td>
-                                            <td class="price"><?= $allProductInCart['total_price'] ?> đ</td>
+                                            <td class="price"><span class="thanhtien"><?= $allProductInCart['total_price'] ?></span> đ</td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -85,17 +105,22 @@
                         <div class="w100 cartMiniTable">
                             <table id="cart-summary" class="std table">
                                 <tbody>
+                                    <tr>
+                                        <td>
+                                            <h2><strong>TỔNG TIỀN</strong></h2>
+                                        </td>
+                                    </tr>
                                     <!-- <tr>
                                         <td>Tổng tiền sản phẩm</td>
                                         <td class="price">25.000.000 VNĐ</td>
                                     </tr> -->
-                                    <tr>
+                                    <!-- <tr>
                                         <td>Shipping</td>
                                         <td class="price"><span class="success">30.000 đ</span></td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
-                                        <td>Tổng tiền <i>(đã áp dụng khuyến mãi)</i> </td>
-                                        <td class=" site-color" id="total-price">25.000.000 VNĐ</td>
+                                        <td> <strong>Tổng tiền <i>(đã áp dụng khuyến mãi)</i></strong></td>
+                                        <td class=" site-color"><span id="total-price"></span> đ</td>
                                     </tr>
                                 </tbody>
                                 <tbody>
@@ -110,3 +135,12 @@
     <div style="clear:both"></div>
 </div>
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var tong = 0;
+        $(".thanhtien").each(function() {
+            tong += parseFloat($(this).text()) || 0;
+        });
+        $('#total-price').html(tong);
+    });
+</script>

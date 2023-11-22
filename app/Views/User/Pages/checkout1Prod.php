@@ -1,3 +1,23 @@
+<style>
+    .checkoutProd-img {
+        width: 100px;
+        height: 90px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .checkoutProd-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        /* margin-left: 5px; */
+        margin-right: 5px;
+    }
+</style>
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
@@ -67,13 +87,13 @@
                                                     <th style="width:15%">Thành tiền</th>
                                                 </tr>
                                                 <tr class="CartProduct">
-                                                    <td class="CartProductThumb">
-                                                        <div><a href="product-details.html"><img src="<?php echo base_url('assets/admin/images/products/' . $products['sHinhAnh']) ?>"></a>
+                                                    <td>
+                                                        <div><a href="user/productDetail/<?= $products['PK_iMaSP'] ?>" class="checkoutProd-img"><img src="<?php echo base_url('assets/admin/images/products/' . $products['sHinhAnh']) ?>"></a>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="CartDescription">
-                                                            <h4><a href="product-details.html"><?= $products['sTenSP'] ?> </a></h4>
+                                                            <h4><a href="user/productDetail/<?= $products['PK_iMaSP'] ?>"><?= $products['sTenSP'] ?> </a></h4>
                                                             <span class="size"><?= $products['sDVT'] ?></span>
                                                         </div>
                                                     </td>
@@ -85,13 +105,13 @@
                                                         <input class="quanitySniper" type="text" value="1" min="1" name="iSoLuong" style="width:35px">
                                                     </td>
                                                     <td class="hidden-xs"><?php if ($products['fChietKhau'] == null) : ?>0<?php else : ?><?= $products['fChietKhau'] ?><?php endif; ?></td>
-                                                    <td class="price"><?= $products['total_price'] ?> đ</td>
+                                                    <td class="price"><span class="thanhtien"><?= $products['total_price'] ?></span> đ</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    <div class="w100 costDetails">
+                                    <!-- <div class="w100 costDetails">
                                         <div class="table-block" id="order-detail-content">
                                             <table class="std table" id="cart-summary">
                                                 <tr>
@@ -110,7 +130,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -136,16 +156,21 @@
                 <table id="cart-summary" class="std table">
                     <tbody>
                         <tr>
+                            <td>
+                                <h2><strong>TỔNG TIỀN</strong></h2>
+                            </td>
+                        </tr>
+                        <!-- <tr>
                             <td>Tổng tiền sản phẩm</td>
                             <td class="price">1.000.000</td>
                         </tr>
                         <tr>
                             <td>Shipping</td>
                             <td class="price"><span class="success">Free shipping!</span></td>
-                        </tr>
+                        </tr> -->
                         <tr>
-                            <td> Tổng tiền</td>
-                            <td class=" site-color" id="total-price">1.000.000 VNĐ</td>
+                            <td> <strong>Tổng tiền <i>(đã áp dụng khuyến mãi)</i></strong></td>
+                            <td class=" site-color"><span id="total-price"></span> đ</td>
                         </tr>
                     </tbody>
                     <tbody>
@@ -156,3 +181,13 @@
     </div>
     <div style="clear:both"></div>
 </div>
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var tong = 0;
+        $(".thanhtien").each(function() {
+            tong += parseFloat($(this).text()) || 0;
+        });
+        $('#total-price').html(tong);
+    });
+</script>

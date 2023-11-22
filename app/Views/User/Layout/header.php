@@ -223,7 +223,7 @@
 
             <!--- this part will be hidden for mobile version -->
             <div class="nav navbar-nav navbar-right hidden-xs">
-                <div class="dropdown  cartMenu "><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng ($210.00) </span> <b class="caret"> </b> </a>
+                <div class="dropdown  cartMenu "><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng cá nhân </span> <b class="caret"> </b> </a>
 
                     <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4 ">
                         <?php if ($sessions['tendn']) : ?>

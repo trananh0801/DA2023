@@ -38,6 +38,7 @@
         overflow: hidden;
         align-items: center;
         justify-content: center;
+        padding: 0px 10px 0px 10px;
     }
 
     .modalImg img {
@@ -48,6 +49,13 @@
         justify-content: center;
         object-position: center center;
         display: block;
+    }
+    .description {
+        max-width: 390px; 
+        margin-top: 10px; 
+    }
+    .modal-soluong{
+        margin-top: 20px;
     }
 </style>
 <div class="banner">
@@ -299,7 +307,7 @@
                             <div class="description">
                                 <h4>Sản phẩm 1</h4>
                                 <div class="price"><span>100.000 VNĐ</span></div>
-                                <div class="form-group">
+                                <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
                                             <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">

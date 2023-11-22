@@ -1,3 +1,23 @@
+<style>
+	.checkout-img {
+		width: 100px;
+		height: 90px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.checkout-img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		display: block;
+        /* margin-left: 5px; */
+        margin-right: 5px;
+	}
+</style>
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
@@ -68,8 +88,8 @@
                                                 </tr>
                                                 <?php foreach ($products as $product) : ?>
                                                     <tr class="CartProduct">
-                                                        <td class="CartProductThumb">
-                                                            <div><a href="product-details.html"><img src="<?php echo base_url('assets/admin/images/products/' . $product['sHinhAnh']) ?>"></a>
+                                                        <td>
+                                                            <div><a href="product-details.html" class="checkout-img"><img src="<?php echo base_url('assets/admin/images/products/' . $product['sHinhAnh']) ?>"></a>
                                                             </div>
                                                         </td>
                                                         <td>

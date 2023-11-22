@@ -174,15 +174,6 @@ class CheckoutService extends BaseService
             $this->order->save($dataSave_DDH);
             
             //insert sản chi tiết hóa đơn
-            
-            // $transformedData_update = array();
-            // foreach ($dataSave_CT_update as $k => $v) {
-            //     foreach ($v as $k1 => $v1) {
-            //         $transformedData_update[$k1][$k] = $v1;
-            //     }
-            // }
-
-            //insert sản chi tiết hóa đơn
             $this->orderDetail->insertBatch($transformedData);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,

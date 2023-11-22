@@ -12,7 +12,6 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		/* Cắt hoặc mở rộng hình ảnh để vừa với kích thước được xác định */
 		object-position: center center;
 		display: block;
 	}

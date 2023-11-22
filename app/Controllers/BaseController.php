@@ -73,6 +73,7 @@ abstract class BaseController extends Controller
         $sessions = [
             'tendn' => $session->get('user_id'),
             'matk' => $session->get('matk'),
+            'quyen' => $session->get('quyen'),
         ];
         $db      = \Config\Database::connect(); // Khởi tạo kết nối đến cơ sở dữ liệu
 

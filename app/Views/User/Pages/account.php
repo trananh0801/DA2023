@@ -5,8 +5,7 @@
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
             <ul class="breadcrumb">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="account.html">Cá nhân</a></li>
+                <li><a href="user/home">Trang chủ</a></li>
                 <li class="active"> Thông tin cá nhân</li>
             </ul>
         </div>
@@ -18,6 +17,24 @@
                     <li class="active"><a href="#details" data-toggle="tab"><span><i class="glyphicon glyphicon-user"></i> Thông tin cá nhân </span></a></li>
                     <li><a href="#donhang" data-toggle="tab">Lịch sử đặt hàng</a></li>
                 </ul>
+                <div class="row">
+                    <?php if (session('errorsMsg')) : ?>
+                        <?php foreach (session('errorsMsg') as $error) : ?>
+                            <div class="alert alert-danger d-flex align-items-center myAlert" role="alert">
+                                <span>Thêm dữ liệu thất bại!</span>
+                            </div>
+                            <?php break; ?>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                    <?php if (session('successMsg')) : ?>
+                        <?php foreach (session('successMsg') as $success) : ?>
+                            <div class="alert alert-success d-flex align-items-center myAlert" role="alert">
+                                <span>Thêm dữ liệu thành công!</span>
+                            </div>
+                            <?php break; ?>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </div>
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane active" id="details">
@@ -29,7 +46,7 @@
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="form-group required">
                                         <label for="InputName">Họ và tên <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" name="sTenKH" id="InputName" placeholder="Họ và tên" value="<?= $profiles['sTenKH'] ?>" >
+                                        <input required type="text" class="form-control" name="sTenKH" id="InputName" placeholder="Họ và tên" value="<?= $profiles['sTenKH'] ?>">
                                     </div>
                                     <div class="form-group required">
                                         <label for="InputLastName">Địa chỉ <sup>*</sup> </label>
@@ -113,9 +130,8 @@
                             </form>
                             <div class="col-lg-12 clearfix">
                                 <ul class="pager">
-                                    <li class="previous pull-right"><a href="index.html"> <i class="fa fa-home"></i> Quay lại trang chủ </a>
+                                    <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Quay lại trang chủ </a>
                                     </li>
-                                    <li class="next pull-left"><a href="account.html"> &larr; Trở về thông tin cá nhân</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -173,9 +189,8 @@
 
                                     <div class="col-lg-12 clearfix">
                                         <ul class="pager">
-                                            <li class="previous pull-right"><a href="index.html"> <i class="fa fa-home"></i> Quay lại trang chủ </a>
+                                            <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Quay lại trang chủ </a>
                                             </li>
-                                            <li class="next pull-left"><a href="account.html"> &larr; Trở về thông tin cá nhân</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -203,6 +218,10 @@
 <script src="assets/user/assets/js/footable.js" type="text/javascript"></script>
 <script src="assets/user/assets/js/footable.sortable.js" type="text/javascript"></script>
 <script type="text/javascript">
+    // Đợi 3 giây (3000 miligiây) sau đó ẩn alert
+    setTimeout(function() {
+        $('.myAlert').fadeOut('slow');
+    }, 3000);
     $(function() {
         $('.footable').footable();
     });

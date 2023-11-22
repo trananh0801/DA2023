@@ -65,58 +65,22 @@
         <div class="slider-content">
             <ul id="pager2" class="container">
             </ul>
-            <!-- prev/next links -->
             <span class="prevControl sliderControl"> <i class="fa fa-angle-left fa-3x "></i></span> <span class="nextControl sliderControl"> <i class="fa fa-angle-right fa-3x "></i></span>
 
             <div class="slider slider-v1" data-cycle-swipe=true data-cycle-prev=".prevControl" data-cycle-next=".nextControl" data-cycle-loader="wait">
                 <div class="slider-item slider-item-img1"><img src="assets/user/images/slider/3.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
                 <div class="slider-item slider-item-img1">
-                    <!-- <div class="sliderInfo">
-                        <div class="container">
-                            <div class="col-lg-12 col-md-12 col-sm-12 sliderTextFull ">
-                                <div class="inner text-center">
-                                    <div class="topAnima animated">
-                                        <h1 class="uppercase xlarge">MIỄN PHÍ SHIP</h1>
-
-                                        <h3 class="hidden-xs"> Miễn phí ship cho đơn hàng tối thiểu 500.000VNĐ </h3>
-                                    </div>
-                                    <a class="btn btn-danger btn-lg bottomAnima animated opacity0">TRẢI NGHIỆM NGAY
-                                        <span class="arrowUnicode">►</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <img src="assets/user/images/slider/4.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
-                <!--/.slider-item-->
 
                 <div class="slider-item slider-item-img2 ">
-                    <!-- <div class="sliderInfo">
-                        <div class="container">
-                            <div class="col-lg-12 col-md-12 col-sm-12 sliderTextFull  ">
-                                <div class="inner dark maxwidth500 text-center animated topAnima">
-                                    <div class=" ">
-                                        <h1 class="uppercase xlarge"> VỚI NHIỀU KHUYẾN MÃI HẤP DẪN</h1>
-
-                                        <h3 class="hidden-xs"> Khuyến mãi khủng cho lần đặt đầu tiên </h3>
-                                    </div>
-                                    <a class="btn btn-danger btn-lg">TRẢI NGHIỆM NGAY <span class="arrowUnicode">►</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <img src="assets/user/images/slider/5.jpg" class="img-responsive parallaximg sliderImg" alt="img" style="width:100%; height:auto">
                 </div>
-                <!--/.slider-item-->
             </div>
-            <!--/.slider slider-v1-->
         </div>
-        <!--/.slider-content-->
     </div>
-    <!--/.full-container-->
 </div>
-<!--/.banner style1-->
 
 <div class="container main-container">
     <div class="row featuredPostContainer globalPadding style2">
@@ -129,9 +93,6 @@
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
                         <div class="image">
-                            <!-- <div class="quickview">
-                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="user/productDetail/" data-target="#productSetailsModalAjax">Quick View </a>
-                            </div> -->
                             <a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>" class="td_img"><img src="<?php echo base_url('assets/admin/images/products/' . $newProduct['sHinhAnh']) ?>" alt="img" class="img-responsive"></a>
 
                             <div class="promotion"><span class="new-product"> GIẢM</span> <span class="discount">15% </span></div>
@@ -143,7 +104,7 @@
                         </div>
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
                         <div class="action-control">
-                            <?php if ($sessions['tendn']) : ?>
+                            <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>" data-tensp="<?= $newProduct['sTenSP'] ?>" data-giatien="<?= $newProduct['fGiaBanLe'] ?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
@@ -205,7 +166,7 @@
                             <p><?= $newProduct['sGhiChu'] ?></p>
                         </div>
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
-                        <?php if ($sessions['tendn']) : ?>
+                        <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                             <div class="action-control">
                                 <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
@@ -245,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span></div>
-                            <?php if ($sessions['tendn']) : ?>
+                            <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <div class="action-control">
                                     <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>" data-tensp="<?= $sellingProduct['sTenSP'] ?>" data-giatien="<?= $sellingProduct['fGiaBanLe'] ?>">
                                         <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>

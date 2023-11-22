@@ -33,10 +33,8 @@ class AccountController extends BaseController
         $session = session();
         $userID = $session->get('matk');
 
-        $data = [];
-        $dataLayout['profiles'] = $this->service->UpdateMyprofile($this->request, $userID);
+        $result = $this->service->UpdateMyprofile($this->request, $userID);
         // dd($dataLayout['profiles']);
-        $data = $this->loadMasterLayoutUser($data, 'Thông tin cá nhân', 'User/Pages/account', $dataLayout);
-        return view('User/main', $data);
+        return redirect()->to('user/account')->withInput()->with($result['massageCode'], $result['message']);
     }
 }

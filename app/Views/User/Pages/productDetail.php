@@ -65,8 +65,7 @@
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
             <ul class="breadcrumb">
-                <li><a href="user/home">Trang chủ</a></li>
-                <li class="active">Sản phẩm 1</li>
+                <li class="active">Chi tiết sản phẩm</li>
             </ul>
         </div>
     </div>
@@ -93,11 +92,23 @@
 
             <div class="cart-actions">
                 <div class="addto row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>">Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block" href="user/checkoutProd/<?= $allProducts['PK_iMaSP'] ?>">Mua ngay</a></div>
+                    <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>">Thêm vào giỏ hàng
+                            </button>
+                        </div>
+                    <?php else : ?>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#ModalLogin" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>">Thêm vào giỏ hàng
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block" href="user/checkoutProd/<?= $allProducts['PK_iMaSP'] ?>">Mua ngay</a></div>
+                    <?php else : ?>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block" href="user/checkoutProd/<?= $allProducts['PK_iMaSP'] ?>" data-toggle="modal" data-target="#ModalLogin">Mua ngay</a></div>
+                    <?php endif; ?>
+
                 </div>
                 <div style="clear:both"></div>
             </div>
@@ -110,7 +121,7 @@
         <div id="SimilarProductSlider">
             <?php foreach ($getAllProducts as $getAllProduct) : ?>
                 <div class="item">
-                    <div class="product"><a class="product-image"> <img src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img"> </a>
+                    <div class="product"><a class="product-image" href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"> <img src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img"> </a>
 
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>

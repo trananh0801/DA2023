@@ -37,12 +37,12 @@
                 <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
                     <div class="pull-right">
                         <ul class="userMenu">
-                            <?php if ($sessions['tendn']) : ?>
+                            <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <li><a href="user/account"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
                             <?php else : ?>
                                 <li><a href="#" data-toggle="modal" data-target="#ModalLogin"><span class="hidden-xs"> Cá nhân</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
                             <?php endif; ?>
-                            <?php if (!$sessions['tendn']) : ?>
+                            <?php if (!$sessions['tendn'] || ($sessions['quyen'] != '4')) : ?>
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#ModalLogin">
                                         <span class="hidden-xs">Đăng nhập</span>
@@ -51,7 +51,7 @@
                                 </li>
                             <?php endif; ?>
                             <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#ModalSignup">Đăng ký</a></li>
-                            <?php if ($sessions['tendn']) : ?>
+                            <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <li class="hidden-xs"><a href="user/logout">Đăng xuất</a></li>
                             <?php endif; ?>
                         </ul>
@@ -226,7 +226,7 @@
                 <div class="dropdown  cartMenu "><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng cá nhân </span> <b class="caret"> </b> </a>
 
                     <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4 ">
-                        <?php if ($sessions['tendn']) : ?>
+                        <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                             <div class="w100 miniCartTable scroll-pane">
                                 <table>
                                     <tbody>

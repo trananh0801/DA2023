@@ -36,6 +36,24 @@
         </div>
     </div>
     <div class="row">
+        <?php if (session('errorsMsg')) : ?>
+            <?php foreach (session('errorsMsg') as $error) : ?>
+                <div class="alert alert-danger d-flex align-items-center myAlert" role="alert">
+                    <span>Thêm dữ liệu thất bại!</span>
+                </div>
+                <?php break; ?>
+            <?php endforeach ?>
+        <?php endif ?>
+        <?php if (session('successMsg')) : ?>
+            <?php foreach (session('successMsg') as $success) : ?>
+                <div class="alert alert-success d-flex align-items-center myAlert" role="alert">
+                    <span>Thêm dữ liệu thành công!</span>
+                </div>
+                <?php break; ?>
+            <?php endforeach ?>
+        <?php endif ?>
+    </div>
+    <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-7">
             <div class="row userInfo">
                 <div class="col-xs-12 col-sm-12">
@@ -136,6 +154,10 @@
 </div>
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
+    // Đợi 3 giây (3000 miligiây) sau đó ẩn alert
+    setTimeout(function() {
+        $('.myAlert').fadeOut('slow');
+    }, 3000);
     $(document).ready(function() {
         var tong = 0;
         $(".thanhtien").each(function() {

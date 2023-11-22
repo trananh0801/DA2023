@@ -68,13 +68,14 @@ class AccountService extends BaseService
         $formattedDatetime = $time->toDateTimeString();
 
         $dataSave_KH = [
-            'sTenKH' => $requestData->getPost('tenKH'),
+            'sTenKH' => $requestData->getPost('sTenKH'),
             'sDiaChi' => $requestData->getPost('sDiaChi'),
             'sSDT' => $requestData->getPost('sSDT'),
             'dNgaySinh' => $formattedDatetime,
             'sGioiTinh' => $requestData->getPost('sGioiTinh'),
         ];
 
+        // dd($dataSave_KH);
         $dataSave_TK = [
             'sMatKhau' => password_hash((string) $requestData->getPost('sMatKhau'), PASSWORD_DEFAULT),
         ];
@@ -97,7 +98,7 @@ class AccountService extends BaseService
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
                 'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['' => $e->getMessage()],
+                'message' => ['Lỗi: ' => $e->getMessage()],
             ];
         }
     }

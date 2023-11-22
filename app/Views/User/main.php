@@ -82,9 +82,7 @@
     <script src="assets/user/assets/js/enquire.min.js"></script>
     <!-- include custom script for site  -->
     <script src="assets/user/assets/js/script.js"></script>
-    <script>
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 

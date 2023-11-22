@@ -62,14 +62,6 @@
         <a href="admin/customer/list">Danh mục quà tặng</a>
       </div>
     </li>
-    <li class="menu-item has-submenu">
-      <a class="menu-link" href="page-transactions-A.html"> <i class="icon material-icons md-monetization_on"></i> 
-        <span class="text">Đánh giá bình luận</span> 
-      </a> 
-      <div class="submenu">
-        <a href="admin/evaluate/list">Danh sách đánh giá</a>
-      </div>
-    </li>
   </ul>
   <hr>
   <ul class="menu-aside">

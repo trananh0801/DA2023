@@ -22,8 +22,8 @@
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
             <ul class="breadcrumb">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="account.html">Cá nhân</a></li>
+                <li><a href="user/home">Trang chủ</a></li>
+                <li><a href="user/account">Cá nhân</a></li>
                 <li class="active"> Danh sách đơn hàng</li>
             </ul>
         </div>
@@ -118,21 +118,6 @@
                                                 <td class="" style="width:20%"></td>
                                                 <td class="" style="width:15%"><span> </span></td>
                                             </tr>
-
-                                            <!-- <tr class="cartTotalTr">
-                                                <td class="" style="width:20%">
-                                                    <div></div>
-                                                </td>
-                                                <td colspan="2" style="width:40%">Tổng tiền sản phẩm</td>
-                                                <td class="" style="width:15%"><span> 300.000 VNĐ</span></td>
-                                            </tr> -->
-                                            <!-- <tr class="cartTotalTr">
-                                                <td class="" style="width:20%">
-                                                    <div></div>
-                                                </td>
-                                                <td colspan="2" style="width:40%">Shipping</td>
-                                                <td class="" style="width:15%"><span> 10.000 VNĐ </span></td>
-                                            </tr> -->
                                             <tr class="cartTotalTr">
                                                 <td class="" style="width:20%">
                                                     <div></div>
@@ -151,9 +136,9 @@
 
                 <div class="col-lg-12 clearfix">
                     <ul class="pager">
-                        <li class="previous pull-right"><a href="index.html"> <i class="fa fa-home"></i> Trở về trang chủ </a>
+                        <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Trở về trang chủ </a>
                         </li>
-                        <li class="next pull-left"><a href="account.html"> ← Quay lại thông tin cá nhân</a></li>
+                        <li class="next pull-left"><a href="user/account"> ← Quay lại thông tin cá nhân</a></li>
                     </ul>
                 </div>
             </div>

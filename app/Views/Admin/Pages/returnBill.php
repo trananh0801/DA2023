@@ -1,7 +1,7 @@
 <section class="content-main">
     <?php if (session('errorsMsg')) : ?>
         <?php foreach (session('errorsMsg') as $error) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show myAlert" role="alert">
                 <strong>Lỗi: </strong> <?= $error ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -10,7 +10,7 @@
     <?php endif ?>
     <?php if (session('successMsg')) : ?>
         <?php foreach (session('successMsg') as $success) : ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible fade show myAlert" role="alert">
                 <strong>Thành công: </strong> <?= $success ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -193,6 +193,9 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
+    setTimeout(function() {
+        $('.myAlert').fadeOut('slow');
+    }, 3000);
     // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
     var addRowButton = document.getElementById("addRowButton");
     var table = document.getElementById("myTable");

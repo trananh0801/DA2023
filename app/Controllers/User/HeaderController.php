@@ -67,6 +67,7 @@ class HeaderController extends BaseController
         // Kiểm tra thông tin đăng nhập với cơ sở dữ liệu
         $user = $this->user->where('sTenTK', $username)->first();
         if ($user && password_verify((string) $password, $user['sMatKhau'])) {
+            // dd($password);
             $session = session();
             $session->set('user_id', $user['sTenTK']);
             $session->set('quyen', $user['FK_iMaQuyen']);

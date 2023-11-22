@@ -1,7 +1,7 @@
 <section class="content-main">
     <?php if (session('errorsMsg')) : ?>
         <?php foreach (session('errorsMsg') as $error) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show myAlert" role="alert">
                 <strong>Lỗi: </strong> <?= $error ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -10,7 +10,7 @@
     <?php endif ?>
     <?php if (session('successMsg')) : ?>
         <?php foreach (session('successMsg') as $success) : ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible fade show myAlert" role="alert">
                 <strong>Thành công: </strong> <?= $success ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -214,6 +214,9 @@
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" /> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script> -->
 <script>
+    setTimeout(function() {
+        $('.myAlert').fadeOut('slow');
+    }, 3000);
     $(document).ready(function() {
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';

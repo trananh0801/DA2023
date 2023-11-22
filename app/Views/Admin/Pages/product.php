@@ -19,7 +19,7 @@
 <section class="content-main">
 	<?php if (session('errorsMsg')) : ?>
 		<?php foreach (session('errorsMsg') as $error) : ?>
-			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<div class="alert alert-danger alert-dismissible fade show myAlert" role="alert">
 				<strong>Lỗi: </strong> <?= $error ?>
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
@@ -28,7 +28,7 @@
 	<?php endif ?>
 	<?php if (session('successMsg')) : ?>
 		<?php foreach (session('successMsg') as $success) : ?>
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<div class="alert alert-success alert-dismissible fade show myAlert" role="alert">
 				<strong>Thành công: </strong> <?= $success ?>
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
@@ -46,11 +46,11 @@
 		<header class="card-header">
 			<div class="row gx-3">
 				<div class="col-lg-4 col-md-6 me-auto">
-					<input type="text" placeholder="Search..." class="form-control">
+					<input type="text" placeholder="Tìm kiếm..." class="form-control">
 				</div>
 				<div class="col-lg-2 col-6 col-md-3">
 					<select class="form-select">
-						<option>Status</option>
+						<option>Trạng thái</option>
 						<option>Active</option>
 						<option>Disabled</option>
 						<option>Show all</option>
@@ -58,7 +58,7 @@
 				</div>
 				<div class="col-lg-2 col-6 col-md-3">
 					<select class="form-select">
-						<option>Show 20</option>
+						<option>Hiển thị 20</option>
 						<option>Show 30</option>
 						<option>Show 40</option>
 					</select>
@@ -184,6 +184,9 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
+	setTimeout(function() {
+        $('.myAlert').fadeOut('slow');
+    }, 3000);
 	function myFunction() {
 		return confirm("Bạn có chắc chắn muốn xóa sản phẩm này!");
 	}

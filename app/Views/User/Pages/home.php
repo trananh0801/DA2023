@@ -50,11 +50,13 @@
         object-position: center center;
         display: block;
     }
+
     .description {
-        max-width: 390px; 
-        margin-top: 10px; 
+        max-width: 390px;
+        margin-top: 10px;
     }
-    .modal-soluong{
+
+    .modal-soluong {
         margin-top: 20px;
     }
 </style>
@@ -142,7 +144,7 @@
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
                         <div class="action-control">
                             <?php if ($sessions['tendn']) : ?>
-                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>" data-tensp="<?= $newProduct['sTenSP'] ?>" data-giatien="<?= $newProduct['fGiaBanLe'] ?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
                             <?php else : ?>
@@ -205,7 +207,7 @@
                         <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
                         <?php if ($sessions['tendn']) : ?>
                             <div class="action-control">
-                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh']?>">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
                             </div>
@@ -245,7 +247,7 @@
                             <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span></div>
                             <?php if ($sessions['tendn']) : ?>
                                 <div class="action-control">
-                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>" data-tensp="<?= $sellingProduct['sTenSP'] ?>" data-giatien="<?= $sellingProduct['fGiaBanLe'] ?>">
                                         <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                     </a>
                                 </div>
@@ -305,8 +307,8 @@
                                 <img src="" alt="img" class="anhsp">
                             </div>
                             <div class="description">
-                                <h4>Sản phẩm 1</h4>
-                                <div class="price"><span>100.000 VNĐ</span></div>
+                                <h4 id="tensp"></h4>
+                                <div class="price"><span id="giatien"></span> đ</div>
                                 <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
@@ -334,9 +336,12 @@
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
             hinhanh = $(this).attr("data-hinhanh");
-            console.log(hinhanh)
+            tensp = $(this).attr("data-tensp");
+            giatien = $(this).attr("data-giatien");
 
             $("#masanpham").val(masanpham);
+            $("#tensp").text(tensp);
+            $("#giatien").text(giatien);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

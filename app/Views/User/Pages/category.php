@@ -191,7 +191,7 @@
                             <div class="price"><span><?= $productInGroup['fGiaBanLe'] ?></span>đ</div>
                             <?php if ($sessions['tendn']) : ?>
                                 <div class="action-control">
-                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart_category" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>" data-tensp="<?= $productInGroup['sTenSP'] ?>" data-giatien="<?= $productInGroup['fGiaBanLe'] ?>">
                                         <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                     </a>
                                 </div>
@@ -231,7 +231,7 @@
 <!-- /main container -->
 
 <!-- Modal thêm vào giỏ hàng  -->
-<div class="modal signUpContent fade" id="AddCart" tabindex="-1" role="dialog">
+<div class="modal signUpContent fade" id="AddCart_category" tabindex="-1" role="dialog">
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
@@ -246,8 +246,8 @@
                                 <img src="" alt="img" class="anhsp">
                             </div>
                             <div class="description">
-                                <h4>Sản phẩm 1</h4>
-                                <div class="price"><span>100.000 VNĐ</span></div>
+                                <h4 id="tensp"></h4>
+                                <div class="price"><span id="giatien"></span> đ</div>
                                 <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
@@ -275,9 +275,12 @@
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
             hinhanh = $(this).attr("data-hinhanh");
-            console.log(hinhanh)
+            tensp = $(this).attr("data-tensp");
+            giatien = $(this).attr("data-giatien");
 
             $("#masanpham").val(masanpham);
+            $("#tensp").text(tensp);
+            $("#giatien").text(giatien);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

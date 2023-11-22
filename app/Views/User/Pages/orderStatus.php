@@ -1,3 +1,23 @@
+<style>
+	.status-img {
+		width: 100px;
+		height: 90px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.status-img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		display: block;
+        /* margin-left: 5px; */
+        margin-right: 5px;
+	}
+</style>
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
@@ -73,7 +93,7 @@
                                             <?php foreach ($orderDetails as $orderDetail) : ?>
                                                 <tr class="cartProduct">
                                                     <td class="cartProductThumb" style="width:20%">
-                                                        <div><a href="product-details.html"> <img alt="img" src="<?php echo base_url('assets/admin/images/products/' . $orderDetail['sHinhAnh']) ?>">
+                                                        <div><a href="product-details.html" class="status-img"> <img alt="img" src="<?php echo base_url('assets/admin/images/products/' . $orderDetail['sHinhAnh']) ?>">
                                                             </a></div>
                                                     </td>
                                                     <td style="width:40%">

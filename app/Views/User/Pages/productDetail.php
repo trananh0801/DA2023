@@ -15,6 +15,7 @@
         object-position: center center;
         display: block;
     }
+
     .modalImg {
         width: 100%;
         height: 200px;
@@ -33,14 +34,17 @@
         object-position: center center;
         display: block;
     }
+
     .description {
-        max-width: 390px; 
-        margin-top: 10px; 
+        max-width: 390px;
+        margin-top: 10px;
     }
-    .modal-soluong{
+
+    .modal-soluong {
         margin-top: 20px;
     }
-    .product-largeimg-link{
+
+    .product-largeimg-link {
         width: 100%;
         height: 450px;
         overflow: hidden;
@@ -48,6 +52,7 @@
         align-items: center;
         justify-content: center;
     }
+
     .product-largeimg-link img {
         width: 100%;
         height: 100%;
@@ -89,7 +94,7 @@
             <div class="cart-actions">
                 <div class="addto row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <button  class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>">Thêm vào giỏ hàng
+                        <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>">Thêm vào giỏ hàng
                         </button>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block" href="user/checkoutProd/<?= $allProducts['PK_iMaSP'] ?>">Mua ngay</a></div>
@@ -103,17 +108,17 @@
         <h1> CÓ THỂ BẠN CŨNG THÍCH </h1>
 
         <div id="SimilarProductSlider">
-        <?php foreach ($getAllProducts as $getAllProduct) : ?>
-            <div class="item">
-                <div class="product"><a class="product-image"> <img src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img"> </a>
+            <?php foreach ($getAllProducts as $getAllProduct) : ?>
+                <div class="item">
+                    <div class="product"><a class="product-image"> <img src="<?php echo base_url('assets/admin/images/products/' . $getAllProduct['sHinhAnh']) ?>" alt="img"> </a>
 
-                    <div class="description">
-                        <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
+                        <div class="description">
+                            <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
 
-                        <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span> đ</div>
+                            <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span> đ</div>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach ?>
         </div>
     </div>
@@ -136,8 +141,8 @@
                                 <img src="" alt="img" class="anhsp">
                             </div>
                             <div class="description">
-                                <h4>Sản phẩm 1</h4>
-                                <div class="price"><span>100.000 VNĐ</span></div>
+                                <h4 id="tensp"></h4>
+                                <div class="price"><span id="giatien"></span> đ</div>
                                 <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
@@ -166,8 +171,12 @@
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
             hinhanh = $(this).attr("data-hinhanh");
+            tensp = $(this).attr("data-tensp");
+            giatien = $(this).attr("data-giatien");
 
             $("#masanpham").val(masanpham);
+            $("#tensp").text(tensp);
+            $("#giatien").text(giatien);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

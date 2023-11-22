@@ -105,7 +105,6 @@ $routes->group('user', function ($routes) {
 
     $routes->get('account', 'User\AccountController::list');
     $routes->post('account/my-profile', 'User\AccountController::profile');
-    // $routes->get('account/history', 'User\AccountController::history');
 
     $routes->get('cart', 'User\CartController::list');
     $routes->post('updateCart', 'User\CartController::UpdateCart');
@@ -113,9 +112,10 @@ $routes->group('user', function ($routes) {
 
     $routes->get('productDetail/(:num)', 'User\ProductDetailController::list/$1');
     $routes->get('product', 'User\ProductController::list');
-    $routes->get('category', 'User\CategoryController::list');
+
+    $routes->get('category/(:segment)', 'User\CategoryController::list/$1');
+
     $routes->get('about-us', 'User\AboutController::list');
-    // $routes->get('order-list', 'User\OrderListController::list');
     $routes->get('checkout', 'User\CheckoutController::list');
     $routes->post('addCheckout', 'User\CheckoutController::addOrderInfo');
 

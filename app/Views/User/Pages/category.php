@@ -32,7 +32,7 @@
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked tree">
                                 <?php foreach ($productGroups as $productGroup) : ?>
-                                    <li class="active dropdown-tree open-tree"><a class="dropdown-tree-a" href="user/"> <span class="badge pull-right">42</span> <?= $productGroup['sTenNhom'] ?> </a>
+                                    <li class="active dropdown-tree open-tree"><a class="dropdown-tree-a" href="user/category/<?= $productGroup['PK_iMaNhom'] ?>"> <span class="badge pull-right">new</span> <?= $productGroup['sTenNhom'] ?> </a>
                                     </li>
                                 <?php endforeach ?>
                             </ul>
@@ -40,7 +40,6 @@
                     </div>
                 </div>
                 <!--/Category menu end-->
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title"><a class="collapseWill active " data-toggle="collapse" href="#collapsePrice">
@@ -101,13 +100,12 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
 
             <div class="w100 clearfix category-top">
-                <h2> NHÓM SẢN PHẨM 1 </h2>
+                <h2 style="text-transform: uppercase;"> <?= $nameProductGroups['sTenNhom'] ?> </h2>
             </div>
             <!--/.category-top-->
 
             <div class="w100 productFilter clearfix">
-                <p class="pull-left"> Hiển thị <strong>12</strong> sản phẩm </p>
-
+                <p class="pull-left"> Hiển thị <strong><?php foreach ($demsps as $demsp) : ?><?= $demsp['tongsp'] ?><?php endforeach ?></strong> sản phẩm </p>
                 <div class="pull-right ">
                     <div class="change-order pull-right">
                         <select class="form-control" name="orderby">
@@ -128,92 +126,45 @@
             <!--/.productFilter-->
 
             <div class="row  categoryProduct xsResponse clearfix">
-                <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-                    <div class="product">
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
+                <?php foreach ($productInGroups as $productInGroup) : ?>
+                    <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
+                        <div class="product">
+                            <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
+                                <i class="glyphicon glyphicon-heart"></i>
+                            </a>
 
-                        <div class="image">
-                            <div class="quickview">
-                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Xem nhanh </a>
+                            <div class="image">
+                                <div class="quickview">
+                                    <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Xem nhanh </a>
+                                </div>
+                                <a href="product-details.html"><img class="img-responsive" alt="img" src="<?php echo base_url('assets/admin/images/products/' . $productInGroup['sHinhAnh']) ?>"></a>
+
+                                <div class="promotion"><span class="new-product"> MỚI</span> <span class="discount"> giảm 15%</span></div>
                             </div>
-                            <a href="product-details.html"><img class="img-responsive" alt="img" src="assets/user/images/product/30.jpg"></a>
+                            <div class="description">
+                                <h4><a href="product-details.html"><?= $productInGroup['sTenSP'] ?></a></h4>
 
-                            <div class="promotion"><span class="new-product"> MỚI</span> <span class="discount"> giảm 15%</span></div>
+                                <div class="grid-description">
+                                    <p><?= $productInGroup['sGhiChu'] ?> </p>
+                                </div>
+                            </div>
+                            <div class="price"><span><?= $productInGroup['fGiaBanLe'] ?></span>đ</div>
+                            <?php if ($sessions['tendn']) : ?>
+                                <div class="action-control">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>">
+                                        <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
+                                    </a>
+                                </div>
+                            <?php else : ?>
+                                <div class="action-control">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#ModalLogin" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>">
+                                        <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="description">
-                            <h4><a href="product-details.html">SỮA TRẺ EM 2 TUỔI</a></h4>
-
-                            <div class="grid-description">
-                                <p>Mô tả ở đây. </p>
-                            </div>
-                            <div class="list-description">
-                                <p> Mô tả chi tiết ở đây. </p>
-                            </div>
-                        </div>
-                        <div class="price"><span>500.000 VNĐ</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
                     </div>
-                </div>
-                <!--/.item-->
-                <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-                    <div class="product">
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
-
-                        <div class="image">
-                            <div class="quickview">
-                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Xem nhanh </a>
-                            </div>
-                            <a href="product-details.html"><img class="img-responsive" alt="img" src="assets/user/images/product/30.jpg"></a>
-
-                            <div class="promotion"><span class="new-product"> MỚI</span> <span class="discount"> giảm 15%</span></div>
-                        </div>
-                        <div class="description">
-                            <h4><a href="product-details.html">SỮA TRẺ EM 2 TUỔI</a></h4>
-
-                            <div class="grid-description">
-                                <p>Mô tả ở đây. </p>
-                            </div>
-                            <div class="list-description">
-                                <p> Mô tả chi tiết ở đây. </p>
-                            </div>
-                        </div>
-                        <div class="price"><span>500.000 VNĐ</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
-                    </div>
-                </div>
-                <!--/.item-->
-                <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-                    <div class="product">
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-                            <i class="glyphicon glyphicon-heart"></i>
-                        </a>
-
-                        <div class="image">
-                            <div class="quickview">
-                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html" data-target="#productSetailsModalAjax">Xem nhanh </a>
-                            </div>
-                            <a href="product-details.html"><img class="img-responsive" alt="img" src="assets/user/images/product/30.jpg"></a>
-
-                            <div class="promotion"><span class="new-product"> MỚI</span> <span class="discount"> giảm 15%</span></div>
-                        </div>
-                        <div class="description">
-                            <h4><a href="product-details.html">SỮA TRẺ EM 2 TUỔI</a></h4>
-
-                            <div class="grid-description">
-                                <p>Mô tả ở đây. </p>
-                            </div>
-                            <div class="list-description">
-                                <p> Mô tả chi tiết ở đây. </p>
-                            </div>
-                        </div>
-                        <div class="price"><span>500.000 VNĐ</span></div>
-                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span> </a></div>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
             <!--/.categoryProduct || product content end-->
 
@@ -238,3 +189,56 @@
     </div><!-- /.row  -->
 </div>
 <!-- /main container -->
+
+<!-- Modal thêm vào giỏ hàng  -->
+<div class="modal signUpContent fade" id="AddCart" tabindex="-1" role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                <h3 class="modal-title-site text-center"> Thêm vào giỏ hàng </h3>
+            </div>
+            <div class="modal-body">
+                <form action="user/addCart" method="POST">
+                    <div class="form-group login-username">
+                        <div class="row">
+                            <div class="modalImg">
+                                <img src="" alt="img" class="anhsp">
+                            </div>
+                            <div class="description">
+                                <h4>Sản phẩm 1</h4>
+                                <div class="price"><span>100.000 VNĐ</span></div>
+                                <div class="form-group">
+                                    <div class="">
+                                        <div class="input-group"><span class="input-group-addon">Số lượng</span>
+                                            <input name="iSoLuong" id="login-user" class="form-control input" size="20" placeholder="Nhập số lượng" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input name="FK_iMaSP" id="masanpham" type="text" hidden>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input class="btn  btn-block btn-lg btn-primary" value="Thêm vào giỏ hàng" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".edit").click(function() {
+            masanpham = $(this).attr("data-masanpham");
+            hinhanh = $(this).attr("data-hinhanh");
+            console.log(hinhanh)
+
+            $("#masanpham").val(masanpham);
+            $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
+        })
+    })
+</script>

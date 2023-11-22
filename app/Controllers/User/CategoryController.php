@@ -2,7 +2,7 @@
 
 namespace App\Controllers\User;
 use App\Controllers\BaseController;
-use App\Services\ProductGroupService;
+use App\Services\CategoryService;
 
 class CategoryController extends BaseController
 {
@@ -12,14 +12,23 @@ class CategoryController extends BaseController
     private $service; 
     public function __construct()
     {
-        $this->service = new ProductGroupService();
+        $this->service = new CategoryService();
     }
 
-    public function list()
+    public function list($id)
     {
+        $session = session();
+        $sessions = [
+            'tendn' => $session->get('user_id'),
+            'quyen' => $session->get('quyen')
+        ];
+        $dataLayout['sessions'] = $sessions;
         $data = [];
         $dataLayout['productGroups'] = $this->service->getAllProductGroup();
-        // dd($dataLayout['productGroups']);
+        $dataLayout['nameProductGroups'] = $this->service->getNameProductGroup($id);
+        $dataLayout['productInGroups'] = $this->service->getProductInGroup($id);
+        $dataLayout['demsps'] = $this->service->demSP($id);
+        // dd($dataLayout['demsps']);
         $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/category', $dataLayout);
         return view('User/main', $data);
     }

@@ -256,7 +256,7 @@
                             <!--/.miniCartTable-->
 
                             <div class="miniCartFooter text-right">
-                                <h3 class="text-right subtotal"> Tổng cộng: 600.000 VNĐ </h3>
+                                <!-- <h3 class="text-right subtotal"> Tổng cộng: 600.000 VNĐ </h3> -->
                                 <a class="btn btn-sm btn-danger" href="user/cart"> <i class="fa fa-shopping-cart"> </i> Xem tất cả </a>
                                 <!-- <a class="btn btn-sm btn-primary" href="user/checkout"> Thanh toán </a> -->
                             </div>

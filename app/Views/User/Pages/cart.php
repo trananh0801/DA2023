@@ -28,7 +28,7 @@
                                         <td style="width:40%">Chi tiết</td>
                                         <td style="width:10%" class="delete">&nbsp;</td>
                                         <td style="width:10%">Số lượng</td>
-                                        <!-- <td style="width:10%">Chiết khấu</td> -->
+                                        <td style="width:10%">Chiết khấu</td>
                                         <td style="width:15%">Tổng cộng</td>
                                     </tr>
                                     <?php foreach ($allProductInCarts as $allProductInCart) : ?>
@@ -53,8 +53,8 @@
                                                 <input type="text" value="<?= $allProductInCart['FK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
                                                 <input class="quanitySniper" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]">
                                             </td>
-                                            <!-- <td>0</td> -->
-                                            <td class="price">1.000.000 VNĐ</td>
+                                            <td><?php if ($allProductInCart['fChietKhau'] == null) : ?>0<?php else : ?><?= $allProductInCart['fChietKhau'] ?><?php endif; ?></td>
+                                            <td class="price"><?= $allProductInCart['total_price'] ?> đ</td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -85,16 +85,16 @@
                         <div class="w100 cartMiniTable">
                             <table id="cart-summary" class="std table">
                                 <tbody>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>Tổng tiền sản phẩm</td>
                                         <td class="price">25.000.000 VNĐ</td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <td>Shipping</td>
-                                        <td class="price"><span class="success">Free shipping!</span></td>
+                                        <td class="price"><span class="success">30.000 đ</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Sau khi áp dụng khuyến mãi </td>
+                                        <td>Tổng tiền <i>(đã áp dụng khuyến mãi)</i> </td>
                                         <td class=" site-color" id="total-price">25.000.000 VNĐ</td>
                                     </tr>
                                 </tbody>

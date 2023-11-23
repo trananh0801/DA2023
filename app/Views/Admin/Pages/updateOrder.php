@@ -30,7 +30,7 @@
                                 <label class="form-label">Nhân viên</label>
                                 <select class="form-select" name="FK_iMaNV" disabled>
                                     <?php foreach ($staffs as $staff) : ?>
-                                        <option value="<?= $staff['PK_iMaNV'] ?>" <?php if ($staff['PK_iMaNV'] == $orders['FK_iMaNV']):?> selected <?php endif; ?>><?= $staff['sTenNV'] ?></option>
+                                        <option value="<?= $staff['PK_iMaNV'] ?>" <?php if ($staff['PK_iMaNV'] == $orders['FK_iMaNV']) : ?> selected <?php endif; ?>><?= $staff['sTenNV'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
@@ -38,23 +38,24 @@
                                 <label class="form-label">Khách hàng</label>
                                 <select class="form-select" name="FK_iMaKH" id="selectOption" disabled>
                                     <?php foreach ($customers as $customer) : ?>
-                                        <option value="<?= $customer['PK_iMaKH'] ?>" <?php if ($customer['PK_iMaKH'] == $orders['FK_iMaKH']):?> selected <?php endif; ?>><?= $customer['sTenKH'] ?></option>
+                                        <option value="<?= $customer['PK_iMaKH'] ?>" <?php if ($customer['PK_iMaKH'] == $orders['FK_iMaKH']) : ?> selected <?php endif; ?>><?= $customer['sTenKH'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
                             <div class="mb-4 col-6">
                                 <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
-                                <input type="date" placeholder="Type here" class="form-control" id="dThoiGianTao" name="dThoiGianTao" value="<?= $orders['dThoiGianTao'] ?>" readonly/>
+                                <input type="date" placeholder="Type here" class="form-control" id="dThoiGianTao" name="dThoiGianTao" value="<?= $orders['dThoiGianTao'] ?>" readonly />
                             </div>
                             <div class="mb-4 col-6">
                                 <label for="dNgayNhanHang" class="form-label">Ngày nhận hàng</label>
-                                <input type="date" placeholder="Type here" class="form-control" id="dNgayNhanHang" name="dNgayNhanHang" value="<?= $orders['dNgayNhanHang'] ?>" readonly/>
+                                <input type="date" placeholder="Type here" class="form-control" id="dNgayNhanHang" name="dNgayNhanHang" value="<?= $orders['dNgayNhanHang'] ?>" readonly />
                             </div>
                             <div class="col-6 mb-3">
                                 <label class="form-label">Trạng thái</label>
                                 <select class="form-select" name="FK_iMaTrangThai">
-                                    <option value="3" <?php if ($orders['FK_iMaTrangThai'] == '3'):?> selected <?php endif; ?>>Đã thanh toán</option>
-                                    <option value="4" <?php if ($orders['FK_iMaTrangThai'] == '4'):?> selected <?php endif; ?>>Chờ thanh toán</option>
+                                    <option value="3" <?php if ($orders['FK_iMaTrangThai'] == '3') : ?> selected <?php endif; ?>>Đã thanh toán</option>
+                                    <option value="4" <?php if ($orders['FK_iMaTrangThai'] == '4') : ?> selected <?php endif; ?>>Chờ thanh toán</option>
+                                    <option value="5" <?php if ($orders['FK_iMaTrangThai'] == '5') : ?> selected <?php endif; ?>>Đã hoàn trả</option>
                                 </select>
                             </div>
                             <div class="mb-4 col-12">
@@ -76,22 +77,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $k = 1?>
-                            <?php foreach ($orderDetails as $orderDetail) : ?>
-                                <tr>
-                                    <td><?= $k++ ?></td>
-                                    <td>
-                                        <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct" disabled>
-                                            <?php foreach ($products as $product) : ?>
-                                                <option value="<?= $product['PK_iMaSP'] ?>" <?php if ($product['PK_iMaSP'] == $orderDetail['FK_iMaSP']):?> selected <?php endif; ?>><?= $product['sTenSP'] ?></option>
-                                            <?php endforeach ?>
-                                        </select>
-                                    </td>
-                                    <td><?= $orderDetail['fGiaBanLe'] ?></td>
-                                    <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $orderDetail['iSoLuong'] ?>" readonly/></td>
-                                    <td><?= $orderDetail['fChietKhau'] ?>%</td>
-                                    <td>10</td>
-                                </tr>
+                                <?php $k = 1 ?>
+                                <?php foreach ($orderDetails as $orderDetail) : ?>
+                                    <tr>
+                                        <td><?= $k++ ?></td>
+                                        <td>
+                                            <select class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct" disabled>
+                                                <?php foreach ($products as $product) : ?>
+                                                    <option value="<?= $product['PK_iMaSP'] ?>" <?php if ($product['PK_iMaSP'] == $orderDetail['FK_iMaSP']) : ?> selected <?php endif; ?>><?= $orderDetail['sTenSP'] ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </td>
+                                        <td><?= $orderDetail['fGiaBanLe'] ?></td>
+                                        <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $orderDetail['iSoLuong'] ?>" readonly /></td>
+                                        <td><?= $orderDetail['fChietKhau'] ?>%</td>
+                                        <td>10</td>
+                                    </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
@@ -120,6 +121,6 @@
 </section> <!-- content-main end// -->
 <script>
     $(document).ready(function() {
-    
-  });
+
+    });
 </script>

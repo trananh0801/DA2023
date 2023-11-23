@@ -69,6 +69,7 @@ class ImportBillService extends BaseService
     {
         $result = $this->staff
             ->select('*')
+            ->where('sTenChucVu', '2')
             ->findAll();
         // dd($result);
         return $result;

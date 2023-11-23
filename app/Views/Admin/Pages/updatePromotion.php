@@ -55,10 +55,10 @@
                         <label for="fChietKhau" class="form-label">Chiết khấu (%)</label>
                         <input type="text" class="form-control" id="fChietKhau" name="fChietKhau" value="<?= $promotions['fChietKhau'] ?>" placeholder="VD: 10">
                     </div>
-                    <div class="mb-4 col-6">
+                    <!-- <div class="mb-4 col-6">
                         <label for="iSoLuongAD" class="form-label">Số lượng áp dụng</label>
                         <input type="number" class="form-control" id="iSoLuongAD" name="iSoLuongAD" value="<?= $promotions['iSoLuongAD'] ?>" placeholder="VD: 100">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="form-group col-6">

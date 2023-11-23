@@ -46,14 +46,14 @@
                                 <label for="dNgayNhap" class="form-label">Ngày nhập</label>
                                 <input type="date" class="form-control" id="dNgayNhap" name="dNgayNhap" value="<?= $importBills['dNgayNhap'] ?>" readonly/>
                             </div>
-                            <div class="mb-4 col-6">
+                            <!-- <div class="mb-4 col-6">
                                 <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
                                 <input type="text" placeholder="VD: 1.000.000" class="form-control giatien" id="fTienDaTra" name="fTienDaTra" value="<?= $importBills['fTienDaTra'] ?>" readonly/>
-                            </div>
-                            <div class="mb-4 col-6">
+                            </div> -->
+                            <!-- <div class="mb-4 col-6">
                                 <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
                                 <input type="text" placeholder="Nhập tên người giao hàng" class="form-control" id="sNguoiGiao" name="sNguoiGiao" value="<?= $importBills['sNguoiGiao'] ?>" readonly/>
-                            </div>
+                            </div> -->
                             <div class="col-6 mb-3">
                                 <label class="form-label">Trạng thái</label>
                                 <select class="form-select" name="FK_iMaTrangThai">

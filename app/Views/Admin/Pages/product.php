@@ -71,39 +71,44 @@
 					<thead>
 						<tr>
 							<th>STT</th>
-							<th scope="col">Ảnh sản phẩm</th>
+							<th scope="col">Hình ảnh</th>
 							<th scope="col">Tên sản phẩm</th>
 							<th scope="col">Giá nhập</th>
-							<th scope="col">Giá bán lẻ</th>
-							<th scope="col">Giá bán sỉ</th>
+							<th scope="col">Giá bán</th>
+							<!-- <th scope="col">Giá bán sỉ</th> -->
 							<th scope="col">Số lượng</th>
-							<th scope="col">Nhóm</th>
+							<th scope="col">Phân loại</th>
 							<th scope="col" class="text-end"> Tác vụ </th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php $k = 1 ?>
-						<?php foreach ($products as $product) : ?>
+						<?php if (empty($products)) : ?>
 							<tr>
-								<td><?= $k++ ?></td>
-								<td>
-									<div class="td_img">
-										<img src="<?php echo base_url('assets/admin/images/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
-									</div>
-								</td>
-								</td>
-								<td><b><?= $product['sTenSP'] ?></b></td>
-								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaNhap'], 0, '.', ',') ?> &#8363</span></td>
-								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> &#8363</span></td>
-								<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanSi'], 0, '.', ',') ?> &#8363</span></td>
-								<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
-								<td><?= $product['sTenNhom'] ?></td>
-								<td class="text-end">
-									<a href="admin/product/update/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
-									<a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $product['PK_iMaSP'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
-								</td>
+								<td colspan="9" class="text-center">Không có dữ liệu</td>
 							</tr>
-						<?php endforeach ?>
+						<?php else : ?>
+							<?php foreach ($products as $product) : ?>
+								<tr>
+									<td><?= $k++ ?></td>
+									<td>
+										<div class="td_img">
+											<img src="<?php echo base_url('assets/admin/images/products/' . $product['sHinhAnh']) ?>" alt="Ảnh sản phẩm">
+										</div>
+									</td>
+									<td><b><?= $product['sTenSP'] ?></b></td>
+									<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaNhap'] ?> &#8363</span></td>
+									<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanLe'] ?> &#8363</span></td>
+									<!-- <td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanSi'], 0, '.', ',') ?> &#8363</span></td> -->
+									<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
+									<td><?= $product['sTenNhom'] ?></td>
+									<td class="text-end">
+										<a href="admin/product/update/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+										<a href="admin/product/delete/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $product['PK_iMaSP'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
+									</td>
+								</tr>
+							<?php endforeach ?>
+						<?php endif ?>
 					</tbody>
 				</table>
 			</div> <!-- table-responsive //end -->
@@ -148,18 +153,18 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="mb-4 col-2">
+							<div class="mb-4 col-3">
 								<label for="fGiaNhap" class="form-label">Giá nhập</label>
 								<input type="text" <?= old('fGiaNhap') ?> class="form-control" id="fGiaNhap" name="fGiaNhap" value="0" readonly>
 							</div>
-							<div class="mb-4 col-2">
-								<label for="fGiaBanLe" class="form-label">Giá bán lẻ</label>
+							<div class="mb-4 col-3">
+								<label for="fGiaBanLe" class="form-label">Giá bán</label>
 								<input type="text" <?= old('fGiaBanLe') ?> class="form-control giatien" id="fGiaBanLe" name="fGiaBanLe" placeholder="VD: 100.000đ">
 							</div>
-							<div class="mb-4 col-2">
+							<!-- <div class="mb-4 col-2">
 								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
 								<input type="text" <?= old('fGiaBanSi') ?> class="form-control giatien" id="fGiaBanSi" name="fGiaBanSi" placeholder="VD: 90.000đ">
-							</div>
+							</div> -->
 							<div class="col-6">
 								<label class="form-label">Ảnh sản phẩm</label>
 								<input class="form-control" type="file" name="sHinhAnh">
@@ -185,8 +190,9 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
 	setTimeout(function() {
-        $('.myAlert').fadeOut('slow');
-    }, 3000);
+		$('.myAlert').fadeOut('slow');
+	}, 3000);
+
 	function myFunction() {
 		return confirm("Bạn có chắc chắn muốn xóa sản phẩm này!");
 	}

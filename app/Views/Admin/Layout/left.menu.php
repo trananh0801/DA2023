@@ -11,7 +11,7 @@
 
 <nav>
   <ul class="menu-aside">
-    <li class="menu-item"> 
+    <li class="menu-item active"> 
       <a class="menu-link" href="admin/home"> <i class="icon material-icons md-home"></i> 
         <span class="text">Trang chủ</span> 
       </a> 

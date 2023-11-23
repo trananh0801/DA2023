@@ -62,23 +62,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($returnBills as $returnBill) : ?>
+                        <?php $k = 1 ?>
+                        <?php if (empty($returnBills)) : ?>
                             <tr>
-                                <td>1</td>
-                                <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
-                                <td><b><?= $returnBill['sTenNV'] ?></b></td>
-                                <td><?= $returnBill['sTenNCC'] ?></td>
-                                <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao']))?></td>
-                                <?php if ($returnBill['FK_iMaTrangThai'] == '5') : ?>
-                                    <td><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenTrangThai'] ?></span></td>
-                                <?php else : ?>
-                                    <td><span class="badge rounded-pill alert-secondary"><?= $returnBill['sTenTrangThai'] ?></span></td>
-                                <?php endif; ?>
-                                <td class="text-end">
-                                    <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
-                                </td>
+                                <td colspan="7" class="text-center">Không có dữ liệu</td>
                             </tr>
-                        <?php endforeach ?>
+                        <?php else : ?>
+                            <?php foreach ($returnBills as $returnBill) : ?>
+                                <tr>
+                                    <td><?= $k++ ?></td>
+                                    <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
+                                    <td><b><?= $returnBill['sTenNV'] ?></b></td>
+                                    <td><?= $returnBill['sTenNCC'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao'])) ?></td>
+                                    <?php if ($returnBill['FK_iMaTrangThai'] == '5') : ?>
+                                        <td><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenTrangThai'] ?></span></td>
+                                    <?php else : ?>
+                                        <td><span class="badge rounded-pill alert-secondary"><?= $returnBill['sTenTrangThai'] ?></span></td>
+                                    <?php endif; ?>
+                                    <td class="text-end">
+                                        <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div> <!-- table-responsive //end -->
@@ -97,7 +104,7 @@
                 <div class="modal-body">
                     <form action="admin/returnBill/create" method="POST">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
@@ -132,7 +139,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-7">
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
@@ -140,27 +147,31 @@
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">Giá</th>
                                             <th scope="col">Số lượng</th>
+                                            <!-- <th scope="col">Chiết khấu (%)</th> -->
                                             <th scope="col">Thành tiền</th>
-                                            <th scope="col" class="text-end"> Thao tác </th>
+                                            <th scope="col" class="text-end"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="order-1">
                                             <td>1</td>
                                             <td>
-                                                <select class="form-select" name="FK_iMaSP[]">
+                                                <select data-index="1" class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
+                                                    <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>"><?= $product['sTenSP'] ?></option>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td></td>
-                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" /></td>
-                                            <td></td>
+                                            <td class="price" id="price"></td>
+                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1" /></td>
+                                            <!-- <td class="chietkhau" id="chietkhau"></td> -->
+                                            <td class="thanhtien" id="thanhtien"></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                                 <button type="button" class="btn btn-primary" id="addRowButton">Thêm một dòng</button>
@@ -169,7 +180,7 @@
                                 <article class="float-end">
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
-                                        <dd> <b class="h5">$983.00</b> </dd>
+                                        <dd> <b class="h5" id="tongtien"></b> </dd>
                                     </dl>
                                     <dl class="dlist">
                                         <dt class="text-muted">Trạng thái:</dt>
@@ -196,42 +207,144 @@
     setTimeout(function() {
         $('.myAlert').fadeOut('slow');
     }, 3000);
-    // Tìm và lưu tham chiếu đến nút "Thêm Dòng" và bảng
-    var addRowButton = document.getElementById("addRowButton");
-    var table = document.getElementById("myTable");
-    var rowCount = 1; // Biến để theo dõi số dòng đã thêm
-
-    // Thêm sự kiện click cho nút "Thêm Dòng"
-    addRowButton.addEventListener("click", function() {
-        // Tạo một hàng mới (dòng)
-        var newRow = table.insertRow();
-
-        // Tạo các ô (cột) trong hàng mới
-        var cell1 = newRow.insertCell(0);
-        var cell2 = newRow.insertCell(1);
-        var cell3 = newRow.insertCell(2);
-        var cell4 = newRow.insertCell(3);
-
-        // Cài đặt nội dung cho các ô
-        cell1.innerHTML = rowCount;
-        cell2.innerHTML = "<td><select class='form-select' name='FK_iMaSP[]'><?php foreach ($products as $product) : ?><option value='<?= $product['PK_iMaSP'] ?>'><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>";
-        cell3.innerHTML = "<td><input type='number' placeholder='VD: 10' class='form-control' id='iSoLuong' name='iSoLuong[]' /></td>";
-        cell4.innerHTML = "<td class='text-end'><button type='button' class='btn btn-danger deleteRowButton'>X</button></td>";
-
-        // Tăng biến rowCount để theo dõi số dòng đã thêm
-        rowCount++;
-
-        // Thêm sự kiện click cho nút xóa trong hàng mới
-        var deleteButton = newRow.querySelector(".deleteRowButton");
-        deleteButton.addEventListener("click", function() {
-            // Lấy hàng (dòng) chứa nút xóa và xóa nó
-            var row = this.closest("tr");
-            row.parentNode.removeChild(row);
-        }); 
-    });
     $(document).ready(function() {
+        //hàm format giá tiền
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
+        $('#addRowButton').click(function() {
+            var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
+            html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
+            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
+            html += '<td class="price" id="price"></td>';
+            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
+            html += '<td class="thanhtien" id="thanhtien"></td>';
+            html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
+            html += '</tr>';
+            $('#myTable tbody').append(html);
+        })
+
+        //xóa dòng
+        $("#myTable").on("click", ".deleteRowButton", function() {
+            $(this).closest("tr").remove();
+            var tong = 0;
+
+            $(".thanhtien").each(function() {
+                var tongtien = $(this).text();
+                var changeTongtien = tongtien.replace(/\./g, "");
+                tong += parseFloat(changeTongtien) || 0;
+            });
+            $('#tongtien').html(formatNumber(tong));
+
+        });
+
+        // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
+        $('.editGroup').on('click', function() {
+            var orderId = $(this).attr("data-PK_iMaDon");
+            console.log(orderId)
+            // Gửi giá trị ID đến controller bằng AJAX
+            $.ajax({
+                url: '<?= site_url('order/list') ?>', // Thay đổi đường dẫn dẫn đến controller theo tên bạn đã đặt
+                type: 'POST',
+                data: {
+                    order_id: orderId
+                },
+                success: function(response) {
+                    // Xử lý phản hồi từ controller (nếu cần)
+                },
+                error: function() {
+                    console.log('Lỗi trong quá trình gửi yêu cầu AJAX.');
+                }
+            });
+        });
+
+
+        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
+        $(document).on('change', '.selectProduct', function() {
+            var id = $(this).val();
+            var index = $(this).attr('data-index');
+            $.ajax({
+                type: "post",
+                url: 'admin/order/check_product_detail',
+                data: {
+                    product_id: id,
+                },
+                success: function(data) {
+                    response = JSON.parse(data);
+                    var tong = 0;
+                    $('tr.order-' + index).children('td.price').html(response.product.fGiaBanLe);
+                    if (response.product.fChietKhau == null) {
+                        $('tr.order-' + index).children('td.chietkhau').html('0');
+                    } else {
+                        $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
+                    }
+                    $('.iSoLuong').val('1');
+                    soluong = $('.iSoLuong').val();
+
+                    var giabanle = response.product.fGiaBanLe;
+                    var changeGiabanLe = giabanle.replace(/\./g, "");
+                    var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
+
+                    // console.log(formatNumber(thanhtien))
+                    $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));
+
+                    $(".thanhtien").each(function() {
+                        var tongtien = $(this).text();
+                        var changeTongtien = tongtien.replace(/\./g, "");
+                        // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
+                        tong += parseFloat(changeTongtien) || 0;
+                    });
+                    $('#tongtien').html(formatNumber(tong));
+                }
+            });
+        });
+
+
+        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
+        $(document).on('change', '.inputSoLuong', function() {
+            var id = $(this).val();
+            var index = $(this).attr('data-index');
+            $.ajax({
+                type: "post",
+                url: 'admin/order/check_product_detail',
+                data: {
+                    product_id: id,
+                },
+                success: function(data) {
+                    response = JSON.parse(data);
+                    var tong = 0;
+                    soluong = $('tr.order-' + index).children('input.iSoLuong').text();
+
+                    console.log(soluong)
+                    // $('tr.order-' + index).children('td.chietkhau').html(1- (Math.pow(1 - 0.1, soluong)));
+
+                    $('tr.order-' + index).children('td.thanhtien').html(($('tr.order-' + index).children('td.price').text() * soluong) - ($('tr.order-' + index).children('td.price').text() * $('tr.order-' + index).children('td.chietkhau').text() / 100));
+
+                    $(".thanhtien").each(function() {
+                        tong += parseFloat($(this).text()) || 0;
+                    });
+                    $('#tongtien').html(tong);
+                }
+            });
+        });
+
+        $('.giatien').on('input', function() {
+            // Lấy giá trị từ input
+            let inputValue = $(this).val();
+
+            // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+            let cleanedValue = inputValue.replace(/,/g, '');
+
+            // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+            let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            // Cập nhật giá trị vào input
+            $(this).val(formattedValue);
+        });
+
         var currentDate = new Date();
         var formattedDate = currentDate.toISOString().substr(0, 10);
         $("#dNgayTao").val(formattedDate);
-    })
+    });
 </script>

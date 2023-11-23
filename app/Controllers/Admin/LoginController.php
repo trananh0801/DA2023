@@ -19,7 +19,7 @@ class LoginController extends BaseController
     public function index()
     {
         $session = session();
-        if ($session->get('user_id')) {
+        if ($session->get('user_id') && ($session->get('quyen') != '4')) {
             return redirect()->to('admin/home');
         }
         $data = [];

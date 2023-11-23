@@ -64,24 +64,30 @@
                     </thead>
                     <tbody>
                         <?php $k = 1 ?>
-                        <?php foreach ($orders as $order) : ?>
+                        <?php if (empty($orders)) : ?>
                             <tr>
-                                <td><?= $k++ ?></td>
-                                <td><b><?= $order['PK_iMaDon'] ?></b></td>
-                                <td><b><?= $order['sTenNV'] ?></b></td>
-                                <td><?= $order['sTenKH'] ?></td>
-                                <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
-                                <td><?= date('d/m/Y', strtotime($order['dNgayNhanHang'])) ?></td>
-                                <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
-                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
-                                <?php else : ?>
-                                    <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
-                                <?php endif; ?>
-                                <td class="text-end">
-                                    <a href="admin/order/update/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
-                                </td>
+                                <td colspan="8" class="text-center">Không có dữ liệu</td>
                             </tr>
-                        <?php endforeach ?>
+                        <?php else : ?>
+                            <?php foreach ($orders as $order) : ?>
+                                <tr>
+                                    <td><?= $k++ ?></td>
+                                    <td><b><?= $order['PK_iMaDon'] ?></b></td>
+                                    <td><?= $order['sTenNV'] ?></td>
+                                    <td><b><?= $order['sTenKH'] ?></b></td>
+                                    <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
+                                    <td><?= date('d/m/Y', strtotime($order['dNgayNhanHang'])) ?></td>
+                                    <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
+                                        <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                    <?php else : ?>
+                                        <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
+                                    <?php endif; ?>
+                                    <td class="text-end">
+                                        <a href="admin/order/update/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div> <!-- table-responsive //end -->
@@ -115,15 +121,12 @@
                                             <div class="col-12">
                                                 <label class="form-label">Khách hàng</label>
                                             </div>
-                                            <div class="col-10">
+                                            <div class="col-12">
                                                 <select class="form-select" name="FK_iMaKH" id="selectOption">
                                                     <?php foreach ($customers as $customer) : ?>
                                                         <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sTenKH'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
-                                            </div>
-                                            <div class="col-2">
-                                                <button type="button" class="btn btn-sm btn-primary">+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +159,7 @@
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">Giá</th>
                                             <th scope="col">Số lượng</th>
-                                            <th scope="col">Chiết khấu</th>
+                                            <th scope="col">Chiết khấu (%)</th>
                                             <th scope="col">Thành tiền</th>
                                             <th scope="col" class="text-end"></th>
                                         </tr>
@@ -173,7 +176,7 @@
                                                 </select>
                                             </td>
                                             <td class="price" id="price"></td>
-                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>
+                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1" /></td>
                                             <td class="chietkhau" id="chietkhau"></td>
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
@@ -214,10 +217,19 @@
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" /> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script> -->
 <script>
+    //set timeout cho thông báo
     setTimeout(function() {
         $('.myAlert').fadeOut('slow');
     }, 3000);
+
     $(document).ready(function() {
+        
+        //hàm format giá tiền
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
+        //thêm dòng
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
@@ -231,12 +243,18 @@
             $('#myTable tbody').append(html);
         })
 
+        //xóa dòng
         $("#myTable").on("click", ".deleteRowButton", function() {
             $(this).closest("tr").remove();
-
             var tong = 0;
-            tong += parseFloat($('.thanhtien').text()) || 0;
-            $('#tongtien').html(tong);
+
+            $(".thanhtien").each(function() {
+                var tongtien = $(this).text();
+                var changeTongtien = tongtien.replace(/\./g, "");
+                tong += parseFloat(changeTongtien) || 0;
+            });
+            $('#tongtien').html(formatNumber(tong));
+
         });
 
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
@@ -281,13 +299,21 @@
                     }
                     $('.iSoLuong').val('1');
                     soluong = $('.iSoLuong').val();
-                    $('tr.order-' + index).children('td.thanhtien').html((response.product.fGiaBanLe * soluong) - (response.product.fGiaBanLe * response.product.fChietKhau / 100));
+
+                    var giabanle = response.product.fGiaBanLe;
+                    var changeGiabanLe = giabanle.replace(/\./g, "");
+                    var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
+
+                    // console.log(formatNumber(thanhtien))
+                    $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));
 
                     $(".thanhtien").each(function() {
+                        var tongtien = $(this).text();
+                        var changeTongtien = tongtien.replace(/\./g, "");
                         // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
-                        tong += parseFloat($(this).text()) || 0;
+                        tong += parseFloat(changeTongtien) || 0;
                     });
-                    $('#tongtien').html(tong);
+                    $('#tongtien').html(formatNumber(tong));
                 }
             });
         });
@@ -307,7 +333,7 @@
                     response = JSON.parse(data);
                     var tong = 0;
                     soluong = $('tr.order-' + index).children('input.iSoLuong').text();
-                    
+
                     console.log(soluong)
                     // $('tr.order-' + index).children('td.chietkhau').html(1- (Math.pow(1 - 0.1, soluong)));
 
@@ -321,5 +347,4 @@
             });
         });
     });
-
 </script>

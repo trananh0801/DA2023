@@ -36,7 +36,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\CustomerController::list');
         $routes->post('create', 'Admin\CustomerController::create');
         $routes->post('update', 'Admin\CustomerController::update');
-        $routes->get('delete/(:num)', 'Admin\CustomerController::delete/$1');
+        $routes->get('delete/(:segment)', 'Admin\CustomerController::delete/$1');
     });
     $routes->group('productGroup', function ($routes) {
         $routes->get('list', 'Admin\ProductGroupController::list');

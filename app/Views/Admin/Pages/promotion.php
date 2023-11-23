@@ -58,14 +58,19 @@
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hiệu lực</th>
                             <th scope="col">Chiết khấu</th>
-                            <th scope="col">Số lượng áp dụng</th>
+                            <!-- <th scope="col">Số lượng áp dụng</th> -->
                             <th scope="col">Trạng thái</th>
                             <th scope="col" class="text-end"> Tác vụ </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $k = 1 ?>
-                        <?php foreach ($promotions as $promotion) : ?>
+                    <?php $k = 1 ?>
+                        <?php if (empty($promotions)) : ?>
+                            <tr>
+                                <td colspan="9" class="text-center">Không có dữ liệu</td>
+                            </tr>
+                        <?php else : ?>
+                            <?php foreach ($promotions as $promotion) : ?>
                             <tr>
                                 <td><?= $k++ ?></td>
                                 <td><b><?= $promotion['PK_iMaKM'] ?></b></td>
@@ -73,7 +78,7 @@
                                 <td><b><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc'])) ?></b></td>
                                 <td><b><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc'])) ?></b></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['fChietKhau'] ?>%</span></td>
-                                <td><span class="badge rounded-pill alert-success"><?= $promotion['iSoLuongAD'] ?></span></td>
+                                <!-- <td><span class="badge rounded-pill alert-success"><?= $promotion['iSoLuongAD'] ?></span></td> -->
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>
                                 <td class="text-end">
                                     <a href="admin/promotion/update/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
@@ -81,6 +86,7 @@
                                 </td>
                             </tr>
                         <?php endforeach ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div> <!-- table-responsive //end -->
@@ -129,10 +135,10 @@
                                 <label for="fChietKhau" class="form-label">Chiết khấu (%)</label>
                                 <input type="text" class="form-control" id="fChietKhau" name="fChietKhau" value="0" placeholder="VD: 10">
                             </div>
-                            <div class="mb-4 col-6">
+                            <!-- <div class="mb-4 col-6">
                                 <label for="iSoLuongAD" class="form-label">Số lượng áp dụng</label>
                                 <input type="number" class="form-control" id="iSoLuongAD" name="iSoLuongAD" value="0" placeholder="VD: 100">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row">
                             <div class="form-group col-6">

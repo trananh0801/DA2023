@@ -27,6 +27,11 @@ class CustomerService extends BaseService
 
     /**add new user */
     public function addCustomerInfo($requestData){
+        //Tạo mã tự động
+        $timestamp = time();
+        $randomPart = mt_rand(1000, 9999);
+        $uniqueCode = $timestamp . $randomPart;
+
         $validate = $this->validateAddCustomer($requestData);
         if($validate->getErrors()){
             return [
@@ -35,7 +40,16 @@ class CustomerService extends BaseService
                 'message' => $validate->getErrors(),
             ];
         }
-        $dataSave = $requestData->getPost();
+        $dataSave = [
+            'PK_iMaKH'  => 'KH_' . $uniqueCode,
+            'sTenKH'  => $requestData->getPost('sTenKH'),
+            'sDiaChi'  => $requestData->getPost('sDiaChi'),
+            'sSDT'  => $requestData->getPost('sSDT'),
+            'dNgaySinh'  => $requestData->getPost('dNgaySinh'),
+            'sGioiTinh'  => $requestData->getPost('sGioiTinh'),
+            'iTichDiem'  => $requestData->getPost('iTichDiem'),
+            'sGhiChu'  => $requestData->getPost('sGhiChu'),
+        ];
         // dd($dataSave);
         try{
             $this->customer->save($dataSave);
@@ -92,7 +106,7 @@ class CustomerService extends BaseService
     public function deleteCustomerInfo($id)
     {
         try {
-            $current = $this->order->select('FK_iMaKH')->where('FK_iMaKH', $id)->findAll();
+            $current = $this->customer->select('FK_iMaKH')->where('FK_iMaKH', $id)->findAll();
             if (!empty($current)) {
                 return [
                     'status' => ResultUtils::STATUS_CODE_ERR,

@@ -73,7 +73,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Mật khẩu</label>
-                            <input type="text" class="form-control" name="sMatKhau">
+                            <input type="password" class="form-control" name="sMatKhau">
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
@@ -95,20 +95,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($staffs as $staff) : ?>
+                            <?php $k = 1 ?>
+                            <?php if (empty($staffs)) : ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td><?= $staff['sTenNV'] ?></td>
-                                    <td><b><?= $staff['sSDT'] ?></b></td>
-                                    <td><?= $staff['sTenChucVu'] ?></td>
-                                    <td><?= date('d/m/Y', strtotime($staff['dNgaySinh'])) ?></td>
-                                    <td><?= $staff['sGioiTinh'] ?></td>
-                                    <td class="text-end">
-                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNV="<?= $staff['sTenNV'] ?>" data-sSDT="<?= $staff['sSDT'] ?>" data-sCMND="<?= $staff['sCMND'] ?>" data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" data-sGhiChu="<?= $staff['sGhiChu'] ?>" data-sTenTK="<?= $staff['sTenTK'] ?>" data-sMatKhau="<?= $staff['sMatKhau'] ?>" data-FK_iMaTK="<?= $staff['FK_iMaTK'] ?>" value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
-                                        <a href="admin/staff/delete/<?= $staff['PK_iMaNV'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $staff['PK_iMaNV'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
-                                    </td>
+                                    <td colspan="7" class="text-center">Không có dữ liệu</td>
                                 </tr>
-                            <?php endforeach ?>
+                            <?php else : ?>
+                                <?php foreach ($staffs as $staff) : ?>
+                                    <tr>
+                                        <td><?= $k++ ?></td>
+                                        <td><?= $staff['sTenNV'] ?></td>
+                                        <td><b><?= $staff['sSDT'] ?></b></td>
+                                        <td><?= $staff['sTenChucVu'] ?></td>
+                                        <td><?= date('d/m/Y', strtotime($staff['dNgaySinh'])) ?></td>
+                                        <td><?= $staff['sGioiTinh'] ?></td>
+                                        <td class="text-end">
+                                            <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNV="<?= $staff['sTenNV'] ?>" data-sSDT="<?= $staff['sSDT'] ?>" data-sCMND="<?= $staff['sCMND'] ?>" data-sTenChucVu="<?= $staff['sTenChucVu'] ?>" data-dNgaySinh="<?= $staff['dNgaySinh'] ?>" data-sGioiTinh="<?= $staff['sGioiTinh'] ?>" data-sGhiChu="<?= $staff['sGhiChu'] ?>" data-sTenTK="<?= $staff['sTenTK'] ?>" data-sMatKhau="<?= $staff['sMatKhau'] ?>" data-FK_iMaTK="<?= $staff['FK_iMaTK'] ?>" value="<?= $staff['PK_iMaNV'] ?>">Sửa</button>
+                                            <a href="admin/staff/delete/<?= $staff['PK_iMaNV'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $staff['PK_iMaNV'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            <?php endif ?>
                         </tbody>
                     </table>
 
@@ -131,7 +138,7 @@
                         <div class="col-6">
                             <div class="mb-4 col-12">
                                 <label for="sTenNV" class="form-label">Tên nhân viên</label>
-                                <input type="text" placeholder="Nhập tên khách hàng" class="form-control" id="tennv" name="sTenNV" />
+                                <input type="text" placeholder="Nhập tên nhân viên" class="form-control" id="tennv" name="sTenNV" />
                                 <input type="text" value="<?= old('PK_iMaNV') ?>" class="form-control" id="manv" name="PK_iMaNV" hidden>
                                 <input type="text" value="<?= old('FK_iMaTK') ?>" class="form-control" id="matk" name="FK_iMaTK" hidden>
                             </div>

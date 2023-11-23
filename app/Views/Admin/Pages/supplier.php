@@ -61,19 +61,27 @@
                                    </tr>
                               </thead>
                               <tbody>
-                                   <?php foreach ($suppliers as $supplier) : ?>
+                              <?php $k = 1 ?>
+                                   <?php if (empty($suppliers)) : ?>
                                         <tr>
-                                             <td>1</td>
-                                             <td><?= $supplier['sTenNCC'] ?></td>
-                                             <td><b><?= $supplier['sDiaChi'] ?></b></td>
-                                             <td><?= $supplier['sSDT'] ?></td>
-                                             <td><?= $supplier['sGhiChu'] ?></td>
-                                             <td class="text-end">
-                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNCC="<?= $supplier['sTenNCC'] ?>" data-sDiaChi="<?= $supplier['sDiaChi'] ?>" data-sSDT="<?= $supplier['sSDT'] ?>" data-sGhiChu="<?= $supplier['sGhiChu'] ?>" value="<?= $supplier['PK_iMaNCC'] ?>">Sửa</button>
-                                                  <a href="admin/supplier/delete/<?= $supplier['PK_iMaNCC'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $supplier['PK_iMaNCC'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
-                                             </td>
+                                             <td colspan="6" class="text-center">Không có dữ liệu</td>
                                         </tr>
-                                   <?php endforeach ?>
+                                   <?php else : ?>
+                                        <?php foreach ($suppliers as $supplier) : ?>
+                                             <tr>
+                                                  <td><?= $k++ ?></td>
+                                                  <td><?= $supplier['sTenNCC'] ?></td>
+                                                  <td><b><?= $supplier['sDiaChi'] ?></b></td>
+                                                  <td><?= $supplier['sSDT'] ?></td>
+                                                  <td><?= $supplier['sGhiChu'] ?></td>
+                                                  <td class="text-end">
+                                                       <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNCC="<?= $supplier['sTenNCC'] ?>" data-sDiaChi="<?= $supplier['sDiaChi'] ?>" data-sSDT="<?= $supplier['sSDT'] ?>" data-sGhiChu="<?= $supplier['sGhiChu'] ?>" value="<?= $supplier['PK_iMaNCC'] ?>">Sửa</button>
+                                                       <a href="admin/supplier/delete/<?= $supplier['PK_iMaNCC'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $supplier['PK_iMaNCC'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
+                                                  </td>
+                                             </tr>
+                                        <?php endforeach ?>
+                                   <?php endif ?>
+
                               </tbody>
                          </table>
 
@@ -123,8 +131,8 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
      setTimeout(function() {
-        $('.myAlert').fadeOut('slow');
-    }, 3000);
+          $('.myAlert').fadeOut('slow');
+     }, 3000);
      $(document).ready(function() {
           $(".editGroup").click(function() {
                // Thực hiện lấy dữ liệu khi click button

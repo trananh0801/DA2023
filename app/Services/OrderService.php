@@ -71,8 +71,8 @@ class OrderService extends BaseService
     {
         $result = $this->staff
             ->select('*')
+            ->where('sTenChucVu', '3')
             ->findAll();
-        // dd($result);
         return $result;
     }
 

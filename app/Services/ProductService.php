@@ -259,7 +259,7 @@ class ProductService extends BaseService
             'sTenSP' => 'required|max_length[100]',
             'sDVT' => 'required',
             'fGiaBanLe' => 'required',
-            'fGiaBanSi' => 'required',
+            // 'fGiaBanSi' => 'required',
             // 'sHinhAnh' => 'required',
         ];
         $message = [
@@ -274,10 +274,10 @@ class ProductService extends BaseService
                 'required' => 'Giá bán lẻ không được để trống!',
                 // 'numeric' => 'Giá bán lẻ phải là dạng số!',
             ],
-            'fGiaBanSi' => [
-                'required' => 'Giá bán sỉ không được để trống!',
-                // 'numeric' => 'Giá bán sỉ phải là dạng số!',
-            ],
+            // 'fGiaBanSi' => [
+            //     'required' => 'Giá bán sỉ không được để trống!',
+            //     // 'numeric' => 'Giá bán sỉ phải là dạng số!',
+            // ],
             // 'sHinhAnh' => [
             //     'required' => 'Hình ảnh không được để trống!'
             // ],
@@ -295,7 +295,7 @@ class ProductService extends BaseService
             'sTenSP' => 'required|max_length[100]',
             'sDVT' => 'required',
             'fGiaBanLe' => 'required',
-            'fGiaBanSi' => 'required',
+            // 'fGiaBanSi' => 'required',
             // 'sHinhAnh' => 'required',
         ];
         $message = [
@@ -310,10 +310,10 @@ class ProductService extends BaseService
                 'required' => 'Giá bán lẻ không được để trống!',
                 // 'numeric' => 'Giá bán lẻ phải là dạng số!',
             ],
-            'fGiaBanSi' => [
-                'required' => 'Giá bán sỉ không được để trống!',
-                // 'numeric' => 'Giá bán sỉ phải là dạng số!',
-            ],
+            // 'fGiaBanSi' => [
+            //     'required' => 'Giá bán sỉ không được để trống!',
+            //     // 'numeric' => 'Giá bán sỉ phải là dạng số!',
+            // ],
             // 'sHinhAnh' => [
             //     'required' => 'Hình ảnh không được để trống!'
             // ],

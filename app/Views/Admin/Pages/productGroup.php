@@ -52,17 +52,24 @@
                               </thead>
                               <tbody>
                                    <span hidden><?= $k = 1 ?></span>
-                                   <?php foreach ($productGroups as $productGroup) : ?>
+                                   <?php if (empty($productGroups)) : ?>
                                         <tr>
-                                             <td><?= $k++ ?></td>
-                                             <td><?= $productGroup['PK_iMaNhom'] ?></td>
-                                             <td><b><?= $productGroup['sTenNhom'] ?></b></td>
-                                             <td class="text-end">
-                                                  <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
-                                                  <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
-                                             </td>
+                                             <td colspan="4" class="text-center">Không có dữ liệu</td>
                                         </tr>
-                                   <?php endforeach ?>
+                                   <?php else : ?>
+                                        <?php foreach ($productGroups as $productGroup) : ?>
+                                             <tr>
+                                                  <td><?= $k++ ?></td>
+                                                  <td><?= $productGroup['PK_iMaNhom'] ?></td>
+                                                  <td><b><?= $productGroup['sTenNhom'] ?></b></td>
+                                                  <td class="text-end">
+                                                       <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenNhom="<?= $productGroup['sTenNhom'] ?>" value="<?= $productGroup['PK_iMaNhom'] ?>">Sửa</button>
+                                                       <a href="admin/productGroup/delete/<?= $productGroup['PK_iMaNhom'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $productGroup['PK_iMaNhom'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
+                                                  </td>
+                                             </tr>
+                                        <?php endforeach ?>
+                                   <?php endif ?>
+
                               </tbody>
                          </table>
 
@@ -101,9 +108,9 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
      // Đợi 3 giây (3000 miligiây) sau đó ẩn alert
-    setTimeout(function() {
-        $('.myAlert').fadeOut('slow');
-    }, 3000);
+     setTimeout(function() {
+          $('.myAlert').fadeOut('slow');
+     }, 3000);
      $(document).ready(function() {
           $(".editGroup").click(function() {
                // Thực hiện lấy dữ liệu khi click button

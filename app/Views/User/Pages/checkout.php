@@ -88,33 +88,13 @@
                                                             <input class="quanitySniper" type="text" value="<?= $product['iSoLuong'] ?>" min="1" name="iSoLuong[]" style="width:35px">
                                                         </td>
                                                         <td class="hidden-xs"><?php if ($product['fChietKhau'] == null) : ?>0<?php else : ?><?= $product['fChietKhau'] ?><?php endif; ?></td>
-                                                        <td class="price"><?= $product['total_price'] ?> đ</td>
+                                                        <td class="price thanhtien"><?= $product['total_price'] ?> đ</td>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    <div class="w100 costDetails">
-                                        <div class="table-block" id="order-detail-content">
-                                            <table class="std table" id="cart-summary">
-                                                <tr>
-                                                    <td>Tổng tiền sản phẩm</td>
-                                                    <td class="price">1.000.000 VNĐ</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shipping</td>
-                                                    <td class="price"><span class="success">Free shipping!</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Tổng tiền (Đã áp dụng khuyến mãi)</td>
-                                                    <td id="total-price" class="price">1.000.000 VNĐ</td>
-                                                </tr>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,17 +119,13 @@
             <div class="w100 cartMiniTable">
                 <table id="cart-summary" class="std table">
                     <tbody>
+                        <tr><h2><strong>TỔNG TIỀN</strong></h2></tr>
+                        <hr>
                         <tr>
-                            <td>Tổng tiền sản phẩm</td>
-                            <td class="price">1.000.000</td>
-                        </tr>
-                        <tr>
-                            <td>Shipping</td>
-                            <td class="price"><span class="success">Free shipping!</span></td>
-                        </tr>
-                        <tr>
-                            <td> Tổng tiền</td>
-                            <td class=" site-color" id="total-price">1.000.000 VNĐ</td>
+                            <div><b> Tổng tiền <i>(Đã bao gồm khuyến mãi)</i></b></div>
+                            <br>
+                            <span class="site-color"><div class=" site-color" id="total-price"></div> VNĐ</span>
+                            
                         </tr>
                     </tbody>
                     <tbody>
@@ -160,3 +136,24 @@
     </div>
     <div style="clear:both"></div>
 </div>
+
+<script>
+    $(document).ready(function() {
+            var tong = 0;
+            
+            function formatNumber(number) {
+                return number.toLocaleString('vi-VN');
+            }
+
+            $(".thanhtien").each(function() {
+                
+                var thanhtien = $(this).text();
+                
+                var changeThanhtien = thanhtien.replace(/\./g, "");
+                console.log(changeThanhtien);
+                tong += parseFloat(changeThanhtien) || 0;
+                $('.thanhtien').html(formatNumber(parseFloat(changeThanhtien)));
+            });
+            $('#total-price').html(formatNumber(tong));
+        });
+</script>

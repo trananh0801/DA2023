@@ -84,7 +84,7 @@
 
             <h3 class="product-code"> Mã sản phẩm : <?= $allProducts['PK_iMaSP'] ?></h3>
 
-            <div class="product-price"><span class="price-sales"> <?= $allProducts['fGiaBanLe'] ?></span> đ
+            <div class="product-price"><span class="price-sales"> <?= $allProducts['fGiaBanLe'] ?></span> VNĐ
             </div>
             <div class="details-description">
                 <p><strong>Mô tả: </strong><?= $allProducts['sGhiChu'] ?> </p>
@@ -94,7 +94,7 @@
                 <div class="addto row">
                     <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>">Thêm vào giỏ hàng
+                            <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>" data-ghichu="<?= $allProducts['sGhiChu'] ?>">Thêm vào giỏ hàng
                             </button>
                         </div>
                     <?php else : ?>
@@ -126,7 +126,7 @@
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
 
-                            <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span> đ</div>
+                            <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span> VNĐ</div>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,8 @@
                             </div>
                             <div class="description">
                                 <h4 id="tensp"></h4>
-                                <div class="price"><span id="giatien"></span> đ</div>
+                                <div class="price"><span id="giatien"></span> VNĐ</div>
+                                <div>Mô tả: <span id="ghichu"></span></div>
                                 <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
@@ -184,10 +185,12 @@
             hinhanh = $(this).attr("data-hinhanh");
             tensp = $(this).attr("data-tensp");
             giatien = $(this).attr("data-giatien");
+            ghichu = $(this).attr("data-ghichu");
 
             $("#masanpham").val(masanpham);
             $("#tensp").text(tensp);
             $("#giatien").text(giatien);
+            $("#ghichu").text(ghichu);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

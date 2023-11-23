@@ -243,7 +243,7 @@
                                                         <h4><a href="user/productDetail/<?= $productCart['PK_iMaSP'] ?>"> <?= $productCart['sTenSP'] ?> </a></h4>
                                                         <span class="size"> <?= $productCart['sDVT'] ?> </span>
 
-                                                        <div class="thanhtien"><strong>1.000.000 đ</strong></div>
+                                                        <!-- <div class="thanhtien"><strong>1.000.000 đ</strong></div> -->
                                                     </div>
                                                 </td>
                                                 <td style="width:10%">X <span class="miniCartQuantity"><?= $productCart['iSoLuong'] ?></span> </td>

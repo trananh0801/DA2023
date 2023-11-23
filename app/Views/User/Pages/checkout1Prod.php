@@ -156,21 +156,13 @@
                 <table id="cart-summary" class="std table">
                     <tbody>
                         <tr>
-                            <td>
-                                <h2><strong>TỔNG TIỀN</strong></h2>
-                            </td>
-                        </tr>
-                        <!-- <tr>
-                            <td>Tổng tiền sản phẩm</td>
-                            <td class="price">1.000.000</td>
+                            <h2><strong>TỔNG TIỀN</strong></h2>
                         </tr>
                         <tr>
-                            <td>Shipping</td>
-                            <td class="price"><span class="success">Free shipping!</span></td>
-                        </tr> -->
-                        <tr>
-                            <td> <strong>Tổng tiền <i>(đã áp dụng khuyến mãi)</i></strong></td>
-                            <td class=" site-color"><span id="total-price"></span> đ</td>
+                            <hr>
+                            <div> <strong>Tổng tiền <i>(đã áp dụng khuyến mãi)</i></strong></div>
+                            <br>
+                            <div class=" site-color"><span id="total-price"></span> VNĐ</div>
                         </tr>
                     </tbody>
                     <tbody>
@@ -185,9 +177,20 @@
 <script>
     $(document).ready(function() {
         var tong = 0;
+
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
         $(".thanhtien").each(function() {
-            tong += parseFloat($(this).text()) || 0;
+
+            var thanhtien = $(this).text();
+
+            var changeThanhtien = thanhtien.replace(/\./g, "");
+            console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien) || 0;
+            $('.thanhtien').html(formatNumber(parseFloat(changeThanhtien)));
         });
-        $('#total-price').html(tong);
+        $('#total-price').html(formatNumber(tong));
     });
 </script>

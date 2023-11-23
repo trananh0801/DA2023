@@ -59,6 +59,13 @@
     .modal-soluong {
         margin-top: 20px;
     }
+    /* Đảm bảo chỉ hiển thị 3 dòng và ẩn đi nếu quá 3 dòng */
+    .ellipsis {
+            display: -webkit-box !important;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 3; /* Số dòng tối đa hiển thị */
+        }
 </style>
 <div class="banner">
     <div class="full-container">
@@ -100,12 +107,12 @@
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><?= $newProduct['sTenSP'] ?> </a></h4>
 
-                            <p><?= $newProduct['sGhiChu'] ?></p>
+                            <p class="ellipsis" id="textContainer"><?= $newProduct['sGhiChu'] ?></p>
                         </div>
-                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
+                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span> VNĐ</div>
                         <div class="action-control">
                             <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
-                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>" data-tensp="<?= $newProduct['sTenSP'] ?>" data-giatien="<?= $newProduct['fGiaBanLe'] ?>">
+                                <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>" data-tensp="<?= $newProduct['sTenSP'] ?>" data-giatien="<?= $newProduct['fGiaBanLe'] ?>" data-ghichu="<?= $newProduct['sGhiChu'] ?>">
                                     <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                 </a>
                             <?php else : ?>
@@ -163,9 +170,9 @@
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $newProduct['PK_iMaSP'] ?>"><?= $newProduct['sTenSP'] ?> </a></h4>
 
-                            <p><?= $newProduct['sGhiChu'] ?></p>
+                            <p class="ellipsis"><?= $newProduct['sGhiChu'] ?></p>
                         </div>
-                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span></div>
+                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span> VNĐ</div>
                         <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                             <div class="action-control">
                                 <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>">
@@ -202,13 +209,13 @@
                                 <h4><a href="user/productDetail/<?= $sellingProduct['PK_iMaSP'] ?>"> <?= $sellingProduct['sTenSP'] ?> </a></h4>
 
                                 <div class="grid-description">
-                                    <p><?= $sellingProduct['sGhiChu'] ?> </p>
+                                    <p class="ellipsis"><?= $sellingProduct['sGhiChu'] ?> </p>
                                 </div>
                             </div>
-                            <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span></div>
+                            <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span> VNĐ</div>
                             <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <div class="action-control">
-                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>" data-tensp="<?= $sellingProduct['sTenSP'] ?>" data-giatien="<?= $sellingProduct['fGiaBanLe'] ?>">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>" data-tensp="<?= $sellingProduct['sTenSP'] ?>" data-giatien="<?= $sellingProduct['fGiaBanLe'] ?>" data-ghichu="<?= $sellingProduct['sGhiChu'] ?>">
                                         <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                     </a>
                                 </div>
@@ -270,6 +277,7 @@
                             <div class="description">
                                 <h4 id="tensp"></h4>
                                 <div class="price"><span id="giatien"></span> đ</div>
+                                <div>Mô tả: <span id="ghichu"></span></div>
                                 <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
@@ -299,10 +307,12 @@
             hinhanh = $(this).attr("data-hinhanh");
             tensp = $(this).attr("data-tensp");
             giatien = $(this).attr("data-giatien");
+            ghichu = $(this).attr("data-ghichu");
 
             $("#masanpham").val(masanpham);
             $("#tensp").text(tensp);
             $("#giatien").text(giatien);
+            $("#ghichu").text(ghichu);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

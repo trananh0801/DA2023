@@ -72,8 +72,8 @@
                                 <tr>
                                     <td><?= $k++ ?></td>
                                     <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
-                                    <td><b><?= $returnBill['sTenNV'] ?></b></td>
-                                    <td><?= $returnBill['sTenNCC'] ?></td>
+                                    <td><?= $returnBill['sTenNV'] ?></td>
+                                    <td><b><?= $returnBill['sTenNCC'] ?></b></td>
                                     <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao'])) ?></td>
                                     <?php if ($returnBill['FK_iMaTrangThai'] == '5') : ?>
                                         <td><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenTrangThai'] ?></span></td>

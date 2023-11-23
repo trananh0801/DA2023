@@ -93,8 +93,8 @@
                                         <?php foreach ($customers as $customer) : ?>
                                              <tr>
                                                   <td><?= $k++ ?></td>
-                                                  <td><?= $customer['sTenKH'] ?></td>
-                                                  <td><b><?= $customer['sDiaChi'] ?></b></td>
+                                                  <td><b><?= $customer['sTenKH'] ?></b></td>
+                                                  <td><?= $customer['sDiaChi'] ?></td>
                                                   <td><?= $customer['sSDT'] ?></td>
                                                   <td><?= date('d/m/Y', strtotime($customer['dNgaySinh'])) ?></td>
                                                   <td><?= $customer['sGioiTinh'] ?></td>

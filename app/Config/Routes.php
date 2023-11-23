@@ -81,6 +81,10 @@ $routes->group('admin', function ($routes) {
         $routes->get('delete/(:segment)', 'Admin\PromotionController::delete/$1');
     });
 
+    $routes->group('gift', function ($routes) {
+        $routes->get('list', 'Admin\GiftController::list');
+    });
+
     $routes->post('login', 'Admin\LoginController::login');
     $routes->get('logout', 'Admin\LoginController::logout');
 

@@ -70,8 +70,8 @@
                                         <?php foreach ($suppliers as $supplier) : ?>
                                              <tr>
                                                   <td><?= $k++ ?></td>
-                                                  <td><?= $supplier['sTenNCC'] ?></td>
-                                                  <td><b><?= $supplier['sDiaChi'] ?></b></td>
+                                                  <td><b><?= $supplier['sTenNCC'] ?></b></td>
+                                                  <td><?= $supplier['sDiaChi'] ?></td>
                                                   <td><?= $supplier['sSDT'] ?></td>
                                                   <td><?= $supplier['sGhiChu'] ?></td>
                                                   <td class="text-end">

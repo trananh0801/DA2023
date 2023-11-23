@@ -10,16 +10,10 @@
                 <aside class="col-lg-3 border-end">
                     <nav class="nav nav-pills flex-lg-column mb-4">
                         <a class="nav-link active" aria-current="page" href="#">Thông tin cơ bản</a>
-                        <!-- <a class="nav-link" href="#">Moderators</a>
-            <a class="nav-link" href="#">Admin account</a>
-            <a class="nav-link" href="#">SEO settings</a>
-            <a class="nav-link" href="#">Mail settings</a>
-            <a class="nav-link" href="#">Newsletter</a> -->
                     </nav>
 
                 </aside>
                 <div class="col-lg-9">
-
                     <section class="content-body p-xl-4">
                         <form>
                             <div class="row">
@@ -27,11 +21,11 @@
                                     <div class="row gx-3">
                                         <div class="col-6  mb-3">
                                             <label class="form-label">Mã nhân viên</label>
-                                            <input class="form-control" type="text" placeholder="Type here">
+                                            <input class="form-control" type="text" placeholder="Nhập mã nhân viên" disabled>
                                         </div> <!-- col .// -->
                                         <div class="col-6  mb-3">
                                             <label class="form-label">Tên nhân viên</label>
-                                            <input class="form-control" type="text" placeholder="Type here">
+                                            <input class="form-control" type="text" placeholder="Nhập tên nhân viên">
                                         </div> <!-- col .// -->
                                         <div class="col-lg-6  mb-3">
                                             <label class="form-label">Số điện thoại</label>
@@ -42,8 +36,12 @@
                                             <input class="form-control" type="tel" placeholder="+1234567890">
                                         </div> <!-- col .// -->
                                         <div class="col-lg-12  mb-3">
-                                            <label class="form-label">Chức vụ</label>
-                                            <input class="form-control" type="text" placeholder="Type here">
+                                            <label for="sTenChucVu" class="form-label">Chức vụ</label>
+                                            <select class="form-select" name="sTenChucVu" id="chucvu" disabled>
+                                                <option value="1">Quản lý cửa hàng</option>
+                                                <option value="2">Nhân viên quản lý kho</option>
+                                                <option value="3">Nhân viên bán hàng</option>
+                                            </select>
                                         </div> <!-- col .// -->
                                         <div class="col-lg-6  mb-3">
                                             <label class="form-label">Ngày sinh</label>
@@ -51,10 +49,13 @@
                                         </div> <!-- col .// -->
                                         <div class="col-lg-6  mb-3">
                                             <label class="form-label">Giới tính</label>
-                                            <input class="form-control" type="date">
+                                            <select class="form-select" name="sGioiTinh" id="gioitinh">
+                                                <option value="Nam">Nam</option>
+                                                <option value="Nữ">Nữ</option>
+                                            </select>
                                         </div> <!-- col .// -->
                                         <div class="col-lg-12  mb-3 form-group">
-                                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                                            <label for="exampleFormControlTextarea1">Mô tả</label>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
                                     </div> <!-- row.// -->
@@ -64,7 +65,7 @@
                                         <img class="img-lg mb-3 img-avatar" src="assets/Admin/images/people/avatar1.jpg" alt="User Photo">
                                         <figcaption>
                                             <a class="btn btn-outline-primary" href="#">
-                                                <i class="icons material-icons md-backup"></i> Upload
+                                                <i class="icons material-icons md-backup"></i> Tải ảnh
                                             </a>
                                         </figcaption>
                                     </figure>
@@ -92,6 +93,4 @@
 
         </div> <!-- card body end// -->
     </div> <!-- card end// -->
-
-
 </section> <!-- content-main end// -->

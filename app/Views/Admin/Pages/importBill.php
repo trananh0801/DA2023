@@ -73,8 +73,8 @@
                                 <tr>
                                     <td><?= $k++ ?></td>
                                     <td><b><?= $importBill['PK_iPN'] ?></b></td>
-                                    <td><b><?= $importBill['sTenNV'] ?></b></td>
-                                    <td><?= $importBill['sTenNCC'] ?></td>
+                                    <td><?= $importBill['sTenNV'] ?></td>
+                                    <td><b><?= $importBill['sTenNCC'] ?></b></td>
                                     <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
                                     <!-- <td><?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?> &#8363</td> -->
                                     <?php if ($importBill['FK_iMaTrangThai'] == '4') : ?>

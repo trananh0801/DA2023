@@ -15,7 +15,8 @@
             <div class="product-tab w100 clearfix">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#details" data-toggle="tab"><span><i class="glyphicon glyphicon-user"></i> Thông tin cá nhân </span></a></li>
-                    <li><a href="#donhang" data-toggle="tab">Lịch sử đặt hàng</a></li>
+                    <li><a href="#donhang" data-toggle="tab"><i class="glyphicon glyphicon-tasks"></i> Lịch sử đặt hàng</a></li>
+                    <li><a href="#tichdiem" data-toggle="tab"><i class="glyphicon glyphicon-saved"></i> Thông tin tích điểm</a></li>
                 </ul>
                 <div class="row">
                     <?php if (session('errorsMsg')) : ?>
@@ -135,22 +136,17 @@
                                 </ul>
                             </div>
                         </div>
-                        <!--/row end-->
                     </div>
-
 
                     <div class="tab-pane" id="donhang">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <h1 class="section-title-inner"><span><i class="fa fa-list-alt"></i> Danh sách đơn hàng </span></h1>
-
                                 <div class="row userInfo">
                                     <div class="col-lg-12">
                                         <h2 class="block-title-2"> Danh sách đơn hàng của bạn </h2>
                                     </div>
-
                                     <div style="clear:both"></div>
-
                                     <div class="col-xs-12 col-sm-12">
                                         <table class="footable">
                                             <thead>
@@ -158,9 +154,7 @@
                                                     <th>STT</th>
                                                     <th data-class="expand" data-sort-initial="true"><span title="table sorted by this column on load">Mã đơn</span></th>
                                                     <th data-hide="phone,tablet" data-sort-ignore="true">Số lượng sản phẩm</th>
-                                                    <!-- <th data-hide="phone,tablet"><strong>Phương thức thanh toán</strong></th> -->
                                                     <th data-hide="phone,tablet"><strong></strong></th>
-                                                    <!-- <th data-hide="default"> Thành tiền</th> -->
                                                     <th data-hide="default" data-type="numeric"> Ngày đặt hàng</th>
                                                     <th data-hide="phone" data-type="numeric"> Trạng thái</th>
                                                 </tr>
@@ -174,7 +168,6 @@
                                                         <td>
                                                             <small><?= $history['soluongsp'] ?> sản phẩm</small>
                                                         </td>
-                                                        <!-- <td>Tiền mặt</td> -->
                                                         <td><a href="user/order-status/<?= $history['PK_iMaDon'] ?>" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
                                                         <td data-value="78025368997"><?= $history['dThoiGianTao'] ?></td>
                                                         <td data-value="3"><span class="label label-success"><?= $history['sTenTrangThai'] ?></span>
@@ -184,9 +177,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-
                                     <div style="clear:both"></div>
-
                                     <div class="col-lg-12 clearfix">
                                         <ul class="pager">
                                             <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Quay lại trang chủ </a>
@@ -194,27 +185,65 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!--/row end-->
-
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-5"></div>
                         </div>
-                        <!-- /main-container -->
+                    </div>
+
+
+                    <div class="tab-pane" id="tichdiem">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-ms-4">
+                                        <div class="site-color">
+                                            <h3>Số điểm bạn đang tích lũy được là: </h3>
+                                            <p style="font-size:100px; font-weight: bold; margin:50px">8</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-ms-8">
+                                        <div clsass="row subCategoryList clearfix">
+                                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6  text-center ">
+                                                <div class="thumbnail"><a class="subCategoryThumb" href="sub-category.html"><img src="assets/user/images/gift/1.jpg" class="img-rounded " alt="img"> </a> <a class="subCategoryTitle"><span> Gấu nâu lông mềm </span></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6  text-center">
+                                                <div class="thumbnail"><a class="subCategoryThumb" href="sub-category.html"><img src="assets/user/images/gift/2.jpg" class="img-rounded " alt="img"> </a> <a class="subCategoryTitle"><span> Gấu hồng </span></a></div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6  text-center">
+                                                <div class="thumbnail"><a class="subCategoryThumb" href="sub-category.html"><img src="assets/user/images/gift/3.jpg" class="img-rounded " alt="img"> </a> <a class="subCategoryTitle"><span> Xe đẩy </span></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6  text-center">
+                                                <div class="thumbnail"><a class="subCategoryThumb" href="sub-category.html"><img src="assets/user/images/gift/4.jpg" class="img-rounded " alt="img"> </a> <a class="subCategoryTitle"><span> Xe đẩy xanh lam </span></a></div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6  text-center">
+                                                <div class="thumbnail"><a class="subCategoryThumb" href="sub-category.html"><img src="assets/user/images/gift/5.jpg" class="img-rounded  " alt="img"> </a> <a class="subCategoryTitle"><span> Bình sữa 200ml </span></a></div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6  text-center">
+                                                <div class="thumbnail"><a class="subCategoryThumb" href="sub-category.html"><img src="assets/user/images/gift/6.jpg" class="img-rounded " alt="img"> </a> <a class="subCategoryTitle"><span> Bình sữa nhỏ </span></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <ul class="pager">
+                                        <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Quay lại trang chủ </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-5"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="col-lg-3 col-md-3 col-sm-5"></div>
     </div>
-    <!--/row-->
-
     <div style="clear:both"></div>
 </div>
-<!-- /main-container -->
 
-<!-- include footable plugin -->
 <script src="assets/user/assets/js/footable.js" type="text/javascript"></script>
 <script src="assets/user/assets/js/footable.sortable.js" type="text/javascript"></script>
 <script type="text/javascript">

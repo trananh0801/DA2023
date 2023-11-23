@@ -104,8 +104,8 @@
                                 <?php foreach ($staffs as $staff) : ?>
                                     <tr>
                                         <td><?= $k++ ?></td>
-                                        <td><?= $staff['sTenNV'] ?></td>
-                                        <td><b><?= $staff['sSDT'] ?></b></td>
+                                        <td><b><?= $staff['sTenNV'] ?></b></td>
+                                        <td><?= $staff['sSDT'] ?></td>
                                         <td><?= $staff['sTenChucVu'] ?></td>
                                         <td><?= date('d/m/Y', strtotime($staff['dNgaySinh'])) ?></td>
                                         <td><?= $staff['sGioiTinh'] ?></td>

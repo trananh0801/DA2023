@@ -73,10 +73,10 @@
                             <?php foreach ($promotions as $promotion) : ?>
                             <tr>
                                 <td><?= $k++ ?></td>
-                                <td><b><?= $promotion['PK_iMaKM'] ?></b></td>
+                                <td><?= $promotion['PK_iMaKM'] ?></td>
                                 <td><b><?= $promotion['sTenKM'] ?></b></td>
-                                <td><b><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc'])) ?></b></td>
-                                <td><b><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc'])) ?></b></td>
+                                <td><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc'])) ?></td>
+                                <td><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc'])) ?></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['fChietKhau'] ?>%</span></td>
                                 <!-- <td><span class="badge rounded-pill alert-success"><?= $promotion['iSoLuongAD'] ?></span></td> -->
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>

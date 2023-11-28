@@ -35,9 +35,7 @@ class ImportBillService extends BaseService
             ->select('*')
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieunhap.FK_iMaNV')
             ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieunhap.FK_iMaNCC')
-            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieunhap.FK_iMaTrangThai')
             ->findAll();
-        // dd($result);
         return $result;
     }
 
@@ -48,7 +46,6 @@ class ImportBillService extends BaseService
             ->select('*')
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieunhap.FK_iMaNV')
             ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieunhap.FK_iMaNCC')
-            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieunhap.FK_iMaTrangThai')
             ->where('PK_iPN', $id)->first();
         return $result;
     }

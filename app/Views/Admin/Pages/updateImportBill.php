@@ -46,21 +46,6 @@
                                 <label for="dNgayNhap" class="form-label">Ngày nhập</label>
                                 <input type="date" class="form-control" id="dNgayNhap" name="dNgayNhap" value="<?= $importBills['dNgayNhap'] ?>" readonly/>
                             </div>
-                            <!-- <div class="mb-4 col-6">
-                                <label for="fTienDaTra" class="form-label">Số tiền đã trả</label>
-                                <input type="text" placeholder="VD: 1.000.000" class="form-control giatien" id="fTienDaTra" name="fTienDaTra" value="<?= $importBills['fTienDaTra'] ?>" readonly/>
-                            </div> -->
-                            <!-- <div class="mb-4 col-6">
-                                <label for="sNguoiGiao" class="form-label">Người giao hàng</label>
-                                <input type="text" placeholder="Nhập tên người giao hàng" class="form-control" id="sNguoiGiao" name="sNguoiGiao" value="<?= $importBills['sNguoiGiao'] ?>" readonly/>
-                            </div> -->
-                            <div class="col-6 mb-3">
-                                <label class="form-label">Trạng thái</label>
-                                <select class="form-select" name="FK_iMaTrangThai">
-                                    <option value="3" <?php if ($importBills['FK_iMaTrangThai'] == '3') : ?> selected <?php endif; ?>>Đã thanh toán</option>
-                                    <option value="4" <?php if ($importBills['FK_iMaTrangThai'] == '4') : ?> selected <?php endif; ?>>Chờ thanh toán</option>
-                                </select>
-                            </div>
                             <div class="mb-4 col-12">
                                 <label class="form-label">Ghi chú</label>
                                 <textarea class="form-control" rows="4" name="sGhiChu" disabled><?= $importBills['sGhiChu'] ?></textarea>
@@ -104,18 +89,12 @@
                                 <dt>Tổng tiền:</dt>
                                 <dd> <b class="h5">$983.00</b> </dd>
                             </dl>
-                            <dl class="dlist">
-                                <dt class="text-muted">Trạng thái:</dt>
-                                <dd>
-                                    <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
-                                </dd>
-                            </dl>
                         </article>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Lưu lại thay đổi</button>
-                </div>
+                </div> -->
             </form>
         </div>
     </div> <!-- card end// -->

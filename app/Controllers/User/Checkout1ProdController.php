@@ -27,7 +27,7 @@ class Checkout1ProdController extends BaseController
         return view('User/main', $data);
     }
 
-    public function addOrderInfo()
+    public function addOrderProdInfo()
     {
         $result = $this->service->addOrderInfo($this->request);
         return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);

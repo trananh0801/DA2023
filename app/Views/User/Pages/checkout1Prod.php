@@ -58,7 +58,7 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="row userInfo">
                 <div class="col-xs-12 col-sm-12">
-                    <form action="user/addCheckout" method="POST">
+                    <form action="user/addcheckoutProd" method="POST">
                         <div class="w100 clearfix">
                             <ul class="orderStep orderStepLook2">
                                 <li><a href="checkout-1.html">
@@ -110,27 +110,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-
-                                    <!-- <div class="w100 costDetails">
-                                        <div class="table-block" id="order-detail-content">
-                                            <table class="std table" id="cart-summary">
-                                                <tr>
-                                                    <td>Tổng tiền sản phẩm</td>
-                                                    <td class="price">1.000.000 VNĐ</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shipping</td>
-                                                    <td class="price"><span class="success">Free shipping!</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Tổng tiền (Đã áp dụng khuyến mãi)</td>
-                                                    <td id="total-price" class="price">1.000.000 VNĐ</td>
-                                                </tr>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>

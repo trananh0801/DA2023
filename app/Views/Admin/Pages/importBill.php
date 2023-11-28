@@ -58,7 +58,7 @@
                             <th scope="col">Nhà cung cấp</th>
                             <th scope="col">Ngày nhập</th>
                             <!-- <th scope="col">Số tiền đã trả</th> -->
-                            <th scope="col">Trạng thái</th>
+                            <!-- <th scope="col">Trạng thái</th> -->
                             <th scope="col" class="text-end"> Thao tác </th>
                         </tr>
                     </thead>
@@ -76,15 +76,8 @@
                                     <td><?= $importBill['sTenNV'] ?></td>
                                     <td><b><?= $importBill['sTenNCC'] ?></b></td>
                                     <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
-                                    <!-- <td><?= number_format($importBill['fTienDaTra'], 0, ',', ',') ?> &#8363</td> -->
-                                    <?php if ($importBill['FK_iMaTrangThai'] == '4') : ?>
-                                        <td><span class="badge rounded-pill alert-warning"><?= $importBill['sTenTrangThai'] ?></span></td>
-                                    <?php else : ?>
-                                        <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenTrangThai'] ?></span></td>
-                                    <?php endif; ?>
                                     <td class="text-end">
                                         <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
-                                        <!-- <a href="admin/importBill/delete/<?= $importBill['PK_iPN'] ?>" class="btn btn-danger deleteGroup text-danger" value="<?= $importBill['PK_iPN'] ?>" name="maphieunhap" onclick="myFunction()">Xóa</a> -->
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -129,13 +122,13 @@
                                         <label for="dNgayNhap" class="form-label">Ngày nhập</label>
                                         <input type="date" class="form-control" id="dNgayNhap" name="dNgayNhap" />
                                     </div>
-                                    <div class="col-6 mb-3">
+                                    <!-- <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
                                         <select class="form-select" name="FK_iMaTrangThai">
                                             <option value="3">Đã thanh toán</option>
                                             <option value="4">Chờ thanh toán</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
                                         <textarea class="form-control" rows="4" name="sGhiChu"></textarea>
@@ -185,12 +178,12 @@
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5" id="tongtien"></b> </dd>
                                     </dl>
-                                    <dl class="dlist">
+                                    <!-- <dl class="dlist">
                                         <dt class="text-muted">Trạng thái:</dt>
                                         <dd>
                                             <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
                                         </dd>
-                                    </dl>
+                                    </dl> -->
                                 </article>
                             </div>
                         </div>
@@ -352,6 +345,6 @@
 
         var currentDate = new Date();
         var formattedDate = currentDate.toISOString().substr(0, 10);
-        $("#dNgayTao").val(formattedDate);
+        $("#dNgayNhap").val(formattedDate);
     });
 </script>

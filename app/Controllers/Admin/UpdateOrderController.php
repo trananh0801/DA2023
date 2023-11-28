@@ -32,7 +32,7 @@ class UpdateOrderController extends BaseController
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['customers'] = $this->service->getAllCustomer();
 
-        // dd($dataLayout['orderDetails']);
+        // dd($dataLayout['orders']);
         $data = $this->loadMasterLayout($data, 'Cập nhật đơn đặt hàng', 'Admin/Pages/updateOrder', $dataLayout);
         return view('Admin/main', $data);
     }

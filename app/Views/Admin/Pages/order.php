@@ -57,7 +57,6 @@
                             <th scope="col">Nhân viên</th>
                             <th scope="col">Khách hàng</th>
                             <th scope="col">Thời gian tạo</th>
-                            <th scope="col">Ngày nhận hàng dự kiến</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col" class="text-end"> Thao tác </th>
                         </tr>
@@ -76,7 +75,6 @@
                                     <td><?= $order['sTenNV'] ?></td>
                                     <td><b><?= $order['sTenKH'] ?></b></td>
                                     <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
-                                    <td><?= date('d/m/Y', strtotime($order['dNgayNhanHang'])) ?></td>
                                     <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
                                         <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
                                     <?php else : ?>
@@ -133,10 +131,6 @@
                                     <div class="mb-4 col-6">
                                         <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
                                         <input type="date" placeholder="Type here" class="form-control" id="dThoiGianTao" name="dThoiGianTao" />
-                                    </div>
-                                    <div class="mb-4 col-6">
-                                        <label for="dNgayNhanHang" class="form-label">Ngày nhận hàng</label>
-                                        <input type="date" placeholder="Type here" class="form-control" id="dNgayNhanHang" name="dNgayNhanHang" />
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
@@ -346,5 +340,10 @@
                 }
             });
         });
+
+
+        var currentDate = new Date();
+        var formattedDate = currentDate.toISOString().substr(0, 10);
+        $("#dThoiGianTao").val(formattedDate);
     });
 </script>

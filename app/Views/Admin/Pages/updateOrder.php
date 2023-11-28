@@ -46,10 +46,6 @@
                                 <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
                                 <input type="date" placeholder="Type here" class="form-control" id="dThoiGianTao" name="dThoiGianTao" value="<?= $orders['dThoiGianTao'] ?>" readonly />
                             </div>
-                            <div class="mb-4 col-6">
-                                <label for="dNgayNhanHang" class="form-label">Ngày nhận hàng</label>
-                                <input type="date" placeholder="Type here" class="form-control" id="dNgayNhanHang" name="dNgayNhanHang" value="<?= $orders['dNgayNhanHang'] ?>" readonly />
-                            </div>
                             <div class="col-6 mb-3">
                                 <label class="form-label">Trạng thái</label>
                                 <select class="form-select" name="FK_iMaTrangThai">

@@ -41,30 +41,30 @@ class OrderService extends BaseService
         return $result;
     }
 
-        /**Lấy danh sách toàn bộ đơn hàng ra màn list - CẬP NHẬT------------------------------------------------------------------------ */
-        public function getAllOrderById($id)
-        {
-            $result = $this->order
-                ->select('*')
-                ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
-                ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
-                ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
-                ->where('PK_iMaDon', $id)->first();
-            return $result;
-        }
-    
-        /**Lấy danh sách chi tiết đơn hàng - CẬP NHẬT------------------------------------------------------------------------ */
-        public function getAllOrderDetailById($id)
-        {
-            $result = $this->orderDetail
-                ->select('*')
-                ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP', 'left')
-                ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
-                ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
-                ->where('FK_iMaDon', $id)
-                ->findAll();
-            return $result;
-        }
+    /**Lấy danh sách toàn bộ đơn hàng ra màn list - CẬP NHẬT------------------------------------------------------------------------ */
+    public function getAllOrderById($id)
+    {
+        $result = $this->order
+            ->select('*')
+            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
+            ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+            ->where('PK_iMaDon', $id)->first();
+        return $result;
+    }
+
+    /**Lấy danh sách chi tiết đơn hàng - CẬP NHẬT------------------------------------------------------------------------ */
+    public function getAllOrderDetailById($id)
+    {
+        $result = $this->orderDetail
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP', 'left')
+            ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
+            ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
+            ->where('FK_iMaDon', $id)
+            ->findAll();
+        return $result;
+    }
 
     /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
     public function getAllStaff()
@@ -105,17 +105,17 @@ class OrderService extends BaseService
         // dd($result);
         return $result;
     }
-      /**Lấy 1 sản phẩm------------------------------------------------------------------------ */
-      public function checkProductDetail($product_id='')
-      {
-          $result = $this->product
-              ->select('*')
-              ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
-              ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
-              ->where('PK_iMaSP',$product_id)
-              ->first();
-          return $result;
-      }
+    /**Lấy 1 sản phẩm------------------------------------------------------------------------ */
+    public function checkProductDetail($product_id = '')
+    {
+        $result = $this->product
+            ->select('*')
+            ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
+            ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
+            ->where('PK_iMaSP', $product_id)
+            ->first();
+        return $result;
+    }
 
 
     /**Thêm mới đơn hàng------------------------------------------------------------------------ */
@@ -138,7 +138,7 @@ class OrderService extends BaseService
 
         //Lấy thông tin hóa đơn đã nhập
         $dataSave_HD = $requestData->getPost();
-        $dataSave_HD['PK_iMaDon'] = 'HD_'. $uniqueCode;
+        $dataSave_HD['PK_iMaDon'] = 'HD_' . $uniqueCode;
         unset($dataSave_HD['FK_iMaSP']);
         unset($dataSave_HD['iSoLuong']);
         // dd($dataSave_HD);
@@ -157,29 +157,31 @@ class OrderService extends BaseService
         //lấy thông tin để update số lượng sản phẩm
         $maSP = $requestData->getPost('FK_iMaSP');
         $soluong = $requestData->getPost('iSoLuong');
+
+
+
         // dd($soluong);
         for ($i = 0; $i < count($maSP); $i++) {
             $productID = $maSP[$i];
             $quantityToDeduct = $soluong[$i];
 
+            $soluongSP = $this->product->where('PK_iMaSP', $maSP[$i])->get()->getRow()->fSoLuong;
+            if ($quantityToDeduct > $soluongSP) {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['Lỗi: ' => 'Không đủ số lượng sản phẩm trong kho!'],
+                ];
+            }
+
             // Truy vấn số lượng hiện có của sản phẩm
             $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
-
             // Tính toán số lượng mới
             $newQuantity = $currentQuantity - $quantityToDeduct;
             // Cập nhật số lượng mới vào cơ sở dữ liệu
             $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
         }
-        
-        //kiểm tra trùng mã
-        $duplicateProduct = $this->order->where('PK_iMaDon', $dataSave_HD['PK_iMaDon'])->first();
-        if ($duplicateProduct) {
-            return [
-                'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['' => 'Trùng mã'],
-            ];
-        }
+
         try {
             //insert hóa đơn
             $this->order->save($dataSave_HD);
@@ -188,7 +190,7 @@ class OrderService extends BaseService
             foreach ($dataSave_CT as $k => $v) {
                 foreach ($v as $k1 => $v1) {
                     $transformedData[$k1][$k] = $v1;
-                    $transformedData[$k1]['FK_iMaDon'] = 'HD_'. $uniqueCode;
+                    $transformedData[$k1]['FK_iMaDon'] = 'HD_' . $uniqueCode;
                 }
             }
 
@@ -198,7 +200,7 @@ class OrderService extends BaseService
                     $transformedData_update[$k1][$k] = $v1;
                 }
             }
-            
+
             //insert sản chi tiết hóa đơn
             $this->orderDetail->insertBatch($transformedData);
 
@@ -262,8 +264,8 @@ class OrderService extends BaseService
         }
     }
 
-    
-/**Xóa đơn hàng----------------------------------------------------------------------- */
+
+    /**Xóa đơn hàng----------------------------------------------------------------------- */
     public function deleteOrderInfo($id)
     {
         try {

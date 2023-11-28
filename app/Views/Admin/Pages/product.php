@@ -73,9 +73,7 @@
 							<th>STT</th>
 							<th scope="col">Hình ảnh</th>
 							<th scope="col">Tên sản phẩm</th>
-							<th scope="col">Giá nhập</th>
 							<th scope="col">Giá bán</th>
-							<!-- <th scope="col">Giá bán sỉ</th> -->
 							<th scope="col">Số lượng</th>
 							<th scope="col">Phân loại</th>
 							<th scope="col" class="text-end"> Tác vụ </th>
@@ -97,9 +95,7 @@
 										</div>
 									</td>
 									<td><b><?= $product['sTenSP'] ?></b></td>
-									<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaNhap'] ?> &#8363</span></td>
 									<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanLe'] ?> &#8363</span></td>
-									<!-- <td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanSi'], 0, '.', ',') ?> &#8363</span></td> -->
 									<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
 									<td><?= $product['sTenNhom'] ?></td>
 									<td class="text-end">
@@ -153,18 +149,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="mb-4 col-3">
-								<label for="fGiaNhap" class="form-label">Giá nhập</label>
-								<input type="text" <?= old('fGiaNhap') ?> class="form-control" id="fGiaNhap" name="fGiaNhap" value="0" readonly>
-							</div>
-							<div class="mb-4 col-3">
+							<div class="mb-4 col-6">
 								<label for="fGiaBanLe" class="form-label">Giá bán</label>
 								<input type="text" <?= old('fGiaBanLe') ?> class="form-control giatien" id="fGiaBanLe" name="fGiaBanLe" placeholder="VD: 100.000đ">
 							</div>
-							<!-- <div class="mb-4 col-2">
-								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
-								<input type="text" <?= old('fGiaBanSi') ?> class="form-control giatien" id="fGiaBanSi" name="fGiaBanSi" placeholder="VD: 90.000đ">
-							</div> -->
 							<div class="col-6">
 								<label class="form-label">Ảnh sản phẩm</label>
 								<input class="form-control" type="file" name="sHinhAnh">

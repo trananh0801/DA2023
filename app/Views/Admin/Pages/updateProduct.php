@@ -97,17 +97,9 @@
 					<div class="col-6">
 						<div class="row">
 							<div class="mb-4 col-6">
-								<label for="fGiaNhap" class="form-label">Giá nhập</label>
-								<input type="text" class="form-control" id="fGiaNhap" name="fGiaNhap" value="<?= $products['fGiaNhap'] ?>" readonly>
-							</div>
-							<div class="mb-4 col-6">
 								<label for="fGiaBanLe" class="form-label">Giá bán</label>
 								<input type="text" class="form-control giatien" id="fGiaBanLe" name="fGiaBanLe" placeholder="VD: 100.000đ" value="<?= $products['fGiaBanLe'] ?>">
 							</div>
-							<!-- <div class="mb-4 col-4">
-								<label for="fGiaBanSi" class="form-label">Giá bán sỉ</label>
-								<input type="text" class="form-control giatien" id="fGiaBanSi" name="fGiaBanSi" placeholder="VD: 90.000đ" value="<?= $products['fGiaBanSi'] ?>">
-							</div> -->
 						</div>
 					</div>
 				</div>

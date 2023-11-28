@@ -57,8 +57,6 @@
                             <th scope="col">Nhân viên</th>
                             <th scope="col">Nhà cung cấp</th>
                             <th scope="col">Ngày nhập</th>
-                            <!-- <th scope="col">Số tiền đã trả</th> -->
-                            <!-- <th scope="col">Trạng thái</th> -->
                             <th scope="col" class="text-end"> Thao tác </th>
                         </tr>
                     </thead>
@@ -122,13 +120,6 @@
                                         <label for="dNgayNhap" class="form-label">Ngày nhập</label>
                                         <input type="date" class="form-control" id="dNgayNhap" name="dNgayNhap" />
                                     </div>
-                                    <!-- <div class="col-6 mb-3">
-                                        <label class="form-label">Trạng thái</label>
-                                        <select class="form-select" name="FK_iMaTrangThai">
-                                            <option value="3">Đã thanh toán</option>
-                                            <option value="4">Chờ thanh toán</option>
-                                        </select>
-                                    </div> -->
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
                                         <textarea class="form-control" rows="4" name="sGhiChu"></textarea>
@@ -141,9 +132,8 @@
                                         <tr>
                                             <th>STT</th>
                                             <th scope="col">Sản phẩm</th>
-                                            <th scope="col">Giá</th>
+                                            <th scope="col">Giá nhập</th>
                                             <th scope="col">Số lượng</th>
-                                            <!-- <th scope="col">Chiết khấu (%)</th> -->
                                             <th scope="col">Thành tiền</th>
                                             <th scope="col" class="text-end"></th>
                                         </tr>
@@ -159,9 +149,8 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td class="price" id="price"></td>
+                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" /></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1" /></td>
-                                            <!-- <td class="chietkhau" id="chietkhau"></td> -->
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>

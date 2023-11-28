@@ -58,7 +58,7 @@
                                 <tr>
                                     <th>STT</th>
                                     <th scope="col">Sản phẩm</th>
-                                    <th scope="col">Giá</th>
+                                    <th scope="col">Giá nhập</th>
                                     <th scope="col">Số lượng</th>
                                     <th scope="col">Thành tiền</th>
                                 </tr>
@@ -75,7 +75,7 @@
                                                 <?php endforeach ?>
                                             </select>
                                         </td>
-                                        <td><?= $importBillDetail['fGiaBanLe'] ?></td>
+                                        <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="fGiaNhap[]" value="<?= $importBillDetail['fGiaNhap'] ?>" readonly/></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" value="<?= $importBillDetail['iSoluong'] ?>" readonly/></td>
                                         <td>10</td>
                                     </tr>
@@ -92,9 +92,6 @@
                         </article>
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Lưu lại thay đổi</button>
-                </div> -->
             </form>
         </div>
     </div> <!-- card end// -->

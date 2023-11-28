@@ -118,27 +118,30 @@ class ImportBillService extends BaseService
                 'message' => $validate->getErrors(),
             ];
         }
-        $dataSave1 = $requestData->getPost();
-        $dataSave1['PK_iPN'] = 'PN_'. $uniqueCode;
-        unset($dataSave1['FK_iMaSP']);
-        unset($dataSave1['iSoluong']);
-
-        $dataSave = $requestData->getPost();
-        unset($dataSave['FK_iMaNV']);
-        unset($dataSave['FK_iMaNCC']);
-        unset($dataSave['dNgayNhap']);
-        unset($dataSave['fTienDaTra']);
-        unset($dataSave['sNguoiGiao']);
-        unset($dataSave['FK_iMaTrangThai']);
-        unset($dataSave['sGhiChu']);
+        $dataSave1 = [
+            'FK_iMaNV' => $requestData->getPost('FK_iMaNV'),
+            'FK_iMaNCC' => $requestData->getPost('FK_iMaNCC'),
+            'dNgayNhap' => $requestData->getPost('dNgayNhap'),
+            'sGhiChu' => $requestData->getPost('sGhiChu'),
+            'PK_iPN' => 'PN_'. $uniqueCode
+        ];
+        
+        $dataSave = [
+            'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
+            'fGiaNhap' => $requestData->getPost('fGiaNhap'),
+            'iSoluong' => $requestData->getPost('iSoluong'),
+        ];
+        // dd($dataSave);
 
         //lấy thông tin để update số lượng sản phẩm
         $maSP = $requestData->getPost('FK_iMaSP');
         $soluong = $requestData->getPost('iSoluong');
+        $gianhap = $requestData->getPost('fGiaNhap');
         // dd($soluong);
         for ($i = 0; $i < count($maSP); $i++) {
             $productID = $maSP[$i];
             $quantityToDeduct = $soluong[$i];
+            $importPrice = $gianhap[$i];
 
             // Truy vấn số lượng hiện có của sản phẩm
             $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
@@ -150,14 +153,6 @@ class ImportBillService extends BaseService
             $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
         }
 
-        $duplicateProduct = $this->importBill->where('PK_iPN', $dataSave1['PK_iPN'])->first();
-        if ($duplicateProduct) {
-            return [
-                'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['' => 'Trùng mã'],
-            ];
-        }
         // dd($dataSave1);
         try {
             $this->importBill->save($dataSave1);

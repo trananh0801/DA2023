@@ -25,13 +25,10 @@
         <a href="admin/product/list">Sản phẩm</a>
       </div>
     </li>
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i> 
-        <span class="text">Đơn đặt hàng</span> 
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/order/list"> <i class="icon material-icons md-home"></i> 
+        <span class="text">Quản lý đơn đặt hàng</span> 
       </a> 
-      <div class="submenu">
-        <a href="admin/order/list">Danh sách đơn hàng</a>
-      </div> 
     </li>
     <li class="menu-item has-submenu"> 
       <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
@@ -42,25 +39,31 @@
         <a href="admin/returnBill/list">Phiếu hoàn trả</a>
       </div>
     </li>
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
-        <span class="text">Quản lý con người</span> 
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/supplier/list"> <i class="icon material-icons md-home"></i> 
+        <span class="text">Quản lý nhà cung cấp</span> 
       </a> 
-      <div class="submenu">
-        <a href="admin/supplier/list">Nhà cung cấp</a>
-        <a href="admin/customer/list">Khách hàng</a>
-        <a href="admin/staff/list">Nhân viên</a>
-      </div>
+    </li>
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/customer/list"> <i class="icon material-icons md-home"></i> 
+        <span class="text">Quản lý Khách hàng</span> 
+      </a> 
+    </li>
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/staff/list"> <i class="icon material-icons md-home"></i> 
+        <span class="text">Quản lý nhân viên</span> 
+      </a> 
     </li>
     
-    <li class="menu-item has-submenu"> 
-      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
-        <span class="text">Khuyến mãi</span> 
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/staff/list"> <i class="icon material-icons md-add_box"></i> 
+        <span class="text">Danh sách khuyến mãi</span> 
       </a> 
-      <div class="submenu">
-        <a href="admin/promotion/list">Danh sách khuyến mãi</a>
-        <a href="admin/gift/list">Danh mục quà tặng</a>
-      </div>
+    </li>
+    <li class="menu-item"> 
+      <a class="menu-link" href="admin/gift/list"> <i class="icon material-icons md-add_box"></i> 
+        <span class="text">Danh mục quà tặng</span> 
+      </a> 
     </li>
   </ul>
   <hr>

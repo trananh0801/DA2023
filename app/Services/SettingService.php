@@ -18,11 +18,11 @@ class SettingService extends BaseService
     }
 
     /**get all supplier */
-    public function getAllStaff(){
+    public function getAllStaff($id){
         $result = $this->staff
         ->select('*')
-        ->findAll();
-        // dd($result);
+        ->where('FK_iMaTK', $id)
+        ->first();
         return $result;
     }
 
@@ -44,30 +44,18 @@ class SettingService extends BaseService
         }
         //lấy nhân viên từ form
         $dataSave = $requestData->getPost();
-        $dataSave['FK_iMaTK'] = 'TK_'. $uniqueCode;
-        $dataSave['PK_iMaNV'] = 'NV_'. $uniqueCode;
+        $maNV = $requestData->getPost('PK_iMaNV');
+        unset($dataSave['PK_iMaNV']);
         
-        unset($dataSave['sTenTK']);
-        unset($dataSave['sMatKhau']);
-
-        //Lấy tài khoản từ form
-
-        $dataSave_TK = [
-            'sTenTK' => $requestData->getPost('sTenTK'),
-            'sMatKhau' => $requestData->getPost('sMatKhau'),
-            'PK_iMaTK' => 'TK_'. $uniqueCode,
-            'FK_iMaQuyen' => $requestData->getPost('sTenChucVu'),
-            'FK_iMaTrangThai' => '1'
-        ];
-
         // dd($dataSave);
         try{
-            $this->user->save($dataSave_TK);
-            $this->staff->insert($dataSave);
+            $builder = $this->staff->builder();
+            $builder->where('PK_iMaNV', $maNV);
+            $builder->update($dataSave);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode'=> ResultUtils::MESSAGE_CODE_OK,
-                'message' => ['success'=> 'Thêm dữ liệu thành công'],
+                'message' => ['success'=> 'Cập nhật tài khoản thành công'],
             ];
         }
         catch(Exception $e){

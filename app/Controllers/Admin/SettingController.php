@@ -21,9 +21,16 @@ class SettingController extends BaseController
         if (!$session->get('user_id')) {
             return redirect()->to('/');
         }
+        $sessionUser = [
+            'id' => $session->get('user_id'),
+            'quyen' => $session->get('quyen'),
+            'matk' => $session->get('matk'),
+        ];
+
         $data = [];
-        $dataLayout['settings'] = $this->service->getAllStaff();
-        // dd($dataLayout['staffs']);
+        $dataLayout['settings'] = $this->service->getAllStaff($sessionUser['matk']);
+        // dd($sessionUser['matk']);
+        // dd($dataLayout['settings']);
         $data = $this->loadMasterLayout($data, 'Thông tin cá nhân', 'Admin/Pages/setting', $dataLayout);
         return view('Admin/main', $data);
     }

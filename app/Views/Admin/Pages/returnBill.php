@@ -57,7 +57,6 @@
                             <th scope="col">Nhân viên</th>
                             <th scope="col">Nhà cung cấp</th>
                             <th scope="col">Ngày tạo</th>
-                            <th scope="col">Trạng thái</th>
                             <th scope="col" class="text-end"> Thao tác </th>
                         </tr>
                     </thead>
@@ -73,13 +72,8 @@
                                     <td><?= $k++ ?></td>
                                     <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
                                     <td><?= $returnBill['sTenNV'] ?></td>
-                                    <td><b><?= $returnBill['sTenNCC'] ?></b></td>
+                                    <td><b><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenNCC'] ?></span></b></td>
                                     <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao'])) ?></td>
-                                    <?php if ($returnBill['FK_iMaTrangThai'] == '5') : ?>
-                                        <td><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenTrangThai'] ?></span></td>
-                                    <?php else : ?>
-                                        <td><span class="badge rounded-pill alert-secondary"><?= $returnBill['sTenTrangThai'] ?></span></td>
-                                    <?php endif; ?>
                                     <td class="text-end">
                                         <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
                                     </td>
@@ -125,13 +119,6 @@
                                     <div class="mb-4 col-6">
                                         <label for="dNgayTao" class="form-label">Ngày tạo</label>
                                         <input type="date" placeholder="Type here" class="form-control" id="dNgayTao" name="dNgayTao" />
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Trạng thái</label>
-                                        <select class="form-select" name="FK_iMaTrangThai">
-                                            <option value="5">Đã hoàn trả</option>
-                                            <option value="6">Chờ hoàn trả</option>
-                                        </select>
                                     </div>
                                     <div class="mb-4 col-12">
                                         <label class="form-label">Ghi chú</label>
@@ -181,12 +168,6 @@
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
                                         <dd> <b class="h5" id="tongtien"></b> </dd>
-                                    </dl>
-                                    <dl class="dlist">
-                                        <dt class="text-muted">Trạng thái:</dt>
-                                        <dd>
-                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
-                                        </dd>
                                     </dl>
                                 </article>
                             </div>

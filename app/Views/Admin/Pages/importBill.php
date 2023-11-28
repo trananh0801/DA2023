@@ -74,7 +74,7 @@
                                     <td><?= $k++ ?></td>
                                     <td><b><?= $importBill['PK_iPN'] ?></b></td>
                                     <td><?= $importBill['sTenNV'] ?></td>
-                                    <td><b><?= $importBill['sTenNCC'] ?></b></td>
+                                    <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenNCC'] ?></span></td>
                                     <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
                                     <td class="text-end">
                                         <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>

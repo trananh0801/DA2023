@@ -142,22 +142,12 @@ class ReturnBillService extends BaseService
 
             // Truy vấn số lượng hiện có của sản phẩm
             $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
-
             // Tính toán số lượng mới
-            $newQuantity = $currentQuantity + $quantityToDeduct;
-            // dd($newQuantity);
+            $newQuantity = $currentQuantity - $quantityToDeduct;
             // Cập nhật số lượng mới vào cơ sở dữ liệu
             $this->product->where('PK_iMaSP', $productID)->set('fSoLuong', $newQuantity)->update();
         }
 
-        $duplicateProduct = $this->returnBill->where('PK_iMaPhieu', $dataSave1['PK_iMaPhieu'])->first();
-        if ($duplicateProduct) {
-            return [
-                'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['' => 'Trùng mã'],
-            ];
-        }
         // dd($dataSave1);
         try {
             $this->returnBill->save($dataSave1);

@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Services\StatisticalService;
 
+
 class RevenueController extends BaseController
 {
     /**
@@ -26,6 +27,7 @@ class RevenueController extends BaseController
         $dataLayout['orders'] = $this->service->getOrder();
         $dataLayout['totals'] = $this->service->getTotalAll();
 
+        // dd($dataLayout['orders']);
         $data = $this->loadMasterLayout($data, 'Thống kê doanh thu', 'Admin/Pages/revenue', $dataLayout);
         return view('Admin/main', $data);
     }
@@ -34,6 +36,7 @@ class RevenueController extends BaseController
     {
         $data = [];
         $result = $this->service->searchOrder($this->request);
+        // dd($result);
         $dataLayout['orders'] = $this->service->getOrderByDate($result['dBatDau'], $result['dKetThuc']);
         $dataLayout['totals'] = $this->service->getTotalByDate($result['dBatDau'], $result['dKetThuc']);
         $data = $this->loadMasterLayout($data, 'Thống kê doanh thu', 'Admin/Pages/revenue', $dataLayout);

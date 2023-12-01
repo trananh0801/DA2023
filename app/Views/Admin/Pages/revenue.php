@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <form action="admin/statistical/search" method="POST">
+            <form action="admin/statistical/search" method="GET">
                 <div class="card card-body mb-4">
                     <div class="row">
                         <div class="mb-4 col-4">

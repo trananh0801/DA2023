@@ -66,13 +66,11 @@ class StatisticalService extends BaseService
     public function searchOrder($requestData){
 
         $dataSearch = [
-            'dBatDau' => $requestData->getPost('dBatDau'),
-            'dKetThuc' => $requestData->getPost('dKetThuc'),
+            'dBatDau' => $requestData->getGet('dBatDau'),
+            'dKetThuc' => $requestData->getGet('dKetThuc'),
         ];
         return $dataSearch;
     }
-
-
 
 
     /**Lấy danh sách sản phẩm------------------------------------------------------------------------ */
@@ -109,7 +107,6 @@ class StatisticalService extends BaseService
 
     /**add new user */
     public function searchProduct($requestData){
-
         $dataSearch = $requestData->getPost('PK_iMaSP');
         return $dataSearch;
     }

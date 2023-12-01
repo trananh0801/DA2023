@@ -1,16 +1,18 @@
 <?php
 namespace App\Services;
 use App\Models\OrderModel;
+use App\Models\ProductModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class StatisticalService extends BaseService
 {
-    private $order;
+    private $order, $product;
     function __construct()
     {
         parent::__construct();
         $this->order = new OrderModel();
+        $this->product = new ProductModel();
     }
 
      /**thống kê all */
@@ -67,6 +69,48 @@ class StatisticalService extends BaseService
             'dBatDau' => $requestData->getPost('dBatDau'),
             'dKetThuc' => $requestData->getPost('dKetThuc'),
         ];
+        return $dataSearch;
+    }
+
+
+
+
+    /**Lấy danh sách sản phẩm------------------------------------------------------------------------ */
+    public function getAllProduct()
+    {
+        $result = $this->product
+            ->select('*')
+            ->findAll();
+        return $result;
+    }
+
+    /**Lấy danh sách sản phẩm------------------------------------------------------------------------ */
+    public function inventoryProduct()
+    {
+        $result = $this->product
+            ->select('*')
+            ->join('tbl_nhomsanpham', 'tbl_nhomsanpham.PK_iMaNhom = tbl_sanpham.FK_iMaNhom')
+            ->findAll();
+        return $result;
+    }
+
+
+    /**Lấy danh sách sản phẩm------------------------------------------------------------------------ */
+    public function inventoryProductByCode($id)
+    {
+        $result = $this->product
+            ->select('*')
+            ->join('tbl_nhomsanpham', 'tbl_nhomsanpham.PK_iMaNhom = tbl_sanpham.FK_iMaNhom')
+            ->where('tbl_sanpham.PK_iMaSP', $id)
+            ->findAll();
+        return $result;
+    }
+
+
+    /**add new user */
+    public function searchProduct($requestData){
+
+        $dataSearch = $requestData->getPost('PK_iMaSP');
         return $dataSearch;
     }
 }

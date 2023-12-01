@@ -98,6 +98,9 @@ $routes->group('admin', function ($routes) {
     $routes->group('statistical', function ($routes) {
         $routes->get('revenue', 'Admin\RevenueController::list');
         $routes->post('search', 'Admin\RevenueController::search');
+
+        $routes->get('inventory', 'Admin\InventoryController::list');
+        $routes->post('searchProduct', 'Admin\InventoryController::search');
     });
 });
 

@@ -71,7 +71,7 @@
       </a> 
       <div class="submenu">
         <a href="admin/statistical/revenue">Báo cáo thống kê doanh thu</a>
-        <a href="admin/returnBill/list">Báo cáo thống kê sản phẩm</a>
+        <a href="admin/statistical/inventory">Báo cáo thống kê sản phẩm</a>
       </div>
     </li>
   </ul>

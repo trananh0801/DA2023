@@ -33,9 +33,10 @@ class InventoryController extends BaseController
     {
         $data = [];
         $result = $this->service->searchProduct($this->request);
+        // dd($result);
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['productLists'] = $this->service->inventoryProductByCode($result);
-        $data = $this->loadMasterLayout($data, 'Thống kê doanh thu', 'Admin/Pages/inventory', $dataLayout);
+        $data = $this->loadMasterLayout($data, 'Thống kê sản phẩm tồn kho', 'Admin/Pages/inventory', $dataLayout);
         return view('Admin/main', $data);
     }
 }

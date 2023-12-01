@@ -22,7 +22,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <form action="admin/statistical/searchProduct" method="POST">
+            <form action="admin/statistical/searchProduct" method="get">
                 <div class="card card-body mb-4">
                     <div class="row">
                         <div class="mb-4 col-8">

@@ -107,7 +107,7 @@ class StatisticalService extends BaseService
 
     /**add new user */
     public function searchProduct($requestData){
-        $dataSearch = $requestData->getPost('PK_iMaSP');
+        $dataSearch = $requestData->getGet('PK_iMaSP');
         return $dataSearch;
     }
 }

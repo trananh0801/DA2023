@@ -100,7 +100,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('search', 'Admin\RevenueController::search');
 
         $routes->get('inventory', 'Admin\InventoryController::list');
-        $routes->post('searchProduct', 'Admin\InventoryController::search');
+        $routes->get('searchProduct', 'Admin\InventoryController::search');
     });
 });
 

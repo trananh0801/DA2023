@@ -1,9 +1,6 @@
 <section class="content-main">
 	<div class="content-header">
 		<h2 class="content-title"> Dashboard </h2>
-		<div>
-			<a href="#" class="btn btn-primary">Create report</a>
-		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-4">
@@ -11,7 +8,7 @@
 				<article class="icontext">
 					<span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
 					<div class="text">
-						<h6 class="mb-1">Total Sales</h6> <span>$19,626,058.20</span>
+						<h6 class="mb-1">Tổng doanh thu</h6> <span>$19,626,058.20</span>
 					</div>
 				</article>
 
@@ -22,7 +19,7 @@
 				<article class="icontext">
 					<span class="icon icon-sm rounded-circle bg-success-light"><i class="text-success material-icons md-local_shipping"></i></span>
 					<div class="text">
-						<h6 class="mb-1">Total Orders</h6> <span>87790</span>
+						<h6 class="mb-1">Tổng thực thu</h6> <span>87790</span>
 					</div>
 				</article>
 			</div> <!-- card end// -->
@@ -32,7 +29,40 @@
 				<article class="icontext">
 					<span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning material-icons md-shopping_basket"></i></span>
 					<div class="text">
-						<h6 class="mb-1">Total Products</h6> <span>5678</span>
+						<h6 class="mb-1">Tổng vốn</h6> <span>5678</span>
+					</div>
+				</article>
+			</div> <!--  end// -->
+		</div> <!-- col end// -->
+	</div> <!-- row end// -->
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card card-body mb-4">
+				<article class="icontext">
+					<span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
+					<div class="text">
+						<h6 class="mb-1">Tổng đơn hàng</h6> <span>$19,626,058.20</span>
+					</div>
+				</article>
+
+			</div> <!-- card  end// -->
+		</div> <!-- col end// -->
+		<div class="col-lg-4">
+			<div class="card card-body mb-4">
+				<article class="icontext">
+					<span class="icon icon-sm rounded-circle bg-success-light"><i class="text-success material-icons md-local_shipping"></i></span>
+					<div class="text">
+						<h6 class="mb-1">Tổng sản phẩm</h6> <span>87790</span>
+					</div>
+				</article>
+			</div> <!-- card end// -->
+		</div> <!-- col end// -->
+		<div class="col-lg-4">
+			<div class="card card-body mb-4">
+				<article class="icontext">
+					<span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning material-icons md-shopping_basket"></i></span>
+					<div class="text">
+						<h6 class="mb-1">Tổng phiếu nhập</h6> <span>5678</span>
 					</div>
 				</article>
 			</div> <!--  end// -->
@@ -44,7 +74,7 @@
 		<div class="col-xl-8 col-lg-12">
 			<div class="card mb-4">
 				<article class="card-body">
-					<h5 class="card-title">Sale statistics</h5>
+					<h5 class="card-title">Thống kê bán hàng</h5>
 					<canvas height="120" id="myChart"></canvas>
 				</article> <!-- card-body end// -->
 			</div> <!-- card end// -->

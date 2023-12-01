@@ -63,7 +63,6 @@ $routes->group('admin', function ($routes) {
         $routes->get('update/(:segment)', 'Admin\UpdateOrderController::list/$1');
         $routes->post('updateSave/(:segment)', 'Admin\UpdateOrderController::update/$1');
         $routes->get('delete/(:num)', 'Admin\OrderController::delete/$1');
-
         $routes->post('check_product_detail', 'Admin\OrderController::check_product_detail');
 
     });
@@ -95,6 +94,10 @@ $routes->group('admin', function ($routes) {
 
     $routes->group('evaluate', function ($routes) {
         $routes->get('list', 'Admin\EvaluateController::list');
+    });
+    $routes->group('statistical', function ($routes) {
+        $routes->get('revenue', 'Admin\RevenueController::list');
+        $routes->post('search', 'Admin\RevenueController::search');
     });
 });
 

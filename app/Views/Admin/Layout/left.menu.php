@@ -65,6 +65,15 @@
         <span class="text">Danh mục quà tặng</span> 
       </a> 
     </li>
+    <li class="menu-item has-submenu"> 
+      <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>  
+        <span class="text">Báo cáo thống kê</span> 
+      </a> 
+      <div class="submenu">
+        <a href="admin/statistical/revenue">Báo cáo thống kê doanh thu</a>
+        <a href="admin/returnBill/list">Báo cáo thống kê sản phẩm</a>
+      </div>
+    </li>
   </ul>
   <hr>
   <ul class="menu-aside">

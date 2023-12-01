@@ -257,7 +257,7 @@
             console.log(orderId)
             // Gửi giá trị ID đến controller bằng AJAX
             $.ajax({
-                url: '<?= site_url('order/list') ?>', // Thay đổi đường dẫn dẫn đến controller theo tên bạn đã đặt
+                url: '<?php echo base_url("statistical/searchOrders"); ?>', // Thay đổi đường dẫn dẫn đến controller theo tên bạn đã đặt
                 type: 'POST',
                 data: {
                     order_id: orderId

@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1701690677;_ci_previous_url|s:37:"http://localhost:8080/index.php/login";user_id|s:5:"admin";matk|s:1:"1";quyen|s:1:"1";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:2:{s:6:"sTenTK";s:5:"admin";s:8:"sMatKhau";s:3:"123";}}__ci_vars|a:2:{s:13:"_ci_old_input";s:3:"new";s:10:"successMsg";s:3:"new";}successMsg|a:1:{s:7:"success";s:26:"Đăng nhập thành công";}

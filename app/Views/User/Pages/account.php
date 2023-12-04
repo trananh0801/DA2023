@@ -167,20 +167,29 @@
                                                     </tr>
                                                 <?php else : ?>
                                                     <?php foreach ($historys as $history) : ?>
-                                                    <tr>
-                                                        <td><?= $k++ ?></td>
-                                                        <td><?= $history['PK_iMaDon'] ?></td>
-                                                        <td>
-                                                            <small><?= $history['soluongsp'] ?> sản phẩm</small>
-                                                        </td>
-                                                        <td><a href="user/order-status/<?= $history['PK_iMaDon'] ?>" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                        <td data-value="78025368997"><?= date('d/m/Y', strtotime($history['dThoiGianTao'])) ?></td>
-                                                        <td data-value="3"><span class="label label-success"><?= $history['sTenTrangThai'] ?></span>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach ?>
+                                                        <tr>
+                                                            <td><?= $k++ ?></td>
+                                                            <td><?= $history['PK_iMaDon'] ?></td>
+                                                            <td>
+                                                                <small><?= $history['soluongsp'] ?> sản phẩm</small>
+                                                            </td>
+                                                            <td><a href="user/order-status/<?= $history['PK_iMaDon'] ?>" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
+                                                            <td data-value="78025368997"><?= date('d/m/Y', strtotime($history['dThoiGianTao'])) ?></td>
+
+                                                            <?php if ($history['FK_iMaTrangThai'] == '4') : ?>
+                                                                <td data-value="3"><span class="label label-warning"><?= $history['sTenTrangThai'] ?></span></td>
+                                                            <?php elseif ($history['FK_iMaTrangThai'] == '10') : ?>
+                                                                <td><span class="label label-primary"><?= $history['sTenTrangThai'] ?></span></td>
+                                                            <?php elseif ($history['FK_iMaTrangThai'] == '5') : ?>
+                                                                <td><span class="label label-danger"><?= $history['sTenTrangThai'] ?></span></td>
+                                                            <?php else : ?>
+                                                                <td><span class="label label-success"><?= $history['sTenTrangThai'] ?></span></td>
+                                                            <?php endif; ?>
+
+                                                        </tr>
+                                                    <?php endforeach ?>
                                                 <?php endif ?>
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>

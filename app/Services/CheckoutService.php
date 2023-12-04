@@ -6,12 +6,14 @@ use App\Models\OrderModel;
 use App\Models\OrderDetailModel;
 use App\Models\ProductModel;
 use App\Models\CustomerModel;
+use App\Models\CartModel;
+use App\Models\CartDetailModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class CheckoutService extends BaseService
 {
-    private $order, $orderDetail, $product, $customer;
+    private $order, $orderDetail, $product, $customer, $cart, $cartDetail;
     function __construct()
     {
         parent::__construct();
@@ -22,6 +24,12 @@ class CheckoutService extends BaseService
         $this->order->protect(false);
         $this->orderDetail->protect(false);
         $this->product->protect(false);
+
+        $this->cart = new CartModel();
+        $this->cart->protect(false);
+
+        $this->cartDetail = new CartDetailModel();
+        $this->cartDetail->protect(false);
     }
 
     /**Lấy danh sách sản phẩm trong giỏ hàng theo người dùng */
@@ -145,12 +153,12 @@ class CheckoutService extends BaseService
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
         ];
         $transformedData = array();
-            foreach ($dataSave_CTDDH as $k => $v) {
-                foreach ($v as $k1 => $v1) {
-                    $transformedData[$k1][$k] = $v1;
-                    $transformedData[$k1]['FK_iMaDon'] = 'HD_' . $uniqueCode;
-                }
+        foreach ($dataSave_CTDDH as $k => $v) {
+            foreach ($v as $k1 => $v1) {
+                $transformedData[$k1][$k] = $v1;
+                $transformedData[$k1]['FK_iMaDon'] = 'HD_' . $uniqueCode;
             }
+        }
         // dd($transformedData);
         for ($i = 0; $i < count($dataSave_CTDDH['FK_iMaSP']); $i++) {
             $productID = $dataSave_CTDDH['FK_iMaSP'][$i];
@@ -172,9 +180,17 @@ class CheckoutService extends BaseService
         try {
             //insert hóa đơn
             $this->order->save($dataSave_DDH);
-            
+
             //insert sản chi tiết hóa đơn
             $this->orderDetail->insertBatch($transformedData);
+
+            //Xóa sản phẩm trong giỏ hàng
+            $cartID = $this->cart->where('FK_iMaTK', $userID)->get()->getRow()->PK_iMaGH;
+            $this->cartDetail->where('FK_iMaGH', $cartID)->delete();
+            $builder = $this->cart->builder();
+            $builder->where('FK_iMaTK', $userID);
+            $builder->delete();
+
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,

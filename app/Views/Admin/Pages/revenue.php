@@ -29,7 +29,7 @@
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
                     <div class="text">
-                        <h6 class="mb-1">Tổng doanh thu</h6> <?= $totals['tong'] ?><span></span>
+                        <h6 class="mb-1">Tổng doanh thu</h6> <?= number_format($totals['tong'], 0, '.', ',') ?><span> VNĐ</span>
                     </div>
                 </article>
 
@@ -40,7 +40,7 @@
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-success-light"><i class="text-success material-icons md-local_shipping"></i></span>
                     <div class="text">
-                        <h6 class="mb-1">Tổng thực thu</h6> <span>87790</span>
+                        <h6 class="mb-1">Tổng thực thu</h6> <span>877,900</span> VNĐ
                     </div>
                 </article>
             </div> <!-- card end// -->
@@ -50,7 +50,7 @@
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning material-icons md-shopping_basket"></i></span>
                     <div class="text">
-                        <h6 class="mb-1">Tổng vốn</h6> <span>5678</span>
+                        <h6 class="mb-1">Tổng vốn</h6> <span>567,800</span> VNĐ
                     </div>
                 </article>
             </div> <!--  end// -->

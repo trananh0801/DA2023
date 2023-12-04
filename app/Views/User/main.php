@@ -22,6 +22,9 @@
     <!-- add theme styles for this template -->
     <link id="pagestyle" rel="stylesheet" type="text/css" href="assets/user/assets/css/skin-10.css">
     <link rel="stylesheet" type="text/css" href="assets/user/assets/css/gray-look.css">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 </head>
 
 <body>

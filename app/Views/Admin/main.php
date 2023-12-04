@@ -23,6 +23,9 @@
   <!-- iconfont -->
   <link rel="stylesheet" href="assets/admin/fonts/material-icon/css/round.css" />
 
+
+
+
 </head>
 
 <body>
@@ -33,8 +36,13 @@
     <?= $header ?>
     <?= $content ?>
   </main>
-
+  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
   <script>
+  $('.selected2').select2();
+//   $(".js-example-placeholder-single").select2({
+
+// });
     if (localStorage.getItem("darkmode")) {
       var body_el = document.body;
       body_el.className += 'dark';
@@ -51,7 +59,7 @@
   <!-- Custom JS -->
   <script src="assets/admin/js/scriptc619.js"></script>
 
-</body>
+
 
 <!-- Mirrored from www.ecommerce-admin.com/demo/page-0-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Aug 2022 02:53:43 GMT -->
 

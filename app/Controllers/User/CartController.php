@@ -22,7 +22,7 @@ class CartController extends BaseController
         // dd($userID);
         $data = [];
         $dataLayout['allProductInCarts'] = $this->service->getAllProduct($userID);
-        // dd($dataLayout['allProductInCarts']);
+        // dd($dataLayout['allProductInCarts']['cart_detail']);
         $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', $dataLayout);
         return view('User/main', $data);
     }

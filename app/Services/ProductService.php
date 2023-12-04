@@ -87,6 +87,7 @@ class ProductService extends BaseService
         }
         $dataSave = $requestData->getPost();
         $dataSave['sHinhAnh'] = $newName;
+        $dataSave['fGiaBanLe'] = str_replace(',','',$dataSave['fGiaBanLe']);
         // dd($uploadPath);
         try {
             $this->product->save($dataSave);

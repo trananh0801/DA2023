@@ -95,7 +95,7 @@
 										</div>
 									</td>
 									<td><b><?= $product['sTenSP'] ?></b></td>
-									<td><span class="badge rounded-pill alert-warning"><?= $product['fGiaBanLe'] ?> &#8363</span></td>
+									<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> &#8363</span></td>
 									<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
 									<td><?= $product['sTenNhom'] ?></td>
 									<td class="text-end">

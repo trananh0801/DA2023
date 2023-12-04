@@ -69,12 +69,14 @@
                                         <td style="width:10%">Chiết khấu</td>
                                         <td style="width:15%">Tổng cộng</td>
                                     </tr>
-                                    <?php if (empty($allProductInCarts)) : ?>
+                                    <?php if (empty($allProductInCarts['cart_detail'])) : ?>
                                         <tr>
                                             <td colspan="6" class="text-center">Chưa có sản phẩm nào trong giỏ hàng !!!</td>
                                         </tr>
                                     <?php else : ?>
-                                        <?php foreach ($allProductInCarts as $allProductInCart) : ?>
+                                        <?php
+                                            //echo json_encode($allProductInCarts['cart_detail']); die();
+                                            foreach ($allProductInCarts['cart_detail'] as $allProductInCart){ ?>
                                             <tr class="CartProduct">
                                                 <td>
                                                     <div><a class="cart-img" href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
@@ -83,7 +85,7 @@
                                                 <td>
                                                     <div class="CartDescription">
                                                         <h4><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><?= $allProductInCart['sTenSP'] ?> </a></h4>
-                                                        <div class="price"><span><?= $allProductInCart['fGiaBanLe'] ?> VNĐ</span></div>
+                                                        <div class="price"><span><?= number_format($allProductInCart['fGiaBanLe'], 0, '.', ',') ?> VNĐ</span></div>
                                                     </div>
                                                 </td>
                                                 <td class="delete">
@@ -92,14 +94,14 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <input type="text" value="<?= $allProductInCart['PK_iMaGH'] ?>" name="PK_iMaGH" hidden>
-                                                    <input type="text" value="<?= $allProductInCart['MaSP'] ?>" name="FK_iMaSP[]" hidden>
+                                                    <input type="text" value="<?= $allProductInCart['FK_iMaGH'] ?>" name="PK_iMaGH" hidden>
+                                                    <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
                                                     <input class="quanitySniper" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]">
                                                 </td>
-                                                <td><?php if ($allProductInCart['fChietKhau'] == null) : ?>0<?php else : ?><?= $allProductInCart['fChietKhau'] ?><?php endif; ?></td>
-                                                <td class="price"><span class="thanhtien"><?= $allProductInCart['total_price'] ?></span> đ</td>
+                                                <td><?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]?:0 ?></td>
+                                                <td class="price"><span class="thanhtien"><?php echo   number_format(($allProductInCart['iSoLuong']*$allProductInCart['fGiaBanLe'] * (1-$allProductInCarts['km'][$allProductInCart['PK_iMaSP']]/100?:0 )), 0, '.', ',') ?></span> VNĐ</td>
                                             </tr>
-                                        <?php endforeach ?>
+                                        <?php } ?>
                                     <?php endif ?>
                                 </tbody>
                             </table>
@@ -146,7 +148,7 @@
                                         </tr>
                                         <tr>
                                             <td> <strong>Tổng tiền <i>(đã áp dụng khuyến mãi)</i></strong></td>
-                                            <td class=" site-color"><span id="total-price"></span> đ</td>
+                                            <td class=" site-color"><span id="total-price"></span> VNĐ</td>
                                         </tr>
                                     </tbody>
                                     <tbody>
@@ -175,10 +177,9 @@
 
             $(".thanhtien").each(function() {
                 var thanhtien = $(this).text();
-                var changeThanhtien = thanhtien.replace(/\./g, "");
+                var changeThanhtien = thanhtien.replace(/\,/g, "");
                 console.log(changeThanhtien);
                 tong += parseFloat(changeThanhtien) || 0;
-                $('.thanhtien').html(formatNumber(parseFloat(changeThanhtien)));
             });
             $('#total-price').html(formatNumber(tong));
         });

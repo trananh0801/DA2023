@@ -47,6 +47,7 @@
                 </div>
             </div>
         </header> <!-- card-header end// -->
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -120,12 +121,13 @@
                                                 <label class="form-label">Khách hàng</label>
                                             </div>
                                             <div class="col-12">
-                                                <select class="form-select" name="FK_iMaKH" id="selectOption">
+                                                <select class="selected2" name="FK_iMaKH" data-width="100%">
                                                     <?php foreach ($customers as $customer) : ?>
                                                         <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sTenKH'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </div>
+                                           
                                         </div>
                                     </div>
                                     <div class="mb-4 col-6">
@@ -149,20 +151,20 @@
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th scope="col">Sản phẩm</th>
-                                            <th scope="col">Giá</th>
-                                            <th scope="col">Số lượng</th>
-                                            <th scope="col">Chiết khấu (%)</th>
-                                            <th scope="col">Thành tiền</th>
-                                            <th scope="col" class="text-end"></th>
+                                            <th style="width:10%">STT</th>
+                                            <th style="width:30%">Sản phẩm</th>
+                                            <th style="width:15%">Giá</th>
+                                            <th style="width:10%">Số lượng</th>
+                                            <th style="width:10%">Chiết khấu (%)</th>
+                                            <th style="width:15%">Thành tiền</th>
+                                            <th  class="text-end" style="width:10%"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="order-1">
                                             <td>1</td>
-                                            <td>
-                                                <select data-index="1" class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
+                                            <td scope="col-7">
+                                                <select data-index="1" class="selectProduct selected2" name="FK_iMaSP[]" id="selectProduct" data-width="100%">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
                                                         <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
@@ -208,8 +210,7 @@
     </div>
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2-bootstrap.min.css" rel="stylesheet" /> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script> -->
+
 <script>
     //set timeout cho thông báo
     setTimeout(function() {
@@ -217,7 +218,7 @@
     }, 3000);
 
     $(document).ready(function() {
-        
+
         //hàm format giá tiền
         function formatNumber(number) {
             return number.toLocaleString('vi-VN');

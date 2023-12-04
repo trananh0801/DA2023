@@ -15,6 +15,22 @@ class StatisticalService extends BaseService
         $this->product = new ProductModel();
     }
 
+    /**Tổng đơn hàng đổi trả */
+    // public function getAllReturnBill(){
+    //     $result = $this->order
+    //     ->select('SUM(PK_iMaDon) as total')
+    //     ->where('FK_iMaTrangThai', '5')
+    //     ->groupBy('PK_iMaDon')
+    //     ->findAll();
+    //     return $result;
+    // }
+    public function getReturnBillCount(){
+        $count = $this->order
+            ->where('FK_iMaTrangThai', '5')
+            ->countAllResults();
+        return $count;
+    }
+
      /**thống kê all */
      public function getOrder(){
         $result = $this->order
@@ -32,7 +48,7 @@ class StatisticalService extends BaseService
         ->select('SUM(tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as tong')
         ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaDon = tbl_dondathang.PK_iMaDon')
         ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
-        // ->groupBy('tbl_ctdondathang.FK_iMaDon')  
+        ->where('tbl_dondathang.FK_iMaTrangThai', '3')
         ->first();
         return $result;
     }
@@ -46,6 +62,7 @@ class StatisticalService extends BaseService
         ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
         ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
         ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
+        ->where('tbl_dondathang.FK_iMaTrangThai', '3')
         ->findAll();
         return $result;
     }
@@ -58,6 +75,7 @@ class StatisticalService extends BaseService
         ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
         ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
         ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
+        ->where('tbl_dondathang.FK_iMaTrangThai', '3')
         ->first();
         return $result;
     }

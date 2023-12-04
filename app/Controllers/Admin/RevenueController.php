@@ -26,8 +26,9 @@ class RevenueController extends BaseController
         $data = [];
         $dataLayout['orders'] = $this->service->getOrder();
         $dataLayout['totals'] = $this->service->getTotalAll();
+        $dataLayout['totalReturnBills'] = $this->service->getReturnBillCount();
 
-        // dd($dataLayout['orders']);
+        // dd($dataLayout['totalReturnBills']);
         $data = $this->loadMasterLayout($data, 'Thống kê doanh thu', 'Admin/Pages/revenue', $dataLayout);
         return view('Admin/main', $data);
     }

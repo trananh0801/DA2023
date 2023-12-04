@@ -561,3 +561,134 @@ INFO - 2023-12-04 16:18:16 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-04 16:19:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-04 16:19:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-04 16:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:20:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:20:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:21:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:27:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-04 16:34:42 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `tbl_dondathang`.`dThoiGianTao` < IS NULL' at line 6 in F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\DOANTOTNGHIEP\htdocs\DA2023\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\StatisticalService.php(50): CodeIgniter\BaseModel->findAll()
+#7 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\RevenueController.php(40): App\Services\StatisticalService->getOrderByDate(NULL, NULL)
+#8 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+#9 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+#10 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\DOANTOTNGHIEP\htdocs\DA2023\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIE...')
+#13 {main}
+CRITICAL - 2023-12-04 16:34:42 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `tbl_dondathang`.`dThoiGianTao` < IS NULL' at line 6
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_dondathang`
+LEFT JOIN `tbl_nhanvien` ON `tbl_nhanvien`.`PK_iMaNV` = `tbl_dondathang`.`FK_iMaNV`
+JOIN `tbl_khachhang` ON `tbl_khachhang`.`PK_iMaKH` = `tbl_dondathang`.`FK_iMaKH`
+JOIN `tbl_trangthai` ON `tbl_trangthai`.`PK_iMaTrangThai` = `tbl_dondathang`.`FK_iMaTrangThai`
+WHERE `tbl_dondathang`.`dThoiGianTao` > IS NULL
+AND `tbl_dondathang`.`dThoiGianTao` < IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Services\StatisticalService.php(50): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Admin\RevenueController.php(40): App\Services\StatisticalService->getOrderByDate(null, null)
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-04 16:34:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:34:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:35:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:35:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:35:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:37:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:41:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:45:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:45:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-04 16:45:41 --> mysqli_sql_exception: Unknown column 'tbl_dondathang.id' in 'order clause' in F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT SUM(PK_i...', 0)
+#1 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(PK_i...')
+#2 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(PK_i...')
+#3 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT SUM(PK_i...', Array, false)
+#4 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\DOANTOTNGHIEP\htdocs\DA2023\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Services\StatisticalService.php(24): CodeIgniter\BaseModel->first()
+#7 F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\RevenueController.php(29): App\Services\StatisticalService->getAllReturnBill()
+#8 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->list()
+#9 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+#10 F:\DOANTOTNGHIEP\htdocs\DA2023\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\DOANTOTNGHIEP\htdocs\DA2023\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 F:\DOANTOTNGHIEP\htdocs\DA2023\system\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIE...')
+#13 {main}
+CRITICAL - 2023-12-04 16:45:41 --> Unknown column 'tbl_dondathang.id' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT SUM(PK_iMaDon) as total
+FROM `tbl_dondathang`
+WHERE `FK_iMaTrangThai` = :FK_iMaTrangThai:
+GROUP BY `PK_iMaDon`
+ORDER BY `tbl_dondathang`.`id` ASC
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Services\StatisticalService.php(24): CodeIgniter\BaseModel->first()
+ 5 APPPATH\Controllers\Admin\RevenueController.php(29): App\Services\StatisticalService->getAllReturnBill()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->list()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-04 16:46:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-04 16:48:04 --> Trying to access array offset on value of type int
+in APPPATH\Views\Admin\Pages\revenue.php on line 43.
+ 1 APPPATH\Views\Admin\Pages\revenue.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\revenue.php', 43)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\revenue.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/revenue', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('Admin/Pages/revenue', [...])
+ 6 APPPATH\Controllers\Admin\RevenueController.php(32): App\Controllers\BaseController->loadMasterLayout([...], 'Thống kê doanh thu', 'Admin/Pages/revenue', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-04 16:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-04 16:48:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

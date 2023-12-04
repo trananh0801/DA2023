@@ -35,6 +35,17 @@
 
             </div> <!-- card  end// -->
         </div> <!-- col end// -->
+        <div class="col-lg-4">
+            <div class="card card-body mb-4">
+                <article class="icontext">
+                    <span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning material-icons md-shopping_basket"></i></span>
+                    <div class="text">
+                        <h6 class="mb-1">Tổng đơn hàng hoàn trả</h6> <?= $totalReturnBills ?><span> hóa đơn</span>
+                    </div>
+                </article>
+
+            </div> <!-- card  end// -->
+        </div> <!-- col end// -->
     </div> <!-- row end// -->
     <!-- <div id="searchResult"></div> -->
     <!-- Hiển thị kết quả -->
@@ -52,7 +63,15 @@
                             <td><?= $order['sTenNV'] ?></td>
                             <td><?= $order['sTenKH'] ?></td>
                             <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
-                            <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
+                            <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
+                                <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                            <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
+                                <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                            <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
+                                <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
+                            <?php else : ?>
+                                <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach ?>
                 </table>

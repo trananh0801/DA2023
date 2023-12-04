@@ -81,14 +81,14 @@
                                                             </div>
                                                         </td>
                                                         <td class="delete">
-                                                            <div class="price "><?= $product['fGiaBanLe'] ?> đ</div>
+                                                            <div class="price "><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> đ</div>
                                                         </td>
                                                         <td>
                                                             <input type="text" value="<?= $product['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
                                                             <input class="quanitySniper" type="text" value="<?= $product['iSoLuong'] ?>" min="1" name="iSoLuong[]" style="width:35px">
                                                         </td>
                                                         <td class="hidden-xs"><?php if ($product['fChietKhau'] == null) : ?>0<?php else : ?><?= $product['fChietKhau'] ?><?php endif; ?></td>
-                                                        <td class="price thanhtien"><?= $product['total_price'] ?> đ</td>
+                                                        <td class="price thanhtien"><?php echo   number_format(($product['iSoLuong']*$product['fGiaBanLe'] * (1-$product['fChietKhau']/100?:0 )), 0, '.', ',') ?> đ</td>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
@@ -146,13 +146,10 @@
             }
 
             $(".thanhtien").each(function() {
-                
                 var thanhtien = $(this).text();
-                
-                var changeThanhtien = thanhtien.replace(/\./g, "");
+                var changeThanhtien = thanhtien.replace(/\,/g, "");
                 console.log(changeThanhtien);
                 tong += parseFloat(changeThanhtien) || 0;
-                $('.thanhtien').html(formatNumber(parseFloat(changeThanhtien)));
             });
             $('#total-price').html(formatNumber(tong));
         });

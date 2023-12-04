@@ -161,7 +161,12 @@
                                             </thead>
                                             <tbody>
                                                 <?php $k = 1 ?>
-                                                <?php foreach ($historys as $history) : ?>
+                                                <?php if (empty($historys)) : ?>
+                                                    <tr>
+                                                        <td colspan="6" class="text-center">Bạn chưa đặt đơn hàng nào !!!</td>
+                                                    </tr>
+                                                <?php else : ?>
+                                                    <?php foreach ($historys as $history) : ?>
                                                     <tr>
                                                         <td><?= $k++ ?></td>
                                                         <td><?= $history['PK_iMaDon'] ?></td>
@@ -174,6 +179,8 @@
                                                         </td>
                                                     </tr>
                                                 <?php endforeach ?>
+                                                <?php endif ?>
+                                                
                                             </tbody>
                                         </table>
                                     </div>

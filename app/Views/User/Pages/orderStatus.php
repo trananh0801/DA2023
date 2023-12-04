@@ -106,7 +106,7 @@
                                                     </td>
                                                     <td class="" style="width:10%"><a> X <?= $orderDetail['iSoLuong'] ?> </a></td>
                                                     <td class="" style="width:10%"><a> <?php if ($orderDetail['fChietKhau'] == null) : ?>0 %<?php else : ?><?= $orderDetail['fChietKhau'] ?> %<?php endif; ?> </a></td>
-                                                    <td style="width:15%"><span class="thanhtien"> <?= $orderDetail['total_price'] ?></span>đ</td>
+                                                    <td style="width:15%"><span class="thanhtien"> <?php echo   number_format(($orderDetail['iSoLuong']*$orderDetail['fGiaBanLe'] * (1-$orderDetail['fChietKhau']/100?:0 )), 0, '.', ',') ?></span>đ</td>
                                                 </tr>
                                             <?php endforeach ?>
 
@@ -150,10 +150,18 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
-        var tong = 0;
-        $(".thanhtien").each(function() {
-            tong += parseFloat($(this).text()) || 0;
+            var tong = 0;
+            
+            function formatNumber(number) {
+                return number.toLocaleString('vi-VN');
+            }
+
+            $(".thanhtien").each(function() {
+                var thanhtien = $(this).text();
+                var changeThanhtien = thanhtien.replace(/\,/g, "");
+                console.log(changeThanhtien);
+                tong += parseFloat(changeThanhtien) || 0;
+            });
+            $('#tongtien').html(formatNumber(tong));
         });
-        $('#tongtien').html(tong);
-    });
 </script>

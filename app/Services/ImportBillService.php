@@ -136,12 +136,12 @@ class ImportBillService extends BaseService
         //lấy thông tin để update số lượng sản phẩm
         $maSP = $requestData->getPost('FK_iMaSP');
         $soluong = $requestData->getPost('iSoluong');
-        $gianhap = $requestData->getPost('fGiaNhap');
+        // $gianhap = $requestData->getPost('fGiaNhap');
         // dd($soluong);
         for ($i = 0; $i < count($maSP); $i++) {
             $productID = $maSP[$i];
             $quantityToDeduct = $soluong[$i];
-            $importPrice = $gianhap[$i];
+            // $importPrice = $gianhap[$i];
 
             // Truy vấn số lượng hiện có của sản phẩm
             $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;

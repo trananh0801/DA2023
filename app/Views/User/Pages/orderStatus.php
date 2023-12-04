@@ -41,7 +41,7 @@
                         <div class=" statusTop">
                             <p><strong>Trạng thái:</strong> <?= $orders['sTenTrangThai'] ?></p>
 
-                            <p><strong>Ngày đặt hàng:</strong> <?= $orders['dThoiGianTao'] ?></p>
+                            <p><strong>Ngày đặt hàng:</strong><?= date('d/m/Y', strtotime($orders['dThoiGianTao'])) ?></p>
 
                             <p><strong>Số đơn hàng:</strong> <?= $orders['PK_iMaDon'] ?> </p>
                         </div>

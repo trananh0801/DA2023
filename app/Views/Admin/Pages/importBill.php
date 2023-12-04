@@ -127,7 +127,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td><input type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" /></td>
+                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" /></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1" /></td>
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
@@ -184,7 +184,7 @@
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
             html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
-            html += '<td class="price" id="price"></td>';
+            html += '<td><input data-index="'+ ($('#myTable tbody tr').length + 1) +'" type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" /></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1"/></td>';
             html += '<td class="thanhtien" id="thanhtien"></td>';
             html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';

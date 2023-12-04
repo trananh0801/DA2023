@@ -85,10 +85,10 @@
                                                 <?php endforeach ?>
                                             </select>
                                         </td>
-                                        <td><?= $orderDetail['fGiaBanLe'] ?></td>
+                                        <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', ',') ?></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $orderDetail['iSoLuong'] ?>" readonly /></td>
                                         <td><?= $orderDetail['fChietKhau'] ?>%</td>
-                                        <td>10</td>
+                                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
@@ -98,12 +98,16 @@
                         <article class="float-end">
                             <dl class="dlist">
                                 <dt>Tổng tiền:</dt>
-                                <dd> <b class="h5 tongtien"></b> </dd>
+                                <dd> <b class="h5 tongtien" id="total-price"></b> VNĐ</dd>
                             </dl>
                             <dl class="dlist">
                                 <dt class="text-muted">Trạng thái:</dt>
                                 <dd>
-                                    <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
+                                    <?php if ($orders['FK_iMaNV'] == '') : ?>
+                                        <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
+                                    <?php else : ?>
+                                        <span class="badge rounded-pill alert-success text-success">Đặt hàng online</span>
+                                    <?php endif ?>
                                 </dd>
                             </dl>
                         </article>
@@ -116,8 +120,22 @@
         </div>
     </div> <!-- card end// -->
 </section> <!-- content-main end// -->
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
+        var tong = 0;
 
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
+        $(".thanhtien").each(function() {
+            var thanhtien = $(this).text();
+            console.log(thanhtien);
+            var changeThanhtien = thanhtien.replace(/\,/g, "");
+            console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien) || 0;
+        });
+        $('#total-price').html(formatNumber(tong));
     });
 </script>

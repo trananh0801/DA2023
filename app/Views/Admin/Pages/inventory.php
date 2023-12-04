@@ -58,7 +58,7 @@
                             </td>
                             <td><b><?= $productList['sTenSP'] ?></b></td>
                             <td><?= $productList['sTenNhom'] ?></td>
-                            <td><?= $productList['fGiaBanLe'] ?></td>
+                            <td><?= number_format($productList['fGiaBanLe'], 0, '.', ',') ?> VNĐ</td>
                             <td>
                                 <?php if ($productList['fSoLuong'] >= 100) : ?>
                                     <span class="badge rounded-pill alert-success">

@@ -84,7 +84,7 @@
 
             <h3 class="product-code"> Mã sản phẩm : <?= $allProducts['PK_iMaSP'] ?></h3>
 
-            <div class="product-price"><span class="price-sales"> <?= $allProducts['fGiaBanLe'] ?></span> VNĐ
+            <div class="product-price"><span class="price-sales"> <?= number_format($allProducts['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ
             </div>
             <div class="details-description">
                 <p><strong>Mô tả: </strong><?= $allProducts['sGhiChu'] ?> </p>
@@ -126,7 +126,7 @@
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
 
-                            <div class="price"><span><?= $getAllProduct['fGiaBanLe'] ?></span> VNĐ</div>
+                            <div class="price"><span><?= number_format($getAllProduct['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
                         </div>
                     </div>
                 </div>

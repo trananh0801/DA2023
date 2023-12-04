@@ -101,7 +101,7 @@
                                                             <h4><a href="product-details.html"> <?= $orderDetail['sTenSP'] ?> </a></h4>
                                                             <span class="size"> <?= $orderDetail['sDVT'] ?> </span>
 
-                                                            <div class="price"><span> <?= $orderDetail['fGiaBanLe'] ?> </span>đ</div>
+                                                            <div class="price"><span> <?= number_format($orderDetail['fGiaBanLe'], 0, '.', ',') ?> </span>đ</div>
                                                         </div>
                                                     </td>
                                                     <td class="" style="width:10%"><a> X <?= $orderDetail['iSoLuong'] ?> </a></td>

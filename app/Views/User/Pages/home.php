@@ -109,7 +109,7 @@
 
                             <p class="ellipsis" id="textContainer"><?= $newProduct['sGhiChu'] ?></p>
                         </div>
-                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span> VNĐ</div>
+                        <div class="price"><span><?= number_format($newProduct['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
                         <div class="action-control">
                             <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>" data-tensp="<?= $newProduct['sTenSP'] ?>" data-giatien="<?= $newProduct['fGiaBanLe'] ?>" data-ghichu="<?= $newProduct['sGhiChu'] ?>">
@@ -172,7 +172,7 @@
 
                             <p class="ellipsis"><?= $newProduct['sGhiChu'] ?></p>
                         </div>
-                        <div class="price"><span><?= $newProduct['fGiaBanLe'] ?></span> VNĐ</div>
+                        <div class="price"><span><?= number_format($newProduct['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
                         <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                             <div class="action-control">
                                 <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $newProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $newProduct['sHinhAnh'] ?>">
@@ -212,7 +212,7 @@
                                     <p class="ellipsis"><?= $sellingProduct['sGhiChu'] ?> </p>
                                 </div>
                             </div>
-                            <div class="price"><span><?= $sellingProduct['fGiaBanLe'] ?></span> VNĐ</div>
+                            <div class="price"><span><?= number_format($sellingProduct['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
                             <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                                 <div class="action-control">
                                     <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $sellingProduct['PK_iMaSP'] ?>" data-hinhanh="<?= $sellingProduct['sHinhAnh'] ?>" data-tensp="<?= $sellingProduct['sTenSP'] ?>" data-giatien="<?= $sellingProduct['fGiaBanLe'] ?>" data-ghichu="<?= $sellingProduct['sGhiChu'] ?>">

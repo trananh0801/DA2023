@@ -98,7 +98,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="delete">
-                                                        <div class="price "><?= $products['fGiaBanLe'] ?> đ</div>
+                                                        <div class="price "><?= number_format($products['fGiaBanLe'], 0, '.', ',') ?> đ</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" value="<?= $products['PK_iMaSP'] ?>" name="FK_iMaSP" hidden>

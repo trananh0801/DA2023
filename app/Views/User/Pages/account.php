@@ -169,7 +169,7 @@
                                                             <small><?= $history['soluongsp'] ?> sản phẩm</small>
                                                         </td>
                                                         <td><a href="user/order-status/<?= $history['PK_iMaDon'] ?>" class="btn btn-primary btn-sm">Xem chi tiết</a></td>
-                                                        <td data-value="78025368997"><?= $history['dThoiGianTao'] ?></td>
+                                                        <td data-value="78025368997"><?= date('d/m/Y', strtotime($history['dThoiGianTao'])) ?></td>
                                                         <td data-value="3"><span class="label label-success"><?= $history['sTenTrangThai'] ?></span>
                                                         </td>
                                                     </tr>

@@ -247,7 +247,7 @@
                                                     </div>
                                                 </td>
                                                 <td style="width:10%">X <span class="miniCartQuantity"><?= $productCart['iSoLuong'] ?></span> </td>
-                                                <td style="width:15%"> <span class="miniCartSubtotal"><?= $productCart['fGiaBanLe'] ?></span> đ</td>
+                                                <td style="width:15%"> <span class="miniCartSubtotal"><?= number_format($productCart['fGiaBanLe'], 0, '.', ',') ?></span> đ</td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>

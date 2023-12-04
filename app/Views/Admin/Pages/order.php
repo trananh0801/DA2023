@@ -105,7 +105,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                     <div class="mb-4 col-6">
@@ -115,8 +115,8 @@
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Trạng thái</label>
                                         <select class="form-select" name="FK_iMaTrangThai">
-                                            <option value="3">Đã thanh toán</option>
                                             <option value="4">Chờ thanh toán</option>
+                                            <option value="3">Đã thanh toán</option>
                                         </select>
                                     </div>
                                     <div class="mb-4 col-12">
@@ -135,7 +135,7 @@
                                             <th style="width:10%">Số lượng</th>
                                             <th style="width:10%">Chiết khấu (%)</th>
                                             <th style="width:15%">Thành tiền</th>
-                                            <th  class="text-end" style="width:10%"></th>
+                                            <th class="text-end" style="width:10%"></th>
                                         </tr>
                                     </thead>
                                     <tbody>

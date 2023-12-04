@@ -105,7 +105,7 @@
                                                         <input class="quanitySniper" type="text" value="1" min="1" name="iSoLuong" style="width:35px">
                                                     </td>
                                                     <td class="hidden-xs"><?php if ($products['fChietKhau'] == null) : ?>0<?php else : ?><?= $products['fChietKhau'] ?><?php endif; ?></td>
-                                                    <td class="price"><span class="thanhtien"><?= $products['total_price'] ?></span> đ</td>
+                                                    <td class="price"><span class="thanhtien"><?php echo   number_format((1 * $products['fGiaBanLe'] * (1 - $products['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></span> đ</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -162,13 +162,10 @@
         }
 
         $(".thanhtien").each(function() {
-
             var thanhtien = $(this).text();
-
-            var changeThanhtien = thanhtien.replace(/\./g, "");
+            var changeThanhtien = thanhtien.replace(/\,/g, "");
             console.log(changeThanhtien);
             tong += parseFloat(changeThanhtien) || 0;
-            $('.thanhtien').html(formatNumber(parseFloat(changeThanhtien)));
         });
         $('#total-price').html(formatNumber(tong));
     });

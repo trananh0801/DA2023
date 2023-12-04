@@ -35,26 +35,6 @@
 
             </div> <!-- card  end// -->
         </div> <!-- col end// -->
-        <div class="col-lg-4">
-            <div class="card card-body mb-4">
-                <article class="icontext">
-                    <span class="icon icon-sm rounded-circle bg-success-light"><i class="text-success material-icons md-local_shipping"></i></span>
-                    <div class="text">
-                        <h6 class="mb-1">Tổng thực thu</h6> <span>877,900</span> VNĐ
-                    </div>
-                </article>
-            </div> <!-- card end// -->
-        </div> <!-- col end// -->
-        <div class="col-lg-4">
-            <div class="card card-body mb-4">
-                <article class="icontext">
-                    <span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning material-icons md-shopping_basket"></i></span>
-                    <div class="text">
-                        <h6 class="mb-1">Tổng vốn</h6> <span>567,800</span> VNĐ
-                    </div>
-                </article>
-            </div> <!--  end// -->
-        </div> <!-- col end// -->
     </div> <!-- row end// -->
     <!-- <div id="searchResult"></div> -->
     <!-- Hiển thị kết quả -->

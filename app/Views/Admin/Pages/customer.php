@@ -52,12 +52,12 @@
                                              <option value="Nữ">Nữ</option>
                                         </select>
                                    </div>
-                                   <div class="col-6">
+                                   <!-- <div class="col-6">
                                         <label class="form-label">Tích điểm</label>
                                         <div>
                                              <input type="number" class="form-control" placeholder="VD: 10" name="iTichDiem">
-                                        </div> <!-- col.// -->
-                                   </div> <!-- row.// -->
+                                        </div>
+                                   </div> -->
                               </div>
                               <div class="mb-4">
                                    <label class="form-label">Ghi chú</label>
@@ -79,7 +79,7 @@
                                         <th>Số điện thoại</th>
                                         <th>Ngày sinh</th>
                                         <th>Giới tính</th>
-                                        <th>Tích điểm</th>
+                                        <!-- <th>Tích điểm</th> -->
                                         <th class="text-end">Thao tác</th>
                                    </tr>
                               </thead>
@@ -98,7 +98,7 @@
                                                   <td><?= $customer['sSDT'] ?></td>
                                                   <td><?= date('d/m/Y', strtotime($customer['dNgaySinh'])) ?></td>
                                                   <td><?= $customer['sGioiTinh'] ?></td>
-                                                  <td><?= $customer['iTichDiem'] ?></td>
+                                                  <!-- <td><?= $customer['iTichDiem'] ?></td> -->
                                                   <td class="text-end">
                                                        <button type="button" class="btn btn-sm btn-warning editGroup" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-sTenKH="<?= $customer['sTenKH'] ?>" data-sDiaChi="<?= $customer['sDiaChi'] ?>" data-sSDT="<?= $customer['sSDT'] ?>" data-dNgaySinh="<?= $customer['dNgaySinh'] ?>" data-sGioiTinh="<?= $customer['sGioiTinh'] ?>" data-iTichDiem="<?= $customer['iTichDiem'] ?>" data-sGhiChu="<?= $customer['sGhiChu'] ?>" value="<?= $customer['PK_iMaKH'] ?>">Sửa</button>
                                                        <a href="admin/customer/delete/<?= $customer['PK_iMaKH'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $customer['PK_iMaKH'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
@@ -152,12 +152,12 @@
                                         <option value="Nữ">Nữ</option>
                                    </select>
                               </div>
-                              <div class="col-6">
+                              <!-- <div class="col-6">
                                    <label class="form-label">Tích điểm</label>
                                    <div>
                                         <input type="number" class="form-control" placeholder="VD: 10" name="iTichDiem" id="tichdiem" value="0">
-                                   </div> <!-- col.// -->
-                              </div> <!-- row.// -->
+                                   </div> 
+                              </div>  -->
                          </div>
                          <div class="mb-4">
                               <label class="form-label">Ghi chú</label>

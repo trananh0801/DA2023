@@ -1,6 +1,6 @@
 <section class="content-main">
 	<div class="content-header">
-		<h2 class="content-title"> Dashboard </h2>
+		<h2 class="content-title"> Trang chủ </h2>
 	</div>
 	<div class="row">
 		<div class="col-lg-4">
@@ -8,7 +8,7 @@
 				<article class="icontext">
 					<span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
 					<div class="text">
-						<h6 class="mb-1">Tổng doanh thu</h6> <span>$19,626,058.20</span>
+						<h6 class="mb-1">Tổng doanh thu</h6> <span>10.000.000 VNĐ</span>
 					</div>
 				</article>
 
@@ -41,7 +41,7 @@
 				<article class="icontext">
 					<span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
 					<div class="text">
-						<h6 class="mb-1">Tổng đơn hàng</h6> <span>$19,626,058.20</span>
+						<h6 class="mb-1">Tổng đơn hàng</h6> <span>10.000.000 VNĐ</span>
 					</div>
 				</article>
 

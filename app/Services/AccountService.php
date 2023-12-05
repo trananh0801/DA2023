@@ -41,6 +41,7 @@ class AccountService extends BaseService
             ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP', 'left')
             ->where('tbl_dondathang.FK_iMaKH', $id)
+            ->where('tbl_dondathang.FK_iMaNV', '')
             ->groupBy('tbl_dondathang.PK_iMaDon')
             ->findAll();
         return $result;

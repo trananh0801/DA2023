@@ -104,9 +104,9 @@
                                 <dt class="text-muted">Trạng thái:</dt>
                                 <dd>
                                     <?php if ($orders['FK_iMaNV'] == '') : ?>
-                                        <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
-                                    <?php else : ?>
                                         <span class="badge rounded-pill alert-success text-success">Đặt hàng online</span>
+                                    <?php else : ?>
+                                        <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
                                     <?php endif ?>
                                 </dd>
                             </dl>

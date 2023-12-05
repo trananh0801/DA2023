@@ -142,7 +142,7 @@
                                 <table id="cart-summary" class="std table">
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td colspan="2">
                                                 <h2><strong>TỔNG TIỀN</strong></h2>
                                             </td>
                                         </tr>

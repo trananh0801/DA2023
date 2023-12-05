@@ -1,22 +1,22 @@
 <style>
-	.checkout-img {
-		width: 100px;
-		height: 90px;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+    .checkout-img {
+        width: 100px;
+        height: 90px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-	.checkout-img img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center center;
-		display: block;
+    .checkout-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
         /* margin-left: 5px; */
         margin-right: 5px;
-	}
+    }
 </style>
 <div class="container main-container headerOffset">
     <div class="row">
@@ -35,6 +35,24 @@
         <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar col-xs-6 col-xxs-12 text-center-xs">
             <h4 class="caps"><a href="user/home"><i class="fa fa-chevron-left"></i> Quay lại trang chủ </a></h4>
         </div>
+    </div>
+    <div class="row">
+        <?php if (session('errorsMsg')) : ?>
+            <?php foreach (session('errorsMsg') as $error) : ?>
+                <div class="alert alert-danger alert-dismissible myAlert" role="alert">
+                    <strong>Lỗi: </strong> <?= $error ?>
+                </div>
+                <?php break; ?>
+            <?php endforeach ?>
+        <?php endif ?>
+        <?php if (session('successMsg')) : ?>
+            <?php foreach (session('successMsg') as $success) : ?>
+                <div class="alert alert-success alert-dismissible myAlert" role="alert">
+                    <strong>Thành công: </strong> <?= $success ?>
+                </div>
+                <?php break; ?>
+            <?php endforeach ?>
+        <?php endif ?>
     </div>
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-12">
@@ -88,7 +106,7 @@
                                                             <input class="quanitySniper" type="text" value="<?= $product['iSoLuong'] ?>" min="1" name="iSoLuong[]" style="width:35px">
                                                         </td>
                                                         <td class="hidden-xs"><?php if ($product['fChietKhau'] == null) : ?>0<?php else : ?><?= $product['fChietKhau'] ?><?php endif; ?></td>
-                                                        <td class="price thanhtien"><?php echo   number_format(($product['iSoLuong']*$product['fGiaBanLe'] * (1-$product['fChietKhau']/100?:0 )), 0, '.', ',') ?> đ</td>
+                                                        <td class="price thanhtien"><?php echo   number_format(($product['iSoLuong'] * $product['fGiaBanLe'] * (1 - $product['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?> đ</td>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
@@ -119,13 +137,17 @@
             <div class="w100 cartMiniTable">
                 <table id="cart-summary" class="std table">
                     <tbody>
-                        <tr><h2><strong>TỔNG TIỀN</strong></h2></tr>
+                        <tr>
+                            <h2><strong>TỔNG TIỀN</strong></h2>
+                        </tr>
                         <hr>
                         <tr>
                             <div><b> Tổng tiền <i>(Đã bao gồm khuyến mãi)</i></b></div>
                             <br>
-                            <span class="site-color"><div class=" site-color" id="total-price"></div> VNĐ</span>
-                            
+                            <span class="site-color">
+                                <div class=" site-color" id="total-price"></div> VNĐ
+                            </span>
+
                         </tr>
                     </tbody>
                     <tbody>
@@ -138,19 +160,24 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-            var tong = 0;
-            
-            function formatNumber(number) {
-                return number.toLocaleString('vi-VN');
-            }
+    //set timeout cho thông báo
+    setTimeout(function() {
+        $('.myAlert').fadeOut('slow');
+    }, 3000);
 
-            $(".thanhtien").each(function() {
-                var thanhtien = $(this).text();
-                var changeThanhtien = thanhtien.replace(/\,/g, "");
-                console.log(changeThanhtien);
-                tong += parseFloat(changeThanhtien) || 0;
-            });
-            $('#total-price').html(formatNumber(tong));
+    $(document).ready(function() {
+        var tong = 0;
+
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
+        $(".thanhtien").each(function() {
+            var thanhtien = $(this).text();
+            var changeThanhtien = thanhtien.replace(/\,/g, "");
+            console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien) || 0;
         });
+        $('#total-price').html(formatNumber(tong));
+    });
 </script>

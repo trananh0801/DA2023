@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\User;
+
 use App\Controllers\BaseController;
 use App\Services\CheckoutService;
 
@@ -9,7 +10,7 @@ class Checkout1ProdController extends BaseController
     /**
      * @var service;
      */
-    private $service; 
+    private $service;
     public function __construct()
     {
         $this->service = new CheckoutService();
@@ -30,8 +31,10 @@ class Checkout1ProdController extends BaseController
     public function addOrderProdInfo()
     {
         $result = $this->service->addOrderInfo($this->request);
-        return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);
-    
+        if ($result['status'] = 'ERR') {
+            return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
+        } else {
+            return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);
+        }
     }
-   
 }

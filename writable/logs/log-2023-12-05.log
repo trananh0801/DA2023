@@ -109,3 +109,47 @@ INFO - 2023-12-05 04:49:18 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-05 04:49:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-05 04:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-05 04:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:57:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 05:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-05 05:59:07 --> Undefined array key "iSoLuong"
+in APPPATH\Views\Admin\Pages\updateImportBill.php on line 80.
+ 1 APPPATH\Views\Admin\Pages\updateImportBill.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "iSoLuong"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\updateImportBill.php', 80)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\updateImportBill.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/updateImportBill', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('Admin/Pages/updateImportBill', [...])
+ 6 APPPATH\Controllers\Admin\UpdateImportBillController.php(34): App\Controllers\BaseController->loadMasterLayout([...], 'Cập nhật phiếu nhập hàng', 'Admin/Pages/updateImportBill', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateImportBillController->list('PN_17017106687491')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateImportBillController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-05 05:59:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-05 05:59:28 --> Undefined array key "fChietKhau"
+in APPPATH\Views\Admin\Pages\updateImportBill.php on line 80.
+ 1 APPPATH\Views\Admin\Pages\updateImportBill.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "fChietKhau"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\updateImportBill.php', 80)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\updateImportBill.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/updateImportBill', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('Admin/Pages/updateImportBill', [...])
+ 6 APPPATH\Controllers\Admin\UpdateImportBillController.php(34): App\Controllers\BaseController->loadMasterLayout([...], 'Cập nhật phiếu nhập hàng', 'Admin/Pages/updateImportBill', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateImportBillController->list('PN_17017106687491')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateImportBillController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-05 05:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:01:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-05 06:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -84,7 +84,7 @@
                                         </td>
                                         <td><?= $returnBillDetail['fGiaBanLe'] ?></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $returnBillDetail['iSoLuong'] ?>" readonly/></td>
-                                        <td>10</td>
+                                        <td class="thanhtien"><?php echo   number_format(($returnBillDetail['iSoLuong'] * $returnBillDetail['fGiaNhap']), 0, '.', ',') ?></td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
@@ -94,7 +94,7 @@
                         <article class="float-end">
                             <dl class="dlist">
                                 <dt>Tổng tiền:</dt>
-                                <dd> <b class="h5">$983.00</b> </dd>
+                                <dd> <b class="h5" id="total-price"></b> </dd>
                             </dl>
                             <dl class="dlist">
                                 <dt class="text-muted">Trạng thái:</dt>
@@ -112,3 +112,22 @@
         </div>
     </div> <!-- card end// -->
 </section> <!-- content-main end// -->
+<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var tong = 0;
+
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
+        $(".thanhtien").each(function() {
+            var thanhtien = $(this).text();
+            console.log(thanhtien);
+            var changeThanhtien = thanhtien.replace(/\,/g, "");
+            console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien) || 0;
+        });
+        $('#total-price').html(formatNumber(tong));
+    });
+</script>

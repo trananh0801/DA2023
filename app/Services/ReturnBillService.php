@@ -8,12 +8,14 @@ use App\Models\StaffModel;
 use App\Models\StatusModel;
 use App\Models\ProductModel;
 use App\Models\SupplierModel;
+use App\Models\ImportBillDetailModel;
 use App\Common\ResultUtils;
+// use App\Models\ImportBillModel;
 use Exception;
 
 class ReturnBillService extends BaseService
 {
-    private $returnBill, $staff, $supplier, $status, $product, $returnBillDetail;
+    private $returnBill, $staff, $supplier, $status, $product, $returnBillDetail, $importDetail;
     function __construct()
     {
         parent::__construct();
@@ -23,6 +25,7 @@ class ReturnBillService extends BaseService
         $this->product = new ProductModel();
         $this->supplier = new SupplierModel();
         $this->returnBillDetail = new ReturnBillDetailModel();
+        $this->importDetail = new ImportBillDetailModel();
         $this->returnBill->protect(false);
         $this->product->protect(false);
         $this->returnBillDetail->protect(false);
@@ -35,7 +38,6 @@ class ReturnBillService extends BaseService
             ->select('*')
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieuhoantra.FK_iMaNV')
             ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieuhoantra.FK_iMaNCC')
-            // ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieuhoantra.FK_iMaTrangThai')
             ->findAll();
         // dd($result);
         return $result;
@@ -48,7 +50,6 @@ class ReturnBillService extends BaseService
             ->select('*')
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_phieuhoantra.FK_iMaNV')
             ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieuhoantra.FK_iMaNCC')
-            // ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_phieuhoantra.FK_iMaTrangThai')
             ->where('PK_iMaPhieu', $id)->first();
         return $result;
     }
@@ -98,10 +99,20 @@ class ReturnBillService extends BaseService
     /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
     public function getAllProduct()
     {
-        $result = $this->product
+        $result = $this->importDetail
             ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
             ->findAll();
-        // dd($result);
+        return $result;
+    }
+
+    /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
+    public function getImportBillDetail($id)
+    {
+        $result = $this->importDetail
+            ->select('*')
+            ->where('PK_iMaCT_PN', $id)
+            ->first();
         return $result;
     }
 

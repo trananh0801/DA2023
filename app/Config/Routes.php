@@ -71,6 +71,7 @@ $routes->group('admin', function ($routes) {
         $routes->post('create', 'Admin\ReturnBillController::create');
         $routes->get('update/(:segment)', 'Admin\UpdateReturnBillController::list/$1');
         $routes->post('updateSave/(:segment)', 'Admin\UpdateReturnBillController::update/$1');
+        $routes->post('check_returnbill_detail', 'Admin\ReturnBillController::check_returnbill_detail');
     });
     $routes->group('promotion', function ($routes) {
         $routes->get('list', 'Admin\PromotionController::list');

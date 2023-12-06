@@ -27,7 +27,7 @@ class ReturnBillController extends BaseController
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();
-        // dd($dataLayout['returnBills']);
+        // dd($dataLayout['products']);
         $data = $this->loadMasterLayout($data, 'Danh sách phiếu hoàn trả', 'Admin/Pages/returnBill', $dataLayout);
         return view('Admin/main', $data);
     }
@@ -36,5 +36,14 @@ class ReturnBillController extends BaseController
     {
         $result = $this->service->addReturnBillInfo($this->request);
         return redirect()->to('admin/returnBill/list')->withInput()->with($result['massageCode'], $result['message']);
+    }
+
+    public function check_returnbill_detail()
+    {
+        $data = $this->request->getPost();
+        $result = $this->service->getImportBillDetail($data['product_id']);
+        echo json_encode([
+            'returnBills' =>  $result,
+        ]);
     }
 }

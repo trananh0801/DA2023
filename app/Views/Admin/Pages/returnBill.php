@@ -108,29 +108,27 @@
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th scope="col">Sản phẩm</th>
-                                            <th scope="col">Giá</th>
-                                            <th scope="col">Số lượng</th>
-                                            <!-- <th scope="col">Chiết khấu (%)</th> -->
-                                            <th scope="col">Thành tiền</th>
-                                            <th scope="col" class="text-end"></th>
+                                            <th width="5%">STT</th>
+                                            <th width="40%">Sản phẩm</th>
+                                            <th width="10%">Giá nhập</th>
+                                            <th width="10%">SL</th>
+                                            <th width="15%">Thành tiền</th>
+                                            <th width="20%" class="text-end"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="order-1">
                                             <td>1</td>
-                                            <td>
-                                                <select data-index="1" class="form-select selectProduct" name="FK_iMaSP[]" id="selectProduct">
+                                            <td >
+                                                <select data-index="1" class="form-select selectProduct selected2" name="FK_iMaSP[]" id="selectProduct">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
+                                                        <option value="<?= $product['PK_iMaCT_PN'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
                                             <td class="price" id="price"></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1" /></td>
-                                            <!-- <td class="chietkhau" id="chietkhau"></td> -->
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
@@ -175,11 +173,11 @@
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
-            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
+            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaCT_PN'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option><?php endforeach ?></select></td>';
             html += '<td class="price" id="price"></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
             html += '<td class="thanhtien" id="thanhtien"></td>';
-            html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
+            html += '<td><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
             html += '</tr>';
             $('#myTable tbody').append(html);
         })
@@ -188,14 +186,6 @@
         $("#myTable").on("click", ".deleteRowButton", function() {
             $(this).closest("tr").remove();
             var tong = 0;
-
-            $(".thanhtien").each(function() {
-                var tongtien = $(this).text();
-                var changeTongtien = tongtien.replace(/\./g, "");
-                tong += parseFloat(changeTongtien) || 0;
-            });
-            $('#tongtien').html(formatNumber(tong));
-
         });
 
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
@@ -225,25 +215,22 @@
             var index = $(this).attr('data-index');
             $.ajax({
                 type: "post",
-                url: 'admin/order/check_product_detail',
+                url: 'admin/returnBill/check_returnbill_detail',
                 data: {
                     product_id: id,
                 },
                 success: function(data) {
                     response = JSON.parse(data);
+                    // console.log(response);
                     var tong = 0;
-                    $('tr.order-' + index).children('td.price').html(response.product.fGiaBanLe);
-                    if (response.product.fChietKhau == null) {
-                        $('tr.order-' + index).children('td.chietkhau').html('0');
-                    } else {
-                        $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
-                    }
+                    $('tr.order-' + index).children('td.price').html(response.returnBills.fGiaNhap);
                     $('.iSoLuong').val('1');
                     soluong = $('.iSoLuong').val();
 
-                    var giabanle = response.product.fGiaBanLe;
-                    var changeGiabanLe = giabanle.replace(/\./g, "");
-                    var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
+                    var GiaNhap = response.returnBills.fGiaNhap;
+                    // console.log(GiaNhap);
+                    var changeGiaNhap = GiaNhap.replace(/\./g, "");
+                    var thanhtien = (changeGiaNhap * soluong);
 
                     // console.log(formatNumber(thanhtien))
                     $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));

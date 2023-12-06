@@ -87,9 +87,9 @@
                 <div class="modal-body">
                     <form action="admin/order/create" method="POST">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-12">
                                 <div class="row">
-                                    <div class="col-6 mb-3">
+                                    <div class="col-6">
                                         <label class="form-label">Nhân viên</label>
                                         <select class="form-select" name="FK_iMaNV">
                                             <?php foreach ($staffs as $staff) : ?>
@@ -97,39 +97,43 @@
                                             <?php endforeach ?>
                                         </select>
                                     </div>
-                                    <div class="col-6 mb-3">
+                                    <div class="col-6">
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label">Khách hàng</label>
                                             </div>
                                             <div class="col-12">
-                                                <select class="selected2" name="FK_iMaKH" data-width="100%">
+                                                <select id="lang" name="FK_iMaKH" data-width="100%" data-live-search="true" class="form-control selectpicker" data-none-selected-text="Chọn khách hàng">
                                                     <?php foreach ($customers as $customer) : ?>
-                                                        <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sTenKH'] ?></option>
+                                                        <option value="<?= $customer['PK_iMaKH'] ?>"><?= $customer['sSDT'] ?> - <?= $customer['sTenKH'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
+
                                             </div>
 
                                         </div>
                                     </div>
-                                    <div class="mb-4 col-6">
+                                    <div class="col-md-6">
                                         <label for="dThoiGianTao" class="form-label">Thời gian tạo</label>
                                         <input type="date" placeholder="Type here" class="form-control" id="dThoiGianTao" name="dThoiGianTao" />
                                     </div>
-                                    <div class="col-6 mb-3">
+                                    <div class="col-md-6">
                                         <label class="form-label">Trạng thái</label>
                                         <select class="form-select" name="FK_iMaTrangThai">
                                             <option value="4">Chờ thanh toán</option>
                                             <option value="3">Đã thanh toán</option>
                                         </select>
                                     </div>
-                                    <div class="mb-4 col-12">
-                                        <label class="form-label">Ghi chú</label>
-                                        <textarea class="form-control" rows="4" name="sGhiChu"></textarea>
-                                    </div>
+
                                 </div>
                             </div>
-                            <div class="col-7">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <label class="form-label">Ghi chú</label>
+                                    <textarea class="form-control" rows="4" name="sGhiChu"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
@@ -137,7 +141,7 @@
                                             <th style="width:30%">Sản phẩm</th>
                                             <th style="width:15%">Giá</th>
                                             <th style="width:10%">Số lượng</th>
-                                            <th style="width:10%">Chiết khấu (%)</th>
+                                            <th style="width:10%">Chiết khấu(%)</th>
                                             <th style="width:15%">Thành tiền</th>
                                             <th class="text-end" style="width:10%"></th>
                                         </tr>
@@ -146,19 +150,25 @@
                                         <tr class="order-1">
                                             <td>1</td>
                                             <td scope="col-7">
-                                                <select data-index="1" class="selectProduct selected2" name="FK_iMaSP[]" id="selectProduct" data-width="100%">
+                                                <select data-index="1" class="selectProduct selectpicker" name="FK_iMaSP[]" id="selectProduct" data-width="100%">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
                                                         <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td class="price" id="price"></td>
+                                            <input type="hidden" id="price_product" name="price_product" disabled />
+                                            <td class="price" id="price">
+
+
+                                            </td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1" /></td>
+                                            <input type="hidden" id="chietkhau_product" name="chietkhau_product" disabled />
                                             <td class="chietkhau" id="chietkhau"></td>
+                                            <input type="hidden" id="thanhtien_product" name="thanhtien_product" disabled />
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
-                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
+                                                <button type="button" class="btn btn-sm btn-danger deleteRowButton" data-index="1">Xóa</button>
                                             </td>
                                         </tr>
 
@@ -200,7 +210,6 @@
     }, 3000);
 
     $(document).ready(function() {
-
         //hàm format giá tiền
         function formatNumber(number) {
             return number.toLocaleString('vi-VN');
@@ -211,27 +220,25 @@
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
             html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
-            html += '<td class="price" id="price"></td>';
+            html += '<input type="hidden" id="price_product" name="price_product" disabled /><td class="price" id="price"></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
-            html += '<td class="chietkhau" id="chietkhau"></td>';
-            html += '<td class="thanhtien" id="thanhtien"></td>';
-            html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
+            html += ' <input type="hidden" id="chietkhau_product" name="chietkhau_product" disabled /><td class="chietkhau" id="chietkhau"></td>';
+            html += '<input type="hidden" id="thanhtien_product" name="thanhtien_product" disabled /><td class="thanhtien" id="thanhtien"></td>';
+            html += '<td ><button type="button" class="btn btn-sm btn-danger deleteRowButton" data-index="' + ($('#myTable tbody tr').length + 1) + '">Xóa</button></td>';
             html += '</tr>';
             $('#myTable tbody').append(html);
         })
 
         //xóa dòng
-        $("#myTable").on("click", ".deleteRowButton", function() {
+        $("#myTable").on("click", ".deleteRowButton", function(e) {
             $(this).closest("tr").remove();
-            var tong = 0;
+            // var index = $(this).attr('data-index');
+            // e.preventDefault();
+            // if (confirm('Bạn có chắc muốn xóa không?')) {
+            //     $('#myTable tbody tr.order-' + index).remove();
+            //     alert_float('success', 'Xóa sản phẩm thành công');
 
-            $(".thanhtien").each(function() {
-                var tongtien = $(this).text();
-                var changeTongtien = tongtien.replace(/\./g, "");
-                tong += parseFloat(changeTongtien) || 0;
-            });
-            $('#tongtien').html(formatNumber(tong));
-
+            // }
         });
 
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
@@ -268,11 +275,14 @@
                 success: function(data) {
                     response = JSON.parse(data);
                     var tong = 0;
-                    $('tr.order-' + index).children('td.price').html(response.product.fGiaBanLe);
+                    $('tr.order-' + index).children('td.price').html(formatNumber(response.product.fGiaBanLe));
+                    $('tr.order-' + index).children('input[name="price_product"]').val(response.product.fGiaBanLe);
                     if (response.product.fChietKhau == null) {
                         $('tr.order-' + index).children('td.chietkhau').html('0');
+                        $('tr.order-' + index).children('input[name="chietkhau_product"]').val(0);
                     } else {
                         $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
+                        $('tr.order-' + index).children('input[name="chietkhau_product"]').val(response.product.fChietKhau);
                     }
                     $('.iSoLuong').val('1');
                     soluong = $('.iSoLuong').val();
@@ -283,47 +293,40 @@
 
                     // console.log(formatNumber(thanhtien))
                     $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));
+                    $('tr.order-' + index).children('input[name="thanhtien_product"]').val(thanhtien);
 
-                    $(".thanhtien").each(function() {
-                        var tongtien = $(this).text();
-                        var changeTongtien = tongtien.replace(/\./g, "");
-                        // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
-                        tong += parseFloat(changeTongtien) || 0;
-                    });
-                    $('#tongtien').html(formatNumber(tong));
+                    // $(".thanhtien").each(function() {
+                    //     var tongtien = $(this).text();
+                    //     var changeTongtien = tongtien.replace(/\./g, "");
+                    //     // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
+                    //     tong += parseFloat(changeTongtien) || 0;
+                    // });
+                    // $('#tongtien').html(formatNumber(tong));
+                    $('#tongtien').html(formatNumber(tinh_thanhtien()));
+
                 }
             });
         });
 
-
-        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
-        $(document).on('change', '.inputSoLuong', function() {
-            var id = $(this).val();
+        function tinh_thanhtien() {
+            var tong = 0;
+            $('input[name="thanhtien_product"]').each(function() {
+                var tongtien = $(this).val();
+                // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
+                tong += parseFloat(tongtien);
+            });
+            return tong;
+        }
+        $(document).on('input', '#iSoLuong', function() {
             var index = $(this).attr('data-index');
-            $.ajax({
-                type: "post",
-                url: 'admin/order/check_product_detail',
-                data: {
-                    product_id: id,
-                },
-                success: function(data) {
-                    response = JSON.parse(data);
-                    var tong = 0;
-                    soluong = $('tr.order-' + index).children('input.iSoLuong').text();
+            var price = $('tr.order-' + index).children('input[name="price_product"]').val();
+            var amount = $(this).val();
+            // alert(price);
+            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(price) * amount * (1 - $('tr.order-' + index).children('input[name="chietkhau_product"]').val() / 100)));
+            $('tr.order-' + index).children('input[name="thanhtien_product"]').val(parseInt(price) * amount * (1 - $('tr.order-' + index).children('input[name="chietkhau_product"]').val() / 100));
+            $('#tongtien').html(formatNumber(tinh_thanhtien()));
 
-                    console.log(soluong)
-                    // $('tr.order-' + index).children('td.chietkhau').html(1- (Math.pow(1 - 0.1, soluong)));
-
-                    $('tr.order-' + index).children('td.thanhtien').html(($('tr.order-' + index).children('td.price').text() * soluong) - ($('tr.order-' + index).children('td.price').text() * $('tr.order-' + index).children('td.chietkhau').text() / 100));
-
-                    $(".thanhtien").each(function() {
-                        tong += parseFloat($(this).text()) || 0;
-                    });
-                    $('#tongtien').html(tong);
-                }
-            });
         });
-
 
         var currentDate = new Date();
         var formattedDate = currentDate.toISOString().substr(0, 10);

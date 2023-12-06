@@ -14,7 +14,7 @@
   <link href="assets/admin/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
   <link href="assets/admin/css/bootstrapf9e3.css" rel="stylesheet" type="text/css" />
-
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
   <!-- custom style -->
   <link href="assets/admin/css/uif9e3.css" rel="stylesheet" type="text/css" />
@@ -23,6 +23,7 @@
   <!-- iconfont -->
   <link rel="stylesheet" href="assets/admin/fonts/material-icon/css/round.css" />
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
 
 
 
@@ -36,10 +37,17 @@
     <?= $header ?>
     <?= $content ?>
   </main>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+  <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/i18n/defaults-*.min.js"></script> -->
   <script>
-  $('.selected2').select2();
+        $('.selectpicker').selectpicker();
+
+  // $('.selected2').select2();
+  // $('select').select2();
 //   $(".js-example-placeholder-single").select2({
 
 // });
@@ -51,7 +59,7 @@
 
   <!-- <script src="assets/admin/js/jquery-3.5.0.min.js"></script> -->
 
-  <script src="assets/admin/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="assets/admin/js/bootstrap.bundle.min.js"></script> -->
   <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
   <!-- ChartJS files-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

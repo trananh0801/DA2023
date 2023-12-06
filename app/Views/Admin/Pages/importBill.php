@@ -127,7 +127,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" /></td>
+                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control fGiaNhap" id="fGiaNhap" name="fGiaNhap[]" value="0" /></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1" /></td>
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
@@ -143,14 +143,8 @@
                                 <article class="float-end">
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
-                                        <dd> <b class="h5" id="tongtien"></b> </dd>
+                                        <dd> <b class="h5" id="tongtien"></b> VNĐ</dd>
                                     </dl>
-                                    <!-- <dl class="dlist">
-                                        <dt class="text-muted">Trạng thái:</dt>
-                                        <dd>
-                                            <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
-                                        </dd>
-                                    </dl> -->
                                 </article>
                             </div>
                         </div>
@@ -179,6 +173,7 @@
         var currentDate = new Date();
         var formattedDate = currentDate.toISOString().substr(0, 10);
         $("#dNgayNhap").val(formattedDate);
+
         //hàm format giá tiền
         function formatNumber(number) {
             return number.toLocaleString('vi-VN');
@@ -187,7 +182,7 @@
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
             html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
-            html += '<td><input data-index="'+ ($('#myTable tbody tr').length + 1) +'" type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" /></td>';
+            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" value="0"/></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1"/></td>';
             html += '<td class="thanhtien" id="thanhtien"></td>';
             html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
@@ -200,17 +195,35 @@
             $(this).closest("tr").remove();
         });
 
-        $('.giatien').on('input', function() {
-            // Lấy giá trị từ input
-            let inputValue = $(this).val();
-            // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
-            let cleanedValue = inputValue.replace(/,/g, '');
-            // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
-            let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            // Cập nhật giá trị vào input
-            $(this).val(formattedValue);
+        function tinh_thanhtien() {
+            var tong = 0;
+            $('.thanhtien').each(function() {
+                var thanhtien = $(this).text();
+                var tongtien = thanhtien.replace(/\./g, "");
+                tong += parseFloat(tongtien);
+            });
+            return tong;
+        }
+
+
+        $(document).on('input', '#iSoLuong', function() {
+            var tong = 0;
+            var index = $(this).attr('data-index');
+            var price = $('tr.order-' + index + ' input[name="fGiaNhap[]"]').val();
+            // alert(price);
+            var amount = $(this).val();
+            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(price) * amount));
+            $('#tongtien').html(formatNumber(tinh_thanhtien()));
         });
 
-        
+        $(document).on('input', '#fGiaNhap', function() {
+            var index = $(this).attr('data-index');
+            var amount = $('tr.order-' + index + ' input[name="iSoluong[]"]').val();
+            // alert(price);
+            var price = $(this).val();
+            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(price) * amount));
+            $('#tongtien').html(formatNumber(tinh_thanhtien()));
+        });
+
     });
 </script>

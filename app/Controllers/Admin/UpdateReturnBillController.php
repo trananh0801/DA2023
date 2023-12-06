@@ -29,7 +29,7 @@ class UpdateReturnBillController extends BaseController
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();
-        dd($dataLayout['returnBillDetails']);
+        // dd($dataLayout['returnBillDetails']);
 
         $data = $this->loadMasterLayout($data, 'Danh sách phiếu hoàn trả', 'Admin/Pages/updateReturnBill', $dataLayout);
         return view('Admin/main', $data);

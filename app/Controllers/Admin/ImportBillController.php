@@ -47,4 +47,13 @@ class ImportBillController extends BaseController
         $result = $this->service->deleteImportBillInfo($id);
         return redirect('admin/importBill/list')->with($result['massageCode'], $result['message']);
     }
+
+    public function check_product_detail()
+    {
+        $data = $this->request->getPost();
+        $result = $this->service->checkImportDetail($data['product_id']);
+        echo json_encode([
+            'product' =>  $result,
+        ]);
+    }
 }

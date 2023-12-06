@@ -176,6 +176,9 @@
     }
 
     $(document).ready(function() {
+        var currentDate = new Date();
+        var formattedDate = currentDate.toISOString().substr(0, 10);
+        $("#dNgayNhap").val(formattedDate);
         //hàm format giá tiền
         function formatNumber(number) {
             return number.toLocaleString('vi-VN');
@@ -195,123 +198,19 @@
         //xóa dòng
         $("#myTable").on("click", ".deleteRowButton", function() {
             $(this).closest("tr").remove();
-            var tong = 0;
-
-            $(".thanhtien").each(function() {
-                var tongtien = $(this).text();
-                var changeTongtien = tongtien.replace(/\./g, "");
-                tong += parseFloat(changeTongtien) || 0;
-            });
-            $('#tongtien').html(formatNumber(tong));
-
-        });
-
-        // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"
-        $('.editGroup').on('click', function() {
-            var orderId = $(this).attr("data-PK_iMaDon");
-            console.log(orderId)
-            // Gửi giá trị ID đến controller bằng AJAX
-            $.ajax({
-                url: '<?= site_url('order/list') ?>', // Thay đổi đường dẫn dẫn đến controller theo tên bạn đã đặt
-                type: 'POST',
-                data: {
-                    order_id: orderId
-                },
-                success: function(response) {
-                    // Xử lý phản hồi từ controller (nếu cần)
-                },
-                error: function() {
-                    console.log('Lỗi trong quá trình gửi yêu cầu AJAX.');
-                }
-            });
-        });
-
-
-        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
-        $(document).on('change', '.selectProduct', function() {
-            var id = $(this).val();
-            var index = $(this).attr('data-index');
-            $.ajax({
-                type: "post",
-                url: 'admin/order/check_product_detail',
-                data: {
-                    product_id: id,
-                },
-                success: function(data) {
-                    response = JSON.parse(data);
-                    var tong = 0;
-                    $('tr.order-' + index).children('td.price').html(response.product.fGiaBanLe);
-                    if (response.product.fChietKhau == null) {
-                        $('tr.order-' + index).children('td.chietkhau').html('0');
-                    } else {
-                        $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
-                    }
-                    $('.iSoLuong').val('1');
-                    soluong = $('.iSoLuong').val();
-                    
-                    var giabanle = response.product.fGiaBanLe;
-                    var changeGiabanLe = giabanle.replace(/\./g, "");
-                    var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
-
-                    // console.log(formatNumber(thanhtien))
-                    $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));
-
-                    $(".thanhtien").each(function() {
-                        var tongtien = $(this).text();
-                        var changeTongtien = tongtien.replace(/\./g, "");
-                        // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
-                        tong += parseFloat(changeTongtien) || 0;
-                    });
-                    $('#tongtien').html(formatNumber(tong));
-                }
-            });
-        });
-
-
-        // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
-        $(document).on('change', '.inputSoLuong', function() {
-            var id = $(this).val();
-            var index = $(this).attr('data-index');
-            $.ajax({
-                type: "post",
-                url: 'admin/order/check_product_detail',
-                data: {
-                    product_id: id,
-                },
-                success: function(data) {
-                    response = JSON.parse(data);
-                    var tong = 0;
-                    soluong = $('tr.order-' + index).children('input.iSoLuong').text();
-
-                    console.log(soluong)
-                    // $('tr.order-' + index).children('td.chietkhau').html(1- (Math.pow(1 - 0.1, soluong)));
-
-                    $('tr.order-' + index).children('td.thanhtien').html(($('tr.order-' + index).children('td.price').text() * soluong) - ($('tr.order-' + index).children('td.price').text() * $('tr.order-' + index).children('td.chietkhau').text() / 100));
-
-                    $(".thanhtien").each(function() {
-                        tong += parseFloat($(this).text()) || 0;
-                    });
-                    $('#tongtien').html(tong);
-                }
-            });
         });
 
         $('.giatien').on('input', function() {
             // Lấy giá trị từ input
             let inputValue = $(this).val();
-
             // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
             let cleanedValue = inputValue.replace(/,/g, '');
-
             // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
             let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
             // Cập nhật giá trị vào input
             $(this).val(formattedValue);
         });
 
-        var currentDate = new Date();
-        var formattedDate = currentDate.toISOString().substr(0, 10);
-        $("#dNgayNhap").val(formattedDate);
+        
     });
 </script>

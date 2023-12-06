@@ -60,6 +60,7 @@ class ReturnBillService extends BaseService
         $result = $this->returnBillDetail
             ->select('*')
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieuhoantra.FK_iMaSP')
+            ->join('tbl_ctphieunhap', 'tbl_ctphieunhap.FK_iMaSP = tbl_sanpham.PK_iMaSP')
             ->where('FK_iMaPhieu', $id)
             ->findAll();
         return $result;

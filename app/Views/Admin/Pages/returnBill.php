@@ -123,7 +123,7 @@
                                                 <select data-index="1" class="form-select selectProduct selected2" name="FK_iMaSP[]" id="selectProduct">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaCT_PN'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>

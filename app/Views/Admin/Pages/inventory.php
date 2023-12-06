@@ -33,8 +33,10 @@
                                 <?php endforeach ?>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
+                            <hr>
                             <button onclick="searchOrders()" class="btn btn-primary btn-sm">Thống kê</button>
+                            <hr>
                         </div>
                     </div>
                 </div> <!-- card  end// -->

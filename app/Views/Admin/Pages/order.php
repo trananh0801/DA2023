@@ -139,11 +139,11 @@
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
-                                            <th style="width:10%">STT</th>
+                                            <th style="width:5%">STT</th>
                                             <th style="width:30%">Sản phẩm</th>
                                             <th style="width:15%">Giá</th>
                                             <th style="width:10%">Số lượng</th>
-                                            <th style="width:10%">Chiết khấu(%)</th>
+                                            <th style="width:15%">Chiết khấu(%)</th>
                                             <th style="width:15%">Thành tiền</th>
                                             <th class="text-end" style="width:10%"></th>
                                         </tr>
@@ -182,7 +182,7 @@
                                 <article class="float-end">
                                     <dl class="dlist">
                                         <dt>Tổng tiền:</dt>
-                                        <dd> <b class="h5" id="tongtien"></b> </dd>
+                                        <dd> <b class="h5" id="tongtien"></b> VNĐ</dd>
                                     </dl>
                                     <dl class="dlist">
                                         <dt class="text-muted">Trạng thái:</dt>
@@ -277,7 +277,7 @@
                 success: function(data) {
                     response = JSON.parse(data);
                     var tong = 0;
-                    $('tr.order-' + index).children('td.price').html(formatNumber(response.product.fGiaBanLe));
+                    $('tr.order-' + index).children('td.price').html(formatNumber(parseFloat(response.product.fGiaBanLe)));
                     $('tr.order-' + index).children('input[name="price_product"]').val(response.product.fGiaBanLe);
                     if (response.product.fChietKhau == null) {
                         $('tr.order-' + index).children('td.chietkhau').html('0');
@@ -286,7 +286,7 @@
                         $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
                         $('tr.order-' + index).children('input[name="chietkhau_product"]').val(response.product.fChietKhau);
                     }
-                    $('.iSoLuong').val('1');
+                    // $('.iSoLuong').val('1');
                     soluong = $('.iSoLuong').val();
 
                     var giabanle = response.product.fGiaBanLe;

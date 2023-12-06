@@ -134,5 +134,7 @@ $routes->group('user', function ($routes) {
     $routes->post('addcheckoutProd', 'User\Checkout1ProdController::addOrderProdInfo');
 
     $routes->get('order-status/(:segment)', 'User\OrderStatusController::list/$1');
+    $routes->get('doitra/(:segment)', 'User\OrderStatusController::doitra/$1');
+
     $routes->get('thankyou', 'User\ThankyouController::list');
 });

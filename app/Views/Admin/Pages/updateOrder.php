@@ -52,6 +52,7 @@
                                     <option value="3" <?php if ($orders['FK_iMaTrangThai'] == '3') : ?> selected <?php endif; ?>>Đã thanh toán</option>
                                     <option value="4" <?php if ($orders['FK_iMaTrangThai'] == '4') : ?> selected <?php endif; ?>>Chờ thanh toán</option>
                                     <option value="10" <?php if ($orders['FK_iMaTrangThai'] == '10') : ?> selected <?php endif; ?>>Đang giao hàng</option>
+                                    <option value="11" <?php if ($orders['FK_iMaTrangThai'] == '11') : ?> selected <?php endif; ?>>Chờ xác nhận đổi trả</option>
                                     <option value="5" <?php if ($orders['FK_iMaTrangThai'] == '5') : ?> selected <?php endif; ?>>Đã hoàn trả</option>
                                 </select>
                             </div>

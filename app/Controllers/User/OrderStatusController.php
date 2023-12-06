@@ -24,6 +24,11 @@ class OrderStatusController extends BaseController
         $data = $this->loadMasterLayoutUser($data, 'Chi tiết đơn đặt hàng', 'User/Pages/orderStatus', $dataLayout);
         return view('User/main', $data);
     }
-
+    public function doitra($id)
+    {
+        $result = $this->service->doitra($this->request, $id);
+        return redirect()->back();
+    
+    }
    
 }

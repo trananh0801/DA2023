@@ -60,6 +60,8 @@
                                         <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
                                     <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
                                         <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
+                                        <?php elseif ($order['FK_iMaTrangThai'] == '11') : ?>
+                                        <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
                                     <?php else : ?>
                                         <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
                                     <?php endif; ?>

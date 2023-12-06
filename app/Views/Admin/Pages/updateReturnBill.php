@@ -46,13 +46,6 @@
                                 <label for="dNgayTao" class="form-label">Ngày tạo</label>
                                 <input type="date" placeholder="Type here" class="form-control" id="dNgayTao" name="dNgayTao" value="<?= $returnBills['dNgayTao'] ?>" readonly/>
                             </div>
-                            <div class="col-6 mb-3">
-                                <label class="form-label">Trạng thái</label>
-                                <select class="form-select" name="FK_iMaTrangThai">
-                                    <option value="5" <?php if ($returnBills['FK_iMaTrangThai'] == '5') : ?> selected <?php endif; ?>>Đã hoàn trả</option>
-                                    <option value="6" <?php if ($returnBills['FK_iMaTrangThai'] == '6') : ?> selected <?php endif; ?>>Chờ hoàn trả</option>
-                                </select>
-                            </div>
                             <div class="mb-4 col-12">
                                 <label class="form-label">Ghi chú</label>
                                 <textarea class="form-control" rows="4" name="sGhiChu" disabled><?= $returnBills['sGhiChu'] ?></textarea>

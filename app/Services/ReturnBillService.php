@@ -59,7 +59,7 @@ class ReturnBillService extends BaseService
     {
         $result = $this->returnBillDetail
             ->select('*')
-            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieuhoantra.FK_iMaSP')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieuhoantra.FK_iMaSP', 'left')
             ->join('tbl_ctphieunhap', 'tbl_ctphieunhap.FK_iMaSP = tbl_sanpham.PK_iMaSP')
             ->where('FK_iMaPhieu', $id)
             ->findAll();
@@ -108,11 +108,13 @@ class ReturnBillService extends BaseService
     }
 
     /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
-    public function getImportBillDetail($id)
+    public function getImportBillDetail($id, $ctpn)
     {
         $result = $this->importDetail
             ->select('*')
-            ->where('PK_iMaCT_PN', $id)
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
+            ->where('tbl_sanpham.PK_iMaSP', $id)
+            ->where('tbl_ctphieunhap.PK_iMaCT_PN', $ctpn)
             ->first();
         return $result;
     }

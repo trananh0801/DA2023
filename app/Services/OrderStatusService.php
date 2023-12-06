@@ -38,4 +38,29 @@ class OrderstatusService extends BaseService
             ->findAll();
         return $result;
     }
+
+    /**Update đơn hàng------------------------------------------------------------------------ */
+    public function doitra($requestData, $id)
+    {
+        $dataSave = [
+            'FK_iMaTrangThai' => '11',
+        ];
+        // dd($dataSave);
+        try {
+            $builder = $this->order->builder();
+            $builder->where('PK_iMaDon', $id);
+            $builder->update($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success' => 'Cập nhật dữ liệu thành công'],
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['' => $e->getMessage()],
+            ];
+        }
+    }
 }

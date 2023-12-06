@@ -41,7 +41,7 @@ class ReturnBillController extends BaseController
     public function check_returnbill_detail()
     {
         $data = $this->request->getPost();
-        $result = $this->service->getImportBillDetail($data['product_id']);
+        $result = $this->service->getImportBillDetail($data['product_id'], $data['ctpn']);
         echo json_encode([
             'returnBills' =>  $result,
         ]);

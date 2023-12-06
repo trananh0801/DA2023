@@ -123,7 +123,7 @@
                                                 <select data-index="1" class="form-select selectProduct selected2" name="FK_iMaSP[]" id="selectProduct">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>" data-CTPN="<?= $product['PK_iMaCT_PN'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
@@ -212,16 +212,19 @@
         // Sử dụng jQuery để xử lý sự kiện khi thay đổi giá trị trong thẻ select
         $(document).on('change', '.selectProduct', function() {
             var id = $(this).val();
+            var CTPN = $(this).attr('data-CTPN');
+            console.log(CTPN);
             var index = $(this).attr('data-index');
             $.ajax({
                 type: "post",
                 url: 'admin/returnBill/check_returnbill_detail',
                 data: {
                     product_id: id,
+                    ctpn: CTPN,
                 },
                 success: function(data) {
                     response = JSON.parse(data);
-                    // console.log(response);
+                    console.log(response);
                     var tong = 0;
                     $('tr.order-' + index).children('td.price').html(response.returnBills.fGiaNhap);
                     $('.iSoLuong').val('1');

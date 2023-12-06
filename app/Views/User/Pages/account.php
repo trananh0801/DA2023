@@ -182,6 +182,8 @@
                                                                 <td><span class="label label-primary"><?= $history['sTenTrangThai'] ?></span></td>
                                                             <?php elseif ($history['FK_iMaTrangThai'] == '5') : ?>
                                                                 <td><span class="label label-danger"><?= $history['sTenTrangThai'] ?></span></td>
+                                                            <?php elseif ($history['FK_iMaTrangThai'] == '11') : ?>
+                                                                <td><span class="label label-warning"><?= $history['sTenTrangThai'] ?></span></td>
                                                             <?php else : ?>
                                                                 <td><span class="label label-success"><?= $history['sTenTrangThai'] ?></span></td>
                                                             <?php endif; ?>

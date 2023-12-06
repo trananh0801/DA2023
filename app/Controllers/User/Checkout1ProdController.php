@@ -31,7 +31,7 @@ class Checkout1ProdController extends BaseController
     public function addOrderProdInfo()
     {
         $result = $this->service->addOrderInfo($this->request);
-        if ($result['status'] = 'ERR') {
+        if ($result['status'] == 'ERR') {
             return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
         } else {
             return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);

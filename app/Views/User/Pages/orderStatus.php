@@ -1,22 +1,22 @@
 <style>
-	.status-img {
-		width: 100px;
-		height: 90px;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+    .status-img {
+        width: 100px;
+        height: 90px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-	.status-img img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center center;
-		display: block;
+    .status-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
         /* margin-left: 5px; */
         margin-right: 5px;
-	}
+    }
 </style>
 <div class="container main-container headerOffset">
     <div class="row">
@@ -106,7 +106,7 @@
                                                     </td>
                                                     <td class="" style="width:10%"><a> X <?= $orderDetail['iSoLuong'] ?> </a></td>
                                                     <td class="" style="width:10%"><a> <?php if ($orderDetail['fChietKhau'] == null) : ?>0 %<?php else : ?><?= $orderDetail['fChietKhau'] ?> %<?php endif; ?> </a></td>
-                                                    <td style="width:15%"><span class="thanhtien"> <?php echo   number_format(($orderDetail['iSoLuong']*$orderDetail['fGiaBanLe'] * (1-$orderDetail['fChietKhau']/100?:0 )), 0, '.', ',') ?></span>đ</td>
+                                                    <td style="width:15%"><span class="thanhtien"> <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></span>đ</td>
                                                 </tr>
                                             <?php endforeach ?>
 
@@ -138,7 +138,11 @@
                     <ul class="pager">
                         <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Trở về trang chủ </a>
                         </li>
-                        <li class="next pull-left"><a href="user/account"> ← Quay lại thông tin cá nhân</a></li>
+                        <li class="next pull-left">
+                            <?php if ($orders['sTenTrangThai'] == "Chờ thanh toán" || $orders['sTenTrangThai'] == "Đang giao hàng") : ?>
+                                <a href="user/doitra/<?= $orders['PK_iMaDon'] ?>" class="btn btn-primary btn-sm" style="color: #000"> ← Hoàn trả</a>
+                            <?php endif ?>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -150,18 +154,18 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
-            var tong = 0;
-            
-            function formatNumber(number) {
-                return number.toLocaleString('vi-VN');
-            }
+        var tong = 0;
 
-            $(".thanhtien").each(function() {
-                var thanhtien = $(this).text();
-                var changeThanhtien = thanhtien.replace(/\,/g, "");
-                console.log(changeThanhtien);
-                tong += parseFloat(changeThanhtien) || 0;
-            });
-            $('#tongtien').html(formatNumber(tong));
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
+
+        $(".thanhtien").each(function() {
+            var thanhtien = $(this).text();
+            var changeThanhtien = thanhtien.replace(/\,/g, "");
+            console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien) || 0;
         });
+        $('#tongtien').html(formatNumber(tong));
+    });
 </script>

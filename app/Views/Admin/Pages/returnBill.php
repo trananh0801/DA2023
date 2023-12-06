@@ -53,7 +53,7 @@
                                     <td><b><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenNCC'] ?></span></b></td>
                                     <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao'])) ?></td>
                                     <td class="text-end">
-                                        <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                        <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Xem chi tiết</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

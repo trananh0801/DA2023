@@ -114,6 +114,14 @@ class OrderService extends BaseService
             ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
             ->where('PK_iMaSP', $product_id)
             ->first();
+
+        // $currentTime = date('Y-m-d');
+        // if ($result->dNgayHieuLuc <= $currentTime && $result->dNgayHetHieuLuc >= $currentTime) {
+        //     return $result;
+        // } else {
+        //     $result->fChietKhau = 0;
+        //     return $result;
+        // }
         return $result;
     }
 

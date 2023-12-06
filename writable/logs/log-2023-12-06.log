@@ -699,3 +699,784 @@ INFO - 2023-12-06 15:27:18 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-06 15:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 15:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 15:27:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 15:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 15:34:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:34:54 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:34:58 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('48')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:35:01 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('48')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:37:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:37:14 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('47')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:37:15 --> Attempt to read property "fChietKhau" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "fChietKhau" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:37:17 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:37:17 --> Attempt to read property "fChietKhau" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "fChietKhau" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:37:18 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:37:18 --> Attempt to read property "fChietKhau" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "fChietKhau" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:37:20 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('47')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:38:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:38:12 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('47')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:38:12 --> Attempt to read property "fChietKhau" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "fChietKhau" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:38:15 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:39:08 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:39:08 --> Attempt to read property "fChietKhau" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "fChietKhau" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:39:11 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 118)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 15:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:42:56 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('47')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:42:56 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:42:59 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:43:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:43:48 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:43:48 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:43:50 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 15:43:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 15:44:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:44:03 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:04 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:06 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('52')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:06 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:08 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:10 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('48')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:11 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:44:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:44:36 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:36 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:44:38 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:45:51 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:45:51 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:45:57 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('47')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:45:57 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:45:59 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('49')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:46:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:46:43 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:46:43 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 15:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 15:50:05 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:50:05 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 15:50:08 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 15:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:01:41 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:01:41 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:03:18 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:03:18 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:05:29 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:05:30 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:07:01 --> time() expects exactly 0 arguments, 1 given
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): time('Y-m-d')
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:07:01 --> time() expects exactly 0 arguments, 1 given
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): time('Y-m-d')
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:08:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:08:27 --> time() expects exactly 0 arguments, 1 given
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): time('Y-m-d')
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:08:27 --> time() expects exactly 0 arguments, 1 given
+in APPPATH\Services\OrderService.php on line 118.
+ 1 APPPATH\Services\OrderService.php(118): time('Y-m-d')
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:08:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:08:40 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:08:40 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:10:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:10:51 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:10:51 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 121.
+ 1 APPPATH\Services\OrderService.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 121)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:12:25 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:12:25 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:13:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:13:17 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:13:17 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:13:20 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:13:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:13:38 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:13:38 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:13:51 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:13:51 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 123.
+ 1 APPPATH\Services\OrderService.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 123)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:15:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:16:01 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:16:01 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 16:17:36 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:17:36 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:32 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('0')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:32 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:34 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('44')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:34 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:36 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('45')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:36 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:39 --> Attempt to read property "dNgayHieuLuc" on array
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on array', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('46')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+CRITICAL - 2023-12-06 16:18:39 --> Attempt to read property "dNgayHieuLuc" on null
+in APPPATH\Services\OrderService.php on line 119.
+ 1 APPPATH\Services\OrderService.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "dNgayHieuLuc" on null', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Services\\OrderService.php', 119)
+ 2 APPPATH\Controllers\Admin\OrderController.php(56): App\Services\OrderService->checkProductDetail('')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\OrderController->check_product_detail()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-06 16:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:20:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:20:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:20:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:21:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:21:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:21:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:22:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:24:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:24:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:25:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:25:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:25:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 16:27:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

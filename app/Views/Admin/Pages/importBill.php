@@ -53,7 +53,7 @@
                                     <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenNCC'] ?></span></td>
                                     <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
                                     <td class="text-end">
-                                        <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                        <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Xem chi tiết</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

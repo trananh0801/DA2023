@@ -30,7 +30,7 @@ class CheckoutController extends BaseController
     public function addOrderInfo()
     {
         $result = $this->service->addOrderInfoMuti($this->request);
-        if ($result['status'] = 'ERR') {
+        if ($result['status'] == 'ERR') {
             return redirect()->back()->withInput()->with($result['massageCode'], $result['message']);
         } else {
             return redirect()->to('user/thankyou')->withInput()->with($result['massageCode'], $result['message']);

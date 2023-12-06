@@ -276,6 +276,7 @@
                 },
                 success: function(data) {
                     response = JSON.parse(data);
+                    console.log(response);
                     var tong = 0;
                     $('tr.order-' + index).children('td.price').html(formatNumber(parseFloat(response.product.fGiaBanLe)));
                     $('tr.order-' + index).children('input[name="price_product"]').val(response.product.fGiaBanLe);

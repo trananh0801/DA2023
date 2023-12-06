@@ -59,12 +59,14 @@ class ReturnBillService extends BaseService
     {
         $result = $this->returnBillDetail
             ->select('*')
-            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieuhoantra.FK_iMaSP', 'left')
-            ->join('tbl_ctphieunhap', 'tbl_ctphieunhap.FK_iMaSP = tbl_sanpham.PK_iMaSP')
-            ->where('FK_iMaPhieu', $id)
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieuhoantra.FK_iMaSP', 'inner')
+            ->where('tbl_ctphieuhoantra.FK_iMaPhieu', $id)
             ->findAll();
         return $result;
     }
+
+    
+
 
     /**Lấy danh sách nhân viên----------------------------------------------------------------------------------*/
     public function getAllStaff()
@@ -149,7 +151,7 @@ class ReturnBillService extends BaseService
         //lấy thông tin để update số lượng sản phẩm
         $maSP = $requestData->getPost('FK_iMaSP');
         $soluong = $requestData->getPost('iSoLuong');
-        // dd($soluong);
+        // dd($maSP);
         for ($i = 0; $i < count($maSP); $i++) {
             $productID = $maSP[$i];
             $quantityToDeduct = $soluong[$i];

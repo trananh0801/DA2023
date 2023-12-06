@@ -58,16 +58,14 @@
                                 <tr>
                                     <th>STT</th>
                                     <th scope="col">Sản phẩm</th>
-                                    <th scope="col">Giá</th>
                                     <th scope="col">Số lượng</th>
-                                    <th scope="col">Thành tiền</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $k = 1 ?>
                                 <?php foreach ($returnBillDetails as $returnBillDetail) : ?>
                                     <tr>
-                                        <td>1</td>
+                                        <td><?= $k++ ?></td>
                                         <td>
                                             <select class="form-select" name="FK_iMaSP[]" disabled>
                                                 <?php foreach ($products as $product) : ?>
@@ -75,31 +73,14 @@
                                                 <?php endforeach ?>
                                             </select>
                                         </td>
-                                        <td><?= $returnBillDetail['fGiaBanLe'] ?></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $returnBillDetail['iSoLuong'] ?>" readonly/></td>
-                                        <td class="thanhtien"><?php echo   number_format(($returnBillDetail['iSoLuong'] * $returnBillDetail['fGiaNhap']), 0, '.', ',') ?></td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-12">
-                        <article class="float-end">
-                            <dl class="dlist">
-                                <dt>Tổng tiền:</dt>
-                                <dd> <b class="h5" id="total-price"></b> </dd>
-                            </dl>
-                            <dl class="dlist">
-                                <dt class="text-muted">Trạng thái:</dt>
-                                <dd>
-                                    <span class="badge rounded-pill alert-success text-success">Mua tại cửa hàng</span>
-                                </dd>
-                            </dl>
-                        </article>
-                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                 </div>
             </form>
         </div>

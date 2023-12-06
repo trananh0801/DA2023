@@ -108,11 +108,9 @@
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
-                                            <th width="5%">STT</th>
-                                            <th width="40%">Sản phẩm</th>
-                                            <th width="10%">Giá nhập</th>
-                                            <th width="10%">SL</th>
-                                            <th width="15%">Thành tiền</th>
+                                            <th width="10%">STT</th>
+                                            <th width="50%">Sản phẩm</th>
+                                            <th width="20%">Số lượng</th>
                                             <th width="20%" class="text-end"></th>
                                         </tr>
                                     </thead>
@@ -127,9 +125,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td class="price" id="price"></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1" /></td>
-                                            <td class="thanhtien" id="thanhtien"></td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button>
                                             </td>
@@ -138,14 +134,6 @@
                                     </tbody>
                                 </table>
                                 <button type="button" class="btn btn-primary" id="addRowButton">Thêm một dòng</button>
-                            </div>
-                            <div class="col-12">
-                                <article class="float-end">
-                                    <dl class="dlist">
-                                        <dt>Tổng tiền:</dt>
-                                        <dd> <b class="h5" id="tongtien"></b> </dd>
-                                    </dl>
-                                </article>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -173,10 +161,8 @@
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
-            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaCT_PN'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option><?php endforeach ?></select></td>';
-            html += '<td class="price" id="price"></td>';
+            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option><?php endforeach ?></select></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
-            html += '<td class="thanhtien" id="thanhtien"></td>';
             html += '<td><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
             html += '</tr>';
             $('#myTable tbody').append(html);

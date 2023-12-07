@@ -91,6 +91,13 @@ class CheckoutService extends BaseService
 
         $soluongSP = $this->product->where('PK_iMaSP', $dataSave_CTDDH['FK_iMaSP'])->get()->getRow()->fSoLuong;
         $quantityToDeduct = $dataSave_CTDDH['iSoLuong'];
+        if ($quantityToDeduct == '0') {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['Lỗi: ' => 'Vui lòng thêm số lượng lớn hơn 0!'],
+            ];
+        }
         if ($quantityToDeduct > $soluongSP) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -165,6 +172,13 @@ class CheckoutService extends BaseService
             $quantityToDeduct = $dataSave_CTDDH['iSoLuong'][$i];
             // Truy vấn số lượng hiện có của sản phẩm
             $currentQuantity = $this->product->where('PK_iMaSP', $productID)->get()->getRow()->fSoLuong;
+            if ($quantityToDeduct == '0') {
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'message' => ['Lỗi: ' => 'Vui lòng thêm số lượng lớn hơn 0!'],
+                ];
+            }
             if ($quantityToDeduct > $currentQuantity) {
                 return [
                     'status' => ResultUtils::STATUS_CODE_ERR,

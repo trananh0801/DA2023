@@ -554,3 +554,58 @@ INFO - 2023-12-07 11:26:16 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-07 11:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-07 11:27:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-07 11:29:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:31:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-07 11:31:34 --> Undefined variable $totalReturnBills
+in APPPATH\Views\Admin\Pages\revenue.php on line 45.
+ 1 APPPATH\Views\Admin\Pages\revenue.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalReturnBills', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\revenue.php', 45)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\revenue.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/revenue', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('Admin/Pages/revenue', [...])
+ 6 APPPATH\Controllers\Admin\RevenueController.php(43): App\Controllers\BaseController->loadMasterLayout([...], 'Thống kê doanh thu', 'Admin/Pages/revenue', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-07 11:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-07 11:33:04 --> Too few arguments to function App\Services\OrderService::getAllStaff(), 0 passed in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UpdateOrderController.php on line 30 and exactly 1 expected
+in APPPATH\Services\OrderService.php on line 70.
+ 1 APPPATH\Controllers\Admin\UpdateOrderController.php(30): App\Services\OrderService->getAllStaff()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateOrderController->list('HD_17018799108280')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateOrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-07 11:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:33:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-07 11:33:16 --> Too few arguments to function App\Services\ImportBillService::getAllStaff(), 0 passed in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UpdateImportBillController.php on line 28 and exactly 1 expected
+in APPPATH\Services\ImportBillService.php on line 65.
+ 1 APPPATH\Controllers\Admin\UpdateImportBillController.php(28): App\Services\ImportBillService->getAllStaff()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateImportBillController->list('PN_17018760041278')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateImportBillController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-07 11:33:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-07 11:34:09 --> Too few arguments to function App\Services\ReturnBillService::getAllStaff(), 0 passed in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\UpdateReturnBillController.php on line 28 and exactly 1 expected
+in APPPATH\Services\ReturnBillService.php on line 72.
+ 1 APPPATH\Controllers\Admin\UpdateReturnBillController.php(28): App\Services\ReturnBillService->getAllStaff()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\UpdateReturnBillController->list('HT_17018760907720')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateReturnBillController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-07 11:34:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:37:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:38:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-07 11:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

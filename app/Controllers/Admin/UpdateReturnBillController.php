@@ -25,7 +25,7 @@ class UpdateReturnBillController extends BaseController
         $dataLayout['returnBills'] = $this->service->getReturnBillById($id);
         $dataLayout['returnBillDetails'] = $this->service->getReturnBillDetailById($id);
 
-        $dataLayout['staffs'] = $this->service->getAllStaff();
+        $dataLayout['staffs'] = $this->service->getAllStaff1();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();

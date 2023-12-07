@@ -71,6 +71,15 @@ class ImportBillService extends BaseService
         return $result;
     }
 
+    /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
+    public function getAllStaff1()
+    {
+        $result = $this->staff
+            ->select('*')
+            ->findAll();
+        return $result;
+    }
+
     /**lấy danh sách nhà cung cấp---------------------------------------------------------------*/
     public function getAllSupplier()
     {

@@ -77,6 +77,14 @@ class ReturnBillService extends BaseService
             ->first();
         return $result;
     }
+    /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
+    public function getAllStaff1()
+    {
+        $result = $this->staff
+            ->select('*')
+            ->findAll();
+        return $result;
+    }
 
     /**Lấy danh sách nhà cung cấp----------------------------------------------------------------------------------*/
     public function getAllSupplier()

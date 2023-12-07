@@ -27,7 +27,7 @@ class UpdateOrderController extends BaseController
         $dataLayout['orders'] = $this->service->getAllOrderById($id);
         $dataLayout['orderDetails'] = $this->service->getAllOrderDetailById($id);
 
-        $dataLayout['staffs'] = $this->service->getAllStaff();
+        $dataLayout['staffs'] = $this->service->getAllStaff1();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['customers'] = $this->service->getAllCustomer();

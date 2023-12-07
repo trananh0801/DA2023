@@ -25,7 +25,7 @@ class UpdateImportBillController extends BaseController
         $dataLayout['importBills'] = $this->service->getImportBillById($id);
         $dataLayout['importBillDetails'] = $this->service->getAllImportBillDetail($id);
 
-        $dataLayout['staffs'] = $this->service->getAllStaff();
+        $dataLayout['staffs'] = $this->service->getAllStaff1();
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();

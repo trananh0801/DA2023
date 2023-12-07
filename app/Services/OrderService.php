@@ -76,6 +76,15 @@ class OrderService extends BaseService
         return $result;
     }
 
+    /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
+    public function getAllStaff1()
+    {
+        $result = $this->staff
+            ->select('*')
+            ->findAll();
+        return $result;
+    }
+
     /**Lấy danh sách khách hàng------------------------------------------------------------------------ */
     public function getAllCustomer()
     {

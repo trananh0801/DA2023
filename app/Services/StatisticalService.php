@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Services;
+
 use App\Models\OrderModel;
 use App\Models\ProductModel;
 use App\Common\ResultUtils;
@@ -16,72 +18,80 @@ class StatisticalService extends BaseService
     }
 
     /**Tổng đơn hàng đổi trả */
-    // public function getAllReturnBill(){
-    //     $result = $this->order
-    //     ->select('SUM(PK_iMaDon) as total')
-    //     ->where('FK_iMaTrangThai', '5')
-    //     ->groupBy('PK_iMaDon')
-    //     ->findAll();
-    //     return $result;
-    // }
-    public function getReturnBillCount(){
+    public function getReturnBillCount()
+    {
         $count = $this->order
             ->where('FK_iMaTrangThai', '5')
             ->countAllResults();
         return $count;
     }
 
-     /**thống kê all */
-     public function getOrder(){
+    public function getReturnBillCountByDate($startDate, $endDate)
+    {
+        $count = $this->order
+            ->where('dThoiGianTao >=', $startDate)
+            ->where('dThoiGianTao <=', $endDate)
+            ->where('FK_iMaTrangThai', '5')
+            ->countAllResults();
+        return $count;
+    }
+
+    /**thống kê all */
+    public function getOrder()
+    {
         $result = $this->order
-        ->select('*')
-        ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
-        ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
-        ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
-        ->findAll();
+            ->select('*')
+            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
+            ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+            ->findAll();
         return $result;
     }
 
     /**tính tổng all */
-    public function getTotalAll(){
+    public function getTotalAll()
+    {
         $result = $this->order
-        ->select('SUM(tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as tong')
-        ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaDon = tbl_dondathang.PK_iMaDon')
-        ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
-        ->where('tbl_dondathang.FK_iMaTrangThai', '3')
-        ->first();
+            ->select('SUM(tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as tong')
+            ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaDon = tbl_dondathang.PK_iMaDon')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
+            ->where('tbl_dondathang.FK_iMaTrangThai', '3')
+            ->first();
         return $result;
     }
 
     /**Thống kê theo thời gian */
-    public function getOrderByDate($startDate, $endDate){
+    public function getOrderByDate($startDate, $endDate)
+    {
         $result = $this->order
-        ->select('*')
-        ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
-        ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
-        ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
-        ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
-        ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
-        ->where('tbl_dondathang.FK_iMaTrangThai', '3')
-        ->findAll();
+            ->select('*')
+            ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
+            ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
+            ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+            ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
+            ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
+            // ->where('tbl_dondathang.FK_iMaTrangThai', '3')
+            ->findAll();
         return $result;
     }
 
     /**tính tổng all */
-    public function getTotalByDate($startDate, $endDate){
+    public function getTotalByDate($startDate, $endDate)
+    {
         $result = $this->order
-        ->select('SUM(tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as tong')
-        ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaDon = tbl_dondathang.PK_iMaDon')
-        ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
-        ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
-        ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
-        ->where('tbl_dondathang.FK_iMaTrangThai', '3')
-        ->first();
+            ->select('SUM(tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as tong')
+            ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaDon = tbl_dondathang.PK_iMaDon')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
+            ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
+            ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
+            ->where('tbl_dondathang.FK_iMaTrangThai', '3')
+            ->first();
         return $result;
     }
 
     /**add new user */
-    public function searchOrder($requestData){
+    public function searchOrder($requestData)
+    {
 
         $dataSearch = [
             'dBatDau' => $requestData->getGet('dBatDau'),
@@ -124,7 +134,8 @@ class StatisticalService extends BaseService
 
 
     /**add new user */
-    public function searchProduct($requestData){
+    public function searchProduct($requestData)
+    {
         $dataSearch = $requestData->getGet('PK_iMaSP');
         return $dataSearch;
     }

@@ -116,6 +116,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Cập nhật hóa đơn</button>
+                    <a href="admin/order/pdf_invoice/<?= $orders['PK_iMaDon'] ?>" class="new btn btn-info mright5 test pull-left display-block">
+                        <i class="fa fa-upload"></i>
+                        In hóa đơn
+                    </a>
                 </div>
             </form>
         </div>

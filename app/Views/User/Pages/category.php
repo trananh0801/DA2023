@@ -82,59 +82,6 @@
                         </div>
                     </div>
                 </div>
-                <!--/Category menu end-->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a class="collapseWill active " data-toggle="collapse" href="#collapsePrice">
-                                Giá tiền <span class="pull-left"> <i class="fa fa-caret-right"></i></span> </a> <span class="pull-right clearFilter  label-danger"> Clear </span></h4>
-                    </div>
-                    <div id="collapsePrice" class="panel-collapse collapse in">
-                        <div class="panel-body priceFilterBody">
-                            <!-- -->
-                            <label>
-                                <input type="radio" name="agree" value="0" />
-                                100$ - 500$</label>
-                            <br>
-                            <label>
-                                <input type="radio" name="agree" value="1" />
-                                500$ - 1000$</label>
-                            <br>
-                            <label>
-                                <input type="radio" name="agree" value="2" />
-                                1000$ - 1500$</label>
-                            <br>
-                            <label>
-                                <input type="radio" name="agree" value="3" />
-                                1500$ - 2000$</label>
-                            <br>
-                            <label>
-                                <input type="radio" name="agree" value="4" />
-                                2000$ - 2500$</label>
-                            <br>
-                            <label>
-                                <input type="radio" name="agree" value="5" />
-                                2500$ - 3000$</label>
-                            <br>
-                            <label>
-                                <input type="radio" name="agree" value="6" disabled checked />
-                                Không biết</label>
-                            <hr>
-                            <p>Chọn khoảng giá </p>
-
-                            <form class="form-inline " role="form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="2000 $">
-                                </div>
-                                <div class="form-group sp"> -</div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="3000 $">
-                                </div>
-                                <button type="submit" class="btn btn-default pull-right">Kiếm tra</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!--/price panel end-->
             </div>
         </div>
 
@@ -188,7 +135,7 @@
                                     <p><?= $productInGroup['sGhiChu'] ?> </p>
                                 </div>
                             </div>
-                            <div class="price"><span><?= $productInGroup['fGiaBanLe'] ?></span>đ</div>
+                            <div class="price"><span><?= number_format($productInGroup['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
                             <?php if ($sessions['tendn']) : ?>
                                 <div class="action-control">
                                     <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart_category" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>" data-tensp="<?= $productInGroup['sTenSP'] ?>" data-giatien="<?= $productInGroup['fGiaBanLe'] ?>">
@@ -206,29 +153,9 @@
                     </div>
                 <?php endforeach ?>
             </div>
-            <!--/.categoryProduct || product content end-->
-
-            <div class="w100 categoryFooter">
-                <div class="pagination pull-left no-margin-top">
-                    <ul class="pagination no-margin-top">
-                        <li><a href="#">«</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
-                <div class="pull-right pull-right  col-sm-4 col-xs-12 no-padding text-right text-left-xs">
-                    <p>Showing 1–450 of 12 results</p>
-                </div>
-            </div>
-            <!--/.categoryFooter-->
         </div> <!--/right column end-->
     </div><!-- /.row  -->
 </div>
-<!-- /main container -->
 
 <!-- Modal thêm vào giỏ hàng  -->
 <div class="modal signUpContent fade" id="AddCart_category" tabindex="-1" role="dialog">

@@ -86,6 +86,7 @@
 
             <div class="product-price"><span class="price-sales"> <?= number_format($allProducts['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ
             </div>
+            <i>Số lượng: <?= $allProducts['fSoLuong'] ?> (<?= $allProducts['sDVT'] ?>)</i>
             <div class="details-description">
                 <p><strong>Mô tả: </strong><?= $allProducts['sGhiChu'] ?> </p>
             </div>
@@ -94,7 +95,7 @@
                 <div class="addto row">
                     <?php if ($sessions['tendn'] && ($sessions['quyen'] == '4')) : ?>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>" data-ghichu="<?= $allProducts['sGhiChu'] ?>">Thêm vào giỏ hàng
+                            <button class="button btn-block btn-cart cart first edit" title="Add to Cart" type="button" data-toggle="modal" data-target="#AddCart" data-masanpham="<?= $allProducts['PK_iMaSP'] ?>" data-hinhanh="<?= $allProducts['sHinhAnh'] ?>" data-soluong="<?= $allProducts['fSoLuong'] ?>" data-dvt="<?= $allProducts['sDVT'] ?>" data-tensp="<?= $allProducts['sTenSP'] ?>" data-giatien="<?= $allProducts['fGiaBanLe'] ?>" data-ghichu="<?= $allProducts['sGhiChu'] ?>">Thêm vào giỏ hàng
                             </button>
                         </div>
                     <?php else : ?>
@@ -154,6 +155,7 @@
                             <div class="description">
                                 <h4 id="tensp"></h4>
                                 <div class="price"><span id="giatien"></span> VNĐ</div>
+                                <i>Số lượng: <span id="soluong"></span> (<span id="dvt"></span>)</i>
                                 <div>Mô tả: <span id="ghichu"></span></div>
                                 <div class="form-group modal-soluong">
                                     <div class="">
@@ -186,11 +188,15 @@
             tensp = $(this).attr("data-tensp");
             giatien = $(this).attr("data-giatien");
             ghichu = $(this).attr("data-ghichu");
+            soluong = $(this).attr("data-soluong");
+            dvt = $(this).attr("data-dvt");
 
             $("#masanpham").val(masanpham);
             $("#tensp").text(tensp);
             $("#giatien").text(giatien);
             $("#ghichu").text(ghichu);
+            $("#soluong").text(soluong);
+            $("#dvt").text(dvt);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

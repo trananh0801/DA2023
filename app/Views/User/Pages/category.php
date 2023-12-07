@@ -97,16 +97,6 @@
             <div class="w100 productFilter clearfix">
                 <p class="pull-left"> Hiển thị <strong><?php foreach ($demsps as $demsp) : ?><?= $demsp['tongsp'] ?><?php endforeach ?></strong> sản phẩm </p>
                 <div class="pull-right ">
-                    <div class="change-order pull-right">
-                        <select class="form-control" name="orderby">
-                            <option selected="selected">Sắp xếp mặc định</option>
-                            <option value="popularity">Sort by popularity</option>
-                            <option value="rating">Sort by average rating</option>
-                            <option value="date">Sort by newness</option>
-                            <option value="price">Sort by price: low to high</option>
-                            <option value="price-desc">Sort by price: high to low</option>
-                        </select>
-                    </div>
                     <div class="change-view pull-right">
                         <a href="#" title="Grid" class="grid-view"> <i class="fa fa-th-large"></i> </a>
                         <a href="#" title="List" class="list-view "><i class="fa fa-th-list"></i></a>
@@ -130,7 +120,7 @@
                             </div>
                             <div class="description">
                                 <h4><a href="user/productDetail/<?= $productInGroup['PK_iMaSP'] ?>"><?= $productInGroup['sTenSP'] ?></a></h4>
-
+                                <i>Số lượng: <?= $productInGroup['fSoLuong'] ?> (<?= $productInGroup['sDVT'] ?>)</i>
                                 <div class="grid-description">
                                     <p><?= $productInGroup['sGhiChu'] ?> </p>
                                 </div>
@@ -138,7 +128,7 @@
                             <div class="price"><span><?= number_format($productInGroup['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
                             <?php if ($sessions['tendn']) : ?>
                                 <div class="action-control">
-                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart_category" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>" data-tensp="<?= $productInGroup['sTenSP'] ?>" data-giatien="<?= $productInGroup['fGiaBanLe'] ?>">
+                                    <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart_category" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>" data-tensp="<?= $productInGroup['sTenSP'] ?>" data-soluong="<?= $productInGroup['fSoLuong'] ?>" data-dvt="<?= $productInGroup['sDVT'] ?>" data-giatien="<?= $productInGroup['fGiaBanLe'] ?>">
                                         <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Thêm vào giỏ hàng </span>
                                     </a>
                                 </div>
@@ -174,7 +164,8 @@
                             </div>
                             <div class="description">
                                 <h4 id="tensp"></h4>
-                                <div class="price"><span id="giatien"></span> đ</div>
+                                <div class="price"><span id="giatien"></span> VNĐ</div>
+                                <i>Số lượng: <span id="soluong"></span> (<span id="dvt"></span>)</i>
                                 <div class="form-group modal-soluong">
                                     <div class="">
                                         <div class="input-group"><span class="input-group-addon">Số lượng</span>
@@ -199,15 +190,22 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
             hinhanh = $(this).attr("data-hinhanh");
             tensp = $(this).attr("data-tensp");
             giatien = $(this).attr("data-giatien");
+            soluong = $(this).attr("data-soluong");
+            dvt = $(this).attr("data-dvt");
 
             $("#masanpham").val(masanpham);
             $("#tensp").text(tensp);
-            $("#giatien").text(giatien);
+            $("#soluong").text(soluong);
+            $("#dvt").text(dvt);
+            $("#giatien").text(formatNumber(parseFloat(giatien)));
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
     })

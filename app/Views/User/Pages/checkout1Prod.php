@@ -41,7 +41,6 @@
             <?php foreach (session('errorsMsg') as $error) : ?>
                 <div class="alert alert-danger alert-dismissible myAlert" role="alert">
                     <strong>Lỗi: </strong> <?= $error ?>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                 </div>
                 <?php break; ?>
             <?php endforeach ?>
@@ -50,7 +49,6 @@
             <?php foreach (session('successMsg') as $success) : ?>
                 <div class="alert alert-success alert-dismissible myAlert" role="alert">
                     <strong>Thành công: </strong> <?= $success ?>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                 </div>
                 <?php break; ?>
             <?php endforeach ?>
@@ -96,7 +94,7 @@
                                                     <td>
                                                         <div class="CartDescription">
                                                             <h4><a href="user/productDetail/<?= $products['PK_iMaSP'] ?>"><?= $products['sTenSP'] ?> </a></h4>
-                                                            <span class="size"><?= $products['sDVT'] ?></span>
+                                                            <i>Số lượng: <?= $products['fSoLuong'] ?> (<?= $products['sDVT'] ?>)</i>
                                                         </div>
                                                     </td>
                                                     <td class="delete">

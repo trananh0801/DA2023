@@ -86,6 +86,7 @@
                                                     <div class="CartDescription">
                                                         <h4><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><?= $allProductInCart['sTenSP'] ?> </a></h4>
                                                         <div class="price"><span><?= number_format($allProductInCart['fGiaBanLe'], 0, '.', ',') ?> VNĐ</span></div>
+                                                        <i>Số lượng: <?= $allProductInCart['fSoLuong'] ?> (<?= $allProductInCart['sDVT'] ?>)</i>
                                                     </div>
                                                 </td>
                                                 <td class="delete">

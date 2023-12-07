@@ -38,7 +38,7 @@ class HomeService extends BaseService
     public function getAllSellingProducts()
     {
         $result = $this->product
-            ->select('tbl_sanpham.PK_iMaSP, tbl_sanpham.sTenSP, tbl_sanpham.sDVT, tbl_sanpham.fGiaBanLe, tbl_sanpham.sHinhAnh, tbl_sanpham.sGhiChu, count(tbl_ctdondathang.FK_iMaSP) as soluong')
+            ->select('tbl_sanpham.PK_iMaSP, tbl_sanpham.sTenSP, tbl_sanpham.sDVT, tbl_sanpham.fGiaBanLe,tbl_sanpham.fSoLuong, tbl_sanpham.sHinhAnh, tbl_sanpham.sGhiChu, count(tbl_ctdondathang.FK_iMaSP) as soluong')
             ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaSP = tbl_sanpham.PK_iMaSP')
             ->groupBy('FK_iMaSP')
             ->orderBy('soluong', 'desc')

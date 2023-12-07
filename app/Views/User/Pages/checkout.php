@@ -95,7 +95,7 @@
                                                         <td>
                                                             <div class="CartDescription">
                                                                 <h4><a href="product-details.html"><?= $product['sTenSP'] ?> </a></h4>
-                                                                <span class="size"><?= $product['sDVT'] ?></span>
+                                                                <i>Số lượng: <?= $product['fSoLuong'] ?> (<?= $product['sDVT'] ?>)</i>
                                                             </div>
                                                         </td>
                                                         <td class="delete">

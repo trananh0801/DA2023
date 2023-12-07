@@ -24,13 +24,15 @@ class OrderController extends BaseController
         }
 
         $data = [];
+        // $dataLayout['mataikhoan'] = $session->get('matk');
+        // dd($dataLayout['mataikhoan']);
         $dataLayout['orders'] = $this->service->getAllOrder();
-        $dataLayout['staffs'] = $this->service->getAllStaff();
+        $dataLayout['staffs'] = $this->service->getAllStaff($session->get('matk'));
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['customers'] = $this->service->getAllCustomer();
 
-        // dd($dataLayout['orders']);
+        // dd($dataLayout['staffs']);
         $data = $this->loadMasterLayout($data, 'Danh sách đơn đặt hàng', 'Admin/Pages/order', $dataLayout);
         return view('Admin/main', $data);
     }

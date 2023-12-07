@@ -80,10 +80,8 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV">
-                                            <?php foreach ($staffs as $staff) : ?>
-                                                <option value="<?= $staff['PK_iMaNV'] ?>"><?= $staff['sTenNV'] ?></option>
-                                            <?php endforeach ?>
+                                        <select class="form-select" name="FK_iMaNV" disabled>
+                                                <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>
                                     <div class="col-6 mb-3">

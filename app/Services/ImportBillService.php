@@ -61,14 +61,13 @@ class ImportBillService extends BaseService
         return $result;
     }
 
-    /**Lấy danh sách nhân viên---------------------------------------------------------------*/
-    public function getAllStaff()
+    /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
+    public function getAllStaff($id)
     {
         $result = $this->staff
             ->select('*')
-            ->where('sTenChucVu', '2')
-            ->findAll();
-        // dd($result);
+            ->where('FK_iMaTK', $id)
+            ->first();
         return $result;
     }
 

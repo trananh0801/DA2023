@@ -67,12 +67,12 @@ class OrderService extends BaseService
     }
 
     /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
-    public function getAllStaff()
+    public function getAllStaff($id)
     {
         $result = $this->staff
             ->select('*')
-            ->where('sTenChucVu', '3')
-            ->findAll();
+            ->where('FK_iMaTK', $id)
+            ->first();
         return $result;
     }
 
@@ -82,7 +82,6 @@ class OrderService extends BaseService
         $result = $this->customer
             ->select('*')
             ->findAll();
-        // dd($result);
         return $result;
     }
 

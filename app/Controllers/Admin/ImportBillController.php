@@ -23,7 +23,7 @@ class ImportBillController extends BaseController
         }
         $data = [];
         $dataLayout['importBills'] = $this->service->getAllImportBill();
-        $dataLayout['staffs'] = $this->service->getAllStaff();
+        $dataLayout['staffs'] = $this->service->getAllStaff($session->get('matk'));
         $dataLayout['statuss'] = $this->service->getAllStatus();
         $dataLayout['products'] = $this->service->getAllProduct();
         $dataLayout['suppliers'] = $this->service->getAllSupplier();

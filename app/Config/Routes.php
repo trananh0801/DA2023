@@ -141,4 +141,9 @@ $routes->group('user', function ($routes) {
     $routes->get('doitra/(:segment)', 'User\OrderStatusController::doitra/$1');
 
     $routes->get('thankyou', 'User\ThankyouController::list');
+
+
+    //Thanh toán onepay
+    $routes->post('onepay_payment', 'User\CheckoutController::onepay_payment');
+    $routes->post('onepay_payment_1', 'User\Checkout1ProdController::onepay_payment');
 });

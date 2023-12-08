@@ -48,7 +48,18 @@
         <div class="card-body">
             <h5 class="card-title">Đơn hàng</h5>
             <div class="table-responsive">
-                <table class="table table-hover">
+            <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Phân loại</th>
+                            <th>Giá bán </th>
+                            <th>Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     <?php $k = 1 ?>
                     <?php foreach ($productLists as $productList) : ?>
                         <tr>
@@ -76,7 +87,11 @@
                             </td>
                         </tr>
                     <?php endforeach ?>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
+                
             </div> <!-- table-responsive end// -->
         </div> <!-- card-body end// -->
     </div> <!-- card end// -->

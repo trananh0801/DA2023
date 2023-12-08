@@ -35,7 +35,7 @@
             <h4 class="caps"><a href="user/home"><i class="fa fa-chevron-left"></i> Quay lại trang chủ </a></h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row canhbao">
         <?php if (session('errorsMsg')) : ?>
             <?php foreach (session('errorsMsg') as $error) : ?>
                 <div class="alert alert-danger d-flex align-items-center myAlert" role="alert">
@@ -75,8 +75,8 @@
                                         </tr>
                                     <?php else : ?>
                                         <?php
-                                            //echo json_encode($allProductInCarts['cart_detail']); die();
-                                            foreach ($allProductInCarts['cart_detail'] as $allProductInCart){ ?>
+                                        //echo json_encode($allProductInCarts['cart_detail']); die();
+                                        foreach ($allProductInCarts['cart_detail'] as $allProductInCart) { ?>
                                             <tr class="CartProduct">
                                                 <td>
                                                     <div><a class="cart-img" href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
@@ -97,10 +97,10 @@
                                                 <td>
                                                     <input type="text" value="<?= $allProductInCart['FK_iMaGH'] ?>" name="PK_iMaGH" hidden>
                                                     <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
-                                                    <input class="quanitySniper" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]">
+                                                    <input class="quanitySniper iSoLuong" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]" id="iSoLuong">
                                                 </td>
-                                                <td><?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]?:0 ?></td>
-                                                <td class="price"><span class="thanhtien"><?php echo   number_format(($allProductInCart['iSoLuong']*$allProductInCart['fGiaBanLe'] * (1-$allProductInCarts['km'][$allProductInCart['PK_iMaSP']]/100?:0 )), 0, '.', ',') ?></span> VNĐ</td>
+                                                <td><?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']] ?: 0 ?></td>
+                                                <td class="price"><span class="thanhtien"><?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe'] * (1 - $allProductInCarts['km'][$allProductInCart['PK_iMaSP']] / 100 ?: 0)), 0, '.', ',') ?></span> VNĐ</td>
                                             </tr>
                                         <?php } ?>
                                     <?php endif ?>
@@ -171,7 +171,7 @@
         }, 3000);
         $(document).ready(function() {
             var tong = 0;
-            
+
             function formatNumber(number) {
                 return number.toLocaleString('vi-VN');
             }
@@ -183,5 +183,16 @@
                 tong += parseFloat(changeThanhtien) || 0;
             });
             $('#total-price').html(formatNumber(tong));
+        });
+
+        $(document).on('click', '.input-group-btn', function() {
+            var amount = $('.iSoLuong').val();
+            if (parseInt(amount) == 0){
+                var alertHTML = '<div class="alert alert-danger d-flex align-items-center myAlert" role="alert">\
+                          Số lượng bằng 0. Vui lòng nhập một giá trị khác.\
+                        </div>';
+                $(alertHTML).appendTo('.canhbao');
+                $('.iSoLuong').val(1);
+            }
         });
     </script>

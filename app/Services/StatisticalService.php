@@ -3,18 +3,24 @@
 namespace App\Services;
 
 use App\Models\OrderModel;
+use App\Models\OrderDetailModel;
+use App\Models\PromotionProductModel;
 use App\Models\ProductModel;
+use App\Models\PromotionModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class StatisticalService extends BaseService
 {
-    private $order, $product;
+    private $order, $product, $orderDetail, $promotionDetail, $promo;
     function __construct()
     {
         parent::__construct();
         $this->order = new OrderModel();
+        $this->orderDetail = new OrderDetailModel();
         $this->product = new ProductModel();
+        $this->promotionDetail = new PromotionProductModel();
+        $this->promo = new PromotionModel();
     }
 
     /**Tổng đơn hàng đổi trả */
@@ -37,14 +43,58 @@ class StatisticalService extends BaseService
     }
 
     /**thống kê all */
+    // public function getOrder()
+    // {
+    //     $result = $this->order
+    //         ->select('*')
+    //         ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
+    //         ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
+    //         ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+    //         ->join('tbl_ctdondathang', 'tbl_ctdondathang.FK_iMaDon = tbl_dondathang.PK_iMaDon')
+    //         ->findAll();
+    //     return $result;
+    // }
+
     public function getOrder()
     {
-        $result = $this->order
+        $result['order'] = [];
+        $order = $this->order
             ->select('*')
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
             ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
             ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
             ->findAll();
+        $orderDetail = $this->orderDetail
+            ->select('*, (tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as thanhtien')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
+            ->findAll();
+        foreach ($order as $orderItem) {
+            // Lấy mã đơn hàng
+            $orderID = $orderItem['PK_iMaDon'];
+            // Tạo một mảng tạm để lưu thông tin đơn hàng và chi tiết đơn hàng
+            $combinedOrder = $orderItem;
+            // Tìm các mục chi tiết đơn hàng tương ứng với mã đơn hàng
+            $orderDetails = array_filter($orderDetail, function ($item) use ($orderID) {
+                return $item['FK_iMaDon'] == $orderID;
+            });
+            // Thêm mảng chi tiết đơn hàng vào mảng tạm
+            $combinedOrder['orderDetails'] = array_values($orderDetails);
+            // Thêm mảng tạm vào mảng kết quả tổng cộng
+            $result['order'][] = $combinedOrder;
+        }
+        $promotion = $this->promotionDetail
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_sp_km.FK_iMaSP', 'right')
+            ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM')
+            ->findAll();
+        
+        $data = [];
+        foreach ($promotion as $key => $item) {
+            $data[$item['PK_iMaSP']] = $item['fChietKhau'];
+        }
+        $result['km'] = $data;
+        // dd($result['km']);
+
         return $result;
     }
 
@@ -63,15 +113,56 @@ class StatisticalService extends BaseService
     /**Thống kê theo thời gian */
     public function getOrderByDate($startDate, $endDate)
     {
-        $result = $this->order
+        // $result = $this->order
+        //     ->select('*')
+        //     ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
+        //     ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
+        //     ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
+        //     ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
+        //     ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
+        //     // ->where('tbl_dondathang.FK_iMaTrangThai', '3')
+        //     ->findAll();
+        // return $result;
+        $result['order'] = [];
+        $order = $this->order
             ->select('*')
             ->join('tbl_nhanvien', 'tbl_nhanvien.PK_iMaNV = tbl_dondathang.FK_iMaNV', 'left')
             ->join('tbl_khachhang', 'tbl_khachhang.PK_iMaKH = tbl_dondathang.FK_iMaKH')
             ->join('tbl_trangthai', 'tbl_trangthai.PK_iMaTrangThai = tbl_dondathang.FK_iMaTrangThai')
             ->where('tbl_dondathang.dThoiGianTao >=', $startDate)
             ->where('tbl_dondathang.dThoiGianTao <=', $endDate)
-            // ->where('tbl_dondathang.FK_iMaTrangThai', '3')
             ->findAll();
+        $orderDetail = $this->orderDetail
+            ->select('*, (tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) as thanhtien')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP')
+            ->findAll();
+        foreach ($order as $orderItem) {
+            // Lấy mã đơn hàng
+            $orderID = $orderItem['PK_iMaDon'];
+            // Tạo một mảng tạm để lưu thông tin đơn hàng và chi tiết đơn hàng
+            $combinedOrder = $orderItem;
+            // Tìm các mục chi tiết đơn hàng tương ứng với mã đơn hàng
+            $orderDetails = array_filter($orderDetail, function ($item) use ($orderID) {
+                return $item['FK_iMaDon'] == $orderID;
+            });
+            // Thêm mảng chi tiết đơn hàng vào mảng tạm
+            $combinedOrder['orderDetails'] = array_values($orderDetails);
+            // Thêm mảng tạm vào mảng kết quả tổng cộng
+            $result['order'][] = $combinedOrder;
+        }
+        $promotion = $this->promotionDetail
+            ->select('*')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_sp_km.FK_iMaSP', 'right')
+            ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM')
+            ->findAll();
+        
+        $data = [];
+        foreach ($promotion as $key => $item) {
+            $data[$item['PK_iMaSP']] = $item['fChietKhau'];
+        }
+        $result['km'] = $data;
+        // dd($result['km']);
+
         return $result;
     }
 

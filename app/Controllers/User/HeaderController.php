@@ -5,16 +5,18 @@ namespace App\Controllers\User;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\CustomerModel;
+use App\Models\ProductModel;
 use App\Common\ResultUtils;
 use Exception;
 
 class HeaderController extends BaseController
 {
-    private $user, $customer;
+    private $user, $customer, $product;
     function __construct()
     {
         $this->user = new UserModel();
         $this->customer = new CustomerModel();
+        $this->product = new ProductModel();
         $this->user->protect(false);
         $this->customer->protect(false);
     }
@@ -82,4 +84,15 @@ class HeaderController extends BaseController
         $session->destroy();
         return redirect()->to('/');
     }
+
+    // public function search($name)
+    // {
+    //     $result = $this->product
+    //         ->select('*')
+    //         ->like('sTenSP', $name)
+    //         ->findAll();
+    //     echo json_encode([
+    //         'search' =>  $result,
+    //     ]);
+    // }
 }

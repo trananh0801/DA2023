@@ -41,6 +41,7 @@ class RevenueController extends BaseController
         $dataLayout['orders'] = $this->service->getOrderByDate($result['dBatDau'], $result['dKetThuc']);
         $dataLayout['totals'] = $this->service->getTotalByDate($result['dBatDau'], $result['dKetThuc']);
         $dataLayout['totalReturnBills'] = $this->service->getReturnBillCountByDate($result['dBatDau'], $result['dKetThuc']);
+        // return redirect()->to('admin/statistical/revenue')->withInput()->with($result, $dataLayout);
         $data = $this->loadMasterLayout($data, 'Thống kê doanh thu', 'Admin/Pages/revenue', $dataLayout);
         return view('Admin/main', $data);
     }

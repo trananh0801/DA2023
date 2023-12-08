@@ -14,6 +14,7 @@ $routes->get('error/404', function () {
 });
 $routes->group('admin', function ($routes) {
     $routes->get('home', 'Admin\HomeController::index');
+    // $routes->get('search/(:segment)', 'Admin\HeaderController::search/$1');
     $routes->group('user', function ($routes) {
         $routes->get('list', 'Admin\UserController::list');
         $routes->get('add', 'Admin\UserController::add');

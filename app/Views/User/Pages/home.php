@@ -326,5 +326,6 @@
             $("#ghichu").text(ghichu);
             $(".anhsp").attr('src', '<?php echo base_url('assets/admin/images/products/') ?>' + hinhanh);
         })
+        
     })
 </script>

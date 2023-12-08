@@ -1,0 +1,75 @@
+INFO - 2023-12-08 04:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:39:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:39:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:39:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:40:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:41:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:41:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:45:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:47:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 04:58:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:28:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:28:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:30:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:31:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:33:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-08 07:33:41 --> Undefined array key "order"
+in APPPATH\Views\Admin\Pages\revenue.php on line 73.
+ 1 APPPATH\Views\Admin\Pages\revenue.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "order"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\revenue.php', 73)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\Admin\\Pages\\revenue.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Pages/revenue', [], true)
+ 5 APPPATH\Controllers\BaseController.php(71): view('Admin/Pages/revenue', [...])
+ 6 APPPATH\Controllers\Admin\RevenueController.php(44): App\Controllers\BaseController->loadMasterLayout([...], 'Thống kê doanh thu', 'Admin/Pages/revenue', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-08 07:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-08 07:39:07 --> Undefined array key "massageCode"
+in APPPATH\Controllers\Admin\RevenueController.php on line 44.
+ 1 APPPATH\Controllers\Admin\RevenueController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "massageCode"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\Admin\\RevenueController.php', 44)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-08 07:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:39:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-08 07:39:11 --> Undefined array key "massageCode"
+in APPPATH\Controllers\Admin\RevenueController.php on line 44.
+ 1 APPPATH\Controllers\Admin\RevenueController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "massageCode"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Controllers\\Admin\\RevenueController.php', 44)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-08 07:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 07:41:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-08 07:41:33 --> CodeIgniter\HTTP\RedirectResponse::with(): Argument #1 ($key) must be of type string, array given, called in F:\DOANTOTNGHIEP\htdocs\DA2023\app\Controllers\Admin\RevenueController.php on line 44
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 130.
+ 1 APPPATH\Controllers\Admin\RevenueController.php(44): CodeIgniter\HTTP\RedirectResponse->with([...], [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin\RevenueController->search()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\RevenueController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-08 07:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

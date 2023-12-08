@@ -289,7 +289,7 @@
     <div class="search-full text-right"><a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i> </a>
 
         <div class="searchInputBox pull-right">
-            <input type="search" data-searchurl="search?=" name="q" placeholder="start typing and hit enter to search" class="search-input">
+            <input type="search" data-searchurl="search?=" name="q" placeholder="Nhập tên sản phẩm" class="search-input" id="search">
             <button class="btn-nobg search-btn" type="submit"><i class="fa fa-search"> </i></button>
         </div>
     </div>
@@ -302,6 +302,25 @@
         soluong = $('.miniCartQuantity').text();
         dongia = $('.miniCartSubtotal').text();
         console.log(soluong);
-        // $('.thanhtien').html(soluong*dongia);
+
+        // // Sự kiện khi người dùng nhập vào ô tìm kiếm
+        // $('#search').on('input', function() {
+        //         // Lấy giá trị từ ô tìm kiếm
+        //         var searchTerm = $(this).val().trim();
+        //         // Gửi yêu cầu Ajax để tìm kiếm sản phẩm
+        //         if (searchTerm !== "") {
+        //             $.ajax({
+        //                 url: '<?= base_url('admin/search') ?>/' + searchTerm,
+        //                 method: 'GET',
+        //                 success: function(data) {
+        //                     response = JSON.parse(data);
+        //                     console.log(response.search.sTenSP);
+        //                     $('#searchResults').html(data);
+        //                 }
+        //             });
+        //         } else {
+        //             $('#searchResults').html("");
+        //         }
+        //     });
     });
 </script>

@@ -56,33 +56,58 @@
         <div class="card-body">
             <h5 class="card-title">Đơn hàng</h5>
             <div class="table-responsive">
-                <table class="table table-hover">
-                    <?php $k = 1 ?>
-                    <?php foreach ($orders as $order) : ?>
+                <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
                         <tr>
-                            <td><?= $k++ ?></td>
-                            <td><b><?= $order['PK_iMaDon'] ?></b></td>
-                            <td><?= $order['sTenNV'] ?></td>
-                            <td><?= $order['sTenKH'] ?></td>
-                            <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
-                            <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
-                                <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
-                            <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
-                                <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
-                            <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
-                                <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
-                            <?php else : ?>
-                                <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
-                            <?php endif; ?>
+                            <th>STT</th>
+                            <th>Mã hóa đơn</th>
+                            <th>Nhân viên</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt </th>
+                            <th>Trạng thái</th>
+                            <th>Tổng tiền</th>
                         </tr>
-                    <?php endforeach ?>
+                    </thead>
+                    <tbody>
+                        <?php $k = 1 ?>
+                        <?php foreach ($orders['order'] as $order) : ?>
+                            <tr>
+                                <td><?= $k++ ?></td>
+                                <td><b><?= $order['PK_iMaDon'] ?></b></td>
+                                <td><?= $order['sTenNV'] ?></td>
+                                <td><?= $order['sTenKH'] ?></td>
+                                <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
+                                <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
+                                    <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php else : ?>
+                                    <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php endif; ?>
+                                <td>
+                                    <?php
+                                    $totalAmount = 0;
+                                    $key = 0;
+                                    foreach ($order['orderDetails'] as $od) {
+                                        $totalAmount += $od['iSoLuong'] * $od['fGiaBanLe'];
+                                    }
+                                    echo   number_format($totalAmount)
+                                    ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
             </div> <!-- table-responsive end// -->
         </div> <!-- card-body end// -->
     </div> <!-- card end// -->
 
 </section> <!-- content-main end// -->
-<script src="assets/admin/js/jquery-3.7.1.min.js"></script>
+
 <script>
     function searchOrders() {
         // Lấy giá trị ngày bắt đầu và kết thúc từ input

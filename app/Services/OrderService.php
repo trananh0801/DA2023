@@ -24,6 +24,7 @@ class OrderService extends BaseService
         $this->orderDetail = new OrderDetailModel();
         $this->customer = new CustomerModel();
         $this->order->protect(false);
+        $this->customer->protect(false);
         $this->product->protect(false);
         $this->orderDetail->protect(false);
     }
@@ -302,6 +303,45 @@ class OrderService extends BaseService
         }
     }
 
+
+    /**Thêm nhanh khách hàng */
+    public function addCustomerInfo($requestData){
+        //Tạo mã tự động
+        $timestamp = time();
+        $randomPart = mt_rand(1000, 9999);
+        $uniqueCode = $timestamp . $randomPart;
+
+        $validate = $this->validateAddCustomer($requestData);
+        if($validate->getErrors()){
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode'=> ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validate->getErrors(),
+            ];
+        }
+        $dataSave = [
+            'PK_iMaKH'  => 'KH_' . $uniqueCode,
+            'sTenKH'  => $requestData->getPost('sTenKH'),
+            'sSDT'  => $requestData->getPost('sSDT'),
+        ];
+        // dd($dataSave);
+        try{
+            $this->customer->save($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'massageCode'=> ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=> 'Thêm khách hàng thành công'],
+            ];
+        }
+        catch(Exception $e){
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode'=> ResultUtils::MESSAGE_CODE_ERR,
+                'message' => [''=> $e->getMessage()],
+            ];
+        }
+    }
+
     /**Validate đơn hàng khi thêm mới------------------------------------------------------------------------ */
     public function validateAddOrder($requestData)
     {
@@ -328,6 +368,21 @@ class OrderService extends BaseService
         $message = [
             'iSoLuong' => [
                 'required' => 'Số lượng không được để trống!'
+            ]
+        ];
+        $this->validation->setRules($rule, $message);
+        $this->validation->withRequest($requestData)->run();
+
+        return $this->validation;
+    }
+
+    public function validateAddCustomer($requestData){
+        $rule = [
+            'sTenKH'=>'max_length[100]',
+        ];
+        $message = [
+            'sTenKH'=> [
+                'max_length' => 'Tên khách hàng quá dài!'
             ]
         ];
         $this->validation->setRules($rule, $message);

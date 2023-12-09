@@ -60,7 +60,7 @@
                                         <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
                                     <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
                                         <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
-                                        <?php elseif ($order['FK_iMaTrangThai'] == '11') : ?>
+                                    <?php elseif ($order['FK_iMaTrangThai'] == '11') : ?>
                                         <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
                                     <?php else : ?>
                                         <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
@@ -94,10 +94,10 @@
                                     <div class="col-6">
                                         <label class="form-label">Nhân viên</label>
                                         <select class="form-select" name="FK_iMaNV" disabled>
-                                                <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
+                                            <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-5">
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label">Khách hàng</label>
@@ -109,6 +109,17 @@
                                                     <?php endforeach ?>
                                                 </select>
 
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="button" class="btn btn-warning mt-1" data-bs-toggle="modal" data-bs-target="#addKH" data-bs-whatever="@mdo">Thêm</button>
                                             </div>
 
                                         </div>
@@ -197,6 +208,34 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addKH" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm nhanh khách hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="admin/order/themnhanh">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Tên khách hàng</label>
+                            <input type="text" class="form-control" id="recipient-name" name="sTenKH">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Số điện thoại</label>
+                            <input type="text" class="form-control" id="sSDT" name="sSDT">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

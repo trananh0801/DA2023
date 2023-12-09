@@ -65,6 +65,7 @@ $routes->group('admin', function ($routes) {
         $routes->post('updateSave/(:segment)', 'Admin\UpdateOrderController::update/$1');
         $routes->get('delete/(:num)', 'Admin\OrderController::delete/$1');
         $routes->post('check_product_detail', 'Admin\OrderController::check_product_detail');
+        $routes->post('themnhanh', 'Admin\OrderController::themnhanh');
 
         //in hóa đơn
         $routes->get('pdf_invoice/(:segment)', 'Admin\InvoiceController::pdf_invoice/$1');

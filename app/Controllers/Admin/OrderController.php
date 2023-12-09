@@ -60,4 +60,10 @@ class OrderController extends BaseController
             'product' =>  $result,
         ]);
     }
+
+    public function themnhanh()
+    {
+        $result = $this->service->addCustomerInfo($this->request);
+        return redirect()->to('admin/order/list')->withInput()->with($result['massageCode'], $result['message']);
+    }
 }

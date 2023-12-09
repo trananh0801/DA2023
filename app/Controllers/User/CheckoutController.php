@@ -40,47 +40,26 @@ class CheckoutController extends BaseController
 
     public function onepay_payment()
     {
-        /* -----------------------------------------------------------------------------
+      
+        $SECURE_SECRET = "6D0870CDE5F24F34F3915FB0045120DB";
 
- Version 2.0
-
- @author OnePAY
-
-------------------------------------------------------------------------------*/
-
-        // *********************
-        // START OF MAIN PROGRAM
-        // *********************
-
-        // Define Constants
-        // ----------------
-        // This is secret for encoding the MD5 hash
-        // This secret will vary from merchant to merchant
-        // To not create a secure hash, let SECURE_SECRET be an empty string - ""
-        // $SECURE_SECRET = "secure-hash-secret";
-        // Khóa bí mật - được cấp bởi OnePAY
-        $SECURE_SECRET = "A3EFDFABA8653DF2342E8DAC29B51AF0";
-
-        // add the start of the vpcURL querystring parameters
-        // *****************************Lấy giá trị url cổng thanh toán*****************************
+        
         $vpcURL = 'https://mtf.onepay.vn/onecomm-pay/vpc.op' . "?";
 
-        // Remove the Virtual Payment Client URL from the parameter hash as we 
-        // do not want to send these fields to the Virtual Payment Client.
-        // bỏ giá trị url và nút submit ra khỏi mảng dữ liệu
-        // unset($_POST["virtualPaymentClientURL"]);
-        // unset($_POST["SubButL"]);
-        $vpc_Merchant = 'ONEPAY';
-        $vpc_AccessCode = 'D67342C2';
+        
+        $Title = 'VPC 3-Party';
+        $vpc_Merchant = 'TESTONEPAY';
+        $vpc_AccessCode = '6BEB2546';
         $vpc_MerchTxnRef = time();
         $vpc_OrderInfo = 'JSECURETEST01';
         $vpc_Amount = $_POST['tongtien_onepay'] * 100;
-        $vpc_ReturnURL = 'http://localhost:8080/user/checkout';
+        $vpc_ReturnURL = 'http://localhost:8080/user/addCheckout';
         $vpc_Version = '2';
         $vpc_Command = 'pay';
         $vpc_Locale = 'vn';
-        $vpc_Currency = 'VND';
-        $data = [
+        $vpc_TicketNo = $_SERVER['REMOTE_ADDR'];
+        $data = array(
+            'Title' => $Title,
             'vpc_Merchant' => $vpc_Merchant,
             'vpc_AccessCode' => $vpc_AccessCode,
             'vpc_MerchTxnRef' => $vpc_MerchTxnRef,
@@ -90,8 +69,11 @@ class CheckoutController extends BaseController
             'vpc_Version' => $vpc_Version,
             'vpc_Command' => $vpc_Command,
             'vpc_Locale' => $vpc_Locale,
-            'vpc_Currency' => $vpc_Currency,
-        ];
+            'vpc_TicketNo' => $vpc_TicketNo,
+        );
+        $data['AgainLink'] = urlencode($_SERVER['HTTP_REFERER']);
+        $md5HashData = "";
+
         //$stringHashData = $SECURE_SECRET; *****************************Khởi tạo chuỗi dữ liệu mã hóa trống*****************************
         $stringHashData = "";
         // sắp xếp dữ liệu theo thứ tự a-z trước khi nối lại

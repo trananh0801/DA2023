@@ -305,6 +305,8 @@
         $(document).on('change', '.selectProduct', function() {
             var id = $(this).val();
             var index = $(this).attr('data-index');
+            var now = new Date();
+
             $.ajax({
                 type: "post",
                 url: 'admin/order/check_product_detail',
@@ -313,35 +315,37 @@
                 },
                 success: function(data) {
                     response = JSON.parse(data);
-                    console.log(response);
+                    NHL = Date.parse(response.product.dNgayHieuLuc)
+                    NHHL = Date.parse(response.product.dNgayHetHieuLuc)
+                    var ngayhieuluc = new Date(NHL);
+                    var ngayhethieuluc = new Date(NHHL);
+                    console.log(ngayhieuluc);
+                    console.log(ngayhethieuluc);
+                    console.log(now);
                     var tong = 0;
                     $('tr.order-' + index).children('td.price').html(formatNumber(parseFloat(response.product.fGiaBanLe)));
                     $('tr.order-' + index).children('input[name="price_product"]').val(response.product.fGiaBanLe);
-                    if (response.product.fChietKhau == null) {
+                    if (response.product.fChietKhau == null || (now < ngayhieuluc || now > ngayhethieuluc)) {
                         $('tr.order-' + index).children('td.chietkhau').html('0');
                         $('tr.order-' + index).children('input[name="chietkhau_product"]').val(0);
                     } else {
                         $('tr.order-' + index).children('td.chietkhau').html(response.product.fChietKhau);
                         $('tr.order-' + index).children('input[name="chietkhau_product"]').val(response.product.fChietKhau);
                     }
-                    // $('.iSoLuong').val('1');
                     soluong = $('.iSoLuong').val();
 
                     var giabanle = response.product.fGiaBanLe;
                     var changeGiabanLe = giabanle.replace(/\./g, "");
-                    var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
+                    if (now < ngayhieuluc || now > ngayhethieuluc) {
+                        var thanhtien = (changeGiabanLe * soluong);
+                    } else {
+                        var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
+                    }
+                    
 
-                    // console.log(formatNumber(thanhtien))
                     $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));
                     $('tr.order-' + index).children('input[name="thanhtien_product"]').val(thanhtien);
 
-                    // $(".thanhtien").each(function() {
-                    //     var tongtien = $(this).text();
-                    //     var changeTongtien = tongtien.replace(/\./g, "");
-                    //     // Chuyển đổi giá trị từ chuỗi sang số và cộng vào tổng
-                    //     tong += parseFloat(changeTongtien) || 0;
-                    // });
-                    // $('#tongtien').html(formatNumber(tong));
                     $('#tongtien').html(formatNumber(tinh_thanhtien()));
 
                 }

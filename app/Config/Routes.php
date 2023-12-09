@@ -133,10 +133,10 @@ $routes->group('user', function ($routes) {
 
     $routes->get('about-us', 'User\AboutController::list');
     $routes->get('checkout', 'User\CheckoutController::list');
-    $routes->post('addCheckout', 'User\CheckoutController::addOrderInfo');
+    $routes->post('addCheckout', 'User\CheckoutController::process_form');
 
     $routes->get('checkoutProd/(:segment)', 'User\Checkout1ProdController::list/$1');
-    $routes->post('addcheckoutProd', 'User\Checkout1ProdController::addOrderProdInfo');
+    $routes->post('addcheckoutProd', 'User\Checkout1ProdController::process_form');
 
     $routes->get('order-status/(:segment)', 'User\OrderStatusController::list/$1');
     $routes->get('doitra/(:segment)', 'User\OrderStatusController::doitra/$1');
@@ -145,6 +145,6 @@ $routes->group('user', function ($routes) {
 
 
     //Thanh toán onepay
-    $routes->post('onepay_payment', 'User\CheckoutController::onepay_payment');
-    $routes->post('onepay_payment_1', 'User\Checkout1ProdController::onepay_payment');
+    // $routes->post('onepay_payment', 'User\CheckoutController::onepay_payment');
+    // $routes->post('onepay_payment_1', 'User\Checkout1ProdController::onepay_payment');
 });

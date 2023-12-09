@@ -132,19 +132,17 @@
                                         <i class="fa fa-arrow-left"></i> &nbsp; Thay đổi địa chỉ </a>
                                 </div>
                                 <div class="pull-right">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-small" type="submit">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-small" type="submit" name="ttnhanhang">
                                         Thanh toán khi nhận hàng &nbsp; <i class="fa fa-check"></i>
                                     </button>
                                 </div>
+                                <div class="pull-right" style="margin-right: 5px;">
+                                    <input type="text" id="tongtien-onepay" name="tongtien_onepay">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-small" type="submit" name="ttonepay">
+                                        Thanh toán OnePay &nbsp; <i class="fa fa-check"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <form action="user/onepay_payment" method="POST">
-                        <div class="pull-right" style="margin-right: 5px;">
-                            <input type="text" id="tongtien-onepay" name="tongtien_onepay">
-                            <button id="singlebutton" name="singlebutton" class="btn btn-success btn-small" type="submit">
-                                Thanh toán OnePay &nbsp; <i class="fa fa-check"></i>
-                            </button>
                         </div>
                     </form>
                 </div>

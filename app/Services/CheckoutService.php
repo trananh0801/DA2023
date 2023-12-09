@@ -81,7 +81,7 @@ class CheckoutService extends BaseService
             'PK_iMaDon' => 'HD_' . $uniqueCode,
             'FK_iMaNV' => '',
             'FK_iMaKH' => $this->getCustomerById($userID),
-            'FK_iMaTrangThai' => '4',
+            'FK_iMaTrangThai' => '12',
         ];
         $dataSave_CTDDH = [
             'iSoLuong' => $requestData->getPost('iSoLuong'),
@@ -153,7 +153,7 @@ class CheckoutService extends BaseService
             'PK_iMaDon' => 'HD_' . $uniqueCode,
             'FK_iMaNV' => '',
             'FK_iMaKH' => $this->getCustomerById($userID),
-            'FK_iMaTrangThai' => '10',
+            'FK_iMaTrangThai' => '12',
         ];
         $dataSave_CTDDH = [
             'iSoLuong' => $requestData->getPost('iSoLuong'),
@@ -225,7 +225,7 @@ class CheckoutService extends BaseService
             'PK_iMaDon' => 'HD_' . $uniqueCode,
             'FK_iMaNV' => '',
             'FK_iMaKH' => $this->getCustomerById($userID),
-            'FK_iMaTrangThai' => '4',
+            'FK_iMaTrangThai' => '12',
         ];
         $dataSave_CTDDH = [
             'iSoLuong' => $requestData->getPost('iSoLuong'),
@@ -309,7 +309,7 @@ class CheckoutService extends BaseService
             'PK_iMaDon' => 'HD_' . $uniqueCode,
             'FK_iMaNV' => '',
             'FK_iMaKH' => $this->getCustomerById($userID),
-            'FK_iMaTrangThai' => '10',
+            'FK_iMaTrangThai' => '12',
         ];
         $dataSave_CTDDH = [
             'iSoLuong' => $requestData->getPost('iSoLuong'),

@@ -22,21 +22,22 @@ class CartController extends BaseController
         // dd($userID);
         $data = [];
         $dataLayout['allProductInCarts'] = $this->service->getAllProduct($userID);
-        // dd($dataLayout['allProductInCarts']['cart_detail']);
+        // dd($dataLayout['allProductInCarts']);
         $data = $this->loadMasterLayoutUser($data, 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', $dataLayout);
         return view('User/main', $data);
     }
 
-    public function UpdateCart()
+    public function process_form()
     {
-        $result = $this->service->updateCartInfo($this->request);
-        return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
-    
-    }
-    public function deleteProductInCart()
-    {
-        $result = $this->service->deleteProductInCart($this->request);
-        return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
+        $submitAction = $this->request->getPost('updatecart');
+        if ($submitAction === 'capnhat') {
+            $result = $this->service->updateCartInfo($this->request);
+            return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
+        }elseif ($submitAction === 'xoa'){
+            $result = $this->service->deleteProductInCart($this->request);
+            return redirect()->to('user/cart')->withInput()->with($result['massageCode'], $result['message']);
+        }
+        
     
     }
 }

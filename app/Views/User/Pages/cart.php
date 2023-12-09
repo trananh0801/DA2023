@@ -39,7 +39,7 @@
         <?php if (session('errorsMsg')) : ?>
             <?php foreach (session('errorsMsg') as $error) : ?>
                 <div class="alert alert-danger d-flex align-items-center myAlert" role="alert">
-                    <span>Thêm dữ liệu thất bại!</span>
+                    <strong>Lỗi: </strong> <?= $error ?>
                 </div>
                 <?php break; ?>
             <?php endforeach ?>
@@ -47,7 +47,7 @@
         <?php if (session('successMsg')) : ?>
             <?php foreach (session('successMsg') as $success) : ?>
                 <div class="alert alert-success d-flex align-items-center myAlert" role="alert">
-                    <span>Thêm dữ liệu thành công!</span>
+                    <strong>Lỗi: </strong> <?= $success ?>
                 </div>
                 <?php break; ?>
             <?php endforeach ?>
@@ -90,27 +90,28 @@
                                                     </div>
                                                 </td>
                                                 <td class="delete">
-                                                    <button class="btn btn-sm btn-primary">
+                                                    <button class="btn btn-sm btn-primary" name="updatecart" value="xoa" type="submit">
                                                         <i class="glyphicon glyphicon-trash fa-2x"></i>
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <input type="text" value="<?= $allProductInCart['FK_iMaGH'] ?>" name="PK_iMaGH" hidden>
+                                                    <input type="text" value="<?= $allProductInCart['FK_iMaGH'] ?>" name="FK_iMaGH" hidden>
                                                     <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
+                                                    <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="PK_iMaSP" hidden>
                                                     <input class="quanitySniper iSoLuong" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]" id="iSoLuong">
                                                 </td>
                                                 <td>
 
                                                     <?php $currentDate = date('Y-m-d') ?>
-                                                        <?php if (isset($allProductInCarts['km'][$allProductInCart['PK_iMaSP']])) : ?>
-                                                            <?php if ($currentDate >= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHieuLuc'] && $currentDate <= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHetHieuLuc']) : ?>
-                                                                <?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['fChietKhau'] ?: 0 ?>
-                                                            <?php else : ?>
-                                                                0
-                                                            <?php endif ?>
+                                                    <?php if (isset($allProductInCarts['km'][$allProductInCart['PK_iMaSP']])) : ?>
+                                                        <?php if ($currentDate >= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHieuLuc'] && $currentDate <= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHetHieuLuc']) : ?>
+                                                            <?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['fChietKhau'] ?: 0 ?>
                                                         <?php else : ?>
                                                             0
                                                         <?php endif ?>
+                                                    <?php else : ?>
+                                                        0
+                                                    <?php endif ?>
                                                 </td>
                                                 <td class="price"><span class="thanhtien">
                                                         <?php $currentDate = date('Y-m-d') ?>
@@ -135,10 +136,10 @@
                                 <div class="pull-left"><a href="user/home" class="btn btn-default"> <i class="fa fa-arrow-left"></i> &nbsp; Tiếp tục mua sắm </a></div>
                                 <div class="pull-right">
                                     <?php if (empty($allProductInCarts)) : ?>
-                                        <button type="submit" class="btn btn-default" disabled><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
+                                        <button type="submit" class="btn btn-default" disabled name="updatecart"><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
                                         </button>
                                     <?php else : ?>
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
+                                        <button type="submit" class="btn btn-default" name="updatecart" value="capnhat"><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
                                         </button>
                                     <?php endif ?>
                                 </div>

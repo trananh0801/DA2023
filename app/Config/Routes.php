@@ -123,8 +123,8 @@ $routes->group('user', function ($routes) {
     $routes->post('account/my-profile', 'User\AccountController::profile');
 
     $routes->get('cart', 'User\CartController::list');
-    $routes->post('updateCart', 'User\CartController::UpdateCart');
-    $routes->post('deleteProductInCart', 'User\CartController::deleteProductInCart');
+    $routes->post('updateCart', 'User\CartController::process_form');
+    // $routes->post('deleteProductInCart', 'User\CartController::deleteProductInCart');
 
     $routes->get('productDetail/(:num)', 'User\ProductDetailController::list/$1');
     $routes->get('product', 'User\ProductController::list');

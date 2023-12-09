@@ -99,7 +99,8 @@ class CartService extends BaseService
     public function deleteProductInCart($requestData)
     {
         $magiohang = $requestData->getPost('FK_iMaGH');
-        $masp = $requestData->getPost('FK_iMaSP');
+        $masp = $requestData->getPost('PK_iMaSP');
+        // dd($masp);
         try {
             $builder = $this->cartDetail->builder();
             $builder->where('FK_iMaGH', $magiohang);
@@ -108,7 +109,7 @@ class CartService extends BaseService
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,
-                'message' => ['success' => 'Xóa dữ liệu thành công'],
+                'message' => ['success' => 'Xóa sản phẩm khỏi giỏ hàng thành công'],
             ];
         } catch (Exception $e) {
             return [

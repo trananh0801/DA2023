@@ -99,8 +99,31 @@
                                                     <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
                                                     <input class="quanitySniper iSoLuong" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]" id="iSoLuong">
                                                 </td>
-                                                <td><?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']] ?: 0 ?></td>
-                                                <td class="price"><span class="thanhtien"><?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe'] * (1 - $allProductInCarts['km'][$allProductInCart['PK_iMaSP']] / 100 ?: 0)), 0, '.', ',') ?></span> VNĐ</td>
+                                                <td>
+
+                                                    <?php $currentDate = date('Y-m-d') ?>
+                                                        <?php if (isset($allProductInCarts['km'][$allProductInCart['PK_iMaSP']])) : ?>
+                                                            <?php if ($currentDate >= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHieuLuc'] && $currentDate <= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHetHieuLuc']) : ?>
+                                                                <?php echo $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['fChietKhau'] ?: 0 ?>
+                                                            <?php else : ?>
+                                                                0
+                                                            <?php endif ?>
+                                                        <?php else : ?>
+                                                            0
+                                                        <?php endif ?>
+                                                </td>
+                                                <td class="price"><span class="thanhtien">
+                                                        <?php $currentDate = date('Y-m-d') ?>
+                                                        <?php if (isset($allProductInCarts['km'][$allProductInCart['PK_iMaSP']])) : ?>
+                                                            <?php if ($currentDate >= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHieuLuc'] && $currentDate <= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHetHieuLuc']) : ?>
+                                                                <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe'] * (1 - $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?>
+                                                            <?php else : ?>
+                                                                <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe']), 0, '.', ',') ?>
+                                                            <?php endif ?>
+                                                        <?php else : ?>
+                                                            <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe']), 0, '.', ',') ?>
+                                                        <?php endif ?>
+                                                    </span> VNĐ</td>
                                             </tr>
                                         <?php } ?>
                                     <?php endif ?>
@@ -187,7 +210,7 @@
 
         $(document).on('click', '.input-group-btn', function() {
             var amount = $('.iSoLuong').val();
-            if (parseInt(amount) == 0){
+            if (parseInt(amount) == 0) {
                 var alertHTML = '<div class="alert alert-danger d-flex align-items-center myAlert" role="alert">\
                           Số lượng bằng 0. Vui lòng nhập một giá trị khác.\
                         </div>';

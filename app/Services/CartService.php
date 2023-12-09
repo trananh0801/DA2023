@@ -55,7 +55,11 @@ class CartService extends BaseService
 
         $data=[];
         foreach($km as $key => $item){
-            $data[$item['FK_iMaSP']]=$item['fChietKhau'];
+            $data[$item['FK_iMaSP']]=[
+                'fChietKhau' => $item['fChietKhau'],
+                'dNgayHieuLuc' => $item['dNgayHieuLuc'],
+                'dNgayHetHieuLuc' => $item['dNgayHetHieuLuc'],
+            ];
         }
         $result['km']=$data;
 

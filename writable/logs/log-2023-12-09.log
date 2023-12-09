@@ -72,3 +72,140 @@ INFO - 2023-12-09 08:03:28 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-09 08:04:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-09 08:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-09 08:07:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:13:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:20:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:20:09 --> Array to string conversion
+in APPPATH\Views\User\Pages\cart.php on line 102.
+ 1 APPPATH\Views\User\Pages\cart.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:20:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:21:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:21:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:21:42 --> Undefined array key 47
+in APPPATH\Views\User\Pages\cart.php on line 102.
+ 1 APPPATH\Views\User\Pages\cart.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 47', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:24:01 --> Array to string conversion
+in APPPATH\Views\User\Pages\cart.php on line 102.
+ 1 APPPATH\Views\User\Pages\cart.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:25:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:25:29 --> Undefined array key 47
+in APPPATH\Views\User\Pages\cart.php on line 103.
+ 1 APPPATH\Views\User\Pages\cart.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 47', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 103)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:28:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:28:11 --> Undefined array key 47
+in APPPATH\Views\User\Pages\cart.php on line 108.
+ 1 APPPATH\Views\User\Pages\cart.php(108): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 47', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 108)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:29:14 --> Undefined array key 47
+in APPPATH\Views\User\Pages\cart.php on line 106.
+ 1 APPPATH\Views\User\Pages\cart.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 47', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 106)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:29:50 --> Undefined array key 47
+in APPPATH\Views\User\Pages\cart.php on line 110.
+ 1 APPPATH\Views\User\Pages\cart.php(110): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 47', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 110)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:39:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-09 08:39:11 --> Undefined array key "dNgayHetHieuLuc"
+in APPPATH\Views\User\Pages\cart.php on line 112.
+ 1 APPPATH\Views\User\Pages\cart.php(112): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "dNgayHetHieuLuc"', 'F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php', 112)
+ 2 SYSTEMPATH\View\View.php(226): include('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\app\\Views\\User\\Pages\\cart.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('User/Pages/cart', [], true)
+ 5 APPPATH\Controllers\BaseController.php(126): view('User/Pages/cart', [...])
+ 6 APPPATH\Controllers\User\CartController.php(26): App\Controllers\BaseController->loadMasterLayoutUser([...], 'Danh sách sản phẩm đã thêm vào giỏ hàng', 'User/Pages/cart', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\User\CartController->list()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\CartController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('F:\\DOANTOTNGHIEP\\htdocs\\DA2023\\public\\index.php')
+INFO - 2023-12-09 08:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 08:41:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

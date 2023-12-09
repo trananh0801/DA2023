@@ -104,8 +104,21 @@
                                                         <input type="text" value="<?= $products['PK_iMaSP'] ?>" name="FK_iMaSP" hidden>
                                                         <input class="quanitySniper" type="text" value="1" min="1" name="iSoLuong" style="width:35px">
                                                     </td>
-                                                    <td class="hidden-xs"><?php if ($products['fChietKhau'] == null) : ?>0<?php else : ?><?= $products['fChietKhau'] ?><?php endif; ?></td>
-                                                    <td class="price"><span class="thanhtien"><?php echo   number_format((1 * $products['fGiaBanLe'] * (1 - $products['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></span> đ</td>
+                                                    <td class="hidden-xs">
+                                                        <?php $currentDate = date('Y-m-d') ?>
+                                                        <?php if ($products['fChietKhau'] == null || ($currentDate < $products['dNgayHieuLuc'] || $currentDate > $products['dNgayHetHieuLuc'])) : ?>
+                                                            0
+                                                        <?php else : ?>
+                                                            <?= $products['fChietKhau'] ?>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td class="price"><span class="thanhtien">
+                                                            <?php if ($products['fChietKhau'] == null || ($currentDate < $products['dNgayHieuLuc'] || $currentDate > $products['dNgayHetHieuLuc'])) : ?>
+                                                                <?php echo   number_format((1 * $products['fGiaBanLe']), 0, '.', ',') ?> đ
+                                                            <?php else : ?>
+                                                                <?php echo   number_format((1 * $products['fGiaBanLe'] * (1 - $products['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?> đ
+                                                            <?php endif; ?>
+                                                        </span> đ</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -120,7 +133,7 @@
                                 </div>
                                 <div class="pull-right">
                                     <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-small" type="submit">
-                                    Thanh toán khi nhận hàng &nbsp; <i class="fa fa-check"></i>
+                                        Thanh toán khi nhận hàng &nbsp; <i class="fa fa-check"></i>
                                     </button>
                                 </div>
                             </div>
@@ -128,7 +141,7 @@
                     </form>
                     <form action="user/onepay_payment" method="POST">
                         <div class="pull-right" style="margin-right: 5px;">
-                        <input type="text" id="tongtien-onepay" name="tongtien_onepay">
+                            <input type="text" id="tongtien-onepay" name="tongtien_onepay">
                             <button id="singlebutton" name="singlebutton" class="btn btn-success btn-small" type="submit">
                                 Thanh toán OnePay &nbsp; <i class="fa fa-check"></i>
                             </button>

@@ -50,7 +50,7 @@ class CheckoutService extends BaseService
     public function get1Product($id)
     {
         $result = $this->product
-            ->select('*, tbl_sanpham.fGiaBanLe * (1 - IFNULL(tbl_khuyenmai.fChietKhau/100, 0)) as total_price')
+            ->select('*')
             ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
             ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')
             ->where('tbl_sanpham.PK_iMaSP', $id)

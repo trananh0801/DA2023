@@ -45,7 +45,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="example" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>STT</th>

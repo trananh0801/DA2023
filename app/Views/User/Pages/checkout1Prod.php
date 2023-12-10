@@ -137,7 +137,7 @@
                                     </button>
                                 </div>
                                 <div class="pull-right" style="margin-right: 5px;">
-                                    <input type="text" id="tongtien-onepay" name="tongtien_onepay">
+                                    <input type="hidden" id="tongtien-onepay" name="tongtien_onepay">
                                     <button id="singlebutton" name="singlebutton" class="btn btn-success btn-small" type="submit" name="ttonepay">
                                         Thanh toán OnePay &nbsp; <i class="fa fa-check"></i>
                                     </button>

@@ -48,8 +48,7 @@
                          </form>
                     </div>
                     <div class="col-md-8">
-
-                         <table class="table table-hover">
+                         <table id="example" class="display nowrap" style="width:100%">
                               <thead>
                                    <tr>
                                         <th>STT</th>
@@ -61,7 +60,7 @@
                                    </tr>
                               </thead>
                               <tbody>
-                              <?php $k = 1 ?>
+                                   <?php $k = 1 ?>
                                    <?php if (empty($suppliers)) : ?>
                                         <tr>
                                              <td colspan="6" class="text-center">Không có dữ liệu</td>
@@ -81,10 +80,10 @@
                                              </tr>
                                         <?php endforeach ?>
                                    <?php endif ?>
-
                               </tbody>
+                              <tfoot>
+                              </tfoot>
                          </table>
-
                     </div> <!-- .col// -->
                </div> <!-- .row // -->
           </div> <!-- card body .// -->

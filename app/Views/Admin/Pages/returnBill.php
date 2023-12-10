@@ -27,7 +27,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="example" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -59,6 +59,8 @@
                             <?php endforeach ?>
                         <?php endif ?>
                     </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
             </div> <!-- table-responsive //end -->
         </div> <!-- card-body end// -->
@@ -81,7 +83,7 @@
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
                                         <select class="form-select" name="FK_iMaNV" disabled>
-                                                <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
+                                            <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>
                                     <div class="col-6 mb-3">
@@ -115,11 +117,11 @@
                                     <tbody>
                                         <tr class="order-1">
                                             <td>1</td>
-                                            <td >
+                                            <td>
                                                 <select data-index="1" class="form-select selectProduct selected2" name="FK_iMaSP[]" id="selectProduct">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>" data-CTPN="<?= $product['PK_iMaCT_PN'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>" data-CTPN="<?= $product['PK_iMaCT_PN'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP'] ?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
@@ -159,7 +161,7 @@
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
-            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP']?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option><?php endforeach ?></select></td>';
+            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP'] ?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option><?php endforeach ?></select></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
             html += '<td><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
             html += '</tr>';

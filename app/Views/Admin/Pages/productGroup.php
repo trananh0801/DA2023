@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-8">
 
-                         <table class="table table-hover">
+                         <table id="example" class="display nowrap" style="width:100%">
                               <thead>
                                    <tr>
                                         <th>STT</th>

@@ -27,7 +27,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="example" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -59,6 +59,8 @@
                             <?php endforeach ?>
                         <?php endif ?>
                     </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
             </div> <!-- table-responsive //end -->
         </div> <!-- card-body end// -->
@@ -81,7 +83,7 @@
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
                                         <select class="form-select" name="FK_iMaNV" disabled>
-                                                <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
+                                            <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>
                                     <div class="col-6 mb-3">

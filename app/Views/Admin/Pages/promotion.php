@@ -27,7 +27,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="example" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -36,7 +36,6 @@
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hiệu lực</th>
                             <th scope="col">Chiết khấu</th>
-                            <!-- <th scope="col">Số lượng áp dụng</th> -->
                             <th scope="col">Trạng thái</th>
                             <th scope="col" class="text-end"> Tác vụ </th>
                         </tr>
@@ -56,7 +55,6 @@
                                 <td><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc'])) ?></td>
                                 <td><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc'])) ?></td>
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['fChietKhau'] ?>%</span></td>
-                                <!-- <td><span class="badge rounded-pill alert-success"><?= $promotion['iSoLuongAD'] ?></span></td> -->
                                 <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>
                                 <td class="text-end">
                                     <a href="admin/promotion/update/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>

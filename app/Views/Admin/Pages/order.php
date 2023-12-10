@@ -28,7 +28,7 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="example" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -72,6 +72,8 @@
                             <?php endforeach ?>
                         <?php endif ?>
                     </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
             </div> <!-- table-responsive //end -->
         </div> <!-- card-body end// -->
@@ -341,7 +343,7 @@
                     } else {
                         var thanhtien = (changeGiabanLe * soluong) - (changeGiabanLe * response.product.fChietKhau / 100);
                     }
-                    
+
 
                     $('tr.order-' + index).children('td.thanhtien').html(formatNumber(thanhtien));
                     $('tr.order-' + index).children('input[name="thanhtien_product"]').val(thanhtien);

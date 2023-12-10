@@ -76,7 +76,7 @@
                                     <?php else : ?>
                                         <?php
                                         //echo json_encode($allProductInCarts['cart_detail']); die();
-                                        foreach ($allProductInCarts['cart_detail'] as $allProductInCart) { ?>
+                                        foreach ($allProductInCarts['cart_detail'] as $k => $allProductInCart) { ?>
                                             <tr class="CartProduct">
                                                 <td>
                                                     <div><a class="cart-img" href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><img src="<?php echo base_url('assets/admin/images/products/' . $allProductInCart['sHinhAnh']) ?>" alt="img"></a>
@@ -85,7 +85,7 @@
                                                 <td>
                                                     <div class="CartDescription">
                                                         <h4><a href="user/productDetail/<?= $allProductInCart['PK_iMaSP'] ?>"><?= $allProductInCart['sTenSP'] ?> </a></h4>
-                                                        <div class="price"><span><?= number_format($allProductInCart['fGiaBanLe'], 0, '.', ',') ?> VNĐ</span></div>
+                                                        <div class="price"><span><?= number_format($allProductInCart['fGiaBanLe'], 0, '.', '.') ?> </span>VNĐ</div>
                                                         <i>Số lượng: <?= $allProductInCart['fSoLuong'] ?> (<?= $allProductInCart['sDVT'] ?>)</i>
                                                     </div>
                                                 </td>
@@ -98,10 +98,9 @@
                                                     <input type="text" value="<?= $allProductInCart['FK_iMaGH'] ?>" name="FK_iMaGH" hidden>
                                                     <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
                                                     <input type="text" value="<?= $allProductInCart['PK_iMaSP'] ?>" name="PK_iMaSP" hidden>
-                                                    <input class="quanitySniper iSoLuong" type="text" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]" id="iSoLuong">
+                                                    <input class="form-control iSoLuong" type="number" value="<?= $allProductInCart['iSoLuong'] ?>" min="1" name="iSoLuong[]" id="iSoLuong" data-index="<?= $k++ ?>" data-price="<?= $allProductInCart['fGiaBanLe'] ?>">
                                                 </td>
-                                                <td>
-
+                                                <td class="chietkhau-<?= $k++ ?>">
                                                     <?php $currentDate = date('Y-m-d') ?>
                                                     <?php if (isset($allProductInCarts['km'][$allProductInCart['PK_iMaSP']])) : ?>
                                                         <?php if ($currentDate >= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHieuLuc'] && $currentDate <= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHetHieuLuc']) : ?>
@@ -113,16 +112,16 @@
                                                         0
                                                     <?php endif ?>
                                                 </td>
-                                                <td class="price"><span class="thanhtien">
+                                                <td class="price"><span class="thanhtien-<?= $k++ ?> tongtien">
                                                         <?php $currentDate = date('Y-m-d') ?>
                                                         <?php if (isset($allProductInCarts['km'][$allProductInCart['PK_iMaSP']])) : ?>
                                                             <?php if ($currentDate >= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHieuLuc'] && $currentDate <= $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['dNgayHetHieuLuc']) : ?>
-                                                                <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe'] * (1 - $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?>
+                                                                <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe'] * (1 - $allProductInCarts['km'][$allProductInCart['PK_iMaSP']]['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?>
                                                             <?php else : ?>
-                                                                <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe']), 0, '.', ',') ?>
+                                                                <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe']), 0, '.', '.') ?>
                                                             <?php endif ?>
                                                         <?php else : ?>
-                                                            <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe']), 0, '.', ',') ?>
+                                                            <?php echo   number_format(($allProductInCart['iSoLuong'] * $allProductInCart['fGiaBanLe']), 0, '.', '.') ?>
                                                         <?php endif ?>
                                                     </span> VNĐ</td>
                                             </tr>
@@ -195,28 +194,36 @@
         }, 3000);
         $(document).ready(function() {
             var tong = 0;
-
             function formatNumber(number) {
                 return number.toLocaleString('vi-VN');
             }
 
-            $(".thanhtien").each(function() {
+            $(".tongtien").each(function() {
                 var thanhtien = $(this).text();
-                var changeThanhtien = thanhtien.replace(/\,/g, "");
-                console.log(changeThanhtien);
-                tong += parseFloat(changeThanhtien) || 0;
+                var changeThanhtien = thanhtien.replace(/\./g, "");
+                // console.log(changeThanhtien);
+                tong += parseFloat(changeThanhtien);
             });
             $('#total-price').html(formatNumber(tong));
-        });
 
-        $(document).on('click', '.input-group-btn', function() {
-            var amount = $('.iSoLuong').val();
-            if (parseInt(amount) == 0) {
-                var alertHTML = '<div class="alert alert-danger d-flex align-items-center myAlert" role="alert">\
-                          Số lượng bằng 0. Vui lòng nhập một giá trị khác.\
-                        </div>';
-                $(alertHTML).appendTo('.canhbao');
-                $('.iSoLuong').val(1);
+            function tinh_thanhtien() {
+                var tong = 0;
+                $('.tongtien').each(function() {
+                    var tongtien = $(this).text();
+                    var changeThanhtien = tongtien.replace(/\./g, "");
+                    console.log(changeThanhtien);
+                    tong += parseFloat(changeThanhtien);
+                });
+                return tong;
             }
+            $(document).on('input', '#iSoLuong', function() {
+                var index = $(this).attr("data-index");
+                var price = $(this).attr("data-price");
+                var chietkhau = $('.chietkhau-' + (parseInt(index) + 1)).html();
+                var amount = $(this).val();
+                console.log(1 - parseInt(chietkhau) / 100);
+                $('.thanhtien-' + (parseInt(index) + 2)).html(formatNumber((parseInt(price) * amount) * (1 - parseInt(chietkhau) / 100)));
+                $('#total-price').html(formatNumber(tinh_thanhtien()));
+            });
         });
     </script>

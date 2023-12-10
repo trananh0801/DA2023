@@ -82,8 +82,8 @@
                                                     <th style="width:15%"> Sản phẩm</th>
                                                     <th class="checkoutReviewTdDetails">Chi tiết</th>
                                                     <th style="width:10%">Đơn giá</th>
-                                                    <th class="hidden-xs" style="width:5%">Số lượng</th>
-                                                    <th class="hidden-xs" style="width:10%">Chiết khấu</th>
+                                                    <th class="hidden-xs" style="width:10%">Số lượng</th>
+                                                    <th class="hidden-xs" style="width:5%">Chiết khấu</th>
                                                     <th style="width:15%">Thành tiền</th>
                                                 </tr>
                                                 <tr class="CartProduct">
@@ -98,13 +98,13 @@
                                                         </div>
                                                     </td>
                                                     <td class="delete">
-                                                        <div class="price "><?= number_format($products['fGiaBanLe'], 0, '.', ',') ?> đ</div>
+                                                        <div class="price "><?= number_format($products['fGiaBanLe'], 0, '.', '.') ?> đ</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" value="<?= $products['PK_iMaSP'] ?>" name="FK_iMaSP" hidden>
-                                                        <input class="quanitySniper" type="text" value="1" min="1" name="iSoLuong" style="width:35px">
+                                                        <input class="form-control iSoLuong" type="number" min="1" name="iSoLuong[]" id="iSoLuong" data-price="<?= $products['fGiaBanLe'] ?>" value="1">
                                                     </td>
-                                                    <td class="hidden-xs">
+                                                    <td class="hidden-xs chietkhau">
                                                         <?php $currentDate = date('Y-m-d') ?>
                                                         <?php if ($products['fChietKhau'] == null || ($currentDate < $products['dNgayHieuLuc'] || $currentDate > $products['dNgayHetHieuLuc'])) : ?>
                                                             0
@@ -114,9 +114,9 @@
                                                     </td>
                                                     <td class="price"><span class="thanhtien">
                                                             <?php if ($products['fChietKhau'] == null || ($currentDate < $products['dNgayHieuLuc'] || $currentDate > $products['dNgayHetHieuLuc'])) : ?>
-                                                                <?php echo   number_format((1 * $products['fGiaBanLe']), 0, '.', ',') ?> đ
+                                                                <?php echo   number_format((1 * $products['fGiaBanLe']), 0, '.', '.') ?> đ
                                                             <?php else : ?>
-                                                                <?php echo   number_format((1 * $products['fGiaBanLe'] * (1 - $products['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?> đ
+                                                                <?php echo   number_format((1 * $products['fGiaBanLe'] * (1 - $products['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?> đ
                                                             <?php endif; ?>
                                                         </span> đ</td>
                                                 </tr>
@@ -173,7 +173,7 @@
 </div>
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
-    //set timeout cho thông báo
+    // Đợi 3 giây (3000 miligiây) sau đó ẩn alert
     setTimeout(function() {
         $('.myAlert').fadeOut('slow');
     }, 3000);
@@ -186,11 +186,29 @@
 
         $(".thanhtien").each(function() {
             var thanhtien = $(this).text();
-            var changeThanhtien = thanhtien.replace(/\,/g, "");
-            console.log(changeThanhtien);
-            tong += parseFloat(changeThanhtien) || 0;
+            var changeThanhtien = thanhtien.replace(/\./g, "");
+            // console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien);
         });
         $('#total-price').html(formatNumber(tong));
-        $('#tongtien-onepay').val(tong);
+
+        function tinh_thanhtien() {
+            var tong = 0;
+            $('.thanhtien').each(function() {
+                var tongtien = $(this).text();
+                var changeThanhtien = tongtien.replace(/\./g, "");
+                console.log(changeThanhtien);
+                tong += parseFloat(changeThanhtien);
+            });
+            return tong;
+        }
+        $(document).on('input', '#iSoLuong', function() {
+            // var index = $(this).attr("data-index");
+            var price = $(this).attr("data-price");
+            var chietkhau = $('.chietkhau').html();
+            var amount = $(this).val();
+            $('.thanhtien').html(formatNumber((parseInt(price) * amount) * (1 - parseInt(chietkhau) / 100)));
+            $('#total-price').html(formatNumber(tinh_thanhtien()));
+        });
     });
 </script>

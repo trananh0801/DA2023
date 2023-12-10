@@ -82,11 +82,11 @@
                                                     <th style="width:15%"> Sản phẩm</th>
                                                     <th class="checkoutReviewTdDetails">Chi tiết</th>
                                                     <th style="width:10%">Đơn giá</th>
-                                                    <th class="hidden-xs" style="width:5%">Số lượng</th>
-                                                    <th class="hidden-xs" style="width:10%">Chiết khấu</th>
+                                                    <th class="hidden-xs" style="width:10%">Số lượng</th>
+                                                    <th class="hidden-xs" style="width:5%">Chiết khấu</th>
                                                     <th style="width:15%">Thành tiền</th>
                                                 </tr>
-                                                <?php foreach ($products as $product) : ?>
+                                                <?php foreach ($products as $k => $product) : ?>
                                                     <tr class="CartProduct">
                                                         <td>
                                                             <div><a href="product-details.html" class="checkout-img"><img src="<?php echo base_url('assets/admin/images/products/' . $product['sHinhAnh']) ?>"></a>
@@ -99,13 +99,13 @@
                                                             </div>
                                                         </td>
                                                         <td class="delete">
-                                                            <div class="price "><?= number_format($product['fGiaBanLe'], 0, '.', ',') ?> đ</div>
+                                                            <div class="price "><?= number_format($product['fGiaBanLe'], 0, '.', '.') ?> đ</div>
                                                         </td>
                                                         <td>
                                                             <input type="text" value="<?= $product['PK_iMaSP'] ?>" name="FK_iMaSP[]" hidden>
-                                                            <input class="quanitySniper" type="text" value="<?= $product['iSoLuong'] ?>" min="1" name="iSoLuong[]" style="width:35px">
+                                                            <input class="form-control iSoLuong" type="number" value="<?= $product['iSoLuong'] ?>" min="1" name="iSoLuong[]" id="iSoLuong" data-index="<?= $k++ ?>" data-price="<?= $product['fGiaBanLe'] ?>">
                                                         </td>
-                                                        <td class="hidden-xs">
+                                                        <td class="hidden-xs chietkhau-<?= $k++ ?>">
                                                             <?php $currentDate = date('Y-m-d') ?>
                                                             <?php if ($product['fChietKhau'] == null || ($currentDate < $product['dNgayHieuLuc'] || $currentDate > $product['dNgayHetHieuLuc'])) : ?>
                                                                 0
@@ -113,11 +113,11 @@
                                                                 <?= $product['fChietKhau'] ?>
                                                             <?php endif; ?>
                                                         </td>
-                                                        <td class="price thanhtien">
+                                                        <td class="price thanhtien-<?= $k++ ?> tongtien">
                                                             <?php if ($product['fChietKhau'] == null || ($currentDate < $product['dNgayHieuLuc'] || $currentDate > $product['dNgayHetHieuLuc'])) : ?>
-                                                                <?php echo   number_format(($product['iSoLuong'] * $product['fGiaBanLe']), 0, '.', ',') ?> đ
+                                                                <?php echo   number_format(($product['iSoLuong'] * $product['fGiaBanLe']), 0, '.', '.') ?> đ
                                                             <?php else : ?>
-                                                                <?php echo   number_format(($product['iSoLuong'] * $product['fGiaBanLe'] * (1 - $product['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?> đ
+                                                                <?php echo   number_format(($product['iSoLuong'] * $product['fGiaBanLe'] * (1 - $product['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?> đ
                                                             <?php endif; ?>
                                                         </td>
                                                     </tr>
@@ -194,13 +194,34 @@
             return number.toLocaleString('vi-VN');
         }
 
-        $(".thanhtien").each(function() {
+        $(".tongtien").each(function() {
             var thanhtien = $(this).text();
-            var changeThanhtien = thanhtien.replace(/\,/g, "");
-            console.log(changeThanhtien);
-            tong += parseFloat(changeThanhtien) || 0;
+            var changeThanhtien = thanhtien.replace(/\./g, "");
+            // console.log(changeThanhtien);
+            tong += parseFloat(changeThanhtien);
         });
         $('#total-price').html(formatNumber(tong));
         $('#tongtien-onepay').val(tong);
+
+        function tinh_thanhtien() {
+            var tong = 0;
+            $('.tongtien').each(function() {
+                var tongtien = $(this).text();
+                var changeThanhtien = tongtien.replace(/\./g, "");
+                console.log(changeThanhtien);
+                tong += parseFloat(changeThanhtien);
+            });
+            return tong;
+        }
+
+        $(document).on('input', '#iSoLuong', function() {
+            var index = $(this).attr("data-index");
+            var price = $(this).attr("data-price");
+            var chietkhau = $('.chietkhau-' + (parseInt(index) + 1)).html();
+            var amount = $(this).val();
+            console.log(1 - parseInt(chietkhau) / 100);
+            $('.thanhtien-' + (parseInt(index) + 2)).html(formatNumber((parseInt(price) * amount) * (1 - parseInt(chietkhau) / 100)));
+            $('#total-price').html(formatNumber(tinh_thanhtien()));
+        });
     });
 </script>

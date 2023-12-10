@@ -321,9 +321,6 @@
                     NHHL = Date.parse(response.product.dNgayHetHieuLuc)
                     var ngayhieuluc = new Date(NHL);
                     var ngayhethieuluc = new Date(NHHL);
-                    console.log(ngayhieuluc);
-                    console.log(ngayhethieuluc);
-                    console.log(now);
                     var tong = 0;
                     $('tr.order-' + index).children('td.price').html(formatNumber(parseFloat(response.product.fGiaBanLe)));
                     $('tr.order-' + index).children('input[name="price_product"]').val(response.product.fGiaBanLe);

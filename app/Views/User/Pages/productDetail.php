@@ -84,7 +84,7 @@
 
             <h3 class="product-code"> Mã sản phẩm : <?= $allProducts['PK_iMaSP'] ?></h3>
 
-            <div class="product-price"><span class="price-sales"> <?= number_format($allProducts['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ
+            <div class="product-price"><span class="price-sales"> <?= number_format($allProducts['fGiaBanLe'], 0, '.', '.') ?></span> VNĐ
             </div>
             <i>Số lượng: <?= $allProducts['fSoLuong'] ?> (<?= $allProducts['sDVT'] ?>)</i>
             <div class="details-description">
@@ -127,7 +127,7 @@
                         <div class="description">
                             <h4><a href="user/productDetail/<?= $getAllProduct['PK_iMaSP'] ?>"><?= $getAllProduct['sTenSP'] ?></a></h4>
 
-                            <div class="price"><span><?= number_format($getAllProduct['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
+                            <div class="price"><span><?= number_format($getAllProduct['fGiaBanLe'], 0, '.', '.') ?></span> VNĐ</div>
                         </div>
                     </div>
                 </div>
@@ -182,6 +182,9 @@
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN');
+        }
         $(".edit").click(function() {
             masanpham = $(this).attr("data-masanpham");
             hinhanh = $(this).attr("data-hinhanh");
@@ -193,7 +196,7 @@
 
             $("#masanpham").val(masanpham);
             $("#tensp").text(tensp);
-            $("#giatien").text(giatien);
+            $("#giatien").text(formatNumber(parseFloat(giatien)));
             $("#ghichu").text(ghichu);
             $("#soluong").text(soluong);
             $("#dvt").text(dvt);

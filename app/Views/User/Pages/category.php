@@ -125,7 +125,7 @@
                                     <p><?= $productInGroup['sGhiChu'] ?> </p>
                                 </div>
                             </div>
-                            <div class="price"><span><?= number_format($productInGroup['fGiaBanLe'], 0, '.', ',') ?></span> VNĐ</div>
+                            <div class="price"><span><?= number_format($productInGroup['fGiaBanLe'], 0, '.', '.') ?></span> VNĐ</div>
                             <?php if ($sessions['tendn']) : ?>
                                 <div class="action-control">
                                     <a class="btn btn-primary edit" href="#" data-toggle="modal" data-target="#AddCart_category" data-masanpham="<?= $productInGroup['PK_iMaSP'] ?>" data-hinhanh="<?= $productInGroup['sHinhAnh'] ?>" data-tensp="<?= $productInGroup['sTenSP'] ?>" data-soluong="<?= $productInGroup['fSoLuong'] ?>" data-dvt="<?= $productInGroup['sDVT'] ?>" data-giatien="<?= $productInGroup['fGiaBanLe'] ?>">

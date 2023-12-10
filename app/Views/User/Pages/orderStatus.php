@@ -101,12 +101,12 @@
                                                             <h4><a href="product-details.html"> <?= $orderDetail['sTenSP'] ?> </a></h4>
                                                             <span class="size"> <?= $orderDetail['sDVT'] ?> </span>
 
-                                                            <div class="price"><span> <?= number_format($orderDetail['fGiaBanLe'], 0, '.', ',') ?> </span>đ</div>
+                                                            <div class="price"><span> <?= number_format($orderDetail['fGiaBanLe'], 0, '.', '.') ?> </span>đ</div>
                                                         </div>
                                                     </td>
                                                     <td class="" style="width:10%"><a> X <?= $orderDetail['iSoLuong'] ?> </a></td>
                                                     <td class="" style="width:10%"><a> <?php if ($orderDetail['fChietKhau'] == null) : ?>0 %<?php else : ?><?= $orderDetail['fChietKhau'] ?> %<?php endif; ?> </a></td>
-                                                    <td style="width:15%"><span class="thanhtien"> <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></span>đ</td>
+                                                    <td style="width:15%"><span class="thanhtien"> <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?></span> VNĐ</td>
                                                 </tr>
                                             <?php endforeach ?>
 
@@ -124,7 +124,7 @@
                                                 </td>
                                                 <td style="width:40%"></td>
                                                 <td class="" style="width:20%">Tổng tiền (Đã áp dụng khuyến mãi)</td>
-                                                <td class="" style="width:15%"><span id="tongtien" class="price"></span> đ</td>
+                                                <td class="" style="width:15%"><span id="tongtien" class="price"></span> VNĐ</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -162,7 +162,7 @@
 
         $(".thanhtien").each(function() {
             var thanhtien = $(this).text();
-            var changeThanhtien = thanhtien.replace(/\,/g, "");
+            var changeThanhtien = thanhtien.replace(/\./g, "");
             console.log(changeThanhtien);
             tong += parseFloat(changeThanhtien) || 0;
         });

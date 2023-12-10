@@ -118,8 +118,30 @@
                         </td>
                         <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', '.') ?></td>
                         <td><?= $orderDetail['iSoLuong'] ?></td>
-                        <td><?= $orderDetail['fChietKhau'] ?>%</td>
-                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?></td>
+                        <td>
+                            <?php $currentDate = date('Y-m-d') ?>
+                            <?php if (isset($orderDetail['fChietKhau'])) : ?>
+                                <?php if ($currentDate >= $orderDetail['dNgayHieuLuc'] && $currentDate <= $orderDetail['dNgayHetHieuLuc']) : ?>
+                                    <?php echo $orderDetail['fChietKhau'] ?: 0 ?>
+                                <?php else : ?>
+                                    0
+                                <?php endif ?>
+                            <?php else : ?>
+                                0
+                            <?php endif ?>
+                        </td>
+                        <td class="thanhtien">
+                            <?php $currentDate = date('Y-m-d') ?>
+                            <?php if (isset($orderDetail['fChietKhau'])) : ?>
+                                <?php if ($currentDate >= $orderDetail['dNgayHieuLuc'] && $currentDate <= $orderDetail['dNgayHetHieuLuc']) : ?>
+                                    <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?>
+                                <?php else : ?>
+                                    <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe']), 0, '.', '.') ?>
+                                <?php endif ?>
+                            <?php else : ?>
+                                <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe']), 0, '.', '.') ?>
+                            <?php endif ?>
+                        </td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
@@ -129,7 +151,25 @@
         </div>
         <p><i><strong>Ghi chú: </strong><?= $orders['sGhiChu'] ?></i> </p>
         <div class="total">
-            <p><strong>Tổng cộng: </strong> <span class="h5 tongtien" id="total-price"><?php foreach ($tongtien as $tt) : ?><?= number_format($tt['total_price'], 0, '.', '.') ?><?php endforeach ?></span> VNĐ</p>
+            <p><strong>Tổng cộng: </strong> <span class="h5 tongtien" id="total-price">
+                    <?php
+                    $tong = 0;
+                    foreach ($orderDetails as $orderDetail) {
+                        $currentDate = date('Y-m-d');
+                        if (isset($orderDetail['fChietKhau'])) {
+                            if ($currentDate >= $orderDetail['dNgayHieuLuc'] && $currentDate <= $orderDetail['dNgayHetHieuLuc']) {
+                                $tong += $orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100);
+                            } else {
+                                $tong += $orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'];
+                            }
+                        } else {
+                            $tong += $orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'];
+                        }
+                        number_format($tong, 0, '.', '.');
+                    }
+                    ?>
+                    <?php echo number_format($tong, 0, '.', '.'); ?>
+                </span> VNĐ</p>
             <p><strong>Trạng thái:</strong> <?= $orders['sTenTrangThai'] ?></p>
         </div>
 

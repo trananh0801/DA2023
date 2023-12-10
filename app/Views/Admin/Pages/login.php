@@ -62,10 +62,6 @@
 
             <div class="mb-3">
               <a href="#" class="float-end">Quên mật khẩu?</a>
-              <label class="form-check">
-                <input type="checkbox" class="form-check-input" checked="">
-                <span class="form-check-label">Nhớ mật khẩu</span>
-              </label>
             </div> <!-- form-group form-check .// -->
             <div class="mb-4">
               <button type="submit" class="btn btn-primary w-100"> Đăng nhập </button>

@@ -52,7 +52,7 @@
 							<th scope="col">Hình ảnh</th>
 							<th scope="col">Tên sản phẩm</th>
 							<th scope="col">Giá bán</th>
-							<th scope="col">Số lượng</th>
+							<!-- <th scope="col">Số lượng</th> -->
 							<th scope="col">Phân loại</th>
 							<th scope="col" class="text-end"> Tác vụ </th>
 						</tr>
@@ -74,7 +74,7 @@
 									</td>
 									<td><b><?= $product['sTenSP'] ?></b></td>
 									<td><span class="badge rounded-pill alert-warning"><?= number_format($product['fGiaBanLe'], 0, '.', '.') ?> &#8363</span></td>
-									<td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td>
+									<!-- <td><span class="badge rounded-pill alert-success"><?= $product['fSoLuong'] ?> <?= $product['sDVT'] ?></span></td> -->
 									<td><?= $product['sTenNhom'] ?></td>
 									<td class="text-end">
 										<a href="admin/product/update/<?= $product['PK_iMaSP'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>

@@ -139,6 +139,7 @@ class ImportBillService extends BaseService
             'fGiaNhap' => $requestData->getPost('fGiaNhap'),
             'iSoluong' => $requestData->getPost('iSoluong'),
         ];
+        $dataSave['fGiaNhap'] = str_replace(',','',$dataSave['fGiaNhap']);
         // dd($dataSave);
 
         //lấy thông tin để update số lượng sản phẩm

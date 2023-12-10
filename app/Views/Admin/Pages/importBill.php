@@ -77,7 +77,7 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV" disabled>
+                                        <select class="form-select" name="FK_iMaNV" >
                                             <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>
@@ -122,7 +122,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control fGiaNhap" id="fGiaNhap" name="fGiaNhap[]" value="0" /></td>
+                                            <td><input data-index="1" type="text" placeholder="VD: 10" class="form-control fGiaNhap giatien" id="fGiaNhap" name="fGiaNhap[]"></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1" /></td>
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
@@ -177,7 +177,7 @@
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
             html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
-            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control" id="fGiaNhap" name="fGiaNhap[]" value="0"/></td>';
+            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="text" placeholder="VD: 10" class="form-control giatien" id="fGiaNhap" name="fGiaNhap[]" /></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1"/></td>';
             html += '<td class="thanhtien" id="thanhtien"></td>';
             html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
@@ -205,9 +205,10 @@
             var tong = 0;
             var index = $(this).attr('data-index');
             var price = $('tr.order-' + index + ' input[name="fGiaNhap[]"]').val();
-            // alert(price);
+            var giatien = price.replace(/\,/g, "");
+            // alert(giatien);
             var amount = $(this).val();
-            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(price) * amount));
+            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(giatien) * amount));
             $('#tongtien').html(formatNumber(tinh_thanhtien()));
         });
 
@@ -216,9 +217,25 @@
             var amount = $('tr.order-' + index + ' input[name="iSoluong[]"]').val();
             // alert(price);
             var price = $(this).val();
-            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(price) * amount));
+            var giatien = price.replace(/\,/g, "");
+            $('tr.order-' + index).children('td.thanhtien').html(formatNumber(parseInt(giatien) * amount));
             $('#tongtien').html(formatNumber(tinh_thanhtien()));
         });
+
+
+        $('.giatien').on('input', function() {
+			// Lấy giá trị từ input
+			let inputValue = $(this).val();
+
+			// Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+			let cleanedValue = inputValue.replace(/,/g, '');
+
+			// Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+			// Cập nhật giá trị vào input
+			$(this).val(formattedValue);
+		});
 
     });
 </script>

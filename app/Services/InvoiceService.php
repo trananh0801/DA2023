@@ -51,7 +51,7 @@ class InvoiceService extends BaseService
     public function tongtien($id)
     {
         $result = $this->orderDetail
-            ->select('SUM((tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) * (1 - IFNULL(tbl_khuyenmai.fChietKhau/100, 0))) as total_price')
+            ->select('((tbl_sanpham.fGiaBanLe * tbl_ctdondathang.iSoLuong) * (1 - IFNULL(tbl_khuyenmai.fChietKhau/100, 0))) as total_price')
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctdondathang.FK_iMaSP', 'left')
             ->join('tbl_sp_km', 'tbl_sp_km.FK_iMaSP = tbl_sanpham.PK_iMaSP', 'left')
             ->join('tbl_khuyenmai', 'tbl_khuyenmai.PK_iMaKM = tbl_sp_km.FK_iMaKM', 'left')

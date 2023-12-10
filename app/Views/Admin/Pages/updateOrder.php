@@ -88,8 +88,30 @@
                                         </td>
                                         <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', '.') ?></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $orderDetail['iSoLuong'] ?>" readonly /></td>
-                                        <td><?= $orderDetail['fChietKhau'] ?>%</td>
-                                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?></td>
+                                        <td>
+                                            <?php $currentDate = date('Y-m-d') ?>
+                                            <?php if (isset($orderDetail['fChietKhau'])) : ?>
+                                                <?php if ($currentDate >= $orderDetail['dNgayHieuLuc'] && $currentDate <= $orderDetail['dNgayHetHieuLuc']) : ?>
+                                                    <?php echo $orderDetail['fChietKhau'] ?: 0 ?>
+                                                <?php else : ?>
+                                                    0
+                                                <?php endif ?>
+                                            <?php else : ?>
+                                                0
+                                            <?php endif ?>
+                                        </td>
+                                        <td class="thanhtien">
+                                            <?php $currentDate = date('Y-m-d') ?>
+                                            <?php if (isset($orderDetail['fChietKhau'])) : ?>
+                                                <?php if ($currentDate >= $orderDetail['dNgayHieuLuc'] && $currentDate <= $orderDetail['dNgayHetHieuLuc']) : ?>
+                                                    <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?>
+                                                <?php else : ?>
+                                                    <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe']), 0, '.', '.') ?>
+                                                <?php endif ?>
+                                            <?php else : ?>
+                                                <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe']), 0, '.', '.') ?>
+                                            <?php endif ?>
+                                        </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
@@ -137,7 +159,7 @@
         $(".thanhtien").each(function() {
             var thanhtien = $(this).text();
             console.log(thanhtien);
-            var changeThanhtien = thanhtien.replace(/\,/g, "");
+            var changeThanhtien = thanhtien.replace(/\./g, "");
             console.log(changeThanhtien);
             tong += parseFloat(changeThanhtien) || 0;
         });

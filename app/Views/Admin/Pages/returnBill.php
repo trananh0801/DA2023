@@ -76,7 +76,7 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV" disabled>
+                                        <select class="form-select" name="FK_iMaNV">
                                             <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>

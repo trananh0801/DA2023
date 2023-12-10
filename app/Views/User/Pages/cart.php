@@ -194,6 +194,7 @@
         }, 3000);
         $(document).ready(function() {
             var tong = 0;
+
             function formatNumber(number) {
                 return number.toLocaleString('vi-VN');
             }
@@ -221,6 +222,7 @@
                 var price = $(this).attr("data-price");
                 var chietkhau = $('.chietkhau-' + (parseInt(index) + 1)).html();
                 var amount = $(this).val();
+
                 console.log(1 - parseInt(chietkhau) / 100);
                 $('.thanhtien-' + (parseInt(index) + 2)).html(formatNumber((parseInt(price) * amount) * (1 - parseInt(chietkhau) / 100)));
                 $('#total-price').html(formatNumber(tinh_thanhtien()));

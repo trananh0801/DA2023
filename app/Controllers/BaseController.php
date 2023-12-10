@@ -59,10 +59,17 @@ abstract class BaseController extends Controller
     //set data cho masterlayout
     public function loadMasterLayout($data, $title, $content, $dataLayout = [])
     {
+        $session = session();
+        $sessions = [
+            'tendn' => $session->get('user_id'),
+            'matk' => $session->get('matk'),
+            'quyen' => $session->get('quyen'),
+        ];
         $currentSegments = $this->request->uri->getSegments();
         $currentMenu = implode('/', array_slice($currentSegments, 1, 2));
         $dataLeftMenu = [
-            'currentMenu' => $currentMenu
+            'currentMenu' => $currentMenu,
+            'maquyen' => $sessions['quyen'],
         ];
 
         $data['title'] = $title;

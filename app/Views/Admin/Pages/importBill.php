@@ -40,24 +40,19 @@
                     </thead>
                     <tbody>
                         <?php $k = 1 ?>
-                        <?php if (empty($importBills)) : ?>
+
+                        <?php foreach ($importBills as $importBill) : ?>
                             <tr>
-                                <td colspan="8" class="text-center">Không có dữ liệu</td>
+                                <td><?= $k++ ?></td>
+                                <td><b><?= $importBill['PK_iPN'] ?></b></td>
+                                <td><?= $importBill['sTenNV'] ?></td>
+                                <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenNCC'] ?></span></td>
+                                <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
+                                <td class="text-end">
+                                    <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Xem chi tiết</a>
+                                </td>
                             </tr>
-                        <?php else : ?>
-                            <?php foreach ($importBills as $importBill) : ?>
-                                <tr>
-                                    <td><?= $k++ ?></td>
-                                    <td><b><?= $importBill['PK_iPN'] ?></b></td>
-                                    <td><?= $importBill['sTenNV'] ?></td>
-                                    <td><span class="badge rounded-pill alert-success"><?= $importBill['sTenNCC'] ?></span></td>
-                                    <td><?= date('d/m/Y', strtotime($importBill['dNgayNhap'])) ?></td>
-                                    <td class="text-end">
-                                        <a href="admin/importBill/update/<?= $importBill['PK_iPN'] ?>" class="btn btn-sm btn-warning editGroup">Xem chi tiết</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
-                        <?php endif ?>
+                        <?php endforeach ?>
                     </tbody>
                     <tfoot>
                     </tfoot>

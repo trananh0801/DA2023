@@ -86,10 +86,10 @@
                                                 <?php endforeach ?>
                                             </select>
                                         </td>
-                                        <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', ',') ?></td>
+                                        <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', '.') ?></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoLuong" name="iSoLuong[]" value="<?= $orderDetail['iSoLuong'] ?>" readonly /></td>
                                         <td><?= $orderDetail['fChietKhau'] ?>%</td>
-                                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></td>
+                                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?></td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>

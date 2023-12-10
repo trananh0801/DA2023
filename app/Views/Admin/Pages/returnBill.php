@@ -40,24 +40,18 @@
                     </thead>
                     <tbody>
                         <?php $k = 1 ?>
-                        <?php if (empty($returnBills)) : ?>
+                        <?php foreach ($returnBills as $returnBill) : ?>
                             <tr>
-                                <td colspan="7" class="text-center">Không có dữ liệu</td>
+                                <td><?= $k++ ?></td>
+                                <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
+                                <td><?= $returnBill['sTenNV'] ?></td>
+                                <td><b><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenNCC'] ?></span></b></td>
+                                <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao'])) ?></td>
+                                <td class="text-end">
+                                    <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Xem chi tiết</a>
+                                </td>
                             </tr>
-                        <?php else : ?>
-                            <?php foreach ($returnBills as $returnBill) : ?>
-                                <tr>
-                                    <td><?= $k++ ?></td>
-                                    <td><b><?= $returnBill['PK_iMaPhieu'] ?></b></td>
-                                    <td><?= $returnBill['sTenNV'] ?></td>
-                                    <td><b><span class="badge rounded-pill alert-warning"><?= $returnBill['sTenNCC'] ?></span></b></td>
-                                    <td><?= date('d/m/Y', strtotime($returnBill['dNgayTao'])) ?></td>
-                                    <td class="text-end">
-                                        <a href="admin/returnBill/update/<?= $returnBill['PK_iMaPhieu'] ?>" class="btn btn-sm btn-warning editGroup">Xem chi tiết</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
-                        <?php endif ?>
+                        <?php endforeach ?>
                     </tbody>
                     <tfoot>
                     </tfoot>
@@ -121,7 +115,7 @@
                                                 <select data-index="1" class="form-select selectProduct selected2" name="FK_iMaSP[]" id="selectProduct">
                                                     <option value="0">Chọn sản phẩm</option>
                                                     <?php foreach ($products as $product) : ?>
-                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>" data-CTPN="<?= $product['PK_iMaCT_PN'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP'] ?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option>
+                                                        <option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>" data-CTPN="<?= $product['PK_iMaCT_PN'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP'] ?> (<?= number_format($product['fGiaNhap'], 0, '.', '.') ?> VNĐ)</option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
@@ -161,7 +155,7 @@
         $('#addRowButton').click(function() {
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
-            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP'] ?> (<?= number_format($product['fGiaNhap'], 0, '.', ',') ?> VNĐ)</option><?php endforeach ?></select></td>';
+            html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaNhap'] ?>"><?= $product['PK_iMaSP'] ?> - <?= $product['sTenSP'] ?> (<?= number_format($product['fGiaNhap'], 0, '.', '.') ?> VNĐ)</option><?php endforeach ?></select></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoLuong[]" min="1" value="1"/></td>';
             html += '<td><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
             html += '</tr>';

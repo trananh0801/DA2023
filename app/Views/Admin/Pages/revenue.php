@@ -31,7 +31,7 @@
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
                     <div class="text">
-                        <h6 class="mb-1">Tổng doanh thu</h6> <?= number_format($totals['tong'], 0, '.', ',') ?><span> VNĐ</span>
+                        <h6 class="mb-1">Tổng doanh thu</h6> <?= number_format($totals['tong'], 0, '.', '.') ?><span> VNĐ</span>
                     </div>
                 </article>
 

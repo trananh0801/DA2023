@@ -77,7 +77,7 @@
                                         </td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="fGiaNhap[]" value="<?= $importBillDetail['fGiaNhap'] ?>" readonly/></td>
                                         <td><input type="number" placeholder="VD: 10" class="form-control" id="iSoluong" name="iSoluong[]" value="<?= $importBillDetail['iSoluong'] ?>" readonly/></td>
-                                        <td class="thanhtien"><?php echo   number_format(($importBillDetail['iSoluong'] * $importBillDetail['fGiaNhap']), 0, '.', ',') ?></td>
+                                        <td class="thanhtien"><?php echo   number_format(($importBillDetail['iSoluong'] * $importBillDetail['fGiaNhap']), 0, '.', '.') ?></td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>

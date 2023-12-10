@@ -42,11 +42,6 @@
                     </thead>
                     <tbody>
                         <?php $k = 1 ?>
-                        <?php if (empty($orders)) : ?>
-                            <tr>
-                                <td colspan="8" class="text-center">Không có dữ liệu</td>
-                            </tr>
-                        <?php else : ?>
                             <?php foreach ($orders as $order) : ?>
                                 <tr>
                                     <td><?= $k++ ?></td>
@@ -70,7 +65,6 @@
                                     </td>
                                 </tr>
                             <?php endforeach ?>
-                        <?php endif ?>
                     </tbody>
                     <tfoot>
                     </tfoot>

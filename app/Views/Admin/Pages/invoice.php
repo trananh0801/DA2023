@@ -116,10 +116,10 @@
                         <td>
                             <?= $orderDetail['sTenSP'] ?>
                         </td>
-                        <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', ',') ?></td>
+                        <td><?= number_format($orderDetail['fGiaBanLe'], 0, '.', '.') ?></td>
                         <td><?= $orderDetail['iSoLuong'] ?></td>
                         <td><?= $orderDetail['fChietKhau'] ?>%</td>
-                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', ',') ?></td>
+                        <td class="thanhtien"><?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
@@ -129,7 +129,7 @@
         </div>
         <p><i><strong>Ghi chú: </strong><?= $orders['sGhiChu'] ?></i> </p>
         <div class="total">
-            <p><strong>Tổng cộng: </strong> <span class="h5 tongtien" id="total-price"><?php foreach ($tongtien as $tt) : ?><?= number_format($tt['total_price'], 0, '.', ',') ?><?php endforeach ?></span> VNĐ</p>
+            <p><strong>Tổng cộng: </strong> <span class="h5 tongtien" id="total-price"><?php foreach ($tongtien as $tt) : ?><?= number_format($tt['total_price'], 0, '.', '.') ?><?php endforeach ?></span> VNĐ</p>
             <p><strong>Trạng thái:</strong> <?= $orders['sTenTrangThai'] ?></p>
         </div>
 

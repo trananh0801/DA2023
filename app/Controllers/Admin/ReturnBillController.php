@@ -46,4 +46,10 @@ class ReturnBillController extends BaseController
             'returnBills' =>  $result,
         ]);
     }
+    public function get_provider()
+    {
+        $data = $this->request->getPost();
+        $result = $this->service->getAllProductByID($data);
+       
+    }
 }

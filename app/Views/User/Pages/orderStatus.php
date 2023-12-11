@@ -105,8 +105,21 @@
                                                         </div>
                                                     </td>
                                                     <td class="" style="width:10%"><a> X <?= $orderDetail['iSoLuong'] ?> </a></td>
-                                                    <td class="" style="width:10%"><a> <?php if ($orderDetail['fChietKhau'] == null) : ?>0 %<?php else : ?><?= $orderDetail['fChietKhau'] ?> %<?php endif; ?> </a></td>
-                                                    <td style="width:15%"><span class="thanhtien"> <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?></span> VNĐ</td>
+                                                    <td class="" style="width:10%">
+                                                        <?php $currentDate = date('Y-m-d') ?>
+                                                        <?php if ($orderDetail['fChietKhau'] == null || ($currentDate < $orderDetail['dNgayHieuLuc'] || $currentDate > $orderDetail['dNgayHetHieuLuc'])) : ?>
+                                                            0
+                                                        <?php else : ?>
+                                                            <?= $orderDetail['fChietKhau'] ?>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td style="width:15%"><span class="thanhtien">
+                                                            <?php if ($orderDetail['fChietKhau'] == null || ($currentDate < $orderDetail['dNgayHieuLuc'] || $currentDate > $orderDetail['dNgayHetHieuLuc'])) : ?>
+                                                                <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe']), 0, '.', '.') ?> đ
+                                                            <?php else : ?>
+                                                                <?php echo   number_format(($orderDetail['iSoLuong'] * $orderDetail['fGiaBanLe'] * (1 - $orderDetail['fChietKhau'] / 100 ?: 0)), 0, '.', '.') ?> đ
+                                                            <?php endif; ?>
+                                                        </span> VNĐ</td>
                                                 </tr>
                                             <?php endforeach ?>
 
@@ -139,7 +152,7 @@
                         <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Trở về trang chủ </a>
                         </li>
                         <li class="next pull-left">
-                            <?php if ($orders['sTenTrangThai'] == "Chờ thanh toán" || $orders['sTenTrangThai'] == "Đang giao hàng") : ?>
+                            <?php if ($orders['sTenTrangThai'] == "Chờ thanh toán" || $orders['sTenTrangThai'] == "Đang giao hàng" || $orders['sTenTrangThai'] == "Chờ xác nhận đơn hàng") : ?>
                                 <a href="user/doitra/<?= $orders['PK_iMaDon'] ?>" class="btn btn-primary btn-sm" style="color: #000"> ← Hoàn trả</a>
                             <?php endif ?>
                         </li>

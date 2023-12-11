@@ -102,7 +102,7 @@
                                                     </td>
                                                     <td>
                                                         <input type="text" value="<?= $products['PK_iMaSP'] ?>" name="FK_iMaSP" hidden>
-                                                        <input class="form-control iSoLuong" type="number" min="1" name="iSoLuong[]" id="iSoLuong" data-price="<?= $products['fGiaBanLe'] ?>" value="1">
+                                                        <input class="form-control iSoLuong" type="number" min="1" name="iSoLuong" id="iSoLuong" data-price="<?= $products['fGiaBanLe'] ?>" value="1">
                                                     </td>
                                                     <td class="hidden-xs chietkhau">
                                                         <?php $currentDate = date('Y-m-d') ?>
@@ -132,13 +132,13 @@
                                         <i class="fa fa-arrow-left"></i> &nbsp; Thay đổi địa chỉ </a>
                                 </div>
                                 <div class="pull-right">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-small" type="submit" name="ttnhanhang">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-small" type="submit" value="ttnhanhang">
                                         Thanh toán khi nhận hàng &nbsp; <i class="fa fa-check"></i>
                                     </button>
                                 </div>
                                 <div class="pull-right" style="margin-right: 5px;">
                                     <input type="hidden" id="tongtien-onepay" name="tongtien_onepay">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-small" type="submit" name="ttonepay">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-small" type="submit" value="ttonepay">
                                         Thanh toán OnePay &nbsp; <i class="fa fa-check"></i>
                                     </button>
                                 </div>
@@ -191,6 +191,7 @@
             tong += parseFloat(changeThanhtien);
         });
         $('#total-price').html(formatNumber(tong));
+        $('#tongtien-onepay').val(tong);
 
         function tinh_thanhtien() {
             var tong = 0;
@@ -209,6 +210,7 @@
             var amount = $(this).val();
             $('.thanhtien').html(formatNumber((parseInt(price) * amount) * (1 - parseInt(chietkhau) / 100)));
             $('#total-price').html(formatNumber(tinh_thanhtien()));
+            $('#tongtien-onepay').val(tinh_thanhtien());
         });
     });
 </script>

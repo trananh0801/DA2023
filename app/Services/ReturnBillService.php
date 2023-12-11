@@ -30,7 +30,20 @@ class ReturnBillService extends BaseService
         $this->product->protect(false);
         $this->returnBillDetail->protect(false);
     }
-
+    /**Lấy danh sách SP---------------------------------------------------------------*/
+    public function getProvider($data)
+    {
+        $result = $this->product
+            ->select('*')
+            ->join('tbl_ctphieunhap', 'tbl_ctphieunhap.FK_iMaSP = tbl_sanpham.PK_iMaSP')
+            ->join('tbl_phieunhap', 'tbl_phieunhap.PK_iPN = tbl_ctphieunhap.FK_iMaPN')
+            ->join('tbl_ncc', 'tbl_ncc.PK_iMaNCC = tbl_phieunhap.FK_iMaNCC')
+            ->where('FK_iMaNCC', $data['id'])
+            ->findAll();
+        echo json_encode($result);
+        die();
+        return $result;
+    }
     /**Lấy danh sách phiếu - DANH SÁCH----------------------------------------------------------------------------------*/
     public function getAllReturnBill()
     {
@@ -65,7 +78,7 @@ class ReturnBillService extends BaseService
         return $result;
     }
 
-    
+
 
 
     /**Lấy danh sách nhân viên------------------------------------------------------------------------ */
@@ -106,6 +119,7 @@ class ReturnBillService extends BaseService
         return $result;
     }
 
+
     /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
     public function getAllProduct()
     {
@@ -117,6 +131,30 @@ class ReturnBillService extends BaseService
     }
 
     /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
+    public function getAllProductById($data)
+    {
+        $result = $this->importDetail
+            ->select('*')
+            ->join('tbl_phieunhap', 'tbl_phieunhap.PK_iPN = tbl_ctphieunhap.FK_iMaPN')
+            ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
+            ->where('tbl_phieunhap.FK_iMaNCC', $data['id'])
+            ->findAll();
+        // echo json_encode($result); die();
+
+
+
+        $output = '';
+
+
+        $output .= '<option value="0">Chọn sản phẩm</option>';
+        foreach ($result as $item) {
+            $output .= '<option value="' . $item['PK_iMaSP'] . '" data-price="' . $item['fGiaNhap'] . '" data-CTPN="' . $item['PK_iMaCT_PN'] . '">' . $item['PK_iMaSP'] . ' - ' . $item['sTenSP'] . ' (' . number_format($item['fGiaNhap'], 0, '.', '.') . ' VNĐ)</option>';
+        }
+
+        echo $output;
+    }
+
+    /**Lấy danh sách sản phẩm----------------------------------------------------------------------------------*/
     public function getImportBillDetail($id, $ctpn)
     {
         $result = $this->importDetail
@@ -124,7 +162,7 @@ class ReturnBillService extends BaseService
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
             ->where('tbl_sanpham.PK_iMaSP', $id)
             ->where('tbl_ctphieunhap.PK_iMaCT_PN', $ctpn)
-            ->first();
+            ->first(); //Ánh viết cái này à
         return $result;
     }
 
@@ -145,7 +183,7 @@ class ReturnBillService extends BaseService
             ];
         }
         $dataSave1 = $requestData->getPost();
-        $dataSave1['PK_iMaPhieu'] = 'HT_'. $uniqueCode;
+        $dataSave1['PK_iMaPhieu'] = 'HT_' . $uniqueCode;
         unset($dataSave1['FK_iMaSP']);
         unset($dataSave1['iSoLuong']);
         // dd($dataSave1);
@@ -179,7 +217,7 @@ class ReturnBillService extends BaseService
             foreach ($dataSave_CT as $k => $v) {
                 foreach ($v as $k1 => $v1) {
                     $transformedData[$k1][$k] = $v1;
-                    $transformedData[$k1]['FK_iMaPhieu'] = 'HT_'. $uniqueCode;
+                    $transformedData[$k1]['FK_iMaPhieu'] = 'HT_' . $uniqueCode;
                 }
             }
 
@@ -203,7 +241,7 @@ class ReturnBillService extends BaseService
     /**Cập nhật phiếu----------------------------------------------------------------------------------*/
     public function updateReturnBillInfo($requestData, $id)
     {
-        
+
         $validate = $this->validateAddReturnBill($requestData);
         if ($validate->getErrors()) {
             return [

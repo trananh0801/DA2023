@@ -41,27 +41,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php $k = 1 ?>
+                        <?php $k = 1 ?>
                         <?php if (empty($promotions)) : ?>
                             <tr>
                                 <td colspan="9" class="text-center">Không có dữ liệu</td>
                             </tr>
                         <?php else : ?>
                             <?php foreach ($promotions as $promotion) : ?>
-                            <tr>
-                                <td><?= $k++ ?></td>
-                                <td><?= $promotion['PK_iMaKM'] ?></td>
-                                <td><b><?= $promotion['sTenKM'] ?></b></td>
-                                <td><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc'])) ?></td>
-                                <td><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc'])) ?></td>
-                                <td><span class="badge rounded-pill alert-success"><?= $promotion['fChietKhau'] ?>%</span></td>
-                                <td><span class="badge rounded-pill alert-success"><?= $promotion['sTenTrangThai'] ?></span></td>
-                                <td class="text-end">
-                                    <a href="admin/promotion/update/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
-                                    <a href="admin/promotion/delete/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $promotion['PK_iMaKM'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
+                                <tr>
+                                    <td><?= $k++ ?></td>
+                                    <td><?= $promotion['PK_iMaKM'] ?></td>
+                                    <td><b><?= $promotion['sTenKM'] ?></b></td>
+                                    <td><?= date('d/m/Y', strtotime($promotion['dNgayHieuLuc'])) ?></td>
+                                    <td><?= date('d/m/Y', strtotime($promotion['dNgayHetHieuLuc'])) ?></td>
+                                    <td><span class="badge rounded-pill alert-success"><?= $promotion['fChietKhau'] ?>%</span></td>
+                                    <td>
+                                        <?php $currentDate = date('Y-m-d') ?>
+                                        <?php if ($currentDate >= $promotion['dNgayHieuLuc'] && $currentDate <= $promotion['dNgayHetHieuLuc']) : ?>
+                                            <span class="badge rounded-pill alert-primary">Đang áp dụng</span>
+                                        <?php elseif ($currentDate < $promotion['dNgayHieuLuc']) : ?>
+                                            <span class="badge rounded-pill alert-warning">Chưa đến hạn</span>
+                                        <?php else : ?>
+                                            <span class="badge rounded-pill alert-danger">Hết hiệu lực</span>
+                                        <?php endif ?>
+                                    </td>
+                                    <td class="text-end">
+                                        <a href="admin/promotion/update/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                        <a href="admin/promotion/delete/<?= $promotion['PK_iMaKM'] ?>" class="btn btn-sm btn-danger deleteGroup" value="<?= $promotion['PK_iMaKM'] ?>" name="maNhom" onclick="return myFunction()">Xóa</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
                         <?php endif ?>
                     </tbody>
                 </table>
@@ -155,9 +164,10 @@
     setTimeout(function() {
         $('.myAlert').fadeOut('slow');
     }, 3000);
+
     function myFunction() {
-		return confirm("Bạn có chắc chắn muốn xóa khuyến mãi này!");
-	}
+        return confirm("Bạn có chắc chắn muốn xóa khuyến mãi này!");
+    }
     $(document).ready(function() {
         // Gán sự kiện khi click vào checkbox "Chọn tất cả"
         $('#selectAll').click(function() {

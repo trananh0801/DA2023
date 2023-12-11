@@ -222,6 +222,7 @@
             console.log(1 - parseInt(chietkhau) / 100);
             $('.thanhtien-' + (parseInt(index) + 2)).html(formatNumber((parseInt(price) * amount) * (1 - parseInt(chietkhau) / 100)));
             $('#total-price').html(formatNumber(tinh_thanhtien()));
+            $('#tongtien-onepay').val(tinh_thanhtien());
         });
     });
 </script>

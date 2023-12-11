@@ -71,10 +71,10 @@ class CartService extends BaseService
 
     public function updateCartInfo($requestData)
     {
-        $magiohang = $requestData->getPost('PK_iMaGH');
+        $magiohang = $requestData->getPost('FK_iMaGH');
         $masp = $requestData->getPost('FK_iMaSP');
         $soluong = $requestData->getPost('iSoLuong');
-        // dd($masp);
+        // dd($magiohang);
         try {
             for ($i = 0; $i < count($masp); $i++) {
                 $productID = $masp[$i];

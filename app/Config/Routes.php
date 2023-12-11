@@ -51,6 +51,8 @@ $routes->group('admin', function ($routes) {
         $routes->get('update/(:segment)', 'Admin\UpdateImportBillController::list/$1');
         $routes->post('updateSave/(:segment)', 'Admin\UpdateImportBillController::update/$1');
         $routes->get('delete/(:num)', 'Admin\ImportBillController::delete/$1');
+
+
     });
     $routes->group('staff', function ($routes) {
         $routes->get('list', 'Admin\StaffController::list');
@@ -77,6 +79,9 @@ $routes->group('admin', function ($routes) {
         $routes->get('update/(:segment)', 'Admin\UpdateReturnBillController::list/$1');
         $routes->post('updateSave/(:segment)', 'Admin\UpdateReturnBillController::update/$1');
         $routes->post('check_returnbill_detail', 'Admin\ReturnBillController::check_returnbill_detail');
+
+        $routes->post('get_provider', 'Admin\ReturnBillController::get_provider');
+
     });
     $routes->group('promotion', function ($routes) {
         $routes->get('list', 'Admin\PromotionController::list');

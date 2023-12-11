@@ -143,6 +143,23 @@
 </section> <!-- content-main end// -->
 <script src="assets/admin/js/jquery-3.7.1.min.js"></script>
 <script>
+    function load_provider(provider_id) {
+        $.ajax({
+            type: "post",
+            url: 'admin/returnBill/get_provider',
+            data: {
+                id: provider_id,
+            },
+            success: function(data) {
+                $('#selectProduct').html(data);
+            }
+        });
+    }
+    load_provider($('select[name="FK_iMaNCC"]').val());
+    $('select[name="FK_iMaNCC"]').change(function() {
+        load_provider($(this).val());
+    });
+
     setTimeout(function() {
         $('.myAlert').fadeOut('slow');
     }, 3000);
@@ -163,9 +180,12 @@
         })
 
         //xóa dòng
-        $("#myTable").on("click", ".deleteRowButton", function() {
-            $(this).closest("tr").remove();
-            var tong = 0;
+        $("body").on("click", ".deleteRowButton", function(e) {
+
+            e.preventDefault();
+            if (confirm('Bạn có chắc muốn xóa không?')) {
+                $(this).parents('td').parents('tr').remove();
+            }
         });
 
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"

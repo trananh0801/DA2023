@@ -265,15 +265,12 @@
         })
 
         //xóa dòng
-        $("#myTable").on("click", ".deleteRowButton", function(e) {
-            $(this).closest("tr").remove();
-            // var index = $(this).attr('data-index');
-            // e.preventDefault();
-            // if (confirm('Bạn có chắc muốn xóa không?')) {
-            //     $('#myTable tbody tr.order-' + index).remove();
-            //     alert_float('success', 'Xóa sản phẩm thành công');
+        $("body").on("click", ".deleteRowButton", function(e) {
 
-            // }
+            e.preventDefault();
+            if (confirm('Bạn có chắc muốn xóa không?')) {
+                $(this).parents('td').parents('tr').remove();
+            }
         });
 
         // Sử dụng jQuery để xử lý sự kiện khi nhấn vào nút "Sửa"

@@ -272,7 +272,7 @@
 
                 <div class="search-box">
                     <div class="input-group">
-                        <button class="btn btn-nobg getFullSearch" type="button"><i class="fa fa-search"> </i></button>
+                        <!-- <button class="btn btn-nobg getFullSearch" type="button"><i class="fa fa-search"> </i></button> -->
                     </div>
                     <!-- /input-group -->
 

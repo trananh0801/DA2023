@@ -160,7 +160,7 @@ class CheckoutService extends BaseService
             'FK_iMaSP' => $requestData->getPost('FK_iMaSP'),
             'FK_iMaDon' => 'HD_' . $uniqueCode
         ];
-
+        // dd($dataSave_CTDDH);
         $soluongSP = $this->product->where('PK_iMaSP', $dataSave_CTDDH['FK_iMaSP'])->get()->getRow()->fSoLuong;
         $quantityToDeduct = $dataSave_CTDDH['iSoLuong'];
         if ($quantityToDeduct == '0') {

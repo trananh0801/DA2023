@@ -77,7 +77,7 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
-                                        <select class="form-select" name="FK_iMaNV" >
+                                        <select class="form-select" name="FK_iMaNV">
                                             <option value="<?= $staffs['PK_iMaNV'] ?>"><?= $staffs['sTenNV'] ?></option>
                                         </select>
                                     </div>
@@ -186,8 +186,12 @@
         })
 
         //xóa dòng
-        $("#myTable").on("click", ".deleteRowButton", function() {
-            $(this).closest("tr").remove();
+        $("body").on("click", ".deleteRowButton", function(e) {
+
+            e.preventDefault();
+            if (confirm('Bạn có chắc muốn xóa không?')) {
+                $(this).parents('td').parents('tr').remove();
+            }
         });
 
         function tinh_thanhtien() {
@@ -224,18 +228,18 @@
 
 
         $('.giatien').on('input', function() {
-			// Lấy giá trị từ input
-			let inputValue = $(this).val();
+            // Lấy giá trị từ input
+            let inputValue = $(this).val();
 
-			// Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
-			let cleanedValue = inputValue.replace(/,/g, '');
+            // Loại bỏ dấu phẩy ngăn cách hàng nghìn nếu có
+            let cleanedValue = inputValue.replace(/,/g, '');
 
-			// Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
-			let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // Format lại giá trị với dấu phẩy ngăn cách hàng nghìn
+            let formattedValue = cleanedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-			// Cập nhật giá trị vào input
-			$(this).val(formattedValue);
-		});
+            // Cập nhật giá trị vào input
+            $(this).val(formattedValue);
+        });
 
     });
 </script>

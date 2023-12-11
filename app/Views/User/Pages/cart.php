@@ -47,7 +47,7 @@
         <?php if (session('successMsg')) : ?>
             <?php foreach (session('successMsg') as $success) : ?>
                 <div class="alert alert-success d-flex align-items-center myAlert" role="alert">
-                    <strong>Lỗi: </strong> <?= $success ?>
+                    <strong>Thành công: </strong> <?= $success ?>
                 </div>
                 <?php break; ?>
             <?php endforeach ?>

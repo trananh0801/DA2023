@@ -49,12 +49,42 @@
                             <div class="col-6 mb-3">
                                 <label class="form-label">Trạng thái</label>
                                 <select class="form-select" name="FK_iMaTrangThai">
-                                    <option value="3" <?php if ($orders['FK_iMaTrangThai'] == '3') : ?> selected <?php endif; ?>>Đã thanh toán</option>
-                                    <option value="4" <?php if ($orders['FK_iMaTrangThai'] == '4') : ?> selected <?php endif; ?>>Chờ thanh toán</option>
-                                    <option value="10" <?php if ($orders['FK_iMaTrangThai'] == '10') : ?> selected <?php endif; ?>>Đang giao hàng</option>
-                                    <option value="11" <?php if ($orders['FK_iMaTrangThai'] == '11') : ?> selected <?php endif; ?>>Chờ xác nhận đổi trả</option>
-                                    <option value="5" <?php if ($orders['FK_iMaTrangThai'] == '5') : ?> selected <?php endif; ?>>Đã hoàn trả</option>
-                                    <option value="12" <?php if ($orders['FK_iMaTrangThai'] == '12') : ?> selected <?php endif; ?>>Chờ xác hận đơn hàng</option>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '3') : ?>
+                                        <option value="3" <?php if ($orders['FK_iMaTrangThai'] == '3') : ?> selected <?php endif; ?>>Hoàn thành</option>
+                                        <option value="5">Đã hoàn trả</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '4') : ?>
+                                        <option value="4" <?php if ($orders['FK_iMaTrangThai'] == '4') : ?> selected <?php endif; ?>>Đang giao hàng - Chờ thanh toán</option>
+                                        <option value="3">Hoàn thành</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '6') : ?>
+                                        <option value="6" <?php if ($orders['FK_iMaTrangThai'] == '6') : ?> selected <?php endif; ?>>Đã xác nhận - Chờ thanh toán</option>
+                                        <option value="4">Đang giao hàng - Chờ thanh toán</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '10') : ?>
+                                        <option value="10" <?php if ($orders['FK_iMaTrangThai'] == '10') : ?> selected <?php endif; ?>>Đang giao hàng - Đã thanh toán</option>
+                                        <option value="3">Hoàn thành</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '12') : ?>
+                                        <option value="12" <?php if ($orders['FK_iMaTrangThai'] == '12') : ?> selected <?php endif; ?>>Đã xác nhận - Đã thanh toán</option>
+                                        <option value="10">Đang giao hàng - Đã thanh toán</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '13') : ?>
+                                        <option value="13" <?php if ($orders['FK_iMaTrangThai'] == '13') : ?> selected <?php endif; ?>>Chờ xác nhận - Đã thanh toán</option>
+                                        <option value="12">Đã xác nhận - Đã thanh toán</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '14') : ?>
+                                        <option value="14" <?php if ($orders['FK_iMaTrangThai'] == '14') : ?> selected <?php endif; ?>>Chờ xác nhận - Chờ thanh toán</option>
+                                        <option value="6">Đã xác nhận - Chờ thanh toán</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '5') : ?>
+                                        <option value="5" <?php if ($orders['FK_iMaTrangThai'] == '5') : ?> selected <?php endif; ?>>Đã hoàn trả</option>
+                                    <?php endif; ?>
+                                    <?php if ($orders['FK_iMaTrangThai'] == '11') : ?>
+                                        <option value="11" <?php if ($orders['FK_iMaTrangThai'] == '11') : ?> selected <?php endif; ?>>Chờ xác nhận đổi trả</option>
+                                        <option value="5">Đã hoàn trả</option>
+                                        <option value="3">Hoàn thành</option>
+                                    <?php endif; ?>
                                 </select>
                             </div>
                             <div class="mb-4 col-12">
@@ -138,11 +168,16 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Cập nhật hóa đơn</button>
-                    <a href="admin/order/pdf_invoice/<?= $orders['PK_iMaDon'] ?>" class="new btn btn-info mright5 test pull-left display-block">
-                        <i class="fa fa-upload"></i>
-                        In hóa đơn
-                    </a>
+                    <?php if ($orders['FK_iMaTrangThai'] != '5') : ?>
+                        <button type="submit" class="btn btn-primary">Cập nhật hóa đơn</button>
+                    <?php endif; ?>
+
+                    <?php if ($orders['FK_iMaTrangThai'] == '3') : ?>
+                        <a href="admin/order/pdf_invoice/<?= $orders['PK_iMaDon'] ?>" class="new btn btn-info mright5 test pull-left display-block">
+                            <i class="fa fa-upload"></i>
+                            In hóa đơn
+                        </a>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>

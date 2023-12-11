@@ -42,29 +42,38 @@
                     </thead>
                     <tbody>
                         <?php $k = 1 ?>
-                            <?php foreach ($orders as $order) : ?>
-                                <tr>
-                                    <td><?= $k++ ?></td>
-                                    <td><b><?= $order['PK_iMaDon'] ?></b></td>
-                                    <td><?= $order['sTenNV'] ?></td>
-                                    <td><b><?= $order['sTenKH'] ?></b></td>
-                                    <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
-                                    <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
-                                        <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
-                                    <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
-                                        <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
-                                    <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
-                                        <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
-                                    <?php elseif ($order['FK_iMaTrangThai'] == '11') : ?>
-                                        <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
-                                    <?php else : ?>
-                                        <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
-                                    <?php endif; ?>
-                                    <td class="text-end">
-                                        <a href="admin/order/update/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
+                        <?php foreach ($orders as $order) : ?>
+                            <tr>
+                                <td><?= $k++ ?></td>
+                                <td><b><?= $order['PK_iMaDon'] ?></b></td>
+                                <td><?= $order['sTenNV'] ?></td>
+                                <td><b><?= $order['sTenKH'] ?></b></td>
+                                <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
+                                
+                                <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
+                                    <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '6') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '11') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '12') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '13') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '14') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php else : ?>
+                                    <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php endif; ?>
+                                <td class="text-end">
+                                    <a href="admin/order/update/<?= $order['PK_iMaDon'] ?>" class="btn btn-sm btn-warning editGroup">Sửa</a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                     <tfoot>
                     </tfoot>
@@ -127,8 +136,7 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Trạng thái</label>
                                         <select class="form-select" name="FK_iMaTrangThai">
-                                            <option value="4">Chờ thanh toán</option>
-                                            <option value="3">Đã thanh toán</option>
+                                            <option value="3">Hoàn thành</option>
                                         </select>
                                     </div>
 

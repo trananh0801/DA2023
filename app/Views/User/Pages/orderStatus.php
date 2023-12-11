@@ -152,7 +152,7 @@
                         <li class="previous pull-right"><a href="user/home"> <i class="fa fa-home"></i> Trở về trang chủ </a>
                         </li>
                         <li class="next pull-left">
-                            <?php if ($orders['sTenTrangThai'] == "Chờ thanh toán" || $orders['sTenTrangThai'] == "Đang giao hàng" || $orders['sTenTrangThai'] == "Chờ xác nhận đơn hàng") : ?>
+                            <?php if ($orders['sTenTrangThai'] == "Hoàn thành") : ?>
                                 <a href="user/doitra/<?= $orders['PK_iMaDon'] ?>" class="btn btn-primary btn-sm" style="color: #000"> ← Hoàn trả</a>
                             <?php endif ?>
                         </li>

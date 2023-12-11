@@ -138,17 +138,16 @@ class ReturnBillService extends BaseService
             ->join('tbl_phieunhap', 'tbl_phieunhap.PK_iPN = tbl_ctphieunhap.FK_iMaPN')
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
             ->where('tbl_phieunhap.FK_iMaNCC', $data['id'])
+            ->groupBy('tbl_ctphieunhap.FK_iMaSP')
             ->findAll();
         // echo json_encode($result); die();
-
-
 
         $output = '';
 
 
         $output .= '<option value="0">Chọn sản phẩm</option>';
         foreach ($result as $item) {
-            $output .= '<option value="' . $item['PK_iMaSP'] . '" data-price="' . $item['fGiaNhap'] . '" data-CTPN="' . $item['PK_iMaCT_PN'] . '">' . $item['PK_iMaSP'] . ' - ' . $item['sTenSP'] . ' (' . number_format($item['fGiaNhap'], 0, '.', '.') . ' VNĐ)</option>';
+            $output .= '<option value="' . $item['PK_iMaSP'] . '" data-price="' . $item['fGiaNhap'] . '" data-CTPN="' . $item['PK_iMaCT_PN'] . '">' . $item['PK_iMaSP'] . ' - ' . $item['sTenSP'] . '</option>';
         }
 
         echo $output;

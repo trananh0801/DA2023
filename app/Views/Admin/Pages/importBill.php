@@ -73,7 +73,7 @@
                 <div class="modal-body">
                     <form action="admin/importBill/create" method="POST">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-12">
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Nhân viên</label>
@@ -99,13 +99,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-7">
+                            <div class="col-12">
                                 <table class="table table-hover" id="myTable">
                                     <thead>
                                         <tr>
                                             <th style="width:10%">STT</th>
-                                            <th style="width:35%">Sản phẩm</th>
-                                            <th style="width:15%">Giá nhập</th>
+                                            <th style="width:30%">Sản phẩm</th>
+                                            <th style="width:20%">Giá nhập</th>
                                             <th style="width:15%">Số lượng</th>
                                             <th style="width:15%">Thành tiền</th>
                                             <th class="text-end" style="width:10%"></th>
@@ -122,7 +122,7 @@
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
-                                            <td><input data-index="1" type="text" placeholder="VD: 10" class="form-control fGiaNhap giatien" id="fGiaNhap" name="fGiaNhap[]"></td>
+                                            <td><input data-index="1" type="text" placeholder="VD: 10" class="form-control fGiaNhap giatien" id="fGiaNhap" name="fGiaNhap[]" value="0"></td>
                                             <td><input data-index="1" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1" /></td>
                                             <td class="thanhtien" id="thanhtien"></td>
                                             <td>
@@ -177,10 +177,10 @@
             var html = '<tr class="order-' + ($('#myTable tbody tr').length + 1) + '">';
             html += '<td>' + ($('#myTable tbody tr').length + 1) + '</td>';
             html += '<td><select data-index="' + ($('#myTable tbody tr').length + 1) + '" class="form-select selectProduct" name="FK_iMaSP[]"><option value="0">Chọn sản phẩm</option><?php foreach ($products as $product) : ?><option value="<?= $product['PK_iMaSP'] ?>" data-price="<?= $product['fGiaBanLe'] ?>"><?= $product['sTenSP'] ?></option><?php endforeach ?></select></td>';
-            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="text" placeholder="VD: 10" class="form-control giatien" id="fGiaNhap" name="fGiaNhap[]" /></td>';
+            html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="text" placeholder="VD: 10" class="form-control giatien" id="fGiaNhap" name="fGiaNhap[]" value="0"/></td>';
             html += '<td><input data-index="' + ($('#myTable tbody tr').length + 1) + '" type="number" placeholder="VD: 10" class="form-control iSoLuong inputSoLuong" id="iSoLuong" name="iSoluong[]" min="1" value="1"/></td>';
             html += '<td class="thanhtien" id="thanhtien"></td>';
-            html += '<td class="text-end"><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
+            html += '<td><button type="button" class="btn btn-sm btn-danger deleteRowButton">Xóa</button></td>';
             html += '</tr>';
             $('#myTable tbody').append(html);
         })

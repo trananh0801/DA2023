@@ -126,6 +126,7 @@ class ReturnBillService extends BaseService
         $result = $this->importDetail
             ->select('*')
             ->join('tbl_sanpham', 'tbl_sanpham.PK_iMaSP = tbl_ctphieunhap.FK_iMaSP')
+            ->groupBy('tbl_ctphieunhap.FK_iMaSP')
             ->findAll();
         return $result;
     }

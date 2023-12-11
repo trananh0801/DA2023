@@ -77,15 +77,27 @@
                                 <td><?= $order['sTenNV'] ?></td>
                                 <td><?= $order['sTenKH'] ?></td>
                                 <td><?= date('d/m/Y', strtotime($order['dThoiGianTao'])) ?></td>
+
                                 <?php if ($order['FK_iMaTrangThai'] == '4') : ?>
-                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
-                                <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
                                     <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php elseif ($order['FK_iMaTrangThai'] == '5') : ?>
                                     <td><span class="badge rounded-pill alert-danger"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '6') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '10') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '11') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '12') : ?>
+                                    <td><span class="badge rounded-pill alert-primary"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '13') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
+                                <?php elseif ($order['FK_iMaTrangThai'] == '14') : ?>
+                                    <td><span class="badge rounded-pill alert-warning"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php else : ?>
                                     <td><span class="badge rounded-pill alert-success"><?= $order['sTenTrangThai'] ?></span></td>
                                 <?php endif; ?>
+
                                 <td>
                                     <?php
                                     $totalAmount = 0;
